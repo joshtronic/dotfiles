@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Front
+mogrify -rotate -9.8 -crop 1125x675+0+0 -gravity Center *-front.tiff
+
+# Back
+mogrify -rotate 9.8 -crop 1125x675+0+0 -gravity Center *-back.tiff
