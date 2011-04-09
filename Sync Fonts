@@ -1,0 +1,2 @@
+#!/bin/sh
+gksu cp ~/.gimp-2.6/fonts /usr/share/fonts/truetype
