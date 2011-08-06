@@ -1,0 +1,5 @@
+#!/bin/bash
+sudo rm    /etc/nginx/sites-enabled/$1    /etc/nginx/sites-available/$1
+sudo ln -s /home/josh/Sites/$1/nginx.conf /etc/nginx/sites-available/$1
+sudo ln -s /etc/nginx/sites-available/$1  /etc/nginx/sites-enabled/$1
+sudo /etc/init.d/nginx reload
