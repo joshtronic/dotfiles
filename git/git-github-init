@@ -1,4 +1,6 @@
 #!/bin/bash
+# create directory and checkout project from github
+# usage: git github-init joshtronic bash
 
 git init $2
 cd $2
