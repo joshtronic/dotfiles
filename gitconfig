@@ -1,0 +1,17 @@
+[user]
+	name  = Josh Sherman
+	email = josh@gravityblvd.com
+
+[diff]
+	rename = copy
+
+[pager]
+	color = true
+
+[core]
+	editor = vi
+
+[color]
+	branch = auto
+	diff   = auto
+	status = auto
