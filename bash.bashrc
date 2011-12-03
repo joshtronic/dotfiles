@@ -40,4 +40,4 @@ export D_MAGENTA="\[\033[2;35m\]"
 export    D_CYAN="\[\033[2;36m\]"
 export   D_WHITE="\[\033[2;37m\]"
 		  
-export PS1="$GREEN\t $D_WHITE\u$RESET@$D_MAGENTA\h $B_BLUE\w$YELLOW\$(__git_ps1)\n$D_WHITE\$ $RESET"
+export PS1="$GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)$D_WHITE\$ $RESET"
