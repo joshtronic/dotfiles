@@ -1,4 +1,7 @@
 #!/bin/bash
+# create directory and checkout project from github
+# usage: git github-init joshtronic bash
+
 git init $2
 cd $2
 git remote add origin git@github.com:$1/$2.git
