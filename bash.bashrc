@@ -44,11 +44,12 @@ export    D_CYAN="\[\033[2;36m\]"
 export   D_WHITE="\[\033[2;37m\]"
 
 # Prompt
-if [ `whoami` == "root" ];
+if [[ $EUID -ne 0 ]];
 then
-	export PS1="\n$B_RED╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$B_RED╵┗ $D_WHITE# $RESET"
-else
 	export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
+	fortune
+else
+	export PS1="\n$B_RED╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$B_RED╵┗ $D_WHITE# $RESET"
 fi
 
 export PS2="$D_WHITE> $RESET"
@@ -83,5 +84,3 @@ alias   grm="git rm"
 alias    gs="git status"
 # mysql
 alias   msk="mysql scenekids"
-
-fortune
