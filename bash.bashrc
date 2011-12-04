@@ -8,6 +8,9 @@ export   PATH="$HOME/Source/bash:$PATH"
 export EDITOR=vim
 
 export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILE=true
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 # Regular Colors
 export     BLACK="\[\033[0;30m\]"
@@ -39,5 +42,13 @@ export    D_BLUE="\[\033[2;34m\]"
 export D_MAGENTA="\[\033[2;35m\]"
 export    D_CYAN="\[\033[2;36m\]"
 export   D_WHITE="\[\033[2;37m\]"
-		  
-export PS1="$D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)$D_WHITE\$ $RESET"
+
+# Prompt
+export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
+export PS2="$D_WHITE> $RESET"
+
+# Aliases
+alias ac="sudo apt-cache"
+alias ag="sudo apt-get"
+
+fortune
