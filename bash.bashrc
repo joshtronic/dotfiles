@@ -44,13 +44,22 @@ export    D_CYAN="\[\033[2;36m\]"
 export   D_WHITE="\[\033[2;37m\]"
 
 # Prompt
-export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
+if [[ $EUID -ne 0 ]];
+then
+	export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
+	fortune
+else
+	export PS1="\n$B_RED╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$B_RED╵┗ $D_WHITE# $RESET"
+fi
+
 export PS2="$D_WHITE> $RESET"
 
 # Aliases
-alias ac="sudo apt-cache"
-alias ag="sudo apt-get"
 
+# apt-*
+alias    ac="sudo apt-cache"
+alias    ag="sudo apt-get"
+# git
 alias    ga="git add"
 alias   gaa="git add $(git rev-parse --show-toplevel)/." # Adds all new files from the project root
 alias    gc="git commit"
@@ -73,7 +82,5 @@ alias   grr="git remote rm"
 alias  grro="git remote rm origin"
 alias   grm="git rm"
 alias    gs="git status"
-
-alias :q="exit"
-
-fortune
+# mysql
+alias   msk="mysql scenekids"
