@@ -61,11 +61,12 @@ alias    ac="sudo apt-cache"
 alias    ag="sudo apt-get"
 # git
 alias    ga="git add"
-alias   gaa="git add $(git rev-parse --show-toplevel)/." # Adds all new files from the project root
+alias   gaa="git add ."
 alias    gc="git commit"
 alias   gca="git commit -a"
 alias   gco="git checkout"
 alias  gcob="git checkout -B"
+alias  gcom="git checkout master"
 alias    gd="git diff"
 alias    gm="git merge"
 alias   gmm="git merge master"
