@@ -52,7 +52,7 @@ alias ac="sudo apt-cache"
 alias ag="sudo apt-get"
 
 alias    ga="git add"
-alias   gaa="git add $(git rev-parse --show-toplevel)" # Adds all new files from the project root
+alias   gaa="git add $(git rev-parse --show-toplevel)/." # Adds all new files from the project root
 alias    gc="git commit"
 alias   gca="git commit -a"
 alias   gco="git checkout"
@@ -73,5 +73,7 @@ alias   grr="git remote rm"
 alias  grro="git remote rm origin"
 alias   grm="git rm"
 alias    gs="git status"
+
+alias :q="exit"
 
 fortune
