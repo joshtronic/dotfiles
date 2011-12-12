@@ -11,8 +11,13 @@ fi
 # Grabs the skeleton .bashrc
 cp /etc/skel/.bashrc ~/.bashrc
 
+PWD=`pwd`
+
+# Adds paths
+echo "export PATH=\"$PWD/git:$PATH\"" >> ~/.bashrc
+
 # Appends the custom .bashrc file
 echo "
-if [ -f `pwd`/bash.bashrc ] && ! shopt -oq posix; then
-	. `pwd`/bash.bashrc
+if [ -f $PWD/bash.bashrc ] && ! shopt -oq posix; then
+	. $PWD/bash.bashrc
 fi" >> ~/.bashrc
