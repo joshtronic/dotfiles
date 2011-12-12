@@ -46,15 +46,16 @@ export   D_WHITE="\[\033[2;37m\]"
 # Prompt
 if [[ $EUID -ne 0 ]];
 then
-	if [[ `hostname -s` -eq "aurora" ]];
+	if [[ $HOSTNAME == "aurora" ]];
 	then
+		echo $HOSTNAME
 		export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
 	else
 		export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
 		fortune
 	fi
 else
-	if [[ `hostname -s` -eq "aurora" ]];
+	if [[ $HOSTNAME == "aurora" ]];
 	then
 		export PS1="\n$B_RED╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w\n$B_RED╵┗ $D_WHITE# $RESET"
 	else
