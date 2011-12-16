@@ -75,6 +75,8 @@ alias desktop="cd ~/Desktop"
 # git
 alias      ga="git add"
 alias     gaa="git add ."
+alias      gb="git branch"
+alias     gba="git branch -a"
 alias      gc="git commit"
 alias     gca="git commit -a"
 alias     gco="git checkout"
