@@ -72,6 +72,8 @@ alias      ac="sudo apt-cache"
 alias      ag="sudo apt-get"
 # cd *
 alias desktop="cd ~/Desktop"
+# free
+alias      fm="free -m"
 # git
 alias      ga="git add"
 alias     gaa="git add ."
