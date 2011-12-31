@@ -52,7 +52,6 @@ then
 		export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
 	else
 		export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
-		fortune
 	fi
 else
 	if [[ $HOSTNAME == "aurora" ]];
