@@ -68,7 +68,15 @@ export PS2="$D_WHITE> $RESET"
 
 # apt-*
 alias      ac="sudo apt-cache"
+alias     acs="sudo apt-cache search"
 alias      ag="sudo apt-get"
+alias    agar="sudo apt-get autoremove"
+alias     agi="sudo apt-get install"
+alias     agp="sudo apt-get purge"
+alias     agr="sudo apt-get remove"
+alias    agud="sudo apt-get update"
+alias    agug="sudo apt-get upgrade"
+alias    agup="sudo apt-get update && sudo apt-get upgrade"
 # cd *
 alias desktop="cd ~/Desktop"
 # free
