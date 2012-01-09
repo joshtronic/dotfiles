@@ -21,3 +21,12 @@ echo "
 if [ -f $PWD/bash.bashrc ] && ! shopt -oq posix; then
 	. $PWD/bash.bashrc
 fi" >> ~/.bashrc
+
+# Removes the existing scripts
+if [ -d ~/.gnome2/nautilus-scripts ];
+then
+  	rm ~/.gnome2/nautilus-scripts -rf
+fi
+
+# Symlinks back to our scripts
+ln -s $PWD/nautilus-scripts ~/.gnome2/nautilus-scripts
