@@ -46,8 +46,8 @@ fi
 
 mkdir $DOTVIM
 
-OWNERS=( "scrooloose" "msanders"     "ervandew" "scrooloose" )
-REPOS=(  "nerdtree"   "snipmate.vim" "supertab" "syntastic" )
+OWNERS=( "ervandew" "msanders"     "scrooloose" "scrooloose" "vim-scripts" )
+REPOS=(  "supertab" "snipmate.vim" "nerdtree"   "syntastic"  "Command-T"   )
 
 for (( i = 0 ; i < ${#OWNERS[@]} ; i++ ))
 do
@@ -55,3 +55,8 @@ do
 	cp -R /tmp/${REPOS[$i]}/* $DOTVIM
 	rm -rf /tmp/${REPOS[$i]}
 done
+
+# Finish up Command-T installation
+cd $DOTVIM/ruby/command-t
+ruby extconf.rb 
+make
