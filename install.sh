@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# TODO check if fortune-mod is installed and if not, install it
-
 # Clears out the old .bashrc
 if [ -f ~/.bashrc ];
 then
-  	rm ~/.bashrc
+	rm ~/.bashrc
 fi
 
 # Grabs the skeleton .bashrc
@@ -18,8 +16,8 @@ echo "export PATH=\"$PWD/git:$PATH\"" >> ~/.bashrc
 
 # Appends the custom .bashrc file
 echo "
-if [ -f $PWD/bash.bashrc ] && ! shopt -oq posix; then
-	. $PWD/bash.bashrc
+if [ -f $PWD/bashrc ] && ! shopt -oq posix; then
+	. $PWD/bashrc
 fi" >> ~/.bashrc
 
 # Removes the existing scripts
@@ -30,3 +28,31 @@ fi
 
 # Symlinks back to our scripts
 ln -s $PWD/nautilus-scripts ~/.gnome2/nautilus-scripts
+
+# Copies .vimrc
+if [ -f ~/.vimrc ];
+then
+	rm ~/.vimrc
+fi
+
+cp $PWD/vimrc ~/.vimrc
+
+# Pulls down and installs vim plugins
+DOTVIM=~/.vim
+
+if [ -d $DOTVIM ];
+then
+	rm -r $DOTVIM
+fi
+
+mkdir $DOTVIM
+
+OWNERS=( "tomtom"          "scrooloose" "msanders"     "ervandew" )
+REPOS=(  "checksyntax_vim" "nerdtree"   "snipmate.vim" "supertab" )
+
+for (( i = 0 ; i < ${#OWNERS[@]} ; i++ ))
+do
+	git clone git://github.com/${OWNERS[$i]}/${REPOS[$i]}.git /tmp/${REPOS[$i]}
+	cp -R /tmp/${REPOS[$i]}/* $DOTVIM
+	rm -rf /tmp/${REPOS[$i]}
+done
