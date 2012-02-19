@@ -1,12 +1,20 @@
 set nocompatible
 
-" A bunch of the complex shit was stolen from scrooloose's vimfiles : https://raw.github.com/scrooloose/vimfiles/master/vimrc
+" Stole some shit from these:
+"     https://raw.github.com/scrooloose/vimfiles/master/vimrc
+"     http://amix.dk/vim/vimrc.html
+"     http://nvie.com/posts/how-i-boosted-my-vim/
 
 set ttyfast
 set history=1000
+set tm=500
 
 set list
-set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+"set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+set listchars=nbsp:¬,eol:↳,tab:└─,extends:»,precedes:«,trail:•
+autocmd filetype html,xml set listchars-=tab:>.
+
+set pastetoggle=<F2>
 
 if v:version >= 703
 	set undodir=~/.vim/undofiles
@@ -16,17 +24,45 @@ if v:version >= 703
 endif
 
 set autoindent
-set backspace=2
+"set backspace=2
+set backspace=indent,eol,start
 set foldmethod=marker
 set hidden
 set incsearch
+set ignorecase
+set hlsearch
+set smartcase
 set nocindent
+set showmatch
+set mat=2
 set smartindent
 set shiftwidth=4
 set tabstop=4
 set textwidth=0
 
 nnoremap <Leader>n :NERDTree<CR>
+nnoremap <Leader>w :w!<CR>
+nnoremap <Leader>8 :set colorcolumn=80<CR>
+nnoremap <Leader>9 :set colorcolumn=+1<CR>
+nnoremap <Leader>f :set list<CR>
+nnoremap <Leader>g :set nolist<CR>
+nnoremap <Leader>3 :set number<CR>
+nnoremap <Leader>4 :set nonumber<CR>
+
+nnoremap ; :
+
+nmap <silent> ,/ :nohlsearch<CR>
+
+" dammit josh, stop using the arrow keys!!!
+"map <up>    <nop>
+"map <down>  <nop>
+"map <left>  <nop>
+"map <right> <nop>
+
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+"map <Leader>e :e! ~/.vim_runtime/vimrc<CR>
+"autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
 
 set wildmode=list:longest
 set wildmenu
@@ -39,6 +75,9 @@ set background=dark
 colorscheme default
 syntax on
 syntax sync fromstart
+
+hi NonText    ctermfg=237 guifg=#303030
+hi SpecialKey ctermfg=237 guifg=#303030
 
 set statusline=%f
 set statusline+=%h
@@ -64,7 +103,7 @@ set statusline+=%{&paste?'[paste]':''}
 set statusline+=%*
 
 set statusline+=%=
-set statusline+=%{StatuslineCurrentHighlight()}\ \ 
+set statusline+=%{StatuslineCurrentHighlight()}\ \
 set statusline+=%c,
 set statusline+=%l/%L
 set statusline+=\ %P
@@ -218,7 +257,7 @@ let g:syntastic_auto_loc_list=2
 
 let g:snips_author = "Martin Grenfell"
 
-let g:NERDTreeMouseMode = 2 
+let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 40
 
 nnoremap <C-L> :nohls<CR><C-L>

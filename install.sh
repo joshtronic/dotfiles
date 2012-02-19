@@ -22,7 +22,7 @@ fi" >> ~/.bashrc
 # Removes the existing scripts
 if [ -d ~/.gnome2/nautilus-scripts ];
 then
-  	rm ~/.gnome2/nautilus-scripts -rf
+	rm ~/.gnome2/nautilus-scripts -rf
 fi
 
 # Symlinks back to our scripts
@@ -46,8 +46,8 @@ fi
 
 mkdir $DOTVIM
 
-OWNERS=( "ervandew" "msanders"     "scrooloose" "scrooloose" "vim-scripts" )
-REPOS=(  "supertab" "snipmate.vim" "nerdtree"   "syntastic"  "Command-T"   )
+OWNERS=( "ervandew" "msanders"     "nvie"            "scrooloose" "scrooloose" "tpope"        "vim-scripts" )
+REPOS=(  "supertab" "snipmate.vim" "vim-togglemouse" "nerdtree"   "syntastic"  "vim-fugitive" "Command-T"   )
 
 for (( i = 0 ; i < ${#OWNERS[@]} ; i++ ))
 do
