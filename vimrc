@@ -2,7 +2,7 @@ set ttyfast
 
 set autoindent
 set backspace=2
-set colorcolumn=80
+"set colorcolumn=80
 set foldmethod=marker
 set incsearch
 set nocindent
