@@ -11,11 +11,10 @@ cp /etc/skel/.bashrc ~/.bashrc
 
 PWD=`pwd`
 
-# Adds paths
-echo "export PATH=\"$PWD/git:$PATH\"" >> ~/.bashrc
-
-# Appends the custom .bashrc file
+# Adds paths and custom .bashrc
 echo "
+export PATH=\"$PWD/git:$PATH\"
+
 if [ -f $PWD/bashrc ] && ! shopt -oq posix; then
 	. $PWD/bashrc
 fi" >> ~/.bashrc
