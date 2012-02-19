@@ -46,8 +46,8 @@ fi
 
 mkdir $DOTVIM
 
-OWNERS=( "tomtom"          "scrooloose" "msanders"     "ervandew" )
-REPOS=(  "checksyntax_vim" "nerdtree"   "snipmate.vim" "supertab" )
+OWNERS=( "scrooloose" "msanders"     "ervandew" "scrooloose" )
+REPOS=(  "nerdtree"   "snipmate.vim" "supertab" "syntastic" )
 
 for (( i = 0 ; i < ${#OWNERS[@]} ; i++ ))
 do
