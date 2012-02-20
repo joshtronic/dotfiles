@@ -48,6 +48,8 @@ nnoremap <Leader>f :set list<CR>
 nnoremap <Leader>g :set nolist<CR>
 nnoremap <Leader>3 :set number<CR>
 nnoremap <Leader>4 :set nonumber<CR>
+nnoremap <Leader>[ :previous<CR>
+nnoremap <Leader>] :next<CR>
 
 nnoremap ; :
 
