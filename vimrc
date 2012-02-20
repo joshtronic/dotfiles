@@ -79,6 +79,12 @@ syntax sync fromstart
 hi NonText    ctermfg=237 guifg=#303030
 hi SpecialKey ctermfg=237 guifg=#303030
 
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
 set statusline=%f
 set statusline+=%h
 set statusline+=%y
