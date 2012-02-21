@@ -50,6 +50,8 @@ nnoremap <Leader>3 :set number<CR>
 nnoremap <Leader>4 :set nonumber<CR>
 nnoremap <Leader>[ :previous<CR>
 nnoremap <Leader>] :next<CR>
+nnoremap <Leader>tt /\t$<CR>
+nnoremap <Leader>ss / $<CR>
 
 nnoremap ; :
 
