@@ -42,6 +42,7 @@ set textwidth=0
 
 nnoremap <Leader>n :NERDTree<CR>
 nnoremap <Leader>w :w!<CR>
+nnoremap <Leader>q :wq<CR>
 nnoremap <Leader>8 :set colorcolumn=80<CR>
 nnoremap <Leader>9 :set colorcolumn=+1<CR>
 nnoremap <Leader>f :set list<CR>
