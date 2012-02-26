@@ -111,6 +111,8 @@ alias     grr="git remote rm"
 alias    grro="git remote rm origin"
 alias     grm="git rm"
 alias      gs="git status"
+# memcached
+alias      mc="telnet localhost 11211"
 # mysql
 alias    mycs="mysql crowdsavings"
 alias    mysk="mysql scenekids"
