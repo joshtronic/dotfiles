@@ -41,8 +41,9 @@ set tabstop=4
 set textwidth=0
 
 nnoremap <Leader>n :NERDTree<CR>
-nnoremap <Leader>w :w!<CR>
-nnoremap <Leader>q :wq<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>ww :w!<CR>
+nnoremap <Leader>q :q<CR>
 nnoremap <Leader>8 :set colorcolumn=80<CR>
 nnoremap <Leader>9 :set colorcolumn=+1<CR>
 nnoremap <Leader>f :set list<CR>
@@ -59,10 +60,10 @@ nnoremap ; :
 nmap <silent> ,/ :nohlsearch<CR>
 
 " dammit josh, stop using the arrow keys!!!
-"map <up>    <nop>
-"map <down>  <nop>
-"map <left>  <nop>
-"map <right> <nop>
+map <up>    <nop>
+map <down>  <nop>
+map <left>  <nop>
+map <right> <nop>
 
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
