@@ -39,7 +39,7 @@ myTerminal = "/usr/bin/gnome-terminal"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:cli","2:www","3:mail","4:snd","5:vm"] ++ map show [6..9]
+myWorkspaces = ["1:cli","2:web","3:mail","4:music","5:vm"] ++ map show [6..9]
 
 
 ------------------------------------------------------------------------
@@ -57,13 +57,13 @@ myWorkspaces = ["1:cli","2:www","3:mail","4:snd","5:vm"] ++ map show [6..9]
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ resource  =? "chromium-browser"     --> doShift "2:www"
+    [ resource  =? "chromium-browser"     --> doShift "2:web"
     , resource  =? "desktop_window"       --> doIgnore
-    , className =? "Firefox"              --> doShift "2:www"
-    , className =? "Empathy"              --> doShift "2:www"
+    , className =? "Firefox"              --> doShift "2:web"
+    , className =? "Empathy"              --> doShift "2:web"
     , className =? "Galculator"           --> doFloat
     , className =? "Gimp"                 --> doFloat
-    , className =? "Google-chrome"        --> doShift "2:www"
+    , className =? "Google-chrome"        --> doShift "2:web"
     , className =? "Thunderbird"          --> doShift "3:mail"
     , resource  =? "gpicview"             --> doFloat
     , resource  =? "kdesktop"             --> doIgnore
@@ -71,8 +71,8 @@ myManageHook = composeAll
     , resource  =? "skype"                --> doShift "6"
     , resource  =? "nm-connection-editor" --> doFloat
     , className =? "VirtualBox"           --> doShift "5:vm"
-    , className =? "Rhythmbox"            --> doShift "4:snd"
-    , className =? "Banshee"              --> doShift "4:snd"
+    , className =? "Rhythmbox"            --> doShift "4:music"
+    , className =? "Banshee"              --> doShift "4:music"
     , className =? "Agave"                --> doFloat]
 
 
@@ -95,15 +95,25 @@ grid = spacing 2 $ Grid
 web = spacing 2 $ Tall 1 (3/100) (80/100)
 full = noBorders $ Full
 
-myLayout = avoidStruts (onWorkspace "2:www" web tiled ||| grid ||| full)
+myLayout = avoidStruts (onWorkspace "2:web" web tiled ||| grid ||| full)
 
-{- myLayout = avoidStruts ( -}
-    {- Tall 1 (3/100) (1/2) ||| -}
-    {- Mirror (Tall 1 (3/100) (1/2)) ||| -}
-    {- tabbed shrinkText tabConfig ||| -}
-    {- Full ||| -}
-    {- spiral (6/7)) -}
+{-
+myLayout = avoidStruts (
+    Tall 1 (3/100) (1/2) |||
+    Mirror (Tall 1 (3/100) (1/2)) |||
+    tabbed shrinkText tabConfig |||
+    Full |||
+    spiral (6/7))
+-}
 
+{-
+myLayout = avoidStruts (
+    Tall 1 (3/100) (1/2) |||
+    Mirror (Tall 1 (3/100) (1/2)) |||
+    tabbed shrinkText tabConfig |||
+    Full |||
+    spiral (6/7))
+-}
 
 ------------------------------------------------------------------------
 -- Colors and borders

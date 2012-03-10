@@ -36,8 +36,6 @@ chromium-browser &
 #firefox &
 
 shutter --min_at_startup &
-tomboy &
-#gnote &
 naturalscrolling &
 #dropbox start -i
 
@@ -52,3 +50,6 @@ gnome-settings-daemon &
 gsettings set org.gnome.desktop.background picture-uri ""
 
 exec ssh-agent dbus-launch --sh-syntax --exit-with-session xmonad
+
+tomboy &
+#gnote &
