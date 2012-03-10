@@ -28,6 +28,16 @@ fi
 # Symlinks back to our scripts
 ln -s $PWD/nautilus-scripts ~/.gnome2/nautilus-scripts
 
+# Sets up xmonad
+cp $PWD/xsessionrc ~/.xsessionrc
+
+if [ -d ~/.xmonad ];
+then
+	rm ~/.xmonad -rf
+fi
+
+cp $PWD/xmonad ~/.xmonad -R
+
 # Copies .vimrc
 if [ -f ~/.vimrc ];
 then
@@ -58,5 +68,5 @@ done
 
 # Finish up Command-T installation
 cd $DOTVIM/ruby/command-t
-ruby extconf.rb 
+ruby extconf.rb
 make
