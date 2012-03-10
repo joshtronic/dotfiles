@@ -36,8 +36,8 @@ chromium-browser &
 #firefox &
 
 shutter --min_at_startup &
-#tomboy &
-gnote &
+tomboy &
+#gnote &
 naturalscrolling &
 #dropbox start -i
 
