@@ -29,14 +29,21 @@ fi
 ln -s $PWD/nautilus-scripts ~/.gnome2/nautilus-scripts
 
 # Sets up xmonad
-cp $PWD/xsessionrc ~/.xsessionrc
-
 if [ -d ~/.xmonad ];
 then
 	rm ~/.xmonad -rf
 fi
 
 cp $PWD/xmonad ~/.xmonad -R
+
+# Adds it to the session list
+if [ ! -f /usr/share/gnome-session/sessions/xmonad.desktop ]; then
+	sudo cp "$PWD/xmonad.session" /usr/share/gnome-session/sessions
+fi
+
+if [ ! -f /usr/share/xsessions/xmonad-gnome.desktop ]; then
+	sudo cp "$PWD/xmonad-gnome.desktop" /usr/share/xsessions
+fi
 
 # Copies .vimrc
 if [ -f ~/.vimrc ];

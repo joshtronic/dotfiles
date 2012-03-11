@@ -39,7 +39,7 @@ myTerminal = "/usr/bin/gnome-terminal"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:cli","2:web","3:mail","4:music","5:vm"] ++ map show [6..9]
+myWorkspaces = ["1:cli","2:web","3:music"] ++ map show [4..9]
 
 
 ------------------------------------------------------------------------
@@ -59,20 +59,21 @@ myWorkspaces = ["1:cli","2:web","3:mail","4:music","5:vm"] ++ map show [6..9]
 myManageHook = composeAll
     [ resource  =? "chromium-browser"     --> doShift "2:web"
     , resource  =? "desktop_window"       --> doIgnore
+    , resource  =? "Do"                   --> doIgnore
     , className =? "Firefox"              --> doShift "2:web"
     , className =? "Empathy"              --> doShift "2:web"
     , className =? "Galculator"           --> doFloat
     , className =? "Gimp"                 --> doFloat
     , className =? "Google-chrome"        --> doShift "2:web"
-    , className =? "Thunderbird"          --> doShift "3:mail"
+    -- , className =? "Thunderbird"          --> doShift "3:mail"
     , resource  =? "gpicview"             --> doFloat
     , resource  =? "kdesktop"             --> doIgnore
     , className =? "MPlayer"              --> doFloat
     , resource  =? "skype"                --> doShift "6"
     , resource  =? "nm-connection-editor" --> doFloat
-    , className =? "VirtualBox"           --> doShift "5:vm"
-    , className =? "Rhythmbox"            --> doShift "4:music"
-    , className =? "Banshee"              --> doShift "4:music"
+    -- , className =? "VirtualBox"           --> doShift "5:vm"
+    , className =? "Rhythmbox"            --> doShift "3:music"
+    , className =? "Banshee"              --> doShift "3:music"
     , className =? "Agave"                --> doFloat]
 
 
@@ -169,7 +170,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Launch dmenu via yeganesh.
   -- Use this to launch programs without a key binding.
   , ((modMask, xK_p),
-     spawn "~/.xmonad/bin/dmenu")
+     -- spawn "~/.xmonad/bin/dmenu")
+     spawn "gnome-do")
 
   -- Take a screenshot in select mode.
   -- After pressing this key binding, click a window, or draw a rectangle with
@@ -283,7 +285,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Quit xmonad.
   , ((modMask .|. shiftMask, xK_q),
-     io (exitWith ExitSuccess))
+     spawn "gnome-session-quit --logout --no-prompt")
+     --promptio (exitWith ExitSuccess))
 
   -- Restart xmonad.
   , ((modMask, xK_q),
@@ -356,7 +359,8 @@ myStartupHook = return ()
 -- Run xmonad with all the defaults we set up.
 --
 main = do
-  xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
+  xmproc <- spawnPipe "/usr/bin/xmobar --screen=0 ~/.xmonad/xmobar.hs"
+  spawnPipe "~/.xmonad/bin/startup"
   xmonad $ defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc

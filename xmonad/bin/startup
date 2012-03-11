@@ -1,0 +1,22 @@
+#!/bin/sh
+
+xcompmgr &
+
+~/.xmonad/bin/tray &
+
+gsettings set org.gnome.desktop.background picture-uri "" &
+
+#empathy &
+tomboy &
+shutter --min_at_startup &
+#dropbox start -i
+naturalscrolling &
+
+gnome-terminal &
+chromium-browser &
+gnome-do &
+
+#gnome-settings-daemon &
+#gnome-sound-applet
+#nm-applet &
+#gnome-power-manager &
