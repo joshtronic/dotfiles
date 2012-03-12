@@ -39,7 +39,7 @@ myTerminal = "/usr/bin/gnome-terminal"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:cli","2:web","3:music"] ++ map show [4..9]
+myWorkspaces = ["1:cli","2:web","3:mail","4:music"] ++ map show [5..9]
 
 
 ------------------------------------------------------------------------
@@ -62,19 +62,19 @@ myManageHook = composeAll
     , resource  =? "Do"                   --> doIgnore
     , className =? "Firefox"              --> doShift "2:web"
     , className =? "Empathy"              --> doShift "2:web"
-    , className =? "Galculator"           --> doFloat
+    , className =? "Galculator"           --> doCenterFloat
     , className =? "Gimp"                 --> doFloat
     , className =? "Google-chrome"        --> doShift "2:web"
     -- , className =? "Thunderbird"          --> doShift "3:mail"
     , resource  =? "gpicview"             --> doFloat
     , resource  =? "kdesktop"             --> doIgnore
     , className =? "MPlayer"              --> doFloat
-    , resource  =? "skype"                --> doShift "6"
     , resource  =? "nm-connection-editor" --> doFloat
     -- , className =? "VirtualBox"           --> doShift "5:vm"
-    , className =? "Rhythmbox"            --> doShift "3:music"
-    , className =? "Banshee"              --> doShift "3:music"
-    , className =? "Agave"                --> doFloat]
+    , className =? "Rhythmbox"            --> doShift "4:music"
+    , className =? "Banshee"              --> doShift "4:music"
+    , className =? "Agave"                --> doCenterFloat
+    , className =? "Gmail - Inbox"        --> doShift "3:mail"]
 
 
 ------------------------------------------------------------------------
