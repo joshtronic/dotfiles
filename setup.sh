@@ -2,7 +2,7 @@
 
 # Installs some necessary packages
 sudo apt-get update
-sudo apt-get install xmonad libghc6-xmonad-contrib-dev xmobar trayer suckless-tools scrot cabal-install gnome-do agave gimp inkscape tomboy rhythmbox ruby1.8-dev
+sudo apt-get install xmonad libghc6-xmonad-contrib-dev xmobar trayer suckless-tools scrot cabal-install gnome-do agave gimp inkscape tomboy rhythmbox ruby1.8-dev xcompmgr
 cabal update
 cabal install yeganesh
 
@@ -87,4 +87,4 @@ cd $DOTVIM/ruby/command-t
 ruby extconf.rb
 make
 
-echo; echo "SETUP COMPLETE!!~!"; echo
+echo; echo "SETUP COMPLETE!!~!"
