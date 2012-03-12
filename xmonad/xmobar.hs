@@ -12,7 +12,7 @@ Config {
 	position = TopW L 90,
 	lowerOnStart = True,
 	commands = [
-		Run Weather "KTPA" ["-t","<tempF>F <skyCondition>","-L","64","-H","85","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
+		-- Run Weather "KTPA" ["-t","<tempF>F <skyCondition>","-L","64","-H","85","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
 		--Run MultiCpu ["-t","CPU <total0> <total1> <total2> <total3>","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC","-w","3"] 10,
 		Run MultiCpu ["-t","CPU <total>","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
 		-- Run Thermal "THRM" ["-t","iwl4965-temp: <temp>C"] 50,
@@ -26,5 +26,6 @@ Config {
 	sepChar = "%",
 	alignSep = "}{",
 	-- template = "%StdinReader% }{ %multicpu% <fc=#FFB6B0>:</fc> %memory% <fc=#FFB6B0>:</fc> %KTPA% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>  "
-	template = "%StdinReader% }{ %multicpu% <fc=#FFB6B0>:</fc> %memory% <fc=#FFB6B0>:</fc> %KTPA% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>  "
+	-- template = "%StdinReader% }{ %multicpu% <fc=#FFB6B0>:</fc> %memory% <fc=#FFB6B0>:</fc> %KTPA% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>  "
+	template = "%StdinReader% }{ %multicpu% <fc=#FFB6B0>:</fc> %memory% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>  "
 

@@ -10,6 +10,7 @@ gsettings set org.gnome.desktop.background picture-uri "" &
 tomboy &
 shutter --min_at_startup &
 #dropbox start -i
+killall naturalscrolling
 naturalscrolling &
 
 gnome-terminal &
