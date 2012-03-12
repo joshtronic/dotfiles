@@ -9,7 +9,7 @@ Config {
 	font = "xft:Ubuntu Mono:pixelsize=17,dpi=96,rgba=rgb,style=regular,hinting=true,antialias=true,hintstyle=hintfull",
 	bgColor = "#000000",
 	fgColor = "#ffffff",
-	position = TopW L 92,
+	position = TopW L 90,
 	lowerOnStart = True,
 	commands = [
 		Run Weather "KTPA" ["-t","<tempF>F <skyCondition>","-L","64","-H","85","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
