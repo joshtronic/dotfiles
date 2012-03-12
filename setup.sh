@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Installs some necessary packages
+sudo apt-get update
+sudo apt-get install xmonad libghc6-xmonad-contrib-dev xmobar trayer suckless-tools scrot cabal-install gnome-do agave gimp inkscape tomboy rhythmbox ruby1.8-dev
+cabal update
+cabal install yeganesh
+
+# Gets rid of some bullshit packages
+sudo apt-get purge zeitgeist gwibber gnome-screensaver banshee
+
 # Clears out the old .bashrc
 if [ -f ~/.bashrc ];
 then
@@ -77,3 +86,5 @@ done
 cd $DOTVIM/ruby/command-t
 ruby extconf.rb
 make
+
+echo; echo "SETUP COMPLETE!!~!"; echo
