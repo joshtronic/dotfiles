@@ -40,6 +40,8 @@ set shiftwidth=4
 set tabstop=4
 set textwidth=0
 
+let mapleader = ","
+
 nnoremap <Leader>n :NERDTree<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>ww :w!<CR>
@@ -65,6 +67,9 @@ map <down>  <nop>
 map <left>  <nop>
 map <right> <nop>
 
+map + <C-W>>
+map - <C-W><
+
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "map <Leader>e :e! ~/.vim_runtime/vimrc<CR>
@@ -74,7 +79,7 @@ set wildmode=list:longest
 set wildmenu
 set wildignore=*.o,*.obj,*~
 
-set mouse=a
+"set mouse=a
 
 set t_Co=256
 set background=dark
