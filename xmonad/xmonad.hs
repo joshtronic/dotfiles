@@ -39,7 +39,7 @@ myTerminal = "/usr/bin/gnome-terminal"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:cli","2:web","3:mail","4:music"] ++ map show [5..9]
+myWorkspaces = ["1","2"] ++ map show [3..9]
 
 
 ------------------------------------------------------------------------
@@ -57,24 +57,24 @@ myWorkspaces = ["1:cli","2:web","3:mail","4:music"] ++ map show [5..9]
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ resource  =? "chromium-browser"     --> doShift "2:web"
+    [ resource  =? "chromium-browser"     --> doShift "2"
     , resource  =? "desktop_window"       --> doIgnore
     , resource  =? "Do"                   --> doIgnore
-    , className =? "Firefox"              --> doShift "2:web"
-    , className =? "Empathy"              --> doShift "2:web"
+    , className =? "Firefox"              --> doShift "2"
+    , className =? "Empathy"              --> doShift "2"
     , className =? "Galculator"           --> doCenterFloat
     , className =? "Gimp"                 --> doFloat
-    , className =? "Google-chrome"        --> doShift "2:web"
-    -- , className =? "Thunderbird"          --> doShift "3:mail"
+    , className =? "Google-chrome"        --> doShift "2"
+    -- , className =? "Thunderbird"          --> doShift "3"
     , resource  =? "gpicview"             --> doFloat
     , resource  =? "kdesktop"             --> doIgnore
     , className =? "MPlayer"              --> doFloat
     , resource  =? "nm-connection-editor" --> doFloat
-    -- , className =? "VirtualBox"           --> doShift "5:vm"
-    , className =? "Rhythmbox"            --> doShift "4:music"
-    , className =? "Banshee"              --> doShift "4:music"
+    -- , className =? "VirtualBox"           --> doShift "5"
+    , className =? "Rhythmbox"            --> doShift "4"
+    , className =? "Banshee"              --> doShift "4"
     , className =? "Agave"                --> doCenterFloat
-    , className =? "Gmail - Inbox"        --> doShift "3:mail"]
+    , className =? "Gmail - Inbox"        --> doShift "3"]
 
 
 ------------------------------------------------------------------------
