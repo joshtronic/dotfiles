@@ -1,13 +1,28 @@
 #!/bin/bash
 
-# Installs some necessary packages
+# Adds some third party repos
+sudo add-apt-repository ppa:tiheum/equinox          # Faenza Icons
+#sudo add-apt-repository ppa:zedtux/naturalscrolling # Natural Scrolling
+sudo add-apt-repository ppa:tualatrix/ppa           # Ubuntu Tweak
+
+# Updates the package list
 sudo apt-get update
-sudo apt-get install xmonad libghc6-xmonad-contrib-dev xmobar trayer suckless-tools scrot cabal-install gnome-do agave gimp inkscape tomboy rhythmbox ruby1.8-dev xcompmgr
-cabal update
-cabal install yeganesh
 
 # Gets rid of some bullshit packages
-sudo apt-get purge zeitgeist gwibber gnome-screensaver banshee
+sudo apt-get --purge autoremove appmenu-gtk appmenu-gtk3 zeitgeist gwibber gnome-screensaver banshee
+
+# Installs some applications
+sudo apt-get install agave gimp inkscape tomboy rhythmbox chromium-browser shutter gnome-tweak-tool faenza-icon-theme network-manager-openconnect-gnome ubuntu-tweak
+
+# Installs my dev stack
+sudo apt-get install vim vim-gnome git-core ruby1.8-dev
+
+# Installs all of our xmonad goodness
+sudo apt-get install xmonad libghc6-xmonad-contrib-dev gnome-do xcompmgr xscreensaver
+
+#sudo apt-get install xmobar trayer suckless-tools scrot cabal-install
+#cabal update
+#cabal install yeganesh
 
 # Clears out the old .bashrc
 if [ -f ~/.bashrc ];
@@ -88,3 +103,4 @@ ruby extconf.rb
 make
 
 echo; echo "SETUP COMPLETE!!~!"
+echo; echo "For further enhancement, do this: http://www.omgubuntu.co.uk/2011/10/use-adwaita-dark-as-your-system-theme/"

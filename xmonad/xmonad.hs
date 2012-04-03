@@ -7,6 +7,7 @@ import System.Exit
 
 import XMonad
 
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -39,7 +40,7 @@ myTerminal = "/usr/bin/gnome-terminal"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1","2"] ++ map show [3..9]
+myWorkspaces = ["1","2","3","4"] ++ map show [5..9]
 
 
 ------------------------------------------------------------------------
@@ -96,7 +97,7 @@ grid = spacing 2 $ Grid
 web = spacing 2 $ Tall 1 (3/100) (80/100)
 full = noBorders $ Full
 
-myLayout = avoidStruts (onWorkspace "2:web" web tiled ||| grid ||| full)
+myLayout = avoidStruts (onWorkspace "2" web tiled ||| grid ||| full)
 
 {-
 myLayout = avoidStruts (
@@ -358,10 +359,11 @@ myStartupHook = return ()
 ------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
 --
+-- xmproc <- spawnPipe "/usr/bin/xmobar --screen=0 ~/.xmonad/xmobar.hs"
 main = do
-  xmproc <- spawnPipe "/usr/bin/xmobar --screen=0 ~/.xmonad/xmobar.hs"
+  xmproc <- spawnPipe "tint2 -c ~/Source/dotfiles/default.tint2rc"
   spawnPipe "~/.xmonad/bin/startup"
-  xmonad $ defaults {
+  xmonad $ ewmh defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
