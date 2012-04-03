@@ -18,7 +18,7 @@ sudo apt-get install agave gimp inkscape tomboy rhythmbox chromium-browser shutt
 sudo apt-get install vim vim-gnome git-core ruby1.8-dev
 
 # Installs all of our xmonad goodness
-sudo apt-get install xmonad libghc6-xmonad-contrib-dev gnome-do xcompmgr xscreensaver
+sudo apt-get install xmonad libghc6-xmonad-contrib-dev gnome-do xcompmgr xscreensaver tint2
 
 #sudo apt-get install xmobar trayer suckless-tools scrot cabal-install
 #cabal update
