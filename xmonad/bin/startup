@@ -13,8 +13,8 @@ shutter --min_at_startup &
 #killall naturalscrolling
 #naturalscrolling &
 
-gnome-terminal &
-chromium-browser &
+#gnome-terminal &
+#chromium-browser &
 gnome-do &
 
 #gnome-settings-daemon &

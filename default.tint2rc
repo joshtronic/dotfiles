@@ -8,7 +8,7 @@
 # ID 1
 rounded = 2
 border_width = 0
-background_color = #333333 95
+background_color = #000000 100
 border_color = #666666 100
 
 # ID 2
@@ -38,8 +38,8 @@ border_color = #000000 0
 # Panel
 panel_monitor = 1
 panel_position = top center horizontal
-panel_size = 0 25
-panel_margin = 8 0
+panel_size = 0 22
+panel_margin = 0 0
 panel_padding = 9 1 9
 panel_dock = 0
 wm_menu = 0
@@ -106,7 +106,7 @@ clock_background_id = 0
 clock_tooltip = %a, %d. %b %Y
 
 # Tooltips
-tooltip = 1
+tooltip = 0
 tooltip_padding = 0 0
 tooltip_show_timeout = 0
 tooltip_hide_timeout = 0
