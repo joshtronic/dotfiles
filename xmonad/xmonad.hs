@@ -7,7 +7,7 @@ import System.Exit
 
 import XMonad
 
-import XMonad.Hooks.EwmhDesktops
+-- import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -360,11 +360,12 @@ myStartupHook = return ()
 ------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
 --
--- xmproc <- spawnPipe "/usr/bin/xmobar --screen=0 ~/.xmonad/xmobar.hs"
 main = do
-  xmproc <- spawnPipe "tint2 -c ~/Source/dotfiles/default.tint2rc"
+  xmproc <- spawnPipe "/usr/bin/xmobar --screen=0 ~/.xmonad/xmobar.hs"
+  -- xmproc <- spawnPipe "tint2 -c ~/Source/dotfiles/default.tint2rc"
   spawnPipe "~/.xmonad/bin/startup"
-  xmonad $ ewmh defaults {
+  -- xmonad $ ewmh defaults {
+  xmonad $ defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100

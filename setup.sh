@@ -12,17 +12,20 @@ sudo apt-get update
 sudo apt-get --purge autoremove appmenu-gtk appmenu-gtk3 zeitgeist gwibber gnome-screensaver banshee
 
 # Installs some applications
-sudo apt-get install agave gimp inkscape tomboy rhythmbox chromium-browser shutter gnome-tweak-tool faenza-icon-theme network-manager-openconnect-gnome ubuntu-tweak
+sudo apt-get install agave gimp inkscape tomboy rhythmbox chromium-browser shutter gnome-tweak-tool faenza-icon-theme network-manager-openconnect-gnome ubuntu-tweak vim vim-gnome ssh multitail htop
 
 # Installs my dev stack
-sudo apt-get install vim vim-gnome git-core ruby1.8-dev
+sudo apt-get install git-core ruby1.8-dev nginx apache2 php5 php5-cgi php5-cli php-pear php5-suhosin psmisc spawn-fcgi mysql-server php5-mysql redis-server memcached php5-memcache php5-memcached php5-gd php5-curl php5-imagick exim4-daemon-light mailutils dovecot-common
+
+# Configures some stuff
+sudo a2enmod expires rewrite ssl
+sudo service apache2 restart
 
 # Installs all of our xmonad goodness
-sudo apt-get install xmonad libghc6-xmonad-contrib-dev gnome-do xcompmgr xscreensaver tint2
+sudo apt-get install xmonad libghc6-xmonad-contrib-dev gnome-do xcompmgr xscreensaver dmenu tint2 xmobar trayer suckless-tools scrot cabal-install
 
-#sudo apt-get install xmobar trayer suckless-tools scrot cabal-install
-#cabal update
-#cabal install yeganesh
+cabal update
+cabal install yeganesh
 
 # Clears out the old .bashrc
 if [ -f ~/.bashrc ];
