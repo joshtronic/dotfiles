@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xcompmgr &
+#xcompmgr &
 
 gsettings set org.gnome.desktop.background picture-uri "" &
 
@@ -12,10 +12,10 @@ shutter --min_at_startup &
 
 #gnome-terminal &
 #chromium-browser &
-gnome-do &
+#gnome-do &
 
 #gnome-settings-daemon &
-gnome-sound-applet
+#gnome-sound-applet
 #nm-applet &
 #gnome-power-manager &
 

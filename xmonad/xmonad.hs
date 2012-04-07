@@ -21,6 +21,7 @@ import XMonad.Layout.Grid
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Named
 
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
@@ -97,7 +98,7 @@ grid = spacing 2 $ Grid
 web = spacing 2 $ Tall 1 (3/100) (80/100)
 full = noBorders $ Full
 
-myLayout = avoidStruts (onWorkspace "2" web tiled ||| grid ||| full)
+myLayout = avoidStruts (onWorkspace "2" (named "Web" web) (named "Tiled" tiled) ||| named "Grid" grid) ||| named "Full" full
 
 {-
 myLayout = avoidStruts (
@@ -122,7 +123,8 @@ myLayout = avoidStruts (
 -- Currently based on the ir_black theme.
 --
 myNormalBorderColor  = "#7c7c7c"
-myFocusedBorderColor = "#ffb6b0"
+-- myFocusedBorderColor = "#ffb6b0"
+myFocusedBorderColor = "#CD0000"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
@@ -138,8 +140,10 @@ tabConfig = defaultTheme {
 xmobarTitleColor = "#FFB6B0"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#CEFFAC"
-xmobarCurrentWorkspaceBackgroundColor = "#333333"
+-- xmobarCurrentWorkspaceColor = "#CEFFAC"
+-- xmobarCurrentWorkspaceBackgroundColor = "#333333"
+xmobarCurrentWorkspaceColor = "#00ff00"
+xmobarCurrentWorkspaceBackgroundColor = "#000000"
 
 -- Width of the window border in pixels.
 myBorderWidth = 1
@@ -172,8 +176,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Launch dmenu via yeganesh.
   -- Use this to launch programs without a key binding.
   , ((modMask, xK_p),
-     -- spawn "~/.xmonad/bin/dmenu")
-     spawn "gnome-do")
+     spawn "~/.xmonad/bin/dmenu")
+     --spawn "gnome-do")
 
   -- Take a screenshot in select mode.
   -- After pressing this key binding, click a window, or draw a rectangle with
@@ -370,7 +374,7 @@ main = do
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor xmobarCurrentWorkspaceBackgroundColor
-          , ppSep = "   "}
+          , ppSep = " <fc=#FFB6B0>:</fc> "}
       , manageHook = manageDocks <+> myManageHook
       , startupHook = setWMName "LG3D"
   }
