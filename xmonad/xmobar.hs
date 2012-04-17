@@ -28,5 +28,6 @@ Config {
 	alignSep = "}{",
 	-- template = "%StdinReader% }{ %multicpu% <fc=#FFB6B0>:</fc> %memory% <fc=#FFB6B0>:</fc> %KTPA% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>  "
 	-- template = "%StdinReader% }{ %multicpu% <fc=#FFB6B0>:</fc> %memory% <fc=#FFB6B0>:</fc> %KTPA% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>  "
-	template = "%StdinReader% }{ %multicpu% %memory% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>"
+	-- template = "%StdinReader% }{ %multicpu% %memory% <fc=#FFB6B0>:</fc> <fc=#FFFFCC>%date%</fc>"
+	template = "%StdinReader% }{ "
 

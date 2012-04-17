@@ -146,7 +146,7 @@ xmobarCurrentWorkspaceColor = "#00ff00"
 xmobarCurrentWorkspaceBackgroundColor = "#000000"
 
 -- Width of the window border in pixels.
-myBorderWidth = 1
+myBorderWidth = 2
 
 
 ------------------------------------------------------------------------
@@ -372,7 +372,7 @@ main = do
   xmonad $ defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
+          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 150
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor xmobarCurrentWorkspaceBackgroundColor
           , ppSep = " <fc=#FFB6B0>:</fc> "}
       , manageHook = manageDocks <+> myManageHook

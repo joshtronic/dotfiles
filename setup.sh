@@ -15,7 +15,7 @@ sudo apt-get --purge autoremove appmenu-gtk appmenu-gtk3 zeitgeist gwibber gnome
 sudo apt-get install agave gimp inkscape tomboy rhythmbox chromium-browser shutter gnome-tweak-tool faenza-icon-theme network-manager-openconnect-gnome ubuntu-tweak vim vim-gnome ssh multitail htop
 
 # Installs my dev stack
-sudo apt-get install git-core ruby1.8-dev nginx apache2 php5 php5-cgi php5-cli php-pear php5-suhosin psmisc spawn-fcgi mysql-server php5-mysql redis-server memcached php5-memcache php5-memcached php5-gd php5-curl php5-imagick exim4-daemon-light mailutils dovecot-common
+sudo apt-get install git-core ruby1.8-dev nginx apache2 php5 php5-cgi php5-cli php-pear php5-suhosin psmisc spawn-fcgi mysql-server php5-mysql redis-server memcached php5-memcache php5-memcached php5-gd php5-curl php5-imagick exim4-daemon-light
 
 # Configures some stuff
 sudo a2enmod expires rewrite ssl

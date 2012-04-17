@@ -48,17 +48,16 @@ if [[ $EUID -ne 0 ]];
 then
 	if [[ $HOSTNAME == "aurora" ]];
 	then
-		echo $HOSTNAME
-		export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
+		export PS1="\n$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w\n$D_WHITE\$ $RESET"
 	else
-		export PS1="\n$D_CYAN╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_CYAN╵┗ $D_WHITE\$ $RESET"
+		export PS1="\n$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$D_WHITE\$ $RESET"
 	fi
 else
 	if [[ $HOSTNAME == "aurora" ]];
 	then
-		export PS1="\n$B_RED╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w\n$B_RED╵┗ $D_WHITE# $RESET"
+		export PS1="\n$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w\n$B_RED# $RESET"
 	else
-		export PS1="\n$B_RED╷┏ $D_GREEN\t$RESET:$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$B_RED╵┗ $D_WHITE# $RESET"
+		export PS1="\n$D_WHITE\u$RESET@$D_MAGENTA\h$RESET:$B_BLUE\w$YELLOW\$(__git_ps1)\n$B_RED# $RESET"
 	fi
 fi
 

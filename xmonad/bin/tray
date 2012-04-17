@@ -10,4 +10,3 @@ killall trayer
 trayer --edge top --expand true --SetDockType true \
     --align right --margin 0 --width 10 --widthtype percent --height 18 \
     --padding 1 --tint 0x000000 --alpha 255 --transparent true \
-    --distance 300 --distancefrom right
