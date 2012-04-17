@@ -137,12 +137,13 @@ tabConfig = defaultTheme {
 }
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#FFB6B0"
+-- xmobarTitleColor = "#FFB6B0"
+xmobarTitleColor = "#00FF00"
 
 -- Color of current workspace in xmobar.
 -- xmobarCurrentWorkspaceColor = "#CEFFAC"
 -- xmobarCurrentWorkspaceBackgroundColor = "#333333"
-xmobarCurrentWorkspaceColor = "#00ff00"
+xmobarCurrentWorkspaceColor = "#CDCD00"
 xmobarCurrentWorkspaceBackgroundColor = "#000000"
 
 -- Width of the window border in pixels.
@@ -374,7 +375,8 @@ main = do
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 150
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor xmobarCurrentWorkspaceBackgroundColor
-          , ppSep = " <fc=#FFB6B0>:</fc> "}
+          -- , ppSep = " <fc=#FFB6B0>:</fc> "}
+          , ppSep = " <fc=#AAAAAA>:</fc> "}
       , manageHook = manageDocks <+> myManageHook
       , startupHook = setWMName "LG3D"
   }

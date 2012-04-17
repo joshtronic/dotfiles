@@ -7,9 +7,9 @@ Config {
 	--font = "xft:Fixed-11"
 	--font = "xft:Monospace-9",
 	--font = "xft:Ubuntu Mono:pixelsize=17,dpi=96,rgba=rgb,style=regular,hinting=true,antialias=true,hintstyle=hintfull",
-	font = "xft:Ubuntu Mono-11",
+	font = "xft:Ubuntu Mono-10",
 	bgColor = "#000000",
-	fgColor = "#ffffff",
+	fgColor = "#878787",
 	position = TopW L 100,
 	lowerOnStart = True,
 	commands = [
