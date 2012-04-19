@@ -22,7 +22,7 @@ sudo a2enmod expires rewrite ssl
 sudo service apache2 restart
 
 # Installs all of our xmonad goodness
-sudo apt-get install xmonad libghc6-xmonad-contrib-dev gnome-do xcompmgr xscreensaver dmenu tint2 xmobar trayer suckless-tools scrot cabal-install
+sudo apt-get install xmonad libghc6-xmonad-contrib-dev xscreensaver dmenu tint2 xmobar trayer suckless-tools scrot cabal-install
 
 cabal update
 cabal install yeganesh

@@ -122,7 +122,8 @@ myLayout = avoidStruts (
 -- Colors and borders
 -- Currently based on the ir_black theme.
 --
-myNormalBorderColor  = "#7c7c7c"
+-- myNormalBorderColor  = "#7c7c7c"
+myNormalBorderColor  = "#323232"
 -- myFocusedBorderColor = "#ffb6b0"
 myFocusedBorderColor = "#CD0000"
 
@@ -138,7 +139,7 @@ tabConfig = defaultTheme {
 
 -- Color of current window title in xmobar.
 -- xmobarTitleColor = "#FFB6B0"
-xmobarTitleColor = "#00FF00"
+xmobarTitleColor = "#1E90FF"
 
 -- Color of current workspace in xmobar.
 -- xmobarCurrentWorkspaceColor = "#CEFFAC"
@@ -147,7 +148,7 @@ xmobarCurrentWorkspaceColor = "#CDCD00"
 xmobarCurrentWorkspaceBackgroundColor = "#000000"
 
 -- Width of the window border in pixels.
-myBorderWidth = 2
+myBorderWidth = 1
 
 
 ------------------------------------------------------------------------
