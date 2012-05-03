@@ -1,31 +1,37 @@
 #!/bin/bash
+# TODO Add prompts so I can run pieces of the set up
 
 # Adds some third party repos
 sudo add-apt-repository ppa:tiheum/equinox          # Faenza Icons
-#sudo add-apt-repository ppa:zedtux/naturalscrolling # Natural Scrolling
 sudo add-apt-repository ppa:tualatrix/ppa           # Ubuntu Tweak
+sudo add-apt-repository ppa:webupd8team/gnome3      # WebUpd8 Gnome Extensions
 
 # Updates the package list
 sudo apt-get update
 
 # Gets rid of some bullshit packages
-sudo apt-get --purge autoremove appmenu-gtk appmenu-gtk3 zeitgeist gwibber gnome-screensaver banshee
+#sudo apt-get --purge autoremove appmenu-gtk appmenu-gtk3 zeitgeist gwibber gnome-screensaver banshee
 
-# Installs some applications
-sudo apt-get install agave gimp inkscape tomboy rhythmbox chromium-browser shutter gnome-tweak-tool faenza-icon-theme network-manager-openconnect-gnome ubuntu-tweak vim vim-gnome ssh multitail htop
+# Installs CLI apps
+sudo apt-get install vim ssh multitail htop iotop tmux
+
+# Installs desktop environment
+sudo apt-get install gnome-shell gnome-tweak-tool faenza-icon-theme network-manager-openconnect-gnome gnome-sushi gnome-shell-extensions-mediaplayer gnome-shell-extensions-noa11y gnome-shell-classic-systray gnome-shell-message-notifier gnome-shell-extension-notesearch
+
+# Installs non-CLI apps
+sudo apt-get install gnome-agave gimp inkscape tomboy rhythmbox chromium-browser shutter ubuntu-tweak vim-gnome
+
+gsettings set com.github.charkins.notesearch app Tomboy
+# gsettings set com.github.charkins.notesearch app Gnote
 
 # Installs my dev stack
 sudo apt-get install git-core ruby1.8-dev nginx apache2 php5 php5-cgi php5-cli php-pear php5-suhosin psmisc spawn-fcgi mysql-server php5-mysql redis-server memcached php5-memcache php5-memcached php5-gd php5-curl php5-imagick exim4-daemon-light
 
+# TODO Installs my server stack
+
 # Configures some stuff
 sudo a2enmod expires rewrite ssl
 sudo service apache2 restart
-
-# Installs all of our xmonad goodness
-sudo apt-get install xmonad libghc6-xmonad-contrib-dev xscreensaver dmenu tint2 xmobar trayer suckless-tools scrot cabal-install
-
-cabal update
-cabal install yeganesh
 
 # Clears out the old .bashrc
 if [ -f ~/.bashrc ];
@@ -54,23 +60,6 @@ fi
 
 # Symlinks back to our scripts
 ln -s $PWD/nautilus-scripts ~/.gnome2/nautilus-scripts
-
-# Sets up xmonad
-if [ -d ~/.xmonad ];
-then
-	rm ~/.xmonad -rf
-fi
-
-cp $PWD/xmonad ~/.xmonad -R
-
-# Adds it to the session list
-if [ ! -f /usr/share/gnome-session/sessions/xmonad.desktop ]; then
-	sudo cp "$PWD/xmonad.session" /usr/share/gnome-session/sessions
-fi
-
-if [ ! -f /usr/share/xsessions/xmonad-gnome.desktop ]; then
-	sudo cp "$PWD/xmonad-gnome.desktop" /usr/share/xsessions
-fi
 
 # Copies .vimrc
 if [ -f ~/.vimrc ];
