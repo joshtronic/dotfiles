@@ -5,6 +5,7 @@
 sudo add-apt-repository ppa:tiheum/equinox          # Faenza Icons
 sudo add-apt-repository ppa:tualatrix/ppa           # Ubuntu Tweak
 sudo add-apt-repository ppa:webupd8team/gnome3      # WebUpd8 Gnome Extensions
+sudo add-apt-repository ppa:otto-kesselgulasch/gimp # Gimp 2.8
 
 # Updates the package list
 sudo apt-get update
