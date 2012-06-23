@@ -1,5 +1,8 @@
 set nocompatible
 
+" Supposed to fix https://github.com/millermedeiros/vim-statline/issues/6
+let g:statline_syntastic = 0
+
 " Stole some shit from these:
 "     https://raw.github.com/scrooloose/vimfiles/master/vimrc
 "     http://amix.dk/vim/vimrc.html
