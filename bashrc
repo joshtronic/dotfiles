@@ -1,11 +1,27 @@
-# To use, simply add the following to /etc/bash.bashrc or ~/.bashrc
+# To use, simply add the following to:
+#		/etc/bash.bashrc or ~/.bashrc (Linux)
+#		~/.bash_profile (Mac OS X)
 #
-# if [ -f /path/to/this/bash.bashrc ] && ! shopt -oq posix; then
+# if [ -f /path/to/this/bash.bashrc ] && ! shopt -oq posix;
+# then
 #     . /path/to/this/bash.bashrc
 # fi
 
-export   PATH="$HOME/Source/bash:$PATH"
-export EDITOR=vim
+if [ `uname` == "Darwin" ];
+then
+	# Tell ls to be colourful
+	export CLICOLOR=1
+	export LSCOLORS=Exfxcxdxbxegedabagacad
+
+	# Tell grep to highlight matches
+	export GREP_OPTIONS='--color=auto'
+
+	export   PATH=/usr/local/bin:/usr/local/sbin:$PATH
+	export EDITOR="mvim -v"
+else
+	export   PATH="$HOME/Source/bash:$PATH"
+	export EDITOR=vim
+fi
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
@@ -66,58 +82,72 @@ export PS2="$D_WHITE> $RESET"
 # Aliases
 
 # apt-*
-alias      ac="sudo apt-cache"
-alias     acs="sudo apt-cache search"
-alias      ag="sudo apt-get"
-alias    agar="sudo apt-get autoremove"
-alias     agi="sudo apt-get install"
-alias     agp="sudo apt-get purge"
-alias     agr="sudo apt-get remove"
-alias    agud="sudo apt-get update"
-alias    agug="sudo apt-get upgrade"
-alias    aguu="sudo apt-get update && sudo apt-get upgrade"
+alias   ac="sudo apt-cache"
+alias  acs="sudo apt-cache search"
+alias   ag="sudo apt-get"
+alias agar="sudo apt-get autoremove"
+alias  agi="sudo apt-get install"
+alias  agp="sudo apt-get purge"
+alias  agr="sudo apt-get remove"
+alias agud="sudo apt-get update"
+alias agug="sudo apt-get upgrade"
+alias aguu="sudo apt-get update && sudo apt-get upgrade"
+
 # cd *
 alias desktop="cd ~/Desktop"
+
 # free
-alias      fm="free -m"
+alias fm="free -m"
+
 # git
-alias      ga="git add"
-alias     gaa="git add ."
-alias      gb="git branch"
-alias     gba="git branch -a"
-alias      gc="git commit"
-alias     gca="git commit -a"
-alias     gcl="git clone"
-alias     gco="git checkout"
-alias    gcob="git checkout -B"
-alias    gcom="git checkout master"
-alias      gd="git diff"
-alias     gdb="git delete-branch"
-alias      gf="git fetch"
-alias      gl="git log"
-alias      gm="git merge"
-alias     gmm="git merge master"
-alias      gp="git push"
-alias    gpoh="git push origin HEAD"
-alias    gpom="git push origin master"
-alias     gpu="git pull"
-alias   gpuoh="git pull origin HEAD"
-alias   gpuom="git pull origin master"
-alias      gr="git remote"
-alias     gra="git remote add"
-alias    grao="git remote add origin"
-alias     grr="git remote rm"
-alias    grro="git remote rm origin"
-alias     grm="git rm"
-alias      gs="git status"
+alias    ga="git add"
+alias   gaa="git add ."
+alias    gb="git branch"
+alias   gba="git branch -a"
+alias    gc="git commit"
+alias   gca="git commit -a"
+alias   gcl="git clone"
+alias   gco="git checkout"
+alias  gcob="git checkout -B"
+alias  gcom="git checkout master"
+alias    gd="git diff"
+alias   gdb="git delete-branch"
+alias    gf="git fetch"
+alias    gl="git log"
+alias    gm="git merge"
+alias   gmm="git merge master"
+alias    gp="git push"
+alias  gpoh="git push origin HEAD"
+alias  gpom="git push origin master"
+alias   gpu="git pull"
+alias gpuoh="git pull origin HEAD"
+alias gpuom="git pull origin master"
+alias    gr="git remote"
+alias   gra="git remote add"
+alias  grao="git remote add origin"
+alias   grr="git remote rm"
+alias  grro="git remote rm origin"
+alias   grm="git rm"
+alias    gs="git status"
+
 # memcached
-alias      mc="telnet localhost 11211"
+alias mc="telnet localhost 11211"
+
 # mysql
-alias    mycs="mysql crowdsavings"
-alias    mysk="mysql scenekids"
+alias mycs="mysql crowdsavings"
+alias mysk="mysql scenekids"
+
 # service
 alias service="sudo service"
+
 # vim
-alias       v="vim"
-alias      vd="vimdiff"
-alias      vo="vim -O"
+if [ `uname` == "Darwin" ];
+then
+	alias  v='mvim -v'
+	alias vd="mvimdiff -v"
+	alias vo="mvim -v -O"
+else
+	alias  v="vim"
+	alias vd="vimdiff"
+	alias vo="vim -O"
+fi
