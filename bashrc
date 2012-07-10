@@ -143,9 +143,10 @@ alias service="sudo service"
 # vim
 if [ `uname` == "Darwin" ];
 then
-	alias  v='mvim -v'
-	alias vd="mvimdiff -v"
-	alias vo="mvim -v -O"
+	alias vim='mvim -v'
+	alias   v='mvim -v'
+	alias  vd="mvimdiff -v"
+	alias  vo="mvim -v -O"
 else
 	alias  v="vim"
 	alias vd="vimdiff"

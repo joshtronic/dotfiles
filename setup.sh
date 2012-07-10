@@ -13,7 +13,7 @@ ln -s $PWD/gitconfig ~/.gitconfig
 if [ `uname` == 'Darwin' ];
 then
 	# TODO Installs Homebew
-	brew install git ssh-copy-id bash-completion macvim multitail nmap tmux wget htop
+	brew install git ssh-copy-id bash-completion macvim multitail nmap tmux wget htop mysql memcached
 	# TODO Installs Server stuff (nginx, php53, pear, redis, memcached, what have you)
 
 	# Clears out the old .bash_profile
