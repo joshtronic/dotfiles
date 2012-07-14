@@ -134,8 +134,12 @@ alias    gs="git status"
 alias mc="telnet localhost 11211"
 
 # mysql
+alias mybb="mysql bargainbee"
 alias mycs="mysql crowdsavings"
-alias mysk="mysql scenekids"
+alias myst="mysql street"
+
+# rsync
+alias rsync="rsync --compress --progress"
 
 # service
 alias service="sudo service"
