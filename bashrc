@@ -100,6 +100,7 @@ alias desktop="cd ~/Desktop"
 alias fm="free -m"
 
 # git
+alias     g="git"
 alias    ga="git add"
 alias   gaa="git add ."
 alias    gb="git branch"
@@ -158,3 +159,6 @@ else
 	alias vd="vimdiff"
 	alias vo="vim -O"
 fi
+
+# Add autocomplete to `g` alias
+complete -o default -o nospace -F _git g

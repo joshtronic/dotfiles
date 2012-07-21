@@ -9,11 +9,15 @@ then
 fi
 
 ln -s $PWD/gitconfig ~/.gitconfig
+ln -s ~/Dropbox/Pictures/Git\ Shots ~/.gitshots
+
+# Installs my git hooks
+sudo ln -s $PWD/git/hooks/post-commit /usr/local/share/git-core/templates/hooks/post-commit
 
 if [ `uname` == 'Darwin' ];
 then
 	# TODO Installs Homebew
-	brew install git ssh-copy-id bash-completion macvim multitail nmap tmux wget htop mysql memcached
+	brew install git ssh-copy-id bash-completion macvim multitail nmap wget htop mysql memcached imagesnap
 	# TODO Installs Server stuff (nginx, php53, pear, redis, memcached, what have you)
 
 	# Clears out the old .bash_profile
@@ -24,7 +28,7 @@ then
 
 	# Adds paths and custom .bashrc
 	echo "
-export PATH=\"$PWD/git:$PATH\"
+export PATH=\"$PWD/git/scripts:$PATH\"
 
 if [ -f $PWD/bashrc ] && ! shopt -oq posix;
 then
@@ -81,7 +85,7 @@ else
 
 	# Adds paths and custom .bashrc
 	echo "
-export PATH=\"$PWD/git:$PATH\"
+export PATH=\"$PWD/git/scripts:$PATH\"
 
 if [ -f $PWD/bashrc ] && ! shopt -oq posix; then
 	. $PWD/bashrc
