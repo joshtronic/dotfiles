@@ -16,9 +16,31 @@ sudo ln -s $PWD/git/hooks/post-commit /usr/local/share/git-core/templates/hooks/
 
 if [ `uname` == 'Darwin' ];
 then
-	# TODO Installs Homebew
-	brew install git ssh-copy-id bash-completion macvim multitail nmap wget htop mysql memcached imagesnap
-	# TODO Installs Server stuff (nginx, php53, pear, redis, memcached, what have you)
+	# Installs Homebrew
+	/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+	mkdir -p ~/Library/LaunchAgents
+
+	# Gets our `brew` on
+	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget
+
+	cp /usr/local/Cellar/memcached/1.4.13/homebrew.mxcl.memcached.plist ~/Library/LaunchAgents/
+	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+
+	cp /usr/local/Cellar/mysql/5.5.25/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
+	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+
+	# Initializes MySQL (commented out as I'm unsure if this would wipe an existing database)
+	#mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+
+	# `brew`s up some PHP 5.3
+	brew tap josegonzalez/homebrew-php
+	brew install php53 --with-fpm --with-mysql
+
+	cp /usr/local/Cellar/php53/5.3.13/homebrew-php.josegonzalez.php53.plist ~/Library/LaunchAgents/
+	launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
+
+	# Gets PHP how we like it
+	brew install php53-apc php53-imagick php53-mcrypt php53-memcache
 
 	# Clears out the old .bash_profile
 	if [ -f ~/.bash_profile ];
