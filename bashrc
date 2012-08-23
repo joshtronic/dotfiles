@@ -131,6 +131,9 @@ alias  grro="git remote rm origin"
 alias   grm="git rm"
 alias    gs="git status"
 
+# grep
+alias grep="grep --exclude-dir=.git"
+
 # memcached
 alias mc="telnet localhost 11211"
 
