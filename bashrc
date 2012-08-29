@@ -141,6 +141,7 @@ alias mc="telnet localhost 11211"
 alias mysql="mysql -uroot"
 alias  mybb="mysql bargainbee"
 alias  mycs="mysql crowdsavings"
+alias  mydg="mysql dealgarden"
 alias  myst="mysql street"
 alias  myud="mysql urbandealight"
 
