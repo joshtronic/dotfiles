@@ -17,26 +17,44 @@ sudo ln -s $PWD/git/hooks/post-commit /usr/local/share/git-core/templates/hooks/
 if [ `uname` == 'Darwin' ];
 then
 	# Installs Homebrew
-	/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
-	mkdir -p ~/Library/LaunchAgents
+	if [ `which brew` == '' ];
+	then
+		ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+		mkdir -p ~/Library/LaunchAgents
+	fi
 
 	# Gets our `brew` on
-	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget
+	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk
 
-	cp /usr/local/Cellar/memcached/1.4.13/homebrew.mxcl.memcached.plist ~/Library/LaunchAgents/
+	cp /usr/local/Cellar/memcached/1.4.14/homebrew.mxcl.memcached.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
 
-	cp /usr/local/Cellar/mysql/5.5.25/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
+	cp /usr/local/Cellar/mysql/5.5.27/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
-	# Initializes MySQL (commented out as I'm unsure if this would wipe an existing database)
-	#mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+	# Initializes MySQL
+	mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 
 	# `brew`s up some PHP 5.3
 	brew tap josegonzalez/homebrew-php
-	brew install php53 --with-fpm --with-mysql
+	brew tap homebrew/dupes
 
-	cp /usr/local/Cellar/php53/5.3.13/homebrew-php.josegonzalez.php53.plist ~/Library/LaunchAgents/
+	# Backs up the stock OSX version of PHP
+	if [ ! -f /usr/libexec/apache2/libphp5.so.orig ];
+	then
+		sudo mv /usr/libexec/apache2/libphp5.so /usr/libexec/apache2/libphp5.so.orig
+	fi
+
+	brew remove php53
+
+	# Installs PHP as an Apache module
+	brew install php53 --with-mysql
+	sudo cp /usr/local/Cellar/php53/5.3.16/libexec/apache2/libphp5.so /usr/libexec/apache2/libphp5.so
+	brew remove php53
+
+	# Installs PHP for Nginx (via FPM)
+	brew install php53 --with-fpm --with-mysql
+	cp /usr/local/Cellar/php53/5.3.16/homebrew-php.josegonzalez.php53.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 
 	# Gets PHP how we like it
@@ -50,7 +68,7 @@ then
 
 	# Adds paths and custom .bashrc
 	echo "
-export PATH=\"$PWD/git/scripts:$PATH\"
+export PATH=\"$PWD/git/scripts:/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:$PATH\"
 
 if [ -f $PWD/bashrc ] && ! shopt -oq posix;
 then
