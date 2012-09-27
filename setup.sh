@@ -11,9 +11,6 @@ fi
 ln -s $PWD/gitconfig ~/.gitconfig
 ln -s ~/Dropbox/Pictures/Git\ Shots ~/.gitshots
 
-# Installs my git hooks
-sudo ln -s $PWD/git/hooks/post-commit /usr/local/share/git-core/templates/hooks/post-commit
-
 if [ `uname` == 'Darwin' ];
 then
 	# Installs Homebrew
@@ -26,18 +23,23 @@ then
 	# Gets our `brew` on
 	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk
 
-	cp /usr/local/Cellar/memcached/1.4.14/homebrew.mxcl.memcached.plist ~/Library/LaunchAgents/
+	sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2/bin/htop
+	sudo chmod u+s /usr/local/Cellar/htop-osx/0.8.2/bin/htop
+
+	launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+	cp /usr/local/Cellar/memcached/1.4.15/homebrew.mxcl.memcached.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
 
-	cp /usr/local/Cellar/mysql/5.5.27/homebrew.mxcl.mysql.plist ~/Library/LaunchAgents/
-	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+	launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+	cp /usr/local/Cellar/redis/2.4.17/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/
+	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 	# Initializes MySQL
 	mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 
 	# `brew`s up some PHP 5.3
-	brew tap josegonzalez/homebrew-php
 	brew tap homebrew/dupes
+	brew tap josegonzalez/homebrew-php
 
 	# Backs up the stock OSX version of PHP
 	if [ ! -f /usr/libexec/apache2/libphp5.so.orig ];
@@ -46,19 +48,24 @@ then
 	fi
 
 	brew remove php53
+	rm ~/.pearrc
+	launchctl unload -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
+	rm ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 
 	# Installs PHP as an Apache module
-	brew install php53 --with-mysql
+	brew install php53 --with-mysql --with-suhosin
 	sudo cp /usr/local/Cellar/php53/5.3.16/libexec/apache2/libphp5.so /usr/libexec/apache2/libphp5.so
 	brew remove php53
 
 	# Installs PHP for Nginx (via FPM)
-	brew install php53 --with-fpm --with-mysql
+	brew install php53 --with-fpm --with-mysql --with-suhosin
 	cp /usr/local/Cellar/php53/5.3.16/homebrew-php.josegonzalez.php53.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 
 	# Gets PHP how we like it
-	brew install php53-apc php53-imagick php53-mcrypt php53-memcache
+	brew install php53-imagick php53-mcrypt php53-memcache --with-homebrew-php
+
+	brew linkapps
 
 	# Clears out the old .bash_profile
 	if [ -f ~/.bash_profile ];
@@ -68,7 +75,7 @@ then
 
 	# Adds paths and custom .bashrc
 	echo "
-export PATH=\"$PWD/git/scripts:/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:$PATH\"
+export PATH=\"/usr/local/sbin:$PWD/git/scripts:/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:$PATH\"
 
 if [ -f $PWD/bashrc ] && ! shopt -oq posix;
 then
@@ -97,7 +104,7 @@ else
 	#sudo apt-get --purge autoremove appmenu-gtk appmenu-gtk3 zeitgeist gwibber gnome-screensaver banshee
 
 	# Installs CLI apps
-	sudo apt-get install vim ssh multitail htop iotop tmux
+	sudo apt-get install vim ssh multitail htop iotop
 
 	# Installs desktop environment
 	sudo apt-get install gnome-shell gnome-tweak-tool faenza-icon-theme network-manager-openconnect-gnome gnome-sushi gnome-shell-extensions-mediaplayer gnome-shell-extensions-noa11y gnome-shell-classic-systray gnome-shell-message-notifier gnome-shell-extension-notesearch
@@ -140,6 +147,9 @@ fi" >> ~/.bashrc
 	# Symlinks back to our scripts
 	ln -s $PWD/nautilus-scripts ~/.gnome2/nautilus-scripts
 fi
+
+# Installs my git hooks
+sudo ln -s $PWD/git/hooks/post-commit /usr/local/share/git-core/templates/hooks/post-commit
 
 ./vim.sh
 
