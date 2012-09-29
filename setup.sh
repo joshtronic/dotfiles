@@ -21,7 +21,7 @@ then
 	fi
 
 	# Gets our `brew` on
-	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk
+	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk postgresql
 
 	sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2/bin/htop
 	sudo chmod u+s /usr/local/Cellar/htop-osx/0.8.2/bin/htop
@@ -33,6 +33,10 @@ then
 	launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 	cp /usr/local/Cellar/redis/2.4.17/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
+	launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+	cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 	# Initializes MySQL
 	mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
