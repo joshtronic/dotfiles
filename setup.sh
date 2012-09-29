@@ -23,9 +23,16 @@ then
 	# Gets our `brew` on
 	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk postgresql
 
+	# Allows htop to show all processes
 	sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2/bin/htop
 	sudo chmod u+s /usr/local/Cellar/htop-osx/0.8.2/bin/htop
 
+	# Initializes databasesL
+	mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+
+	initdb /usr/local/var/postgres
+
+	# Sets up our LaunchAgent
 	launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
 	cp /usr/local/Cellar/memcached/1.4.15/homebrew.mxcl.memcached.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
@@ -37,9 +44,6 @@ then
 	launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 	cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
-	# Initializes MySQL
-	mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 
 	# `brew`s up some PHP 5.3
 	brew tap homebrew/dupes
@@ -62,7 +66,7 @@ then
 	brew remove php53
 
 	# Installs PHP for Nginx (via FPM)
-	brew install php53 --with-fpm --with-mysql --with-suhosin
+	brew install php53 --with-fpm --with-mysql --with-pgsql --with-suhosin
 	cp /usr/local/Cellar/php53/5.3.16/homebrew-php.josegonzalez.php53.plist ~/Library/LaunchAgents/
 	launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 
