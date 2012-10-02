@@ -72,7 +72,14 @@ then
 	launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 
 	# Gets PHP how we like it
-	brew install php53-imagick php53-mcrypt php53-memcache --with-homebrew-php
+	brew install php53-imagick php53-mcrypt php53-memcache php53-xdebug --with-homebrew-php
+
+	# Adds some PEAR to the recipe
+	pear update-channels
+	sudo pear upgrade-all
+	sudo pear channel-discover pear.phpunit.de
+	sudo pear channel-discover pear.symfony.com
+	pear install --alldeps phpunit/PHPUnit
 
 	brew linkapps
 

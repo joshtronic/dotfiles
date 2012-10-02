@@ -143,6 +143,7 @@ alias mysql="mysql -uroot"
 alias  mybb="mysql bargainbee"
 alias  mycs="mysql crowdsavings"
 alias  mydg="mysql dealgarden"
+alias  myfr="mysql faveroo"
 alias  myst="mysql street"
 alias  myud="mysql urbandealight"
 
