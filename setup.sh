@@ -78,6 +78,7 @@ then
 	pear update-channels
 	sudo pear upgrade-all
 	sudo pear channel-discover pear.phpunit.de
+	sudo pear channel-discover components.ez.no
 	sudo pear channel-discover pear.symfony.com
 	pear install --alldeps phpunit/PHPUnit
 
@@ -91,7 +92,7 @@ then
 
 	# Adds paths and custom .bashrc
 	echo "
-export PATH=\"/usr/local/sbin:$PWD/git/scripts:/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:$PATH\"
+export PATH=\"/usr/local/sbin:$PWD/git/scripts:/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:/usr/local/Cellar/php53/5.3.16/bin:$PATH\"
 
 if [ -f $PWD/bashrc ] && ! shopt -oq posix;
 then
