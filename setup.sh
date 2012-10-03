@@ -80,7 +80,7 @@ then
 	sudo pear channel-discover pear.phpunit.de
 	sudo pear channel-discover components.ez.no
 	sudo pear channel-discover pear.symfony.com
-	pear install --alldeps phpunit/PHPUnit
+	sudo pear install --alldeps phpunit/PHPUnit
 
 	brew linkapps
 
