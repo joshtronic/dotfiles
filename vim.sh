@@ -33,6 +33,8 @@ do
 	echo
 done
 
+cp ./less.vim $DOTVIM/syntax
+
 # Finish up Command-T installation
 cd $DOTVIM/ruby/command-t
 ruby extconf.rb
