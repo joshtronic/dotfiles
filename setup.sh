@@ -14,6 +14,9 @@ if [ `uname` == 'Darwin' ];
 then
 	ln -s ~/Dropbox/Pictures/Git\ Shots ~/.gitshots
 
+	# Initialize the `locate` database
+	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
 	# Installs Homebrew
 	if [ `which brew` == '' ];
 	then
@@ -22,7 +25,7 @@ then
 	fi
 
 	# Gets our `brew` on
-	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk postgresql
+	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk postgresql p7zip
 
 	# Allows htop to show all processes
 	sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2/bin/htop
