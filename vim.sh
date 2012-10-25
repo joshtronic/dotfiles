@@ -22,8 +22,8 @@ mkdir $DOTVIM
 
 echo
 
-OWNERS=( "ervandew" "msanders"     "nvie"            "scrooloose" "scrooloose" "tpope"        "vim-scripts" "vim-scripts"              )
-REPOS=(  "supertab" "snipmate.vim" "vim-togglemouse" "nerdtree"   "syntastic"  "vim-fugitive" "Command-T"   "Flex-Development-Support" )
+OWNERS=( "ervandew" "msanders"     "scrooloose" "scrooloose" "tpope"        "vim-scripts" "vim-scripts"              "vim-scripts"    )
+REPOS=(  "supertab" "snipmate.vim" "nerdtree"   "syntastic"  "vim-fugitive" "Command-T"   "Flex-Development-Support" "SearchComplete" )
 
 for (( i = 0 ; i < ${#OWNERS[@]} ; i++ ))
 do
@@ -33,6 +33,7 @@ do
 	echo
 done
 
+# Installs additional syntax files
 cp ./less.vim $DOTVIM/syntax
 
 # Finish up Command-T installation
