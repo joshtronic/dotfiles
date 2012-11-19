@@ -1,4 +1,4 @@
-SEPARATOR="%{$FG[238]%}:"
+SEPARATOR="%{$FG[238]%} ✱ "
 TIME="%{$FG[028]%}%D{%H}%{$FG[022]%}:%{$FG[028]%}%D{%M}%{$FG[022]%}:%{$FG[028]%}%D{%S}"
 USER="%{$FG[244]%}%n%{$FG[248]%}@%{$fg[magenta]%}%m"
 
@@ -9,4 +9,4 @@ PROMPT='
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[011]%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg[red]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=") %{$FG[028]%}✔%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=")"

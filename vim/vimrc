@@ -86,7 +86,13 @@ set wildignore=*.o,*.obj,*~
 
 set t_Co=256
 set background=dark
-colorscheme default
+
+if has('gui_running')
+	colorscheme macvim
+else
+	colorscheme default
+endif
+
 syntax on
 syntax sync fromstart
 
