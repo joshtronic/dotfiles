@@ -119,7 +119,7 @@ then
 	rm ~/.vimrc
 fi
 
-ln -s $DOTFILES/vimrc ~/.vimrc
+ln -s $DOTFILES/vim/vimrc ~/.vimrc
 
 # Pulls down and installs vim plugins
 DOTVIM=~/.vim

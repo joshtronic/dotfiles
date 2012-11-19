@@ -6,7 +6,7 @@ ZSH_THEME="joshtronic"
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(brew git nyan osx vi-mode)
+plugins=(brew git osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,7 +94,7 @@ then
 	alias   v='mvim -v'
 	alias  vd="mvimdiff -v"
 	alias  vo="mvim -v -O"
-	
+
 	# Tell ls to be colourful
 	export CLICOLOR=1
 	export LSCOLORS=Exfxcxdxbxegedabagacad
@@ -108,7 +108,7 @@ else
 	alias  v="vim"
 	alias vd="vimdiff"
 	alias vo="vim -O"
-	
+
 	export   PATH="$HOME/Source/bash:$PATH"
 	export EDITOR=vim
 fi

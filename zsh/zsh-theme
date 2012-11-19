@@ -1,7 +1,12 @@
-PROMPT='%{$fg[green]%}%*%{$reset_color%}:%{$fg[white]%}%n%{$reset_color%}@%{$fg[magenta]%}%m%{$reset_color%}:%{$fg_bold[blue]%}%~%{$fg[yellow]%}$(git_prompt_info)
-%{$fg[white]%}%# %{$reset_color%}'
+SEPARATOR="%{$FG[238]%} ✱ "
+TIME="%{$FG[028]%}%D{%H}%{$FG[022]%}:%{$FG[028]%}%D{%M}%{$FG[022]%}:%{$FG[028]%}%D{%S}"
+USER="%{$FG[244]%}%n%{$FG[248]%}@%{$fg[magenta]%}%m"
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" (%{$fg_bold[yellow]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$fg_bold[yellow]%})%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔%{$fg_bold[yellow]%})%{$reset_color%}"
+PROMPT='
+%{$TIME%}%{$SEPARATOR%}%{$USER%}%{$SEPARATOR%}%{$fg_bold[blue]%}%~$(git_prompt_info)
+%{$FG[244]%}%# %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[011]%}("
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg[red]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=") %{$FG[028]%}✔%{$reset_color%}"
