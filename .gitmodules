@@ -19,3 +19,6 @@
 [submodule "vim/plugins/vim-scripts/Flex-Development-Support"]
 	path = vim/plugins/vim-scripts/Flex-Development-Support
 	url = git@github.com:vim-scripts/Flex-Development-Support.git
+[submodule "vim/plugins/vim-scripts/SearchComplete"]
+	path = vim/plugins/vim-scripts/SearchComplete
+	url = git@github.com:vim-scripts/SearchComplete.git
