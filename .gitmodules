@@ -1,0 +1,21 @@
+[submodule "vim/plugins/ervandew/supertab"]
+	path = vim/plugins/ervandew/supertab
+	url = git@github.com:ervandew/supertab.git
+[submodule "vim/plugins/msanders/snipmate.vim"]
+	path = vim/plugins/msanders/snipmate.vim
+	url = git@github.com:msanders/snipmate.vim.git
+[submodule "vim/plugins/scrooloose/nerdtree"]
+	path = vim/plugins/scrooloose/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vim/plugins/scrooloose/syntastic"]
+	path = vim/plugins/scrooloose/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule "vim/plugins/tpope/vim-fugitive"]
+	path = vim/plugins/tpope/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim/plugins/vim-scripts/Command-T"]
+	path = vim/plugins/vim-scripts/Command-T
+	url = git@github.com:vim-scripts/Command-T.git
+[submodule "vim/plugins/vim-scripts/Flex-Development-Support"]
+	path = vim/plugins/vim-scripts/Flex-Development-Support
+	url = git@github.com:vim-scripts/Flex-Development-Support.git
