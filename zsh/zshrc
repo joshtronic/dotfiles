@@ -66,6 +66,9 @@ alias    gs="git status"
 # grep
 alias grep="grep --exclude-dir=.git"
 
+# local tunnel
+alias lt="localtunnel -k ~/.ssh/id_rsa.pub 80"
+
 # memcached
 alias mc="telnet localhost 11211"
 

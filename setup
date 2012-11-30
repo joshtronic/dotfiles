@@ -95,6 +95,9 @@ then
 
 	# Installs git hooks
 	sudo ln -s $PWD/git/hooks/post-commit /usr/local/share/git-core/templates/hooks/post-commit
+
+	# Installs some gems
+	sudo gem install localtunnel terminal-notifier
 else
 	# Gives us access to `add-apt-repository`
 	sudo apt-get install python-software-properties
