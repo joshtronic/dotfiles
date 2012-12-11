@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git submodule init
+git submodule update
+
 DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Links .gitconfig
@@ -99,6 +102,9 @@ then
 	# Installs some gems
 	sudo gem install localtunnel terminal-notifier
 else
+	sudo apt-get install zsh
+	chsh -s /bin/zsh josh
+
 	# Gives us access to `add-apt-repository`
 	sudo apt-get install python-software-properties
 
