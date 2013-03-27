@@ -148,7 +148,9 @@ do
 	cp -R $DOTFILES/vim/plugins/${OWNERS[$i]}/${REPOS[$i]}/* $DOTVIM
 done
 
-cp $DOTFILES/vim/less.vim $DOTVIM/syntax
+mkdir $DOTVIM/colors
+cp -R $DOTFILES/vim/colors/* $DOTVIM/colors
+cp -R $DOTFILES/vim/syntax/* $DOTVIM/syntax
 
 # Finish up Command-T installation
 cd $DOTVIM/ruby/command-t
