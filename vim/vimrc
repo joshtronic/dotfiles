@@ -42,6 +42,7 @@ set smartindent
 set shiftwidth=4
 set tabstop=4
 set textwidth=0
+set number
 
 let mapleader = ","
 
@@ -91,6 +92,8 @@ if has('gui_running')
 	colorscheme macvim
 else
 	colorscheme default
+	colorscheme random
+	colorscheme bvemu
 endif
 
 syntax on
