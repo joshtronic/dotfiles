@@ -66,6 +66,9 @@ alias    gs="git status"
 # grep
 alias grep="grep --exclude-dir=.git"
 
+# jekyll
+alias jekyll="jekyll --server --auto"
+
 # local tunnel
 alias lt="localtunnel -k ~/.ssh/id_rsa.pub 80"
 
@@ -74,18 +77,20 @@ alias mc="telnet localhost 11211"
 
 # mysql
 alias mysql="mysql -uroot"
-alias  mybb="mysql bargainbee"
-alias  mycs="mysql crowdsavings"
-alias  mydg="mysql dealgarden"
-alias  myfr="mysql faveroo"
 alias  myst="mysql street"
-alias  myud="mysql urbandealight"
 
 # quit
 alias quit="exit"
 
 # rsync
 alias rsync="rsync --compress --progress"
+
+# servers
+alias     aurora="ssh aurora     -p9455"
+alias    jasmine="ssh jasmine    -p9455"
+alias      mulan="ssh mulan      -p9455"
+alias pocahontas="ssh pocahontas -p9455"
+alias       yars="ssh yars       -p9455"
 
 # service
 alias service="sudo service"
@@ -115,3 +120,7 @@ else
 	export   PATH="$HOME/Source/bash:$PATH"
 	export EDITOR=vim
 fi
+
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
