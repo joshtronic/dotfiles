@@ -32,7 +32,7 @@ then
 	fi
 
 	# Gets our `brew` on
-	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk postgresql p7zip
+	brew install bash-completion git htop imagemagick imagesnap macvim memcached multitail mysql nginx nmap redis ssh-copy-id wget flex_sdk postgresql p7zip node
 
 	# Allows htop to show all processes
 	sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2/bin/htop
@@ -101,6 +101,13 @@ then
 
 	# Installs some gems
 	sudo gem install localtunnel terminal-notifier
+
+	# Installs NPM & LESS (with CLI lessc)
+	curl https://npmjs.org/install.sh | sh
+	npm install -g less
+
+	# Installs SASS
+	sudo gem install sass
 else
 	sudo apt-get install zsh
 	chsh -s /bin/zsh josh
