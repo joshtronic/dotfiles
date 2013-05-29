@@ -85,13 +85,6 @@ alias quit="exit"
 # rsync
 alias rsync="rsync --compress --progress"
 
-# servers
-alias     aurora="ssh aurora     -p9455"
-alias    jasmine="ssh jasmine    -p9455"
-alias      mulan="ssh mulan      -p9455"
-alias pocahontas="ssh pocahontas -p9455"
-alias       yars="ssh yars       -p9455"
-
 # service
 alias service="sudo service"
 
