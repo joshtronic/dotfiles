@@ -22,3 +22,6 @@
 [submodule "vim/plugins/vim-scripts/SearchComplete"]
 	path = vim/plugins/vim-scripts/SearchComplete
 	url = git@github.com:vim-scripts/SearchComplete.git
+[submodule "private"]
+	path = private
+	url = git@github.com:joshtronic/dotfiles-private.git
