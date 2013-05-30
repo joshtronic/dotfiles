@@ -96,6 +96,8 @@ then
 	alias  vd="mvimdiff -v"
 	alias  vo="mvim -v -O"
 
+	alias unquarantine="xattr -r -d com.apple.quarantine *"
+
 	# Tell ls to be colourful
 	export CLICOLOR=1
 	export LSCOLORS=Exfxcxdxbxegedabagacad
