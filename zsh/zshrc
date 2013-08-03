@@ -10,7 +10,7 @@ plugins=(brew git osx)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/Cellar/php53/5.3.16/lib/php:/Users/josh/Source/dotfiles/git/scripts:/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:/usr/local/Cellar/php53/5.3.16/bin:/opt/X11/bin:/usr/local/Cellar/php53/5.3.16/lib/php/File
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/Cellar/php53/5.3.16/lib/php:~/Source/dotfiles/bash:~/Source/dotfiles/git/scripts:/usr/local/Cellar/flex_sdk/4.6.0.23201/libexec/bin:/usr/local/Cellar/php53/5.3.16/bin:/opt/X11/bin:/usr/local/Cellar/php53/5.3.16/lib/php/File
 
 # apt-*
 alias   ac="sudo apt-cache"
