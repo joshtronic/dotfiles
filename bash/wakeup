@@ -1,0 +1,2 @@
+#!/bin/bash
+imagesnap -q ~/.wakeshots/`date +%s`.jpg &
