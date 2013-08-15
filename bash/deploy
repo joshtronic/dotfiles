@@ -1,0 +1,2 @@
+#!/bin/bash
+aurora "cd /var/www/$1; git pull origin HEAD"
