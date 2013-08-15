@@ -1,2 +1,10 @@
-#!/bin/bash
-aurora "cd /var/www/$1; git pull origin HEAD"
+ #!/bin/bash
+
+if [[ -z "$2" ]];
+then
+	BRANCH=master
+else
+	BRANCH=$2
+fi
+
+/usr/bin/ssh -p9455 josh@aurora "cd /var/www/$1; git pull origin $BRANCH"
