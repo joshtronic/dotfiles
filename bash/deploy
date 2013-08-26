@@ -1,10 +1,2 @@
 #!/bin/bash
-
-if [[ -z "$2" ]];
-then
-	BRANCH=master
-else
-	BRANCH=$2
-fi
-
-/usr/bin/ssh -p9455 josh@aurora "cd /var/www/$1; git pull origin $BRANCH"
+/usr/bin/ssh -p9455 josh@aurora "cd /var/www/$1; git rev-parse --abbrev-ref HEAD | xargs git pull origin"
