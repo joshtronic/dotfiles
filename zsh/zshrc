@@ -67,7 +67,7 @@ alias    gs="git status"
 alias grep="grep --exclude-dir=.git"
 
 # jekyll
-alias jekyll="jekyll serve --watch"
+alias jekyll="jekyll --auto --server"
 
 # local tunnel
 alias lt="localtunnel -k ~/.ssh/id_rsa.pub 80"
