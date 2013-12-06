@@ -1,0 +1,8 @@
+#!/bin/bash
+
+osascript -e 'tell application "Safari"' \
+		  -e  'activate' \
+		  -e 'do javascript "window.location.reload();" in first document' \
+		  -e 'end tell' > /dev/null;
+
+osascript -e 'tell application "iTerm" to activate'

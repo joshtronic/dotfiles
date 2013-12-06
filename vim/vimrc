@@ -78,6 +78,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "map <Leader>e :e! ~/.vim_runtime/vimrc<CR>
 "autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
+autocmd BufWritePost * silent !~/Source/dotfiles/bash/refresh
 
 set wildmode=list:longest
 set wildmenu

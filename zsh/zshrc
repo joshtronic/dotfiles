@@ -63,7 +63,7 @@ alias    gs="git status"
 alias grep="grep --exclude-dir=.git"
 
 # jekyll
-alias jekyll="jekyll --auto --server"
+alias jekyll="jekyll --watch serve"
 
 # local tunnel
 alias lt="localtunnel -k ~/.ssh/id_rsa.pub 80"
@@ -159,3 +159,6 @@ then
 else
 	_update_brew_update
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
