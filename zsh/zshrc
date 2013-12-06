@@ -48,6 +48,7 @@ alias    gf="git fetch"
 alias    gl="git log"
 alias    gm="git merge"
 alias   gmm="git merge master"
+alias  gmup="git fetch upstream; git merge origin/upstream"
 alias   gmv="git mv"
 alias    gp="git rev-parse --abbrev-ref HEAD | xargs git push origin"
 alias   gpu="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
@@ -63,7 +64,7 @@ alias    gs="git status"
 alias grep="grep --exclude-dir=.git"
 
 # jekyll
-alias jekyll="jekyll --watch serve"
+alias jekyll="jekyll serve --watch"
 
 # local tunnel
 alias lt="localtunnel -k ~/.ssh/id_rsa.pub 80"
