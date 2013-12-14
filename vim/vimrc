@@ -1,4 +1,22 @@
 set nocompatible
+filetype off " required by Vundle
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Required, let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+Bundle 'ervandew/supertab'
+Bundle 'msanders/snipmate.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/Command-T'
+"Bundle 'vim-scripts/Flex-Development-Support'
+Bundle 'vim-scripts/SearchComplete'
+
+filetype plugin indent on " Also required by Vundle
 
 " Supposed to fix https://github.com/millermedeiros/vim-statline/issues/6
 let g:statline_syntastic = 0
