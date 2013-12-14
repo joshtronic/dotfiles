@@ -7,14 +7,19 @@ call vundle#rc()
 " Required, let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-Bundle 'ervandew/supertab'
-Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'msanders/snipmate.vim'
+Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/Command-T'
-"Bundle 'vim-scripts/Flex-Development-Support'
-Bundle 'vim-scripts/SearchComplete'
+Bundle 'KohPoll/vim-less'
+
+Bundle 'bvemu.vim'
+Bundle 'random.vim'
+
+Bundle 'Command-T'
+"Bundle 'Flex-Development-Support'
+Bundle 'SearchComplete'
 
 filetype plugin indent on " Also required by Vundle
 
