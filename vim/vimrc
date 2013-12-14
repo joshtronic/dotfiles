@@ -8,7 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'scrooloose/nerdtree'
-Bundle 'msanders/snipmate.vim'
+"Bundle 'msanders/snipmate.vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
@@ -18,7 +18,6 @@ Bundle 'bvemu.vim'
 Bundle 'random.vim'
 
 Bundle 'Command-T'
-"Bundle 'Flex-Development-Support'
 Bundle 'SearchComplete'
 
 filetype plugin indent on " Also required by Vundle

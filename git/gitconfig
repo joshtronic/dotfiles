@@ -9,7 +9,7 @@
 	color = true
 
 [core]
-	editor = /usr/bin/vim
+	editor = vim
 
 [color]
 	branch = auto
