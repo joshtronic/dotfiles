@@ -1,5 +1,5 @@
 set nocompatible
-filetype off " required by Vundle
+"filetype off " required by Vundle
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -20,7 +20,7 @@ Bundle 'random.vim'
 Bundle 'Command-T'
 Bundle 'SearchComplete'
 
-filetype plugin indent on " Also required by Vundle
+"filetype indent plugin on " Also required by Vundle
 
 " Supposed to fix https://github.com/millermedeiros/vim-statline/issues/6
 let g:statline_syntastic = 0
