@@ -12,7 +12,6 @@ set laststatus=2
 set list
 set listchars=nbsp:¬,eol:↳,tab:└─,extends:»,precedes:«,trail:•
 set mat=2
-set mouse=a
 set nocindent
 set nocompatible
 set number
