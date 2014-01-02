@@ -36,39 +36,42 @@ set wildmode=list:longest
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'bvemu.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
-Bundle 'Command-T'
+Bundle 'bvemu.vim'
 Bundle 'ervandew/supertab'
+Bundle 'garbas/vim-snipmate'
 Bundle 'joshtronic/php.vim'
-"Bundle 'kien/ctrlp.vim' " Replacement for Cmd-T?
+Bundle 'honza/vim-snippets'
+Bundle 'kien/ctrlp.vim'
 Bundle 'KohPoll/vim-less'
-"Bundle 'kshenoy/vim-signature' " Error when saving file with error
+"Bundle 'kshenoy/vim-signature' " Errors... really want to use it tho
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'msanders/snipmate.vim' " Was fucking up supertab
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'nanotech/jellybeans.vim'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript.git'
-Bundle 'random.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'SearchComplete'
+Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'twilight256.vim'
 
 " Picks a colorscheme
 if has('gui_running')
 	colorscheme macvim
 else
-	colorscheme bvemu
+	colorscheme jellybeans
 endif
 
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufReadPost * call SetCursorPosition()
-autocmd BufWritePost * silent !~/Source/dotfiles/scripts/refresh
+autocmd BufWritePost * silent !~/Source/dotfiles/scripts/refresh-safari
 autocmd ColorScheme * highlight ExtraWhitespace guibg=red
 autocmd FileType c set omnifunc=ccomplete#CompleteCpp
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -96,7 +99,7 @@ highlight link javaScriptBraces NONE
 highlight NonText ctermfg=237 guifg=#303030
 highlight Number cterm=NONE ctermfg=darkred
 highlight Search cterm=NONE ctermfg=NONE
-highlight SpecialKey ctermfg=237 guifg=#303030
+highlight SpecialKey ctermfg=red guifg=#303030
 highlight Statement cterm=NONE ctermfg=2
 highlight String cterm=NONE ctermfg=darkred
 
@@ -105,6 +108,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeWinSize = 40
+
+let g:solarized_termtrans = 1
 
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :

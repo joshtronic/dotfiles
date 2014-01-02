@@ -73,8 +73,9 @@ then
 	# launchctl unload -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 	# rm ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 	#
+	# TODO Update to PHP 5.5, add additional packages
 	# # Installs PHP for Nginx (via FPM)
-	# brew install php53 --with-fpm --with-mysql --with-suhosin
+	# brew install php53 --with-fpm --with-mysql --with-pgsql --with-suhosin
 	# cp /usr/local/Cellar/php53/5.3.16/homebrew-php.josegonzalez.php53.plist ~/Library/LaunchAgents/
 	# launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php53.plist
 	#
@@ -109,6 +110,7 @@ else
 	# Adds PPA to get nginx to a more recent stable release
 	sudo add-apt-repository ppa:nginx/stable && apt-get update
 
+	# TODO New install process with nginx and php55 upgrades
 	# Installs CLI apps
 	sudo apt-get install vim ssh multitail htop iotop git-core ruby1.8-dev \
 	                     nginx php5 php5-cgi php5-cli php-pear php5-suhosin \
@@ -128,15 +130,6 @@ ln -s $DOTFILES/vim/vimrc ~/.vimrc
 # Gets our Vundle on!
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
-
-mkdir $DOTVIM/colors
-cp -R $DOTFILES/vim/colors/* $DOTVIM/colors
-cp -R $DOTFILES/vim/syntax/* $DOTVIM/syntax
-
-# Finish up Command-T installation
-cd $DOTVIM/ruby/command-t
-ruby extconf.rb
-make
 
 # Installs Oh my zsh!
 if [ ! -d ~/.oh-my-zsh ];
