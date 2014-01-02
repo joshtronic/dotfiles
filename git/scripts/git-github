@@ -1,9 +1,11 @@
 #!/bin/bash
 # create directory and checkout project from github
-# usage: git github joshtronic bash
+# usage: git github joshtronic/bash
 
-git init $2
-cd $2
-git remote add origin git@github.com:$1/$2.git
+DIR=`echo $1 | awk -F '/' '{print $2}'`
+
+git init $DIR
+cd $DIR
+git remote add origin git@github.com:$1.git
 git pull origin master
 cd ..
