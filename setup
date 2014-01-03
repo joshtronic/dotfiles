@@ -125,6 +125,9 @@ then
 	rm ~/.vimrc
 fi
 
+# Gets our undofiles working
+[ -d ~/.vim/undofiles ] || mkdir ~/.vim/undofiles
+
 ln -s $DOTFILES/vim/vimrc ~/.vimrc
 
 # Gets our Vundle on!
