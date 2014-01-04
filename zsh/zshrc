@@ -67,6 +67,9 @@ alias    gs="git status"
 # grep
 alias grep="grep --exclude-dir=.git"
 
+# iPhone Simulator
+alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+
 # jekyll
 alias jekyll="(sleep 2 && open http://localhost:4000) & jekyll serve --watch"
 
@@ -127,43 +130,43 @@ then
 	source ~/.zshrc-private
 fi
 
-# Check for updates to Homebrew
-BREW_UPDATE_FILE=~/.brew-update
-
-function _update_brew_update()
-{
-	echo "BREW_UPDATE=`date +%s`" > $BREW_UPDATE_FILE
-}
-
-_update_brew_update
-
-if [ -f $BREW_UPDATE_FILE ]
-then
-	. ~/.brew-update
-
-	if [[ -z "$BREW_UPDATE" ]]; then
-		_update_brew_update
-	fi
-
-	CURRENT_TIME=`date +%s`
-	UPDATE_OFFSET=$((10 * 86400))
-	NEXT_UPDATE=$(( CURRENT_TIME + UPDATE_OFFSET ))
-
-	if [ $BREW_UPDATE -gt $NEXT_UPDATE ]
-	then
-		echo "[Homebrew] Would you like to check for updates?"
-		echo "Type Y to update Homebrew: \c"
-		read line
-		if [ "$line" = Y ] || [ "$line" = y ]; then
-			brew update
-			brew upgrade
-		fi
-
-		_update_brew_update
-	fi
-else
-	_update_brew_update
-fi
+# # Check for updates to Homebrew
+# BREW_UPDATE_FILE=~/.brew-update
+# 
+# function _update_brew_update()
+# {
+# 	echo "BREW_UPDATE=`date +%s`" > $BREW_UPDATE_FILE
+# }
+# 
+# _update_brew_update
+# 
+# if [ -f $BREW_UPDATE_FILE ]
+# then
+# 	. ~/.brew-update
+# 
+# 	if [[ -z "$BREW_UPDATE" ]]; then
+# 		_update_brew_update
+# 	fi
+# 
+# 	CURRENT_TIME=`date +%s`
+# 	UPDATE_OFFSET=$((10 * 86400))
+# 	NEXT_UPDATE=$(( CURRENT_TIME + UPDATE_OFFSET ))
+# 
+# 	if [ $BREW_UPDATE -gt $NEXT_UPDATE ]
+# 	then
+# 		echo "[Homebrew] Would you like to check for updates?"
+# 		echo "Type Y to update Homebrew: \c"
+# 		read line
+# 		if [ "$line" = Y ] || [ "$line" = y ]; then
+# 			brew update
+# 			brew upgrade
+# 		fi
+# 
+# 		_update_brew_update
+# 	fi
+# else
+# 	_update_brew_update
+# fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
