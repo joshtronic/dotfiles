@@ -1,7 +1,7 @@
 set autoindent
 set background=dark
 set backspace=indent,eol,start
-set colorcolumn=+1
+set colorcolumn=80
 set foldmethod=marker
 set hidden
 set history=1000
@@ -37,7 +37,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
-Bundle 'bvemu.vim'
 Bundle 'ervandew/supertab'
 Bundle 'garbas/vim-snipmate'
 Bundle 'joshtronic/php.vim'
@@ -58,19 +57,9 @@ Bundle 'SearchComplete'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
-Bundle 'twilight256.vim'
-
-" Picks a colorscheme
-if has('gui_running')
-	colorscheme macvim
-else
-	colorscheme jellybeans
-endif
 
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd BufNewFile,BufRead *.less set filetype=less
-autocmd BufReadPost * call SetCursorPosition()
-autocmd BufWritePost * silent !~/Source/dotfiles/scripts/refresh-safari
 autocmd ColorScheme * highlight ExtraWhitespace guibg=red
 autocmd FileType c set omnifunc=ccomplete#CompleteCpp
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -90,6 +79,8 @@ autocmd BufReadPost fugitive://*
 	\   nnoremap <buffer> .. :edit %:h<CR> |
 	\ endif
 
+colorscheme jellybeans
+
 highlight Conditional ctermfg=2
 highlight Constant cterm=NONE ctermfg=2
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -108,8 +99,6 @@ let g:airline_theme_patch_func = 'AirlineThemePatch'
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeWinSize = 40
 
-let g:solarized_termtrans = 1
-
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
 nnoremap <Leader>[ :previous<CR>
@@ -118,14 +107,18 @@ nnoremap <Leader>{ :first<CR>
 nnoremap <Leader>} :last<CR>
 nnoremap <Leader>3 :set nonumber<CR>
 nnoremap <Leader># :set number<CR>
-nnoremap <Leader>8 :set colorcolumn=80<CR>
-nnoremap <Leader>* :set colorcolumn=+1<CR>
+nnoremap <Leader>8 :set colorcolumn=+1<CR>
+nnoremap <Leader>* :set colorcolumn=80<CR>
+nnoremap <Leader>b :BundleUpdate<CR>:q<CR>
+nnoremap <Leader>c :!wc %<CR>
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
 nnoremap <Leader>n :NERDTree<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>r :silent !~/Source/dotfiles/scripts/refresh-safari<CR>:redraw!<CR>
 nnoremap <Leader>ss / $<CR>
 nnoremap <Leader>tt /\t$<CR>
+nnoremap <Leader>v :so %<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>ww :w!<CR>
 
@@ -136,13 +129,14 @@ vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
 " Jumps to last cursor position except on commit messages
+autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
 	if &filetype !~ 'svn\|commit\c'
 		if line("'\"") > 0 && line("'\"") <= line("$")
 			exe "normal! g`\""
 			normal! zz
 		endif
-	end
+	endif
 endfunction
 
 " Search for selected text
