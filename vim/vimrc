@@ -2,6 +2,7 @@ set autoindent
 set background=dark
 set backspace=indent,eol,start
 set colorcolumn=80
+set cursorline
 set foldmethod=marker
 set hidden
 set history=1000
