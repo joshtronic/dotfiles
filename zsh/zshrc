@@ -95,8 +95,8 @@ alias count="wc -l"
 # vim (and some other stuff)
 if [[ `uname` == "Darwin" ]];
 then
-	alias vim="mvim -v"
-	alias   v="mvim -v"
+	alias vim="mvim -v -p"
+	alias   v="mvim -v -p"
 	alias  vd="mvimdiff -v"
 	alias  vo="mvim -v -O"
 
@@ -112,7 +112,7 @@ then
 	export   PATH=/usr/local/bin:/usr/local/sbin:$PATH
 	export EDITOR="mvim -v"
 else
-	alias  v="vim"
+	alias  v="vim -p"
 	alias vd="vimdiff"
 	alias vo="vim -O"
 

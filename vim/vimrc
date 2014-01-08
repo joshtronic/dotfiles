@@ -97,15 +97,20 @@ highlight String cterm=NONE ctermfg=darkred
 let mapleader = ','
 let g:airline_powerline_fonts = 1
 let g:airline_theme_patch_func = 'AirlineThemePatch'
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#tab_min_count = 2
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeWinSize = 40
 
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
-nnoremap <Leader>[ :previous<CR>
-nnoremap <Leader>] :next<CR>
-nnoremap <Leader>{ :first<CR>
-nnoremap <Leader>} :last<CR>
+nnoremap <Leader>[ :tabprevious<CR>
+nnoremap <Leader>] :tabnext<CR>
+nnoremap <Leader>{ :tabfirst<CR>
+nnoremap <Leader>} :tablast<CR>
 nnoremap <Leader>3 :set nonumber<CR>
 nnoremap <Leader># :set number<CR>
 nnoremap <Leader>8 :set colorcolumn=+1<CR>
