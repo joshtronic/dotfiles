@@ -32,9 +32,9 @@ then
 	fi
 
 	# Gets our `brew` on
-	brew install bash-completion git htop imagemagick imagesnap vim macvim \
-	             memcached multitail mysql nginx nmap redis ssh-copy-id wget \
-	             p7zip node npm
+	brew install bash-completion ghi git htop hub imagemagick imagesnap \
+	             macvim memcached multitail mysql nginx nmap node npm  p7zip \
+	             redis ssh-copy-id vim wget
 
 	# Allows htop to show all processes
 	# TODO Need to find a better way to run these that sniffs the current version
@@ -172,4 +172,3 @@ fi
 echo; echo 'WE’RE GOLDEN!'
 
 # TODO - link mercurial config
-# TODO - install hub, brew install hub
