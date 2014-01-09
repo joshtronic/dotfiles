@@ -6,7 +6,7 @@ ZSH_THEME="joshtronic"
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(brew git osx)
+plugins=(brew git git-extras github last-working-dir mercurial npm osx per-directory-history pip python redis-cli ruby vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -71,7 +71,7 @@ alias grep="grep --exclude-dir=.git"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 
 # jekyll
-alias jekyll="(sleep 2 && open http://localhost:4000) & jekyll serve --watch"
+alias jekyll="(sleep 5 && open http://localhost:4000) & jekyll serve --watch"
 
 # memcached
 alias mc="telnet localhost 11211"

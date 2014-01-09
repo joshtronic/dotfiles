@@ -170,3 +170,6 @@ then
 fi
 
 echo; echo 'WE’RE GOLDEN!'
+
+# TODO - link mercurial config
+# TODO - install github gem
