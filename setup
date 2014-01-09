@@ -172,4 +172,4 @@ fi
 echo; echo 'WE’RE GOLDEN!'
 
 # TODO - link mercurial config
-# TODO - install github gem
+# TODO - install hub, brew install hub
