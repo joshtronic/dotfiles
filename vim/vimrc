@@ -63,12 +63,12 @@ Bundle 'tpope/vim-surround'
 
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd BufNewFile,BufRead *.less set filetype=less
+autocmd BufRead,BufNewFile nginx.conf set filetype=nginx
 autocmd ColorScheme * highlight ExtraWhitespace guibg=red
 autocmd FileType c set omnifunc=ccomplete#CompleteCpp
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-au BufRead,BufNewFile nginx.conf set ft=nginx
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType svn,*commit* setlocal spell
