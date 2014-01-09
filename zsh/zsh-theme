@@ -13,7 +13,7 @@ TIME="%{$FG[028]%}%D{%H}%{$FG[022]%}:%{$FG[028]%}%D{%M}%{$FG[022]%}:%{$FG[028]%}
 USER="%{$FG[244]%}%n%{$FG[248]%}@%{$fg[magenta]%}%m"
 
 PROMPT='
-%{$TIME%}%{$SEPARATOR%}%{$USER%}%{$SEPARATOR%}%{$fg_bold[blue]%}%~$(git_prompt_info) $(hg_prompt_info)
+%{$TIME%}%{$SEPARATOR%}%{$USER%}%{$SEPARATOR%}%{$fg_bold[blue]%}%~$(git_prompt_info)
 ${REMOTE_INDICATOR}%{$FG[244]%}%# %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[011]%}("
