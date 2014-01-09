@@ -43,6 +43,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'groenewege/vim-less'
 Bundle 'joshtronic/php.vim'
 Bundle 'joshtronic/vim-snippets'
+Bundle 'jQuery'
 Bundle 'kien/ctrlp.vim'
 "Bundle 'kshenoy/vim-signature' " Errors... really want to use it tho
 Bundle 'Lokaltog/vim-easymotion'
