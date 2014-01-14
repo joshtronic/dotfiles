@@ -56,6 +56,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'SearchComplete'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-fugitive'
