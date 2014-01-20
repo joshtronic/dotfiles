@@ -1,22 +1,29 @@
-function
+function username()
 {
-	if [[ -n "$SSH_CLIENT" ]];
+	if [[ `whoami` != 'josh' ]];
 	then
-		REMOTE_INDICATOR='📡  '
-	else
-		REMOTE_INDICATOR=''
+		echo %{$FG[248]%}%n
 	fi
 }
 
-SEPARATOR="%{$FG[238]%} ✱ "
-TIME="%{$FG[028]%}%D{%H}%{$FG[022]%}:%{$FG[028]%}%D{%M}%{$FG[022]%}:%{$FG[028]%}%D{%S}"
-USER="%{$FG[244]%}%n%{$FG[248]%}@%{$fg[magenta]%}%m"
+function server()
+{
+	if [[ `hostname` != *.local ]];
+	then
+		echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
+	fi
+}
 
+function unread_count()
+{
+}
+
+USER="$(username)$(server)"
 PROMPT='
-%{$TIME%}%{$SEPARATOR%}%{$USER%}%{$SEPARATOR%}%{$fg_bold[blue]%}%~$(git_prompt_info)
-${REMOTE_INDICATOR}%{$FG[244]%}%# %{$reset_color%}'
+%{$USER%}%{$fg[blue]%}%~ $(git_prompt_info)
+%{$FG[244]%}%# %{$reset_color%}'
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[011]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY=") %{$fg[red]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=")"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✔"

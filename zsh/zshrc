@@ -37,7 +37,7 @@ alias fm="free -m"
 # git
 alias     g="git"
 alias    ga="git add"
-alias   gaa="git add ."
+alias   gaa="git add --all"
 alias    gb="git branch"
 alias   gba="git branch -a"
 alias    gc="git commit"
@@ -75,10 +75,17 @@ alias jekyll="(sleep 5 && open http://localhost:4000) & jekyll serve --watch"
 
 # memcached
 alias mc="telnet localhost 11211"
+alias mcfl="echo 'flush_all' | nc localhost 11211"
+
+# mtr
+alias mtr="sudo mtr"
 
 # mysql
 alias mysql="mysql -uroot"
 alias  myst="mysql street"
+
+# python
+alias py="python"
 
 # quit
 alias quit="exit"
@@ -91,6 +98,9 @@ alias service="sudo service"
 
 # wc
 alias count="wc -l"
+
+# zsh
+alias zshrc="source ~/.zshrc"
 
 # vim (and some other stuff)
 if [[ `uname` == "Darwin" ]];
@@ -170,3 +180,6 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+echo ''
+fortune
