@@ -102,12 +102,10 @@ let mapleader = ','
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
 let g:airline_theme_patch_func = 'AirlineThemePatch'
-let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#tab_min_count = 2
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeWinSize = 40
 
