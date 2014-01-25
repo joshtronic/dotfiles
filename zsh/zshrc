@@ -34,6 +34,20 @@ alias desktop="cd ~/Desktop"
 # free
 alias fm="free -m"
 
+# ghi
+alias issues="ghi"
+alias     oi="issues"
+alias     ob="ghi list -LBug"
+alias     od="ghi list -LDevelopment"
+alias     oe="ghi list -LEnhancement"
+alias     nb="ghi open -LBugs"
+alias     nd="ghi open -LDevelopment"
+alias     ne="ghi open -LEnhancement"
+alias     si="ghi show"
+alias     ei="ghi edit"
+alias     ci="ghi comment"
+alias     xi="ghi close"
+
 # git
 alias     g="git"
 alias    ga="git add"
