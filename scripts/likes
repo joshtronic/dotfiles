@@ -1,0 +1,2 @@
+#!/bin/sh
+wget http://graph.facebook.com/$1 -q -O - | awk -F ',"(likes|shares)":' '{print substr($2, 0, length($2) - 1)}'
