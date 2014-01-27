@@ -3,10 +3,10 @@
 # Change the following six lines to match your Gmail account details
 set imap_user = `security find-generic-password -s @gmail.com | grep 'acct' | cut -c 19- | tr -d '"' | tr -d '\n'`
 set imap_pass = `security find-generic-password -s @gmail.com -w`
-set smtp_url = "smtp://YOUR.EMAIL@smtp.gmail.com:587/"
-set smtp_pass = `security find-generic-password -w -s ${KEYCHAIN_ITEM}`
-set from = `security find-generic-password -s ${KEYCHAIN_ITEM} | grep 'acct' | cut -c 19- | tr -d '"' | tr -d '\n'`
-set realname = "Joshua Sherman"
+set smtp_url = "smtp://`security find-generic-password -s @gmail.com | grep 'acct' | cut -c 19- | tr -d '\"' | tr -d '\n'`@smtp.gmail.com:587/"
+set smtp_pass = `security find-generic-password -w -s @gmail.com`
+set from = `security find-generic-password -s @gmail.com | grep 'acct' | cut -c 19- | tr -d '"' | tr -d '\n'`
+set realname = "`finger $(whoami) | awk -F: '{ print $3 }' | head -n1 | sed 's/^ //' | tr -d '\n'`"
 
 # Change the following line to a different editor you prefer.
 set editor = "mvim -v"
