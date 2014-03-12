@@ -124,7 +124,7 @@ nnoremap <Leader>b :BundleUpdate<CR>:q<CR>
 nnoremap <Leader>c :!wc %<CR>
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
-nnoremap <Leader>m :%s/<code>/`/e<CR>:%s/<\/code>/`/e<CR>:%s/<h2>/## /e<CR>:%s/<\/h2>//e<CR>:%s/<\/pre>/```/e<CR>:%s/    /\t/g<CR>
+nnoremap <Leader>m :%s/<code>/`/ge<CR>:%s/<\/code>/`/ge<CR>:%s/<h2>/## /ge<CR>:%s/<\/h2>//ge<CR>:%s/<\/pre>/```/ge<CR>:%s/    /\t/ge<CR>
 nnoremap <Leader>n :NERDTree<CR>
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader>r :silent !~/Source/dotfiles/scripts/refresh-safari<CR>:redraw!<CR>
