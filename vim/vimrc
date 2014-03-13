@@ -64,6 +64,7 @@ Bundle 'tpope/vim-surround'
 
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd BufNewFile,BufRead *.less set filetype=less
+autocmd BufRead,BufNewFile GHI_ISSUE set filetype=issue
 autocmd BufRead,BufNewFile nginx.conf set filetype=nginx
 autocmd ColorScheme * highlight ExtraWhitespace guibg=red
 autocmd FileType c set omnifunc=ccomplete#CompleteCpp
@@ -72,7 +73,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType svn,*commit* setlocal spell
+autocmd FileType svn,*commit*,*issue* setlocal spell
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
@@ -123,6 +124,7 @@ nnoremap <Leader>b :BundleUpdate<CR>:q<CR>
 nnoremap <Leader>c :!wc %<CR>
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
+nnoremap <Leader>m :%s/<code>/`/ge<CR>:%s/<\/code>/`/ge<CR>:%s/<h2>/## /ge<CR>:%s/<\/h2>//ge<CR>:%s/<\/pre>/```/ge<CR>:%s/    /\t/ge<CR>
 nnoremap <Leader>n :NERDTree<CR>
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader>r :silent !~/Source/dotfiles/scripts/refresh-safari<CR>:redraw!<CR>
@@ -141,7 +143,7 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 " Jumps to last cursor position except on commit messages
 autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
-	if &filetype !~ 'svn\|commit\c'
+	if &filetype !~ 'svn\|commit\|issue\c'
 		if line("'\"") > 0 && line("'\"") <= line("$")
 			exe "normal! g`\""
 			normal! zz
