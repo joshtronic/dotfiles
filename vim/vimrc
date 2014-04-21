@@ -44,6 +44,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'joshtronic/php.vim'
 Bundle 'joshtronic/vim-snippets'
 Bundle 'jQuery'
+Bundle 'junegunn/goyo.vim'
 Bundle 'kien/ctrlp.vim'
 "Bundle 'kshenoy/vim-signature' " Errors... really want to use it tho
 Bundle 'Lokaltog/vim-easymotion'
