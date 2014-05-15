@@ -31,11 +31,6 @@ then
 		mkdir -p ~/Library/LaunchAgents
 	fi
 
-	# Gets our `brew` on
-	brew install bash-completion fortune ghi git htop hub imagemagick \
-	             imagesnap macvim memcached multitail mysql nginx nmap \
-	             node npm p7zip redis ssh-copy-id vim wget
-
 	# Allows htop to show all processes
 	# TODO Need to find a better way to run these that sniffs the current version
 	sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2.2/bin/htop
@@ -97,12 +92,6 @@ then
 	# Installs git hooks
 	sudo ln -s $PWD/git/hooks/post-commit \
 	           /usr/local/share/git-core/templates/hooks/post-commit
-
-	# Go mining for some gems
-	sudo gem install terminal-notifier sass
-
-	# Installs LESS (with CLI lessc)
-	npm install -g less@1.3
 else
 	sudo apt-get install python-software-properties zsh
 	chsh -s /bin/zsh josh
@@ -126,6 +115,7 @@ then
 fi
 
 # Gets our undofiles working
+# TODO move to this - silent !mkdir ~/.vim/undofiles > /dev/null 2>&1
 [ -d ~/.vim/undofiles ] || mkdir ~/.vim/undofiles
 
 ln -s $DOTFILES/vim/vimrc ~/.vimrc

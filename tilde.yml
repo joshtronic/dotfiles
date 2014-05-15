@@ -1,0 +1,29 @@
+packages:
+  brew:
+    - joshtronic/homebrew-formulae
+    - bash-completion
+    - fortune
+    - ghi
+    - git
+    - htop
+    - hub
+    - imagemagick
+    - imagesnap
+    - macvim
+    - memcached
+    - multitail
+    - mysql
+    - nginx
+    - nmap
+    - node
+    - npm
+    - p7zip
+    - redis
+    - ssh-copy-id
+    - vim
+    - wget
+  gem:
+    - sass
+    - terminal-notifier
+  npm:
+    - less@1.3
