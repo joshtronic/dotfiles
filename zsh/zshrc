@@ -110,11 +110,8 @@ alias quit="exit"
 # rsync
 alias rsync="rsync --compress --progress"
 
-# service
-alias service="sudo service"
-
 # wc
-alias count="wc -l"
+alias lc="wc -l"
 
 # zsh
 alias zshrc="source ~/.zshrc"
