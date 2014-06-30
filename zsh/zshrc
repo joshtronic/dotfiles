@@ -116,14 +116,17 @@ alias lc="wc -l"
 # zsh
 alias zshrc="source ~/.zshrc"
 
-# vim (and some other stuff)
+# vim
+alias   v="vim -p"
+alias  vi="vim -p"
+alias vim="vim -p"
+alias  vd="vimdiff"
+alias  vo="vim -O"
+
+
+# Platform-specific
 if [[ `uname` == "Darwin" ]];
 then
-	alias vim="mvim -v -p"
-	alias   v="mvim -v -p"
-	alias  vd="mvimdiff -v"
-	alias  vo="mvim -v -O"
-
 	alias unquarantine="xattr -r -d com.apple.quarantine *"
 
 	# Tell ls to be colourful
@@ -136,10 +139,6 @@ then
 	export   PATH=/usr/local/bin:/usr/local/sbin:$PATH
 	export EDITOR="mvim -v"
 else
-	alias  v="vim -p"
-	alias vd="vimdiff"
-	alias vo="vim -O"
-
 	export   PATH="$HOME/Source/bash:$PATH"
 	export EDITOR=vim
 fi
@@ -192,6 +191,4 @@ fi
 # 	_update_brew_update
 # fi
 
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

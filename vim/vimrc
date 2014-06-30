@@ -164,3 +164,11 @@ endfunction
 function! AirlineThemePatch(palette)
 	let a:palette.normal.airline_a = [ '#ffffff', '#268bd2', 255, 33 ]
 endfunction
+
+" function LessToCss()
+" 	let less_file = shellescape(expand('%:p'))
+" 	let filename  = shellescape(expand('%:r'))
+" 	let command   = "silent !lessc " . less_file . " " . filename . ".css"
+" 	execute command
+" endfunction
+" autocmd BufWritePost,FileWritePost *.less call LessToCss()

@@ -1,29 +1,46 @@
+before: sudo easy_install pip
+
 packages:
   brew:
+    - Homebrew/homebrew-php
     - joshtronic/homebrew-formulae
+    - bash
     - bash-completion
-    - fortune
     - ghi
     - git
     - htop
-    - hub
+      - sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2.2/bin/htop
+      - sudo chmod u+s /usr/local/Cellar/htop-osx/0.8.2.2/bin/htop
     - imagemagick
     - imagesnap
-    - macvim
+      - may want to put logic here to link my gitshots
     - memcached
+      - launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+      - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
     - multitail
     - mysql
+      - launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+      - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
     - nginx
+      - script to link /var/www/*/conf/nginx.conf files
+      - logic to set the port # to 80 instead of 8080
+      - wondering if I should just start using 8080 to avoid sudo
+      - sudo nginx
     - nmap
     - node
-    - npm
     - p7zip
     - redis
+      - launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+      - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
     - ssh-copy-id
+    - ruby
     - vim
     - wget
+
   gem:
+    - hub
     - sass
     - terminal-notifier
+
   npm:
     - less@1.3
