@@ -110,6 +110,11 @@ alias quit="exit"
 # rsync
 alias rsync="rsync --compress --progress"
 
+# servers
+alias    aurora="ssh aurora"
+alias     apps1="ssh availability@apps1"
+alias apps1root="ssh root@apps1"
+
 # wc
 alias lc="wc -l"
 

@@ -1,7 +1,10 @@
 before: sudo easy_install pip
+before: xcode-select --install
+before: https://github.com/php-test-helpers/php-test-helpers/issues/23#issuecomment-29418653
 
 packages:
   brew:
+    - Homebrew/dupes
     - Homebrew/homebrew-php
     - joshtronic/homebrew-formulae
     - bash
@@ -16,24 +19,32 @@ packages:
       - may want to put logic here to link my gitshots
     - memcached
       - launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+      - ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
       - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
     - multitail
     - mysql
       - launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+      - ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
       - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
     - nginx
+      - ln -sfv /usr/local/opt/nginx/*.plist ~/Library/LaunchAgents
+      - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist
       - script to link /var/www/*/conf/nginx.conf files
       - logic to set the port # to 80 instead of 8080
       - wondering if I should just start using 8080 to avoid sudo
       - sudo nginx
     - nmap
     - node
-    - p7zip
+#    - p7zip
+    - php55 --with-fpm --with-pgsql --with-mysql
+      - cp /usr/local/Cellar/php55/5.5.14/homebrew.mxcl.php55.plist ~/Library/LaunchAgents/
+      - launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist
     - redis
+      - ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
       - launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
       - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
     - ssh-copy-id
-    - ruby
+#    - ruby
     - vim
     - wget
 
