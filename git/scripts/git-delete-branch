@@ -1,6 +1,0 @@
-#!/bin/bash
-# remove remote git branch
-# usage: git delete-branch name
-
-git branch -D $1
-git push origin :$1
