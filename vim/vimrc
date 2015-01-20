@@ -45,10 +45,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'joshtronic/php.vim'
 Bundle 'joshtronic/vim-snippets'
 Bundle 'jQuery'
-Bundle 'junegunn/goyo.vim'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'kshenoy/vim-signature' " Errors... really want to use it tho
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'nanotech/jellybeans.vim'
@@ -57,14 +54,9 @@ Bundle 'nginx.vim'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript.git'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'SearchComplete'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
 
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd BufNewFile,BufRead *.less set filetype=less
@@ -81,13 +73,6 @@ autocmd FileType svn,*commit*,*issue* setlocal spell
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
-
-" Allows fugitive to browse the parent tree
-autocmd BufReadPost fugitive://* set bufhidden=delete
-autocmd BufReadPost fugitive://*
-	\ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-	\   nnoremap <buffer> .. :edit %:h<CR> |
-	\ endif
 
 colorscheme jellybeans
 
@@ -113,8 +98,6 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
-let g:NERDTreeMouseMode = 3
-let g:NERDTreeWinSize = 40
 
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
@@ -130,10 +113,7 @@ nnoremap <Leader>b :BundleUpdate<CR>:q<CR>
 nnoremap <Leader>c :!wc %<CR>
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
-nnoremap <Leader>m :%s/<code>/`/ge<CR>:%s/<\/code>/`/ge<CR>:%s/<h2>/## /ge<CR>:%s/<\/h2>//ge<CR>:%s/<pre lang="php" class="prettyprint">/```php/ge<CR>:%s/<pre lang="shell" class="prettyprint">/```bash/ge<CR>:%s/<\/pre>/```/ge<CR>:%s/    /\t/ge<CR>
-nnoremap <Leader>n :NERDTree<CR>
 nnoremap <Leader>q :qa<CR>
-nnoremap <Leader>r :silent !~/Source/dotfiles/scripts/refresh-safari<CR>:redraw!<CR>
 nnoremap <Leader>ss / $<CR>
 nnoremap <Leader>tt /\t$<CR>
 nnoremap <Leader>v :so ~/.vimrc<CR>
