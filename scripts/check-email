@@ -1,2 +1,0 @@
-#!/bin/bash
-export KEYCHAIN_ITEM='@gmail.com' && curl -u `security find-generic-password -s ${KEYCHAIN_ITEM} | grep 'acct' | cut -c 19- | tr -d '"' | tr -d '\n'`:`security find-generic-password -w -s ${KEYCHAIN_ITEM}` --silent "https://mail.google.com/mail/feed/atom" | perl -ne 'print "$2\n" if /<(email)>(.*)<\/\1>/;' | wc -l | tr -d ' ' > /tmp/UNREAD_GMAIL > /tmp/UNREAD_GMAIL
