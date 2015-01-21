@@ -1,20 +1,20 @@
 [user]
-	name = Josh Sherman
-	email = josh@gravityblvd.com
+  name = Josh Sherman
+  email = josh@gravityblvd.com
 
 [diff]
-	rename = copy
+  rename = copy
 
 [pager]
-	color = true
+  color = true
 
 [core]
-	editor = vim
+  editor = vim
 
 [color]
-	branch = auto
-	diff   = auto
-	status = auto
+  branch = auto
+  diff   = auto
+  status = auto
 
 [github]
-	user = joshtronic
+  user = joshtronic
