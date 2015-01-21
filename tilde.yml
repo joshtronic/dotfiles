@@ -6,6 +6,7 @@ packages:
     - bash
     - ghi
     - git
+    - git-extras
     - imagemagick
     - likes
     - memcached
