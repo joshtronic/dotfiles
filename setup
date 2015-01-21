@@ -1,23 +1,10 @@
-#!/bin/bash
+#/bin/bash
 
 DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-
-# Installs git hooks
-sudo ln -s $PWD/git/hooks/post-commit \
-/usr/local/share/git-core/templates/hooks/post-commit
-
-# Links .vimrc
-if [ -e ~/.vimrc ] || [ -h ~/.vimrc ];
-then
-	rm ~/.vimrc
-fi
 
 # Gets our undofiles working
 # TODO move to this - silent !mkdir ~/.vim/undofiles > /dev/null 2>&1
 [ -d ~/.vim/undofiles ] || mkdir ~/.vim/undofiles
-
-ln -s $DOTFILES/vim/vimrc ~/.vimrc
 
 # Gets our Vundle on!
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -27,38 +14,4 @@ vim +BundleInstall +qall
 if [ ! -d ~/.oh-my-zsh ];
 then
 	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-fi
-
-# Links theme
-if [ -e ~/.oh-my-zsh/themes/joshtronic.zsh-theme ] || [ -h ~/.oh-my-zsh/themes/joshtronic.zsh-theme ];
-then
-	rm ~/.oh-my-zsh/themes/joshtronic.zsh-theme
-fi
-
-ln -s $DOTFILES/zsh/zsh-theme ~/.oh-my-zsh/themes/joshtronic.zsh-theme
-
-# Links .zshrc
-if [ -e ~/.zshrc ] || [ -h ~/.zshrc ];
-then
-	rm ~/.zshrc
-fi
-
-ln -s $DOTFILES/zsh/zshrc ~/.zshrc
-
-# Additional plugins
-#cd ~/.oh-my-zsh/custom/plugins
-#git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-
-
-# TODO Move away from submodule and add logic to only do this if it's me
-#      Perhaps only run this is the dotfiles-private directory is avail
-# Links .zshrc-private
-if [ -e ~/.zshrc-private ] || [ -h ~/.zshrc-private ];
-then
-	rm ~/.zshrc-private
-fi
-
-if [ -e $DOTFILES/private/zsh/zshrc ]
-then
-	ln -s $DOTFILES/private/zsh/zshrc ~/.zshrc-private
 fi
