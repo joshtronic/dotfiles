@@ -9,9 +9,3 @@ DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Gets our Vundle on!
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
-
-# Installs Oh my zsh!
-if [ ! -d ~/.oh-my-zsh ];
-then
-	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-fi

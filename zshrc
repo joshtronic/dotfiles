@@ -6,7 +6,7 @@ ZSH_THEME="joshtronic"
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(brew common-aliases composer git-extras git gitfast github gitignore jsontools meteor node npm nvm osx redis-cli rsync systemadmin vundle web-search xcode z zsh_reload) 
+plugins=(brew common-aliases composer git-extras git gitfast gitignore jsontools meteor node npm nvm osx redis-cli rsync systemadmin vundle web-search xcode z zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
