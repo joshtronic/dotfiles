@@ -50,6 +50,7 @@ set wildmode=list:longest
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'AfterColors.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'ervandew/supertab'
@@ -64,16 +65,22 @@ Bundle 'nanotech/jellybeans.vim'
 "Bundle 'nathanaelkane/vim-indent-guides'
 "Bundle 'nginx.vim'
 "Bundle 'othree/html5.vim'
-"Bundle 'pangloss/vim-javascript.git'
+Bundle 'pangloss/vim-javascript.git'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'scrooloose/syntastic'
 "Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'SearchComplete'
 
-autocmd BufEnter * match ExtraWhitespace /\s\+$/
+colorscheme jellybeans
+
 autocmd BufNewFile,BufRead *.less set filetype=less
 autocmd BufRead,BufNewFile nginx.conf set filetype=nginx
-autocmd ColorScheme * highlight ExtraWhitespace guibg=red
+
+autocmd BufEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
+highlight ExtraWhitespace ctermbg=red guibg=red
+
 " autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -81,14 +88,9 @@ autocmd ColorScheme * highlight ExtraWhitespace guibg=red
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 " autocmd FileType svn,*commit*,*issue* setlocal spell
 " autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
-
-colorscheme jellybeans
 
 " highlight Conditional ctermfg=2
 " highlight Constant cterm=NONE ctermfg=2
-highlight ExtraWhitespace ctermbg=red guibg=red
 " highlight Function cterm=NONE ctermfg=2
 " highlight link javaScriptBraces NONE
 " highlight NonText ctermfg=237 guifg=#303030
@@ -99,24 +101,24 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 " highlight String cterm=NONE ctermfg=darkred
 
 let mapleader = ','
-" let g:airline_powerline_fonts = 1
-" let g:airline_section_c = '%t'
-" let g:airline_theme_patch_func = 'AirlineThemePatch'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline#extensions#tabline#show_buffers = 0
-" let g:airline#extensions#tabline#show_tab_nr = 0
-" let g:indent_guides_start_level = 2
-" let g:indent_guides_guide_size = 1
+let g:airline_powerline_fonts = 1
+let g:airline_section_c = '%t'
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
 
-nnoremap <Leader>[ :tabprevious<CR>
-nnoremap <Leader>] :tabnext<CR>
-
-nnoremap <Leader>{ :tabfirst<CR>
-nnoremap <Leader>} :tablast<CR>
+" nnoremap <Leader>[ :tabprevious<CR>
+" nnoremap <Leader>] :tabnext<CR>
+" 
+" nnoremap <Leader>{ :tabfirst<CR>
+" nnoremap <Leader>} :tablast<CR>
 
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
@@ -160,7 +162,7 @@ endfunction
 " endfunction
 
 " Force airline's color scheme
-" function! AirlineThemePatch(palette)
-" 	let a:palette.normal.airline_a = [ '#ffffff', '#268bd2', 255, 33 ]
-" endfunction
+function! AirlineThemePatch(palette)
+  let a:palette.normal.airline_a = [ '#ffffff', '#268bd2', 255, 33 ]
+endfunction
 
