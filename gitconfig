@@ -2,19 +2,22 @@
   name = Josh Sherman
   email = josh@gravityblvd.com
 
-[diff]
-  rename = copy
-
-[pager]
-  color = true
-
-[core]
-  editor = vim
+[github]
+  user = joshtronic
 
 [color]
   branch = auto
   diff   = auto
   status = auto
 
-[github]
-  user = joshtronic
+[core]
+  editor = vim
+
+[diff]
+  rename = copy
+
+[pager]
+  color = true
+
+[push]
+  default = simple
