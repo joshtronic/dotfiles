@@ -86,4 +86,6 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 done
 
 source $(brew --prefix nvm)/nvm.sh
+#
+export PATH=./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
 
