@@ -85,5 +85,5 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source $(brew --prefix nvm)/nvm.sh
 
