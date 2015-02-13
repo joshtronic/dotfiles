@@ -13,79 +13,41 @@ source $ZSH/oh-my-zsh.sh
 # PHP_FULL_VERSION=`php --version | head -n 1 | awk '{print $2}'`
 # PHP_MAJOR_MINOR=`echo $PHP_FULL_VERSION | awk -F '.' '{print $1$2}'`
 # PHP_BASE_PATH=/usr/local/Cellar/php$PHP_MAJOR_MINOR/$PHP_FULL_VERSION
-# 
+#
 # export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PHP_BASE_PATH/lib/php:~/Source/dotfiles/scripts:~/Source/dotfiles/git/scripts:$PHP_BASE_PATH/bin:/opt/X11/bin:$PHP_BASE_PATH/lib/php/File
 
-# git
-#alias    ga="git add"
-#alias   gaa="git add --all"
-#alias    gb="git branch"
-#alias   gba="git branch -a"
-#alias    gc="git commit"
-#alias   gca="git commit -a"
-#alias   gcl="git clone"
-#alias   gco="git checkout"
-#alias  gcob="git checkout -B"
-#alias  gcom="git checkout master"
-#alias    gd="git diff"
-#alias   gdb="git delete-branch"
-#alias    gf="git fetch"
-#alias    gl="git log"
-#alias    gm="git merge"
-#alias   gmm="git merge master"
-#alias  gmup="git fetch upstream; git merge origin/upstream"
-#alias   gmv="git mv"
-#alias    gp="git rev-parse --abbrev-ref HEAD | xargs git push origin"
-#alias   gpu="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
-#alias    gr="git remote"
-#alias   gra="git remote add"
-#alias  grao="git remote add origin"
-#alias   grr="git remote rm"
-#alias  grro="git remote rm origin"
-#alias   grm="git rm"
-#alias    gs="git status"
-
-# jekyll
+alias    gaa="git add --all"
+alias   gcob="git checkout -B"
+alias    gdb="git delete-branch"
+alias     gf="git fetch"
+alias    gmm="git merge master"
+alias   gmup="git fetch upstream; git merge origin/upstream"
+alias    gmv="git mv"
+#alias     gp="git rev-parse --abbrev-ref HEAD | xargs git push origin"
+#alias    gpu="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
+alias    gra="git remote add"
+alias    grm="git rm"
+alias     gs="git status"
 alias jekyll="jekyll serve --watch"
+alias    mtr="sudo mtr"
+alias   uuid="node -e \"var uuid = require('node-uuid'); console.log(uuid.v4())\""
+alias    unq="xattr -r -d com.apple.quarantine *"
+alias      v="vim"
+alias     vd="vimdiff"
 
-# mtr
-alias mtr="sudo mtr"
+export CLICOLOR=1
+export LSCOLORS=Exfxcxdxbxegedabagacad
 
-# zsh
-#alias zshrc="source ~/.zshrc"
+export GREP_OPTIONS="--color=auto"
 
-# vim
-#alias   v="vim -p"
-#alias  vi="vim -p"
-#alias vim="vim -p"
-#alias  vd="vimdiff"
-#alias  vo="vim -O"
-
-
-# Platform-specific
-if [[ `uname` == "Darwin" ]];
-then
-	alias unquarantine="xattr -r -d com.apple.quarantine *"
-
-	# Tell ls to be colourful
-	export CLICOLOR=1
-	export LSCOLORS=Exfxcxdxbxegedabagacad
-
-	# Tell grep to highlight matches
-	export GREP_OPTIONS="--color=auto"
-
-	export   PATH=/usr/local/bin:/usr/local/sbin:$PATH
-	export EDITOR="mvim -v"
-else
-	export   PATH="$HOME/Source/bash:$PATH"
-	export EDITOR=vim
-fi
+export EDITOR=vim
 
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+  alias "$method"="lwp-request -m '$method'"
 done
 
-source $(brew --prefix nvm)/nvm.sh
-#
-export PATH=./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
 
+source $(brew --prefix nvm)/nvm.sh
+
+export NODE_ENV=development
