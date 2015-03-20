@@ -4,9 +4,9 @@ packages:
     - Homebrew/homebrew-php
     - joshtronic/homebrew-formulae
     - bash
-    - ghi
     - git
     - git-extras
+    - gpg
     - imagemagick
     - likes
     - memcached

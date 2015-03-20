@@ -1,39 +1,23 @@
 function username()
 {
-	if [[ `whoami` != 'josh' ]];
-	then
-		echo %{$FG[248]%}%n
-	fi
+  if [[ `whoami` != 'josh' ]];
+  then
+    echo %{$FG[248]%}%n
+  fi
 }
 
 function server()
 {
-	if [[ `hostname` != *.local ]];
-	then
-		echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
-	fi
-}
-
-function unread_email()
-{
-	file=/tmp/UNREAD_GMAIL
-
-	if [[ -a $file ]];
-	then
-		unread=( $(<${file}) )
-
-		if [[ unread -ge 5 ]];
-		then
-			echo 📩 
-		fi
-	fi
+  if [[ `hostname` != *.home ]];
+  then
+    echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
+  fi
 }
 
 USER="$(username)$(server)"
 PROMPT='
 %{$USER%}%{$fg[blue]%}%~ $(git_prompt_info)
 %{$FG[244]%}%# %{$reset_color%}'
-RPROMPT='$(unread_email)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
