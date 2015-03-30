@@ -3,6 +3,7 @@ packages:
     - Homebrew/dupes
     - Homebrew/homebrew-php
     - joshtronic/homebrew-formulae
+    - ag
     - bash
     - git
     - git-extras

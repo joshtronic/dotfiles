@@ -85,6 +85,8 @@ autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 highlight ExtraWhitespace ctermbg=red guibg=red
+highlight LineTooLong ctermbg=red guibg=red
+match LineTooLong /\%121v.\+/
 
 " autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -170,3 +172,10 @@ function! AirlineThemePatch(palette)
   let a:palette.normal.airline_a = [ '#ffffff', '#268bd2', 255, 33 ]
 endfunction
 
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+  \ --ignore .git
+  \ --ignore .svn
+  \ --ignore .hg
+  \ --ignore .DS_Store
+  \ --ignore "**/*.pyc"
+  \ -g ""'
