@@ -37,6 +37,8 @@ set softtabstop=2
 set t_Co=256
 set tabstop=2
 set textwidth=0
+set title
+set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
 set tm=500
 set ttyfast
 set undolevels=1000
@@ -172,10 +174,16 @@ function! AirlineThemePatch(palette)
   let a:palette.normal.airline_a = [ '#ffffff', '#268bd2', 255, 33 ]
 endfunction
 
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-  \ --ignore .git
-  \ --ignore .svn
-  \ --ignore .hg
-  \ --ignore .DS_Store
-  \ --ignore "**/*.pyc"
-  \ -g ""'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag --ignore-case --nogroup --hidden --follow
+    \ -U -p ~/.agignore
+    \ -l -m 50000
+    \ %s -g ""'
+  " let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+  "   \ --ignore .git
+  "   \ --ignore .svn
+  "   \ --ignore .hg
+  "   \ --ignore .DS_Store
+  "   \ --ignore "**/*.pyc"
+  "   \ -g ""'
+endif
