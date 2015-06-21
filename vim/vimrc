@@ -52,7 +52,7 @@ set wildmode=list:longest
 
 " Automatically wraps markdown and text to 80 columns
 if &filetype == 'markdown' || &filetype == 'text'
-  set textwidth=80
+  set textwidth=79
   set wrapmargin=2
 endif
 
