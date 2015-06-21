@@ -36,12 +36,10 @@ set rtp+=~/.vim/bundle/vundle/
 set shiftwidth=2
 set showmatch
 set smartcase
-set smartindent
 set so=7
 set softtabstop=2
 set t_Co=256
 set tabstop=2
-set textwidth=0
 set title
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
 set tm=500
@@ -54,6 +52,9 @@ set wildmode=list:longest
 if &filetype == 'markdown' || &filetype == 'text'
   set textwidth=79
   set wrapmargin=2
+else
+  set smartindent
+  set textwidth=0
 endif
 
 " set backupdir=~/.vim/backup//,/tmp
@@ -143,11 +144,12 @@ nnoremap <Leader>3 :set nonumber<CR>
 nnoremap <Leader># :set number<CR>
 
 nnoremap <Leader>b :BundleUpdate<CR>:q<CR>
+nnoremap <Leader>c :w<CR>:!wc %<CR>
 nnoremap <Leader>v :so ~/.vim/vimrc<CR>
 
 nnoremap <Leader>ss / $<CR>
 nnoremap <Leader>tt /\t$<CR>
-"
+
 " nnoremap <Leader>w :wa<CR>
 " nnoremap <Leader>ww :wa!<CR>
 " nnoremap <Leader>q :qa<CR>
