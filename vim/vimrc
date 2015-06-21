@@ -2,6 +2,11 @@ filetype detect
 filetype plugin on
 filetype indent on
 
+" Sets up our filetypes
+autocmd BufNewFile,BufRead *.less     set filetype=less
+autocmd BufRead,BufNewFile nginx.conf set filetype=nginx
+
+" All those configuration variables
 set autoindent
 set autoread
 set background=dark
@@ -45,6 +50,12 @@ set undolevels=1000
 set wildmenu
 set wildmode=list:longest
 
+" Automatically wraps markdown and text to 80 columns
+if &filetype == 'markdown' || &filetype == 'text'
+  set textwidth=80
+  set wrapmargin=2
+endif
+
 " set backupdir=~/.vim/backup//,/tmp
 " set directory=~/.vim/swap//,/tmp
 " set undodir=~/.vim/undo//,/tmp
@@ -79,9 +90,6 @@ Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'SearchComplete'
 
 colorscheme jellybeans
-
-autocmd BufNewFile,BufRead *.less set filetype=less
-autocmd BufRead,BufNewFile nginx.conf set filetype=nginx
 
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
