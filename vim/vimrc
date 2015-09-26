@@ -32,7 +32,7 @@ set noerrorbells
 set novisualbell
 set number
 set pastetoggle=<F2>
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.dotfiles/.vundle/
 set shiftwidth=2
 set showmatch
 set smartcase

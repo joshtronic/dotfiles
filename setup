@@ -1,11 +1,77 @@
-#/bin/bash
+#!/usr/bin/env bash
 
-DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOTFILES_REPO=https://github.com/joshtronic/dotfiles
+DOTFILES_DIR=~/.dotfiles
 
-# Gets our undofiles working
-# TODO move to this - silent !mkdir ~/.vim/undofiles > /dev/null 2>&1
-[ -d ~/.vim/undofiles ] || mkdir ~/.vim/undofiles
+# FILEINREPO SPACE WHEREYOUWANTITLINKED
+SYMLINKS=(
+  "git/gitconfig ~/.gitconfig"
+  "mysql/my.cnf ~/.my.cnf"
+  "tmux/tmux.conf ~/.tmux.conf"
+  "vim ~/.vim"
+  "zsh/zshrc ~/.zshrc"
+)
 
-# Gets our Vundle on!
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+HOMEBREW_TAPS=(
+  "Homebrew/dupes"
+  "Homebrew/homebrew-php"
+  "joshtronic/homebrew-formulae"
+)
+HOMEBREW_PACKAGES=(
+  "ag"
+  "bash"
+  "git"
+  "git-extras"
+  "gpg"
+  "imagemagick"
+  "likes"
+  "memcached"
+  "mongo"
+  "mtr"
+  "mysql"
+  "nginx"
+  "nvm"
+  "php55 --with-fpm --with-mysql"
+  "php55-imagick php55-mcrypt php55-memcache php55-mongo php55-redis --with-homebrew-php"
+  "phpunit"
+  "redis"
+  "ssh-copy-id"
+  "vim"
+  "wget"
+)
+
+# Checks if the directory exists
+if [ ! -d "$DOTFILES_DIR" ]; then
+  mkdir $DOTFILES_DIR
+  git clone $DOTFILES_REPO $DOTFILES_DIR
+fi
+
+# TODO Check if the directory contains our configured repo
+
+# Gets the latest code
+cd $DOTFILES_DIR
+git pull origin master
+git submodule update --init --recursive
+
+# Creates our symlinks
+for SYMLINK in "${SYMLINKS[@]}"; do
+  # TODO Check if the file exists and whether or not it's a symlink
+  eval ln -s ${DOTFILES_DIR}/${SYMLINK}
+done
+
 vim +BundleInstall +qall
+
+# TODO Do homebrew stuff
+
+# TODO Do apt-get stuff
+
+# TODO This is old shit, need to work it in eventually
+###### DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+######
+###### # Gets our undofiles working
+###### # TODO move to this - silent !mkdir ~/.vim/undofiles > /dev/null 2>&1
+###### [ -d ~/.vim/undofiles ] || mkdir ~/.vim/undofiles
+######
+###### # Gets our Vundle on!
+###### git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+###### vim +BundleInstall +qall
