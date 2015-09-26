@@ -43,7 +43,7 @@ HOMEBREW_PACKAGES=(
 # Checks if the directory exists
 if [ ! -d "$DOTFILES_DIR" ]; then
   mkdir $DOTFILES_DIR
-  git clone $DOTFILES_REPO $DOTFILES_DIR
+  git checkout $DOTFILES_REPO $DOTFILES_DIR
 fi
 
 # TODO Check if the directory contains our configured repo
