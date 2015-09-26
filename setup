@@ -40,6 +40,10 @@ HOMEBREW_PACKAGES=(
   "wget"
 )
 
+GEMS=(
+  "tmuxinator"
+)
+
 # Checks if the directory exists
 if [ ! -d "$DOTFILES_DIR" ]; then
   mkdir $DOTFILES_DIR
