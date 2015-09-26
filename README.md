@@ -7,6 +7,6 @@ useless.
 
 ## Stupid simple installation one-liner
 
-`% source <(curl -s https://raw.githubusercontent.com/joshtronic/dotfiles/master/setup)`
+`source <(curl -s https://raw.githubusercontent.com/joshtronic/dotfiles/master/setup)`
 
 ![LeePaceCelebrate](http://i.giphy.com/Vc5x1pG5RFH3O.gif)
