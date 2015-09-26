@@ -4,9 +4,6 @@
 [submodule ".antigen"]
 	path = .antigen
 	url = https://github.com/zsh-users/antigen.git
-[submodule ".dotbot"]
-	path = .dotbot
-	url = https://github.com/anishathalye/dotbot
 [submodule ".vundle"]
 	path = .vundle
 	url = https://github.com/gmarik/vundle.git
