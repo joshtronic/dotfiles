@@ -1,15 +1,11 @@
-function username()
-{
-  if [[ `whoami` != 'josh' ]];
-  then
+function username() {
+  if [[ `whoami` != 'josh' ]]; then
     echo %{$FG[248]%}%n
   fi
 }
 
-function server()
-{
-  if [[ `hostname` != *.home ]];
-  then
+function server() {
+  if [[ `hostname` != *.home ]]; then
     echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
   fi
 }
