@@ -44,8 +44,6 @@ HOMEBREW_PACKAGES=(
 if [ ! -d "$DOTFILES_DIR" ]; then
   mkdir $DOTFILES_DIR
   git clone $DOTFILES_REPO $DOTFILES_DIR
-  # Not entirely sure why I need this...
-  git remote set-url origin git@github.com:joshtronic/dotfiles.git
 fi
 
 # TODO Check if the directory contains our configured repo
