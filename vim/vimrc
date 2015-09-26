@@ -93,7 +93,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 
 syntax enable
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
 
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
