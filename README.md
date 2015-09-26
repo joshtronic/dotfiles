@@ -1,9 +1,11 @@
-# @joshtronic's dotfiles
+# @joshtronic does dotfiles
 
-My dotfiles bring all the nerds to the yard.
+These are my dotfiles. Thare are many like them, but these are mine. My
+dotfiles are my best friend. They are my life. I must master them as I must
+master my life. My dotfiles, without me, are useless. Without my dotfiles, I am
+useless.
 
-## Installation
+## Stupid simple installation one-liner
 
-Funny you should ask about that...
-
-![Lebowski](http://media.giphy.com/media/pWP6AQg2KMc2Q/giphy.gif)
+1. `% source <(curl -s https://raw.githubusercontent.com/joshtronic/dotfiles/master/setup)`
+2. ![LeePaceCelebrate](http://i.giphy.com/Vc5x1pG5RFH3O.gif)
