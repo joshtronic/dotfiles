@@ -8,7 +8,7 @@ SYMLINKS=(
   "git/gitconfig ~/.gitconfig"
   "mysql/my.cnf ~/.my.cnf"
   "tmux/tmux.conf ~/.tmux.conf"
-  "vim ~/.vim"
+  "vim/ ~/.vim"
   "zsh/zshrc ~/.zshrc"
 )
 
@@ -62,6 +62,8 @@ for SYMLINK in "${SYMLINKS[@]}"; do
 done
 
 vim +BundleInstall +qall
+
+#source ~/.zshrc
 
 # TODO Do homebrew stuff
 

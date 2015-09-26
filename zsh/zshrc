@@ -1,4 +1,4 @@
-DOTFILES_BASE=$HOME/.dotfiles
+DOTFILES_DIR=$HOME/.dotfiles
 
 export TERM="xterm-256color"
 export KEYTIMEOUT=1
@@ -21,7 +21,7 @@ bindkey -v
 # 
 # export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PHP_BASE_PATH/lib/php:~/Source/dotfiles/scripts:~/Source/dotfiles/git/scripts:$PHP_BASE_PATH/bin:/opt/X11/bin:$PHP_BASE_PATH/lib/php/File
 
-source $DOTFILES_BASE/.antigen/antigen.zsh
+source $DOTFILES_DIR/.antigen/antigen.zsh
 
 antigen-use oh-my-zsh
 antigen-bundle git
@@ -34,9 +34,8 @@ antigen-bundle zsh-users/zsh-completions
 # antigen-bundle zsh-users/zsh-history-substring-search
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
-antigen-theme $DOTFILES_BASE/zsh joshtronic
+antigen-theme $DOTFILES_DIR/zsh joshtronic
 antigen-apply
-
 
 # alias    gaa="git add --all"
 # alias   gcob="git checkout -B"
