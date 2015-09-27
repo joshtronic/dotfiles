@@ -35,8 +35,7 @@ antigen-bundle zsh-users/zsh-completions
 # antigen-bundle zsh-users/zsh-history-substring-search
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
-#antigen-theme $DOTFILES_DIR/zsh joshtronic
-antigen-theme $DOTFILES_DIR/zsh agnoster
+antigen-theme $DOTFILES_DIR/zsh joshtronic-2015
 antigen-apply
 
 # alias    gaa="git add --all"
