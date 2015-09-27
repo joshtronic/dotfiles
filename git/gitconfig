@@ -1,9 +1,5 @@
-[user]
-  name = Josh Sherman
-  email = josh@gravityblvd.com
-
-[github]
-  user = joshtronic
+[include]
+  path = ~/.dotfiles/.dotprivate/git/gitconfig
 
 [color]
   branch = auto
@@ -21,7 +17,8 @@
 
 [push]
   default = simple
+
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
