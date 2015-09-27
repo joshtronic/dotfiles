@@ -78,3 +78,5 @@ export NODE_ENV=development
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
