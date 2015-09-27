@@ -124,7 +124,6 @@ match LineTooLong /\%121v.\+/
 let mapleader = ','
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
-" let g:airline_theme_patch_func = 'AirlineThemePatch'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 0
@@ -181,11 +180,6 @@ function! s:VSetSearch()
   let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
   let @@ = temp
 endfunction
-
-" Force airline's color scheme
-" function! AirlineThemePatch(palette)
-"   let a:palette.normal.airline_a = [ '#ffffff', '#268bd2', 255, 33 ]
-" endfunction
 
 if executable('ag')
   let g:ctrlp_user_command = 'ag --ignore-case --nogroup --hidden --follow

@@ -72,6 +72,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modul
 
 # source $(brew --prefix nvm)/nvm.sh
 
+# May not need this now, moved it to mux
 export NODE_ENV=development
+
+# source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux

@@ -20,6 +20,7 @@ HOMEBREW_TAPS=(
   "joshtronic/homebrew-formulae"
 )
 HOMEBREW_PACKAGES=(
+  "homebrew/dupes/grep"
   "ag"
   "bash"
   "git"
@@ -44,6 +45,11 @@ HOMEBREW_PACKAGES=(
 
 GEMS=(
   "tmuxinator"
+)
+
+PIP=(
+  "powerline-status"
+  "psutil"
 )
 
 # Checks if the directory exists
