@@ -1,4 +1,5 @@
 DOTFILES_DIR=$HOME/.dotfiles
+DEFAULT_USER=josh
 
 export TERM="xterm-256color"
 export KEYTIMEOUT=1
@@ -34,7 +35,8 @@ antigen-bundle zsh-users/zsh-completions
 # antigen-bundle zsh-users/zsh-history-substring-search
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
-antigen-theme $DOTFILES_DIR/zsh joshtronic
+#antigen-theme $DOTFILES_DIR/zsh joshtronic
+antigen-theme $DOTFILES_DIR/zsh agnoster
 antigen-apply
 
 # alias    gaa="git add --all"
