@@ -5,11 +5,12 @@ DOTFILES_DIR=~/.dotfiles
 
 # FILEINREPO SPACE WHEREYOUWANTITLINKED
 SYMLINKS=(
-  "git/gitconfig ~/.gitconfig"
   "mysql/my.cnf ~/.my.cnf"
   "tmux/tmux.conf ~/.tmux.conf"
   "vim/ ~/.vim"
   "zsh/zshrc ~/.zshrc"
+  ".dotprivate/git/gitconfig ~/.gitconfig"
+  ".dotprivate/ssh/config ~/.ssh/config"
   ".dotprivate/tmuxinator/ ~/.tmuxinator"
 )
 
