@@ -1,8 +1,12 @@
 DOTFILES_DIR=$HOME/.dotfiles
 DEFAULT_USER=josh
 
-export TERM="xterm-256color"
+export CLICOLOR=1
+export EDITOR=vim
 export KEYTIMEOUT=1
+# Trying out the defauly LSCOLORS, gonna drop this soon
+#export LSCOLORS=Exfxcxdxbxegedabagacad
+export TERM="xterm-256color"
 
 bindkey -v
 
@@ -29,6 +33,14 @@ antigen-bundle git
 
 if [[ $OSTYPE == "darwin*" ]]; then
   antigen-bundle osx
+
+  # Unquarantine files on OSX
+  alias unquarantine="xattr -r -d com.apple.quarantine *"
+
+  # Generates aliases like HEAD, probably should work into a plugin
+  for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+    alias "$method"="lwp-request -m '$method'"
+  done
 fi
 
 antigen-bundle zsh-users/zsh-completions
@@ -38,36 +50,27 @@ antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-theme $DOTFILES_DIR/zsh joshtronic-2015
 antigen-apply
 
-# alias    gaa="git add --all"
-# alias   gcob="git checkout -B"
-# alias    gdb="git delete-branch"
-# alias     gf="git fetch"
-# alias    gmm="git merge master"
-# alias   gmup="git fetch upstream; git merge origin/upstream"
-# alias    gmv="git mv"
-# #alias     gp="git rev-parse --abbrev-ref HEAD | xargs git push origin"
-# #alias    gpu="git rev-parse --abbrev-ref HEAD | xargs git pull origin"
-# alias    gra="git remote add"
-# alias    grm="git rm"
-# alias     gs="git status"
+# Git aliases
+alias gdb="git delete-branch"
+alias gmm="git merge master"
+alias gmv="git mv"
+alias grm="git rm"
+
+# Generate a UUID
+alias uuid="node -e \"var uuid = require('node-uuid'); console.log(uuid.v4())\""
+
+# Vim aliases
+alias v="vim"
+alias vd="vimdiff"
+
+# Dunno about these...
 # alias gh-pages="bundle exec jekyll serve"
-# alias    mtr="sudo mtr"
-# alias   uuid="node -e \"var uuid = require('node-uuid'); console.log(uuid.v4())\""
-# alias    unq="xattr -r -d com.apple.quarantine *"
-# alias      v="vim"
-# alias     vd="vimdiff"
+# alias mtr="sudo mtr"
 
-export CLICOLOR=1
-#export LSCOLORS=Exfxcxdxbxegedabagacad
-
+# This is kinda fucked, I outta rework into a separate grep alias to skip stuff
 export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=artwork --exclude-dir=node_modules --exclude-dir=.sass-cache"
 
-export EDITOR=vim
-
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-  alias "$method"="lwp-request -m '$method'"
-done
-
+# I dunno about all of this either
 export PATH=/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
 
 # source $(brew --prefix nvm)/nvm.sh
@@ -79,4 +82,5 @@ export NODE_ENV=development
 
 # [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# This is only for the server, maybe add it to the above OS conditional
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
