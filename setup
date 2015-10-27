@@ -26,6 +26,7 @@ HOMEBREW_PACKAGES=(
   "git"
   "git-extras"
   "gpg"
+  "httpie"
   "imagemagick"
   "likes"
   "memcached"
