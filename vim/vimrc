@@ -186,11 +186,5 @@ if executable('ag')
     \ -U -p ~/.agignore
     \ -l -m 50000
     \ %s -g ""'
-  " let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-  "   \ --ignore .git
-  "   \ --ignore .svn
-  "   \ --ignore .hg
-  "   \ --ignore .DS_Store
-  "   \ --ignore "**/*.pyc"
-  "   \ -g ""'
 endif
+
