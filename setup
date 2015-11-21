@@ -5,6 +5,7 @@ DOTFILES_DIR=~/.dotfiles
 
 # FILEINREPO SPACE WHEREYOUWANTITLINKED
 SYMLINKS=(
+  "gem/gemrc ~/.gemrc"
   "git/gitconfig ~/.gitconfig"
   "mysql/my.cnf ~/.my.cnf"
   "tmux/tmux.conf ~/.tmux.conf"
@@ -91,3 +92,6 @@ vim +BundleInstall +qall
 ###### # Gets our Vundle on!
 ###### git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ###### vim +BundleInstall +qall
+
+# TODO setup logic for defaults for nvm
+# TODO setup logic for defaults for rvm
