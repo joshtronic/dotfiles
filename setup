@@ -46,7 +46,17 @@ HOMEBREW_PACKAGES=(
 )
 
 GEMS=(
+  "bundler"
   "tmuxinator"
+)
+
+# TODO Not sure about this because they would need to be installed on a
+# per-node version basis as I am running nvm with both the latest node
+# installed as well as whatever specific versions I need
+NPM=(
+  "bower -g"
+  "grunt -g"
+  "gulp -g"
 )
 
 PIP=(
