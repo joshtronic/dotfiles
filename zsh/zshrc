@@ -70,8 +70,6 @@ done
 
 export PATH=/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
 
-# source $(brew --prefix nvm)/nvm.sh
-
 # May not need this now, moved it to mux
 export NODE_ENV=development
 
@@ -79,4 +77,6 @@ export NODE_ENV=development
 
 # [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
 
+source $(brew --prefix nvm)/nvm.sh
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
