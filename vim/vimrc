@@ -50,7 +50,7 @@ set wildmode=list:longest
 
 " Automatically wraps markdown and text to 80 columns
 if &filetype == 'markdown' || &filetype == 'text'
-  set textwidth=79
+  set textwidth=80
   set wrapmargin=2
 else
   set smartindent
@@ -186,11 +186,5 @@ if executable('ag')
     \ -U -p ~/.agignore
     \ -l -m 50000
     \ %s -g ""'
-  " let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-  "   \ --ignore .git
-  "   \ --ignore .svn
-  "   \ --ignore .hg
-  "   \ --ignore .DS_Store
-  "   \ --ignore "**/*.pyc"
-  "   \ -g ""'
 endif
+

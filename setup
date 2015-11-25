@@ -5,6 +5,7 @@ DOTFILES_DIR=~/.dotfiles
 
 # FILEINREPO SPACE WHEREYOUWANTITLINKED
 SYMLINKS=(
+  "gem/gemrc ~/.gemrc"
   "git/gitconfig ~/.gitconfig"
   "mysql/my.cnf ~/.my.cnf"
   "tmux/tmux.conf ~/.tmux.conf"
@@ -26,6 +27,7 @@ HOMEBREW_PACKAGES=(
   "git"
   "git-extras"
   "gpg"
+  "httpie"
   "imagemagick"
   "likes"
   "memcached"
@@ -44,7 +46,17 @@ HOMEBREW_PACKAGES=(
 )
 
 GEMS=(
+  "bundler"
   "tmuxinator"
+)
+
+# TODO Not sure about this because they would need to be installed on a
+# per-node version basis as I am running nvm with both the latest node
+# installed as well as whatever specific versions I need
+NPM=(
+  "bower -g"
+  "grunt -g"
+  "gulp -g"
 )
 
 PIP=(
@@ -90,3 +102,6 @@ vim +BundleInstall +qall
 ###### # Gets our Vundle on!
 ###### git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ###### vim +BundleInstall +qall
+
+# TODO setup logic for defaults for nvm
+# TODO setup logic for defaults for rvm
