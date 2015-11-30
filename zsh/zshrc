@@ -62,8 +62,7 @@ export NODE_ENV=development
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# This is only for the server, maybe add it to the above OS conditional
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Because `npm` shit the bed on me...
 ulimit -n 4096
