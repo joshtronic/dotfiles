@@ -39,11 +39,14 @@ alias POST="http POST"
 alias HEAD="http HEAD"
 alias dl="http --print=b --download"
 
+# Tmuxinator aliases
+alias ms="mux start"
+
 # Generate a UUID
 alias uuid="node -e \"var uuid = require('node-uuid'); console.log(uuid.v4())\""
 
 # Vim aliases
-alias v="/usr/local/bin/vim"
+alias v="/usr/local/bin/nvim"
 alias vd="vimdiff"
 
 # This is kinda fucked, I outta rework into a separate grep alias to skip stuff
