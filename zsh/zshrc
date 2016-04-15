@@ -46,7 +46,7 @@ alias ms="mux start"
 alias uuid="node -e \"var uuid = require('node-uuid'); console.log(uuid.v4())\""
 
 # Vim aliases
-alias v="/usr/local/bin/nvim"
+alias v="/usr/local/bin/vim"
 alias vd="vimdiff"
 
 # This is kinda fucked, I outta rework into a separate grep alias to skip stuff
