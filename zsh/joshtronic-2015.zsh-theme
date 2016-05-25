@@ -12,9 +12,9 @@ function server() {
   fi
 }
 
-USER="$(username)$(server)"
+PROMPT_USER="$(username)$(server)"
 PROMPT='
-%{$USER%}%{$fg[blue]%}%~ $(git_prompt_info)
+%{$PROMPT_USER%}%{$fg[blue]%}%~ $(git_prompt_info)
 %{$FG[244]%}%# %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
