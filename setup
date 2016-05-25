@@ -24,11 +24,20 @@ HOMEBREW_PACKAGES=(
   "homebrew/dupes/grep"
   "ag"
   "bash"
+  "cairo"
+  "fabric"
+  "giflib"
   "git"
   "git-extras"
   "gpg"
+  "graphicsmagick"
+  "htop"
   "httpie"
+  "hub"
   "imagemagick"
+  "jpeg"
+  "libav"
+  "libpng"
   "likes"
   "memcached"
   "mongo"
@@ -36,9 +45,12 @@ HOMEBREW_PACKAGES=(
   "mysql"
   "nginx"
   "nvm"
+  "phantomjs"
   "php55 --with-fpm --with-mysql"
   "php55-imagick php55-mcrypt php55-memcache php55-mongo php55-redis --with-homebrew-php"
   "phpunit"
+  "pkg-config"
+  "pngcrush"
   "redis"
   "ssh-copy-id"
   "vim"
@@ -48,19 +60,25 @@ HOMEBREW_PACKAGES=(
 GEMS=(
   "bundler"
   "tmuxinator"
+  "premailer"
 )
 
 # TODO Not sure about this because they would need to be installed on a
 # per-node version basis as I am running nvm with both the latest node
 # installed as well as whatever specific versions I need
 NPM=(
-  "bower -g"
-  "grunt -g"
-  "gulp -g"
+  "-g bower"
+  "-g grunt-cli"
+  "-g grunt-contrib-compass"
+  "-g gulp"
+  "-g node-compass"
+  "-g node-gyp"
 )
 
 PIP=(
+  "compass -v 0.12.7"
   "powerline-status"
+  "premailer"
   "psutil"
 )
 
@@ -105,3 +123,5 @@ vim +BundleInstall +qall
 
 # TODO setup logic for defaults for nvm
 # TODO setup logic for defaults for rvm
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
