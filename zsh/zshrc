@@ -28,6 +28,7 @@ antigen-theme $DOTFILES_DIR/zsh joshtronic-2015
 antigen-apply
 
 # Git aliases
+alias git="hub"
 alias gdb="git delete-branch"
 alias gmm="git merge master"
 alias gmv="git mv"
@@ -38,6 +39,10 @@ alias GET="http"
 alias POST="http POST"
 alias HEAD="http HEAD"
 alias dl="http --print=b --download"
+
+# Easier without typing sudo
+alias htop="sudo htop"
+alias mtr="sudo mtr"
 
 # Tmuxinator aliases
 alias ms="mux start"
