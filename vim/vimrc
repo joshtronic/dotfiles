@@ -30,8 +30,6 @@ set nocindent
 set nocompatible
 set noerrorbells
 set novisualbell
-"set number
-set pastetoggle=<F2>
 set rtp+=~/.dotfiles/.vundle/
 set shiftwidth=2
 set showmatch
@@ -130,6 +128,42 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+
+" Auto pastetoggle
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" Not entirely sure I need this. Auto pastetoggle within tmux
+"
+" function! XTermPasteBegin()
+"   set pastetoggle=<Esc>[201~
+"   set paste
+"   return ""
+" endfunction
+"
+" function! WrapForTmux(s)
+"   if !exists('$TMUX')
+"     return a:s
+"   endif
+"
+"   let tmux_start = "\<Esc>Ptmux;"
+"   let tmux_end = "\<Esc>\\"
+"
+"   return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+" endfunction
+"
+" let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+" let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+"
+" function! XTermPasteBegin()
+"   set pastetoggle=<Esc>[201~
+"   set paste
+"   return ""
+" endfunction
+"
+" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
