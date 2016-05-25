@@ -30,7 +30,7 @@ set nocindent
 set nocompatible
 set noerrorbells
 set novisualbell
-set number
+"set number
 set pastetoggle=<F2>
 set rtp+=~/.dotfiles/.vundle/
 set shiftwidth=2
@@ -68,6 +68,7 @@ Bundle 'gmarik/vundle'
 Bundle 'AfterColors.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Bundle 'bling/vim-bufferline'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'ervandew/supertab'
