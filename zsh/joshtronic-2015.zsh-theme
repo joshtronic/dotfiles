@@ -5,10 +5,8 @@ function username() {
 }
 
 function server() {
-  if [[ `hostname` != *.home ]]; then
-    if [[ `hostname` != *.local ]]; then
-      echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
-    fi
+  if [[ `hostname` != Joshs-* ]]; then
+    echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
   fi
 }
 
