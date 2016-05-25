@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Right Command => Launch Alfred</name>
+    <identifier>rightCommand.alfred</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::COMMAND_R,
+      KeyCode::COMMAND_L, KeyCode::SPACE
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Terminal</name>
+    <url type="file">/Applications/Utilities/Terminal.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 1 => Launch or Focus Terminal</name>
+    <identifier>rightCommand.1.Terminal</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::1, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Terminal
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Chrome</name>
+    <url type="file">/Applications/Google Chrome.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 2 => Launch or Focus Chrome</name>
+    <identifier>rightCommand.2.terminal</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::2, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Chrome
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Slack</name>
+    <url type="file">/Applications/Slack.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 3 => Launch or Focus Slack</name>
+    <identifier>rightCommand.3.slack</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::3, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Slack
+    </autogen>
+  </item>
+</root>
