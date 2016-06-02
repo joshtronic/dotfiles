@@ -2,11 +2,47 @@
 <root>
   <item>
     <name>Right Command => Launch Alfred</name>
-    <identifier>rightCommand.alfred</identifier>
+    <identifier>rightCommand</identifier>
     <autogen>
       __KeyDownUpToKey__
       KeyCode::COMMAND_R,
       KeyCode::COMMAND_L, KeyCode::SPACE
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + H => Scroll Left</name>
+    <identifier>rightCommandH</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::H, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_LEFT
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + J => Scroll Down</name>
+    <identifier>rightCommandJ</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::J, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_DOWN
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + K => Scroll Up</name>
+    <identifier>rightCommandK</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::K, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_UP
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + L => Scroll Right</name>
+    <identifier>rightCommandL</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::L, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_RIGHT
     </autogen>
   </item>
   <vkopenurldef>
@@ -15,7 +51,7 @@
   </vkopenurldef>
   <item>
     <name>Right Command + 1 => Launch or Focus Terminal</name>
-    <identifier>rightCommand.1.Terminal</identifier>
+    <identifier>rightCommand1</identifier>
     <autogen>
       --KeyToKey--
       KeyCode::1, ModifierFlag::COMMAND_R,
@@ -28,7 +64,7 @@
   </vkopenurldef>
   <item>
     <name>Right Command + 2 => Launch or Focus Chrome</name>
-    <identifier>rightCommand.2.terminal</identifier>
+    <identifier>rightCommand2</identifier>
     <autogen>
       --KeyToKey--
       KeyCode::2, ModifierFlag::COMMAND_R,
@@ -41,7 +77,7 @@
   </vkopenurldef>
   <item>
     <name>Right Command + 3 => Launch or Focus Slack</name>
-    <identifier>rightCommand.3.slack</identifier>
+    <identifier>rightCommand3</identifier>
     <autogen>
       --KeyToKey--
       KeyCode::3, ModifierFlag::COMMAND_R,
