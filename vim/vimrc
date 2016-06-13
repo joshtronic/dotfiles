@@ -89,6 +89,7 @@ Bundle 'pangloss/vim-javascript.git'
 Bundle 'scrooloose/syntastic'
 Bundle 'shawncplus/phpcomplete.vim'
 "Bundle 'SearchComplete'
+Plugin 'tmux-plugins/vim-tmux'
 
 syntax enable
 set background=dark
