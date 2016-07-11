@@ -217,10 +217,16 @@ function! s:VSetSearch()
   let @@ = temp
 endfunction
 
-if executable('ag')
-  let g:ctrlp_user_command = 'ag --ignore-case --nogroup --hidden --follow
-    \ -U -p ~/.agignore
-    \ -l -m 50000
-    \ %s -g ""'
-endif
+" Ignore some folders and files for CtrlP indexing
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
+
+" if executable('ag')
+"   let g:ctrlp_user_command = 'ag --ignore-case --nogroup --hidden --follow
+"     \ -U -p ~/.agignore
+"     \ -l -m 50000
+"     \ %s -g ""'
+" endif
 
