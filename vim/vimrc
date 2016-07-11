@@ -66,6 +66,7 @@ Bundle 'gmarik/vundle'
 Bundle 'AfterColors.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
+Bundle 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline-themes'
 Bundle 'bling/vim-bufferline'
 Bundle 'cakebaker/scss-syntax.vim'
@@ -75,7 +76,6 @@ Bundle 'groenewege/vim-less'
 Bundle 'joshtronic/php.vim'
 "Bundle 'jQuery'
 Bundle 'junegunn/goyo.vim'
-Bundle 'kien/ctrlp.vim'
 Bundle 'hail2u/vim-css3-syntax'
 "Bundle 'majutsushi/tagbar'
 "Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -169,11 +169,11 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
 
-nnoremap <Leader>[ :prev<CR>
-nnoremap <Leader>] :next<CR>
+nnoremap <Leader>[ :bprevious<CR>
+nnoremap <Leader>] :bnext<CR>
 
-nnoremap <Leader>{ :first<CR>
-nnoremap <Leader>} :last<CR>
+nnoremap <Leader>{ :bfirst<CR>
+nnoremap <Leader>} :blast<CR>
 
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
