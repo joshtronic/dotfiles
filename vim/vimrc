@@ -2,10 +2,6 @@ filetype detect
 filetype plugin on
 filetype indent on
 
-" Sets up our filetypes
-autocmd BufNewFile,BufRead *.less     set filetype=less
-autocmd BufRead,BufNewFile nginx.conf set filetype=nginx
-
 " All those configuration variables
 set autoindent
 set autoread
@@ -39,12 +35,23 @@ set softtabstop=2
 set t_Co=256
 set tabstop=2
 set title
-set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
+"set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
 set tm=500
 set ttyfast
 set undolevels=1000
 set wildmenu
 set wildmode=list:longest
+
+" Sets up our filetypes
+autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl set filetype=dustjs
+autocmd BufNewFile,BufRead *.less               set filetype=less
+autocmd BufNewFile,BufRead nginx.conf           set filetype=nginx
+
+autocmd BufNewFile,BufRead *.mustache,*.hogan,*.hulk,*.hjs set filetype=html.mustache syntax=mustache
+autocmd BufNewFile,BufRead *.handlebars,*.hbs set filetype=html.handlebars syntax=mustache
+
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType php        setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 " Automatically wraps markdown and text to 80 columns
 if &filetype == 'markdown' || &filetype == 'text'
@@ -62,79 +69,70 @@ endif
 "
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'AfterColors.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-airline/vim-airline-themes'
-Bundle 'bling/vim-bufferline'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'ervandew/supertab'
-"Bundle 'garbas/vim-snipmate'
-Bundle 'groenewege/vim-less'
-Bundle 'joshtronic/php.vim'
-"Bundle 'jQuery'
-Bundle 'junegunn/goyo.vim'
-Bundle 'hail2u/vim-css3-syntax'
-"Bundle 'majutsushi/tagbar'
-"Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'mustache/vim-mustache-handlebars'
-"Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'nginx.vim'
-"Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript.git'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'skammer/vim-css-color'
-Bundle 'scrooloose/syntastic'
-Bundle 'shawncplus/phpcomplete.vim'
-"Bundle 'SearchComplete'
+Plugin 'gmarik/vundle'
+
+Plugin 'AfterColors.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'bling/vim-bufferline'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'groenewege/vim-less'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'jimmyhchan/dustjs.vim'
+Plugin 'joshtronic/php.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript.git'
+Plugin 'scrooloose/syntastic'
+Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()
+filetype plugin indent on
 
 syntax enable
 set background=dark
 silent! colorscheme solarized
 
-autocmd BufEnter * match ExtraWhitespace /\s\+$/
+autocmd BufEnter    * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
+
 highlight ExtraWhitespace ctermbg=red guibg=red
-highlight LineTooLong ctermbg=red guibg=red
+highlight LineTooLong     ctermbg=red guibg=red
+
 match LineTooLong /\%121v.\+/
 
-" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-" autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType svn,*commit*,*issue* setlocal spell
-" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-
-" highlight Conditional ctermfg=2
-" highlight Constant cterm=NONE ctermfg=2
-" highlight Function cterm=NONE ctermfg=2
-" highlight link javaScriptBraces NONE
-" highlight NonText ctermfg=237 guifg=#303030
-" highlight Number cterm=NONE ctermfg=darkred
-" highlight Search cterm=NONE ctermfg=NONE
-" highlight SpecialKey ctermfg=red guifg=#303030
-" highlight Statement cterm=NONE ctermfg=2
-" highlight String cterm=NONE ctermfg=darkred
-
 let mapleader = ','
+
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#show_tab_nr = 0
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
 
 " Auto pastetoggle
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
+" let &t_SI .= "\<Esc>[?2004h"
+" let &t_EI .= "\<Esc>[?2004l"
 
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " Not entirely sure I need this. Auto pastetoggle within tmux
 "
@@ -171,9 +169,6 @@ nnoremap ; :
 
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
-
-nnoremap <Leader>{ :bfirst<CR>
-nnoremap <Leader>} :blast<CR>
 
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
