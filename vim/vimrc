@@ -71,7 +71,6 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'
 
-Plugin 'AfterColors.vim'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -89,6 +88,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-scripts/AfterColors.vim'
+Plugin 'vim-scripts/matchit.zip'
 
 call vundle#end()
 filetype plugin indent on
@@ -124,6 +125,8 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
+
+let b:match_words = '<:>,<\@<=tag>:<\@<=/tag>'
 
 "let g:indent_guides_start_level = 2
 "let g:indent_guides_guide_size = 1
