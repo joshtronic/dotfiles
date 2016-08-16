@@ -72,7 +72,6 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 Plugin 'AfterColors.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -83,6 +82,7 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'joshtronic/php.vim'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript.git'
 Plugin 'scrooloose/syntastic'
@@ -95,7 +95,7 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
-silent! colorscheme solarized
+colorscheme jellybeans
 
 autocmd BufEnter    * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
