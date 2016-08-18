@@ -84,13 +84,30 @@
       KeyCode::VK_OPEN_URL_APP_Slack
     </autogen>
   </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Messages</name>
+    <url type="file">/Applications/Messages.app</url>
+  </vkopenurldef>
   <item>
-    <name>[fn +] F12 => Launch Developer Console</name>
-    <identifier>fnF12</identifier>
+    <name>Right Command + 4 => Launch or Focus Messages</name>
+    <identifier>rightCommand4</identifier>
     <autogen>
       --KeyToKey--
-      KeyCode::I, ModifierFlag::COMMAND_R,
-      KeyCode::OPTION_L, KeyCode::COMMAND_L, KeyCode::I
+      KeyCode::4, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Messages
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Spotify</name>
+    <url type="file">/Applications/Spotify.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 5 => Launch or Focus Spotify</name>
+    <identifier>rightCommand5</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::5, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Spotify
     </autogen>
   </item>
 </root>
