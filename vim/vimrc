@@ -76,22 +76,29 @@ Plugin 'bling/vim-bufferline'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
+Plugin 'garbas/vim-snipmate'
 Plugin 'groenewege/vim-less'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'honza/vim-snippets'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'joshtronic/php.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript.git'
+"Plugin 'SirVer/ultisnips'
 Plugin 'scrooloose/syntastic'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tomtom/tlib_vim'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/AfterColors.vim'
 Plugin 'vim-scripts/matchit.zip'
 
 call vundle#end()
+
 filetype plugin indent on
 
 syntax enable
@@ -127,6 +134,8 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
 let b:match_words = '<:>,<tag>:</tag>'
+
+let g:SuperTabDefaultCompletionType = 'context'
 
 "let g:indent_guides_start_level = 2
 "let g:indent_guides_guide_size = 1
