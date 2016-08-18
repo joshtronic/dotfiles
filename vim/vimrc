@@ -126,7 +126,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-let b:match_words = '<:>,<\@<=tag>:<\@<=/tag>'
+let b:match_words = '<:>,<tag>:</tag>'
 
 "let g:indent_guides_start_level = 2
 "let g:indent_guides_guide_size = 1
