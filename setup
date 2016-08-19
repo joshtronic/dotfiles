@@ -18,13 +18,16 @@ SYMLINKS=(
 HOMEBREW_TAPS=(
   "Homebrew/dupes"
   "Homebrew/homebrew-php"
+  "fetchlogic/formulae"
   "joshtronic/homebrew-formulae"
 )
 HOMEBREW_PACKAGES=(
   "homebrew/dupes/grep"
   "ag"
   "bash"
+  "binutils"
   "cairo"
+  "composer"
   "fabric"
   "giflib"
   "git"
@@ -42,23 +45,30 @@ HOMEBREW_PACKAGES=(
   "memcached"
   "mongo"
   "mtr"
+  "multitail"
   "mysql"
   "nginx"
   "nvm"
   "phantomjs"
   "php55 --with-fpm --with-mysql"
   "php55-imagick php55-mcrypt php55-memcache php55-mongo php55-redis --with-homebrew-php"
-  "phpunit"
+  "php55-mongodb"
+  "phpunit55"
   "pkg-config"
   "pngcrush"
+  "reattach-to-user-namespace"
   "redis"
+  "ship"
   "ssh-copy-id"
+  "tmux"
+  "tree"
   "vim"
   "wget"
 )
 
 GEMS=(
   "bundler"
+  "compass -v 0.12.7"
   "tmuxinator"
   "premailer"
 )
@@ -71,12 +81,12 @@ NPM=(
   "-g grunt-cli"
   "-g grunt-contrib-compass"
   "-g gulp"
+  "-g jslint"
   "-g node-compass"
   "-g node-gyp"
 )
 
 PIP=(
-  "compass -v 0.12.7"
   "powerline-status"
   "premailer"
   "psutil"
@@ -113,10 +123,6 @@ vim +BundleInstall +qall
 # TODO This is old shit, need to work it in eventually
 ###### DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ######
-###### # Gets our undofiles working
-###### # TODO move to this - silent !mkdir ~/.vim/undofiles > /dev/null 2>&1
-###### [ -d ~/.vim/undofiles ] || mkdir ~/.vim/undofiles
-######
 ###### # Gets our Vundle on!
 ###### git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ###### vim +BundleInstall +qall
@@ -125,3 +131,4 @@ vim +BundleInstall +qall
 # TODO setup logic for defaults for rvm
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
+
