@@ -195,6 +195,10 @@ nnoremap <Leader>v :so ~/.vim/vimrc<CR>
 nnoremap <Leader>ss / $<CR>
 nnoremap <Leader>tt /\t$<CR>
 
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+vnoremap <leader>p "_dP
+
 " nnoremap <Leader>w :wa<CR>
 " nnoremap <Leader>ww :wa!<CR>
 " nnoremap <Leader>q :qa<CR>
