@@ -5,7 +5,7 @@ function username() {
 }
 
 function server() {
-  if [[ `hostname` != Joshs-* ]]; then
+  if [[ `hostname` != *MacBook-Pro* ]]; then
     echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
   fi
 }
