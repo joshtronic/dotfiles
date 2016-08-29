@@ -48,7 +48,10 @@ alias mtr="sudo mtr"
 alias ms="mux start"
 
 # Generate a UUID
-alias uuid="uuidgen | awk '{print tolower($0)}'"
+function GenerateUUID() {
+  uuidgen | awk '{print tolower($0)}'
+}
+alias uuid=GenerateUUID
 
 # Vim aliases
 alias v="/usr/local/bin/vim"
