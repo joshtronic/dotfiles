@@ -48,7 +48,7 @@ alias mtr="sudo mtr"
 alias ms="mux start"
 
 # Generate a UUID
-alias uuid="node -e \"var uuid = require('node-uuid'); console.log(uuid.v4())\""
+alias uuid="uuidgen | awk '{print tolower($0)}'"
 
 # Vim aliases
 alias v="/usr/local/bin/vim"
