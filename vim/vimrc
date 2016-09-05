@@ -22,6 +22,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set lazyredraw
 set list
 set listchars=tab:└─,trail:•
 set magic
@@ -30,7 +31,7 @@ set nocindent
 set nocompatible
 set noerrorbells
 set novisualbell
-set number
+" set number
 set pastetoggle=<F2>
 set rtp+=~/.dotfiles/.vundle/
 set shiftwidth=2
