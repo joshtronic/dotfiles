@@ -27,13 +27,13 @@ set nocompatible
 set noerrorbells
 set novisualbell
 set rtp+=~/.dotfiles/.vundle/
-set shiftwidth=2
+set shiftwidth=4
 set showmatch
 set smartcase
 set so=7
-set softtabstop=2
+set softtabstop=4
 set t_Co=256
-set tabstop=2
+set tabstop=4
 set title
 "set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
 set tm=500
@@ -51,7 +51,6 @@ autocmd BufNewFile,BufRead *.mustache,*.hogan,*.hulk,*.hjs set filetype=html.mus
 autocmd BufNewFile,BufRead *.handlebars,*.hbs set filetype=html.handlebars syntax=mustache
 
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType php        setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 " Automatically wraps markdown and text to 80 columns
 if &filetype == 'markdown' || &filetype == 'text'
