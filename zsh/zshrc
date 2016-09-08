@@ -48,14 +48,18 @@ alias mtr="sudo mtr"
 alias ms="mux start"
 
 # Generate a UUID
-function GenerateUUID() {
+function uuid() {
   uuidgen | awk '{print tolower($0)}'
 }
-alias uuid=GenerateUUID
 
 # Vim aliases
 alias v="/usr/local/bin/vim"
 alias vd="vimdiff"
+
+# Inf
+# function inf() {
+#   while :; do read -p "Press enter to execute..."; $@; done
+# }
 
 # This is kinda fucked, I outta rework into a separate grep alias to skip stuff
 export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=artwork --exclude-dir=node_modules --exclude-dir=.sass-cache"
@@ -72,6 +76,8 @@ export NODE_ENV=development
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+
+source "`brew --prefix`/etc/grc.bashrc"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
