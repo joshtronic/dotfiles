@@ -28,6 +28,7 @@ antigen-theme $DOTFILES_DIR/zsh joshtronic-2015
 antigen-apply
 
 # Git aliases
+alias git="hub"
 alias gdb="git delete-branch"
 alias gmm="git merge master"
 alias gmv="git mv"
@@ -39,11 +40,18 @@ alias POST="http POST"
 alias HEAD="http HEAD"
 alias dl="http --print=b --download"
 
+# Easier without typing sudo
+alias htop="sudo htop"
+alias mtr="sudo mtr"
+
 # Tmuxinator aliases
 alias ms="mux start"
 
 # Generate a UUID
-alias uuid="node -e \"var uuid = require('node-uuid'); console.log(uuid.v4())\""
+function GenerateUUID() {
+  uuidgen | awk '{print tolower($0)}'
+}
+alias uuid=GenerateUUID
 
 # Vim aliases
 alias v="/usr/local/bin/vim"
@@ -69,4 +77,15 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Because `npm` shit the bed on me...
 ulimit -n 4096
+
+man() {
+  env \
+    LESS_TERMCAP_md=$'\e[1;36m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[1;40;92m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[1;32m' \
+    man "$@"
+}
 

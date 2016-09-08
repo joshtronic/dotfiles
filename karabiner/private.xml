@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Right Command => Launch Alfred</name>
+    <identifier>rightCommand</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::COMMAND_R,
+      KeyCode::COMMAND_L, KeyCode::SPACE
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + H => Scroll Left</name>
+    <identifier>rightCommandH</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::H, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_LEFT
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + J => Scroll Down</name>
+    <identifier>rightCommandJ</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::J, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_DOWN
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + K => Scroll Up</name>
+    <identifier>rightCommandK</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::K, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_UP
+    </autogen>
+  </item>
+  <item>
+    <name>Right Command + L => Scroll Right</name>
+    <identifier>rightCommandL</identifier>
+    <autogen>
+      __KeyDownUpToKey__
+      KeyCode::L, ModifierFlag::COMMAND_R,
+      KeyCode::VK_MOUSEKEY_FIXED_DISTANCE_SCROLL_RIGHT
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Terminal</name>
+    <url type="file">/Applications/Utilities/Terminal.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 1 => Launch or Focus Terminal</name>
+    <identifier>rightCommand1</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::1, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Terminal
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Chrome</name>
+    <url type="file">/Applications/Google Chrome.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 2 => Launch or Focus Chrome</name>
+    <identifier>rightCommand2</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::2, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Chrome
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Slack</name>
+    <url type="file">/Applications/Slack.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 3 => Launch or Focus Slack</name>
+    <identifier>rightCommand3</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::3, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Slack
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Messages</name>
+    <url type="file">/Applications/Messages.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 4 => Launch or Focus Messages</name>
+    <identifier>rightCommand4</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::4, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Messages
+    </autogen>
+  </item>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Spotify</name>
+    <url type="file">/Applications/Spotify.app</url>
+  </vkopenurldef>
+  <item>
+    <name>Right Command + 5 => Launch or Focus Spotify</name>
+    <identifier>rightCommand5</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::5, ModifierFlag::COMMAND_R,
+      KeyCode::VK_OPEN_URL_APP_Spotify
+    </autogen>
+  </item>
+</root>

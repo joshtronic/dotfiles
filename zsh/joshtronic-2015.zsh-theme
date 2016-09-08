@@ -5,16 +5,14 @@ function username() {
 }
 
 function server() {
-  if [[ `hostname` != *.home ]]; then
-    if [[ `hostname` != *.local ]]; then
-      echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
-    fi
+  if [[ `hostname` != Josh* ]]; then
+    echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
   fi
 }
 
-USER="$(username)$(server)"
+PROMPT_USER="$(username)$(server)"
 PROMPT='
-%{$USER%}%{$fg[blue]%}%~ $(git_prompt_info)
+%{$PROMPT_USER%}%{$fg[blue]%}%~ $(git_prompt_info)
 %{$FG[244]%}%# %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"

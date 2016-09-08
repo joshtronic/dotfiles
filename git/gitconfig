@@ -3,13 +3,14 @@
 
 [color]
   branch = auto
-  diff   = auto
+  diff = auto
   status = auto
 
 [core]
   editor = vim
 
 [diff]
+  compactionHeuristic = true
   rename = copy
 
 [pager]
@@ -22,5 +23,6 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
+
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
