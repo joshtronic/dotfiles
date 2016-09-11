@@ -1,0 +1,10 @@
+#!/bin/sh
+# Script to launch dmenu with colors matching IR_Black theme
+# Author: Vic Fryzel
+# http://github.com/vicfryzel/xmonad-config
+
+
+# eval `exec /usr/bin/dmenu_run -fn '9x15' \
+#   -nb '#000000' -nf '#FFFFFF' -sb '#333333' -sf '#CEFFAC' -p '>' -i`
+ eval `exec /usr/bin/dmenu_run -fn 'xft:Ubuntu Mono-11' \
+   -nb '#000000' -nf '#FFFFFF' -sb '#333333' -sf '#CEFFAC' -p '>' -i`
