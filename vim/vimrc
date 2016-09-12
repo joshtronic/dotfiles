@@ -18,6 +18,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set lazyredraw
 set list
 set listchars=tab:└─,trail:•
 set magic
@@ -26,6 +27,7 @@ set nocindent
 set nocompatible
 set noerrorbells
 set novisualbell
+set pastetoggle=<F2>
 set rtp+=~/.dotfiles/.vundle/
 set shiftwidth=4
 set showmatch
@@ -47,10 +49,11 @@ autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl set filetype=dustjs
 autocmd BufNewFile,BufRead *.less               set filetype=less
 autocmd BufNewFile,BufRead nginx.conf           set filetype=nginx
 
-autocmd BufNewFile,BufRead *.mustache,*.hogan,*.hulk,*.hjs set filetype=html.mustache syntax=mustache
-autocmd BufNewFile,BufRead *.handlebars,*.hbs set filetype=html.handlebars syntax=mustache
+autocmd BufNewFile,BufRead *.mustache,*.hogan,*.hulk,*.hjs set filetype=html.mustache   syntax=mustache
+autocmd BufNewFile,BufRead *.handlebars,*.hbs              set filetype=html.handlebars syntax=mustache
 
 autocmd FileType javascript,dustjs,handlebars setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType go         setlocal noexpandtab
 
 " Automatically wraps markdown and text to 80 columns
 if &filetype == 'markdown' || &filetype == 'text'
