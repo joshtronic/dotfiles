@@ -13,11 +13,11 @@ source $DOTFILES_DIR/.antigen/antigen.zsh
 antigen-use oh-my-zsh
 antigen-bundle git
 
-if [[ $OSTYPE == "darwin*" ]]; then
+if [[ $OSTYPE == darwin* ]]; then
   antigen-bundle osx
 
   # Lock it up
-  alias lock="pmset displaysleepnow"
+  alias lock="pmset sleepnow"
 
   # Unquarantine files on OSX
   alias unquarantine="xattr -r -d com.apple.quarantine *"
