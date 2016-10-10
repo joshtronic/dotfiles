@@ -57,8 +57,7 @@ function uuid() {
 }
 
 # Vim aliases
-# TODO: Broken in Linux
-#alias v="/usr/local/bin/vim"
+alias v="vim"
 alias vd="vimdiff"
 
 # Inf
@@ -83,11 +82,13 @@ export NODE_ENV=development
 # [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
 
 # Need to run this conditionally based on the tmux environment
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# TODO Barks on Linux
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
 
 # Need to run this conditionally on OSX
-source "`brew --prefix`/etc/grc.bashrc"
+# TODO: Barks on Linux
+# source "`brew --prefix`/etc/grc.bashrc"
 
 # Need to run this conditionally based on the environment (I think OSX specific)
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
