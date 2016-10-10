@@ -1,5 +1,5 @@
 [include]
-  path = ~/.dotfiles/.dotprivate/git/gitconfig
+  path = ~/.gitconfig.local
 
 [color]
   branch = auto
@@ -23,6 +23,3 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
-
-[credential]
-  helper = osxkeychain
