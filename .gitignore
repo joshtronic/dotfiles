@@ -1,4 +1,3 @@
-vim/bundle
-vim/.netrwhist
-
 git/gitconfig.local.symlink
+vim.symlink/bundle
+vim.symlink/.netrwhist
