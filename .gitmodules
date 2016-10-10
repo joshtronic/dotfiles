@@ -7,6 +7,3 @@
 [submodule ".vundle"]
 	path = .vundle
 	url = https://github.com/gmarik/vundle.git
-[submodule ".dotprivate"]
-	path = .dotprivate
-	url = ssh://git@github.com/joshtronic/dotprivate.git
