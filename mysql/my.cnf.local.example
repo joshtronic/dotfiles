@@ -1,0 +1,3 @@
+[client]
+  user = CLIENT_USER
+  password = CLIENT_PASSWORD

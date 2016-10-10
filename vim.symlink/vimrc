@@ -52,7 +52,7 @@ autocmd BufNewFile,BufRead nginx.conf           set filetype=nginx
 autocmd BufNewFile,BufRead *.mustache,*.hogan,*.hulk,*.hjs set filetype=html.mustache   syntax=mustache
 autocmd BufNewFile,BufRead *.handlebars,*.hbs              set filetype=html.handlebars syntax=mustache
 
-autocmd FileType javascript,dustjs,handlebars,css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript,dustjs,html.handlebars,css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType go                                    setlocal noexpandtab
 
 " Automatically wraps markdown and text to 80 columns

@@ -66,6 +66,7 @@ alias vd="vimdiff"
 # }
 
 # This is kinda fucked, I outta rework into a separate grep alias to skip stuff
+# TODO Evidently this is deprecated and I should be using an alias
 export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=artwork --exclude-dir=node_modules --exclude-dir=.sass-cache"
 
 # I dunno about all of this either
@@ -85,6 +86,12 @@ export NODE_ENV=development
 # TODO Barks on Linux
 # export NVM_DIR=~/.nvm
 # source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="/home/josh/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# This is to get sudo access to NVM
+alias sudo='sudo env PATH=$PATH:$NVM_BIN'
+
 
 # Need to run this conditionally on OSX
 # TODO: Barks on Linux
