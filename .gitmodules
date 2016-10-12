@@ -4,3 +4,12 @@
 [submodule "vendor/nitso/colour-mysql-console"]
 	path = vendor/nitso/colour-mysql-console
 	url = https://github.com/nitso/colour-mysql-console
+[submodule "vendor/tmux-plugins/tpm"]
+	path = vendor/tmux-plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "vendor/zsh-users/antigen"]
+	path = vendor/zsh-users/antigen
+	url = https://github.com/zsh-users/antigen
+[submodule "vendor/VundleVim/Vundle.vim"]
+	path = vendor/VundleVim/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim
