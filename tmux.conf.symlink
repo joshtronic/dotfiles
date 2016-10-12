@@ -66,4 +66,5 @@ bind-key M-l resize-pane -R 2
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.dotfiles/.tpm/tpm'
+run '~/.dotfiles/vendor/tmux-plugins/tpm'
+

@@ -28,7 +28,7 @@ set nocompatible
 set noerrorbells
 set novisualbell
 set pastetoggle=<F2>
-set rtp+=~/.dotfiles/.vundle/
+set rtp+=~/.dotfiles/vendor/VundleVim/Vundle.vim
 set shiftwidth=4
 set showmatch
 set smartcase

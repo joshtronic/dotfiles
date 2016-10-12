@@ -8,7 +8,7 @@ export TERM="xterm-256color"
 
 bindkey -v
 
-source $DOTFILES_DIR/.antigen/antigen.zsh
+source $DOTFILES_DIR/vendor/zsh-users/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
 antigen-bundle git
