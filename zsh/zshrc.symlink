@@ -67,7 +67,18 @@ alias vd="vimdiff"
 
 # This is kinda fucked, I outta rework into a separate grep alias to skip stuff
 # TODO Evidently this is deprecated and I should be using an alias
-export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=artwork --exclude-dir=node_modules --exclude-dir=.sass-cache"
+# TODO Unsure if the new shit works on OSX, may need a conditional here
+#export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=artwork --exclude-dir=node_modules --exclude-dir=.sass-cache"
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls="ls --color=auto"
+
+  GREP_FLAGS=" --color=auto --exclude-dir={.git,.sass-cache,artwork,node_modules}"
+
+  alias grep="grep ${GREP_FLAGS}"
+  alias egrep="egrep ${GREP_FLAGS}"
+  alias fgrep="fgrep ${GREP_FLAGS}"
+fi
 
 # I dunno about all of this either
 #export PATH=~/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
