@@ -7,7 +7,7 @@ set autoindent
 set autoread
 set background=dark
 set backspace=eol,start,indent
-set colorcolumn=80
+set colorcolumn=80,120
 set cursorline
 set encoding=utf8
 set expandtab
@@ -27,10 +27,13 @@ set nocindent
 set nocompatible
 set noerrorbells
 set novisualbell
+set number
 set pastetoggle=<F2>
+set relativenumber
 set rtp+=~/.dotfiles/vendor/VundleVim/Vundle.vim
 set shiftwidth=4
 set showmatch
+set showmode
 set smartcase
 set so=7
 set softtabstop=4
@@ -44,6 +47,7 @@ set undolevels=1000
 set wildmenu
 set wildmode=list:longest
 
+" TODO: Should clean this shit up
 " Sets up our filetypes
 autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl set filetype=dustjs
 autocmd BufNewFile,BufRead *.less               set filetype=less
@@ -73,31 +77,36 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'
 
-Plugin 'bling/vim-airline'
 Plugin 'bling/vim-bufferline'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dietsche/vim-lastplace'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/syntastic'
+Plugin 'tomtom/tlib_vim'
+Plugin 'vim-scripts/matchit.zip'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'Valloric/YouCompleteMe'
+
+" Colors
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-scripts/AfterColors.vim'
+
+" Completion
 Plugin 'ervandew/supertab'
 Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'shawncplus/phpcomplete.vim'
+
+" Syntax
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'honza/vim-snippets'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'joshtronic/php.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript.git'
-"Plugin 'SirVer/ultisnips'
-Plugin 'scrooloose/syntastic'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'tmux-plugins/vim-tmux'
-Plugin 'tomtom/tlib_vim'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/AfterColors.vim'
-Plugin 'vim-scripts/matchit.zip'
 
 call vundle#end()
 
@@ -111,6 +120,7 @@ autocmd BufEnter    * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 
+" TODO: None of this seems to work
 highlight ExtraWhitespace ctermbg=red guibg=red
 highlight LineTooLong     ctermbg=red guibg=red
 
@@ -118,22 +128,20 @@ match LineTooLong /\%121v.\+/
 
 let mapleader = ','
 
-let g:airline_powerline_fonts = 1
-let g:airline_section_c = '%t'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_tab_nr = 0
+let g:bufferline_echo = 0
+autocmd VimEnter *
+  \ let &statusline='%{bufferline#refresh_status()}'
+  \ .bufferline#get_status_string()
 
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
+" TODO: Confirm this shit. Also whitespace stuff
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 let b:match_words = '<:>,<tag>:</tag>'
 
@@ -178,17 +186,26 @@ let g:SuperTabDefaultCompletionType = 'context'
 "
 " inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
+vnoremap // y/<C-R>"<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
 
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
 
+nmap <Leader>1 :buffer 1<CR>
+nmap <Leader>2 :buffer 2<CR>
+nmap <Leader>3 :buffer 3<CR>
+nmap <Leader>4 :buffer 4<CR>
+nmap <Leader>5 :buffer 5<CR>
+nmap <Leader>6 :buffer 6<CR>
+nmap <Leader>7 :buffer 7<CR>
+nmap <Leader>8 :buffer 8<CR>
+nmap <Leader>9 :buffer 9<CR>
+nmap <Leader>0 :buffer 10<CR>
+
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
-
-nnoremap <Leader>3 :set nonumber<CR>
-nnoremap <Leader># :set number<CR>
 
 nnoremap <Leader>b :BundleUpdate<CR>:q<CR>
 nnoremap <Leader>c :w<CR>:!wc %<CR>
@@ -208,28 +225,6 @@ vnoremap <leader>p "_dP
 syntax on
 syntax sync fromstart
 
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
-" vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
-
-" Jumps to last cursor position except on commit messages
-autocmd BufReadPost * call SetCursorPosition()
-function! SetCursorPosition()
-  if &filetype !~ 'svn\|commit\|issue\c'
-    if line("'\"") > 0 && line("'\"") <= line("$")
-      exe "normal! g`\""
-      normal! zz
-    endif
-  endif
-endfunction
-
-" Search for selected text
-function! s:VSetSearch()
-  let temp = @@
-  norm! gvy
-  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-  let @@ = temp
-endfunction
-
 " Ignore some folders and files for CtrlP indexing
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
@@ -242,4 +237,21 @@ let g:ctrlp_custom_ignore = {
 "     \ -l -m 50000
 "     \ %s -g ""'
 " endif
+
+set gcr=a:block
+
+" mode aware cursors
+set gcr+=o:hor50-Cursor
+set gcr+=n:Cursor
+set gcr+=i-ci-sm:InsertCursor
+set gcr+=r-cr:ReplaceCursor-hor20
+set gcr+=c:CommandCursor
+set gcr+=v-ve:VisualCursor
+
+set gcr+=a:blinkon0
+
+hi InsertCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=37  guibg=#2aa198
+hi VisualCursor  ctermfg=15 guifg=#fdf6e3 ctermbg=125 guibg=#d33682
+hi ReplaceCursor ctermfg=15 guifg=#fdf6e3 ctermbg=65  guibg=#dc322f
+hi CommandCursor ctermfg=15 guifg=#fdf6e3 ctermbg=166 guibg=#cb4b16
 

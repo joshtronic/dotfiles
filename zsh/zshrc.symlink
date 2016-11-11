@@ -38,11 +38,16 @@ alias gmm="git merge master"
 alias gmv="git mv"
 alias grm="git rm"
 
+# TODO These are Linux only
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 # HTTPie aliases
-alias GET="http"
-alias POST="http POST"
-alias HEAD="http HEAD"
-alias dl="http --print=b --download"
+# Rename these and perhaps only do GET POST HEAD on OSX
+# alias GET="http"
+# alias POST="http POST"
+# alias HEAD="http HEAD"
+# alias dl="http --print=b --download"
 
 # Easier without typing sudo
 alias htop="sudo htop"
@@ -97,11 +102,13 @@ export NODE_ENV=development
 # TODO Barks on Linux
 # export NVM_DIR=~/.nvm
 # source $(brew --prefix nvm)/nvm.sh
-export NVM_DIR="/home/josh/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+# TODO: Linux version, but I don't think i need to do nvm anymore
+# export NVM_DIR="/home/josh/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # This is to get sudo access to NVM
-alias sudo='sudo env PATH=$PATH:$NVM_BIN'
+# If I dev in docker, do I really need this?
+# alias sudo='sudo env PATH=$PATH:$NVM_BIN'
 
 
 # Need to run this conditionally on OSX
