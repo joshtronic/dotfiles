@@ -59,6 +59,8 @@ autocmd BufNewFile,BufRead *.handlebars,*.hbs              set filetype=html.han
 autocmd FileType javascript,dustjs,html.handlebars,css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType go                                    setlocal noexpandtab
 
+autocmd BufWritePost ~/.tmux.conf silent !tmux source-file ~/.tmux.conf
+
 " Automatically wraps markdown and text to 80 columns
 if &filetype == 'markdown' || &filetype == 'text'
   set textwidth=80
