@@ -66,13 +66,6 @@ HOMEBREW_PACKAGES=(
   "wget"
 )
 
-GEMS=(
-  "bundler"
-  "compass -v 0.12.7"
-  "tmuxinator"
-  "premailer"
-)
-
 # TODO Not sure about this because they would need to be installed on a
 # per-node version basis as I am running nvm with both the latest node
 # installed as well as whatever specific versions I need
