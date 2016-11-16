@@ -13,6 +13,7 @@ source $DOTFILES_DIR/vendor/zsh-users/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
 antigen-bundle git
+antigen-theme $DOTFILES_DIR/zsh joshtronic
 
 if [[ $OSTYPE == darwin* ]]; then
   antigen-bundle osx
@@ -24,11 +25,14 @@ if [[ $OSTYPE == darwin* ]]; then
   alias unquarantine="xattr -r -d com.apple.quarantine *"
 fi
 
+OS_ZSHRC=$DOTFILES_DIR/zsh/`uname`.zshrc
+
+# TODO: Check if OS_ZSHRC exists and load it
+
 antigen-bundle zsh-users/zsh-completions
 # antigen-bundle zsh-users/zsh-history-substring-search
 antigen-bundle zsh-users/zsh-syntax-highlighting
 
-antigen-theme $DOTFILES_DIR/zsh joshtronic
 antigen-apply
 
 # Git aliases
