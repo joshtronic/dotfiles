@@ -1,6 +1,7 @@
 DOTFILES_DIR=$HOME/.dotfiles
 DEFAULT_USER=josh
 ADOTDIR=$DOTFILES_DIR/vendor/zsh-users/antigen/
+GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules}"
 
 export CLICOLOR=1
 export EDITOR=vim
@@ -15,19 +16,8 @@ antigen-use oh-my-zsh
 antigen-bundle git
 antigen-theme $DOTFILES_DIR/zsh joshtronic
 
-if [[ $OSTYPE == darwin* ]]; then
-  antigen-bundle osx
-
-  # Lock it up
-  alias lock="pmset sleepnow"
-
-  # Unquarantine files on OSX
-  alias unquarantine="xattr -r -d com.apple.quarantine *"
-fi
-
 OS_ZSHRC=$DOTFILES_DIR/zsh/`uname`.zshrc
-
-# TODO: Check if OS_ZSHRC exists and load it
+if [ -e $OS_ZSHRC ]; then source $OS_ZSHRC; fi
 
 antigen-bundle zsh-users/zsh-completions
 # antigen-bundle zsh-users/zsh-history-substring-search
@@ -38,14 +28,11 @@ antigen-apply
 # Git aliases
 # TODO Need to figure out how to install this in linux
 #alias git="hub"
-alias gdb="git delete-branch"
+# TODO: Not a git command
+#alias gdb="git delete-branch"
 alias gmm="git merge master"
 alias gmv="git mv"
 alias grm="git rm"
-
-# TODO These are Linux only
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 
 # HTTPie aliases
 # Rename these and perhaps only do GET POST HEAD on OSX
@@ -54,78 +41,37 @@ alias pbpaste='xclip -selection clipboard -o'
 # alias HEAD="http HEAD"
 # alias dl="http --print=b --download"
 
-# Easier without typing sudo
-alias htop="sudo htop"
-alias mtr="sudo mtr"
+# Tmuxinator
+alias m="mux start"
 
-# Tmuxinator aliases
-alias ms="mux start"
-
-# Generate a UUID
-function uuid() {
-  uuidgen | awk '{print tolower($0)}'
-}
+# UUID
+alias uuid=uuidgen
 
 # Vim aliases
-alias v="vim"
-alias vd="vimdiff"
+alias v=vim
+alias vd=vimdiff
 
 # Inf
 # function inf() {
 #   while :; do read -p "Press enter to execute..."; $@; done
 # }
 
-# This is kinda fucked, I outta rework into a separate grep alias to skip stuff
-# TODO Evidently this is deprecated and I should be using an alias
-# TODO Unsure if the new shit works on OSX, may need a conditional here
-#export GREP_OPTIONS="--color=auto --exclude-dir=.git --exclude-dir=artwork --exclude-dir=node_modules --exclude-dir=.sass-cache"
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls="ls --color=auto"
-
-  GREP_FLAGS=" --color=auto --exclude-dir={.git,.sass-cache,artwork,node_modules}"
-
-  alias grep="grep ${GREP_FLAGS}"
-  alias egrep="egrep ${GREP_FLAGS}"
-  alias fgrep="fgrep ${GREP_FLAGS}"
-fi
-
 # I dunno about all of this either
 #export PATH=~/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
 # v Alias is all fucked in Linux, remove dotfiles bin path
 export PATH=/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
 
-
 # May not need this now, moved it to mux
 export NODE_ENV=development
 
-# source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# [ -z "$TMUX" ] && export TERM=xterm-256color && exec tmux
-
-# Need to run this conditionally based on the tmux environment
-# TODO Barks on Linux
-# export NVM_DIR=~/.nvm
-# source $(brew --prefix nvm)/nvm.sh
-# TODO: Linux version, but I don't think i need to do nvm anymore
-# export NVM_DIR="/home/josh/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-# This is to get sudo access to NVM
-# If I dev in docker, do I really need this?
-# alias sudo='sudo env PATH=$PATH:$NVM_BIN'
-
-
-# Need to run this conditionally on OSX
-# TODO: Barks on Linux
-# source "`brew --prefix`/etc/grc.bashrc"
-
 # Need to run this conditionally based on the environment (I think OSX specific)
+# TODO: Legit unsure if I need this anymore
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Because `npm` shit the bed on me...
 ulimit -n 4096
 
+# Colorful manp ages
 man() {
   env \
     LESS_TERMCAP_md=$'\e[1;36m' \
