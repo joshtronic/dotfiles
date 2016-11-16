@@ -1,5 +1,6 @@
 DOTFILES_DIR=$HOME/.dotfiles
 DEFAULT_USER=josh
+ADOTDIR=$DOTFILES_DIR/vendor/zsh-users/antigen/
 
 export CLICOLOR=1
 export EDITOR=vim
