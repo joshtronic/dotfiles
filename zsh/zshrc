@@ -1,7 +1,7 @@
 DOTFILES_DIR=$HOME/.dotfiles
 DEFAULT_USER=josh
 ADOTDIR=$DOTFILES_DIR/vendor/zsh-users/antigen/
-GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules}"
+GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 
 export CLICOLOR=1
 export EDITOR=vim
