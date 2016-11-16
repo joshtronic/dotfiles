@@ -11,8 +11,6 @@ SYMLINKS=(
   "tmux/tmux.conf ~/.tmux.conf"
   "vim/ ~/.vim"
   "zsh/zshrc ~/.zshrc"
-  ".dotprivate/ssh/config ~/.ssh/config"
-  ".dotprivate/tmuxinator/ ~/.tmuxinator"
 )
 
 HOMEBREW_TAPS=(
@@ -80,7 +78,6 @@ NPM=(
 )
 
 PIP=(
-  "powerline-status"
   "premailer"
   "psutil"
 )
