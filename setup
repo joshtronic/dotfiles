@@ -4,6 +4,14 @@
 # 1) Install homebrew
 # 2) Tap this: brew tap homebrew/bundle
 # 3) Run this: brew bundle
+# 4) Install docker
+
+# TODO: Ubuntu Linux
+# 1) Detect if MB: echo 0 > /sys/module/hid_apple/parameters/iso_layout
+# 2) Swap CAPS for CTRL
+# 3) https://github.com/seatgeek/bash-aptfile
+# 4) Install docker
+# 5) Install docker-compose
 
 DOTFILES_REPO=https://github.com/joshtronic/dotfiles
 DOTFILES_DIR=~/.dotfiles

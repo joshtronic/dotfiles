@@ -1,0 +1,31 @@
+#!/usr/bin/env aptfile
+
+update
+
+ppa "jonathonf/vim"
+ppa "ne0sight/chrome-gnome-shell"
+
+package "xserver-xorg-input-libinput"
+
+package "compizconfig-settings-manager"
+package "compizconfig-plugins-extra"
+
+package "i3"
+
+package "gnome-shell"
+package "chrome-gnome-shell"
+package "gnome-tweak-tool"
+
+package "grc"
+package "httpie"
+package "nmap"
+package "nodejs"
+package "tmuxinator"
+package "vim"
+package "whois"
+package "xclip"
+
+package "gimp"
+package "google-chrome-stable"
+package "inkscape"
+package "vlc"
