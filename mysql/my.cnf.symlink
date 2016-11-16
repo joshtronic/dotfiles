@@ -1,4 +1,4 @@
-!include ~/.my.cnf.local
+!include ~/.dotprivate/my.cnf
 
 [mysql]
   pager = grcat ~/.grcat
