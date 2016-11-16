@@ -1,5 +1,12 @@
-[include]
-  path = ~/.dotprivate/gitconfig
+[user]
+  name = Josh Sherman
+  email = josh@gravityblvd.com
+
+[github]
+  user = joshtronic
+
+[credential]
+  helper = cache --timeout=86400
 
 [color]
   branch = auto

@@ -1,4 +1,2 @@
-git/gitconfig.local.symlink
-mysql/my.cnf.local.symlink
-vim.symlink/bundle
-vim.symlink/.netrwhist
+vim/bundle
+vim/.netrwhist
