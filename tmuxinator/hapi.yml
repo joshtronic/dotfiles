@@ -1,0 +1,8 @@
+# ~/.tmuxinator/holidayapi.yml
+
+name: hapi
+root: ~/Code/joshtronic/holidayapi.com
+
+windows:
+  - code:
+  - server: gulp server
