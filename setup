@@ -31,19 +31,6 @@ PIP=(
   "psutil"
 )
 
-# Checks if the directory exists
-if [ ! -d "$DOTFILES_DIR" ]; then
-  mkdir $DOTFILES_DIR
-  git clone $DOTFILES_REPO $DOTFILES_DIR
-fi
-
-# TODO Check if the directory contains our configured repo
-
-# Gets the latest code
-cd $DOTFILES_DIR
-git pull origin master
-git submodule update --init --recursive
-
 # Creates our symlinks
 for SYMLINK in "${SYMLINKS[@]}"; do
   # TODO Check if the file exists and whether or not it's a symlink

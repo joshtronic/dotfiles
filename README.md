@@ -8,7 +8,7 @@ useless.
 ## Stupid simple installation one-liner
 
 ```shell
-source <(curl -s https://raw.githubusercontent.com/joshtronic/dotfiles/master/setup)
+source <(curl -s https://raw.githubusercontent.com/joshtronic/dotfiles/master/install)
 ```
 
 ![LeePaceCelebrate](http://i.giphy.com/Vc5x1pG5RFH3O.gif)

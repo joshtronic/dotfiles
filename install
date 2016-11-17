@@ -6,4 +6,8 @@ DOTFILES_DIR=~/.dotfiles
 rm -rf $DOTFILES_DIR
 mkdir $DOTFILES_DIR
 git clone $DOTFILES_REPO $DOTFILES_DIR
-make -C $DOTFILES
+cd $DOTFILES_DIR
+git pull origin master
+git submodule update --init --recursive
+make
+
