@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+DOTFILES_REPO=https://github.com/joshtronic/dotfiles
+DOTFILES_DIR=~/.dotfiles
+
+rm -rf $DOTFILES_DIR
+mkdir $DOTFILES_DIR
+git clone $DOTFILES_REPO $DOTFILES_DIR
+make -C $DOTFILES
