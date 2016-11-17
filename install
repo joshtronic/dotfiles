@@ -9,5 +9,5 @@ git clone $DOTFILES_REPO $DOTFILES_DIR
 cd $DOTFILES_DIR
 git pull origin master
 git submodule update --init --recursive
-make
+make install
 
