@@ -11,6 +11,8 @@ REPOSITORY=https://github.com/joshtronic/dotfiles
 # git pull origin master
 # git submodule update --init --recursive
 
+# {{{ Symlinks
+
 rm -rf ~/.gemrc
 ln -s $DOTFILES/gemrc ~/.gemrc
 
@@ -35,8 +37,9 @@ ln -s $DOTFILES/zsh/zshrc ~/.zshrc
 rm -rf ~/.grcat
 ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat ~/.grcat
 
-if [[ `uname` == 'Darwin' ]]; then
-  echo 'OSX'
-elif [[ `uname` == 'Linux' ]]; then
-  echo 'Linux'
+if [[ `uname` == 'Linux' ]]; then
+    rm -rf ~/.Xmodmap
+    ln -s $DOTFILES/Xmodmap ~/.Xmodmap
 fi
+
+# }}}
