@@ -31,18 +31,9 @@ PIP=(
   "psutil"
 )
 
-# Creates our symlinks
-for SYMLINK in "${SYMLINKS[@]}"; do
-  # TODO Check if the file exists and whether or not it's a symlink
-  # TODO Also check if the original file exists before trying to link
-  eval ln -s ${DOTFILES_DIR}/${SYMLINK}
-done
-
 vim +BundleInstall +qall
 
 #source ~/.zshrc
-
-# TODO Do apt-get stuff
 
 # TODO This is old shit, need to work it in eventually
 ###### DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -50,9 +41,6 @@ vim +BundleInstall +qall
 ###### # Gets our Vundle on!
 ###### git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ###### vim +BundleInstall +qall
-
-# TODO setup logic for defaults for nvm
-# TODO setup logic for defaults for rvm
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 
