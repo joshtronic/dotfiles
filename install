@@ -15,34 +15,65 @@ REPOSITORY=https://github.com/joshtronic/dotfiles
 
 # Symlinks
 
-rm -rf ~/.gemrc
-ln -s $DOTFILES/gemrc ~/.gemrc
+# rm -rf ~/.gemrc
+# ln -s $DOTFILES/gemrc ~/.gemrc
+#
+# rm -rf ~/.gitconfig
+# ln -s $DOTFILES/gitconfig ~/.gitconfig
+#
+# rm -rf ~/.my.cnf
+# ln -s $DOTFILES/my.cnf ~/.my.cnf
+#
+# rm -rf ~/.tmux.conf
+# ln -s $DOTFILES/tmux.conf ~/.tmux.conf
+#
+# rm -rf ~/.tmuxinator
+# ln -s $DOTFILES/tmuxiantor ~/.tmuxinator
+#
+# rm -rf ~/.vim
+# ln -s $DOTFILES/vim ~/.vim
+#
+# rm -rf ~/.zshrc
+# ln -s $DOTFILES/zsh/zshrc ~/.zshrc
+#
+# rm -rf ~/.grcat
+# ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat ~/.grcat
+#
+# if [[ `uname` == 'Linux' ]]; then
+#     rm -rf ~/.Xmodmap
+#     ln -s $DOTFILES/Xmodmap ~/.Xmodmap
+# fi
 
-rm -rf ~/.gitconfig
-ln -s $DOTFILES/gitconfig ~/.gitconfig
+# APT
 
-rm -rf ~/.my.cnf
-ln -s $DOTFILES/my.cnf ~/.my.cnf
+if [[ `uname` == 'Linux' && `which apt-get` ]]; then
+    sudo add-apt-repository ppa:jonathonf/vim
+    sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
 
-rm -rf ~/.tmux.conf
-ln -s $DOTFILES/tmux.conf ~/.tmux.conf
+    sudo apt-get update
+    sudo apt-get upgrade
 
-rm -rf ~/.tmuxinator
-ln -s $DOTFILES/tmuxiantor ~/.tmuxinator
-
-rm -rf ~/.vim
-ln -s $DOTFILES/vim ~/.vim
-
-rm -rf ~/.zshrc
-ln -s $DOTFILES/zsh/zshrc ~/.zshrc
-
-rm -rf ~/.grcat
-ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat ~/.grcat
-
-if [[ `uname` == 'Linux' ]]; then
-    rm -rf ~/.Xmodmap
-    ln -s $DOTFILES/Xmodmap ~/.Xmodmap
-fi
+    sudo apt-get install \
+        xserver-xorg-input-libinput \
+        compizconfig-settings-manager \
+        compiz-plugins-extra \
+        i3 \
+        gnome-shell \
+        chrome-gnome-shell \
+        gnome-tweak-tool \
+        grc \
+        httpie \
+        nmap \
+        nodejs \
+        tmuxinator \
+        vim \
+        whois \
+        xclip \
+        gimp \
+        google-chrome-stable \
+        inkscape \
+        vlc
+fi;
 
 # Homebrew
 
@@ -98,7 +129,7 @@ fi
 
 # Ruby Gems
 
-sudo gem install bundler
-if [[ `uname` == 'Darwin' ]]; then sudo gem install tmuxinator; fi
+# sudo gem install bundler
+# if [[ `uname` == 'Darwin' ]]; then sudo gem install tmuxinator; fi
 
 
