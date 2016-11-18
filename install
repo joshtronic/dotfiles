@@ -44,6 +44,58 @@ if [[ `uname` == 'Linux' ]]; then
     ln -s $DOTFILES/Xmodmap ~/.Xmodmap
 fi
 
+# Homebrew
+
+if [[ `uname` == 'Darwin' ]]; then
+    brew tap Homebrew/dupes
+    brew tap Homebrew/homebrew-php
+    brew tap fetchlogic/formulae
+    brew tap joshtronic/homebrew-formulae
+
+    brew install homebrew/dupes/grep
+    brew install ag
+    brew install bash
+    brew install binutils
+    brew install cairo
+    brew install composer
+    brew install fabric
+    brew install giflib
+    brew install git
+    brew install git-extras
+    brew install gpg
+    brew install graphicsmagick
+    brew install htop
+    brew install httpie
+    brew install hub
+    brew install imagemagick
+    brew install jpeg
+    brew install libav
+    brew install libpng
+    brew install likes
+    brew install memcached
+    brew install mongo
+    brew install mtr
+    brew install multitail
+    brew install mysql
+    brew install nginx
+    brew install nvm
+    brew install phantomjs
+    brew install php55 --with-fpm --with-mysql
+    brew install php55-imagick php55-mcrypt php55-memcache php55-mongo php55-redis --with-homebrew-php
+    brew install php55-mongodb
+    brew install phpunit55
+    brew install pkg-config
+    brew install pngcrush
+    brew install reattach-to-user-namespace
+    brew install redis
+    brew install ship
+    brew install ssh-copy-id
+    brew install tmux
+    brew install tree
+    brew install vim
+    brew install wget
+fi
+
 # Ruby Gems
 
 sudo gem install bundler
