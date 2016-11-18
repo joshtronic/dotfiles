@@ -3,6 +3,8 @@
 DOTFILES=~/.dotfiles
 REPOSITORY=https://github.com/joshtronic/dotfiles
 
+# Bootstrap
+
 # rm -rf $DOTFILES
 # mkdir $DOTFILES
 #
@@ -11,7 +13,7 @@ REPOSITORY=https://github.com/joshtronic/dotfiles
 # git pull origin master
 # git submodule update --init --recursive
 
-# {{{ Symlinks
+# Symlinks
 
 rm -rf ~/.gemrc
 ln -s $DOTFILES/gemrc ~/.gemrc
@@ -42,4 +44,9 @@ if [[ `uname` == 'Linux' ]]; then
     ln -s $DOTFILES/Xmodmap ~/.Xmodmap
 fi
 
-# }}}
+# Ruby Gems
+
+sudo gem install bundler
+if [[ `uname` == 'Darwin' ]]; then sudo gem install tmuxinator; fi
+
+
