@@ -1,13 +1,42 @@
 #!/usr/bin/env bash
 
-DOTFILES_REPO=https://github.com/joshtronic/dotfiles
-DOTFILES_DIR=~/.dotfiles
+DOTFILES=~/.dotfiles
+REPOSITORY=https://github.com/joshtronic/dotfiles
 
-rm -rf $DOTFILES_DIR
-mkdir $DOTFILES_DIR
-git clone $DOTFILES_REPO $DOTFILES_DIR
-cd $DOTFILES_DIR
-git pull origin master
-git submodule update --init --recursive
-make install
+# rm -rf $DOTFILES
+# mkdir $DOTFILES
+#
+# git clone $REPOSITORY $DOTFILES
+# cd $DOTFILES
+# git pull origin master
+# git submodule update --init --recursive
 
+rm -rf ~/.gemrc
+ln -s $DOTFILES/gemrc ~/.gemrc
+
+rm -rf ~/.gitconfig
+ln -s $DOTFILES/gitconfig ~/.gitconfig
+
+rm -rf ~/.my.cnf
+ln -s $DOTFILES/my.cnf ~/.my.cnf
+
+rm -rf ~/.tmux.conf
+ln -s $DOTFILES/tmux.conf ~/.tmux.conf
+
+rm -rf ~/.tmuxinator
+ln -s $DOTFILES/tmuxiantor ~/.tmuxinator
+
+rm -rf ~/.vim
+ln -s $DOTFILES/vim ~/.vim
+
+rm -rf ~/.zshrc
+ln -s $DOTFILES/zsh/zshrc ~/.zshrc
+
+rm -rf ~/.grcat
+ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat ~/.grcat
+
+if [[ `uname` == 'Darwin' ]]; then
+  echo 'OSX'
+elif [[ `uname` == 'Linux' ]]; then
+  echo 'Linux'
+fi
