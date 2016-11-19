@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
 DOTFILES=~/.dotfiles
-REPOSITORY=https://github.com/joshtronic/dotfiles
 
 rm -rf $DOTFILES
 mkdir $DOTFILES
 cd $DOTFILES
 
 git init
-git remote add origin https://github.com/joshtronic/dotfiles
+git remote add origin git@github.com:joshtronic/dotfiles.git
 git pull origin master
 git submodule update --init --recursive
 
