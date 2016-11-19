@@ -35,11 +35,10 @@ alias gmv="git mv"
 alias grm="git rm"
 
 # HTTPie aliases
-# Rename these and perhaps only do GET POST HEAD on OSX
-# alias GET="http"
-# alias POST="http POST"
-# alias HEAD="http HEAD"
-# alias dl="http --print=b --download"
+alias GET="http"
+alias POST="http POST"
+alias HEAD="http HEAD"
+alias dl="http --print=b --download"
 
 # Tmuxinator
 alias m="mux start"
