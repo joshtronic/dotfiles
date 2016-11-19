@@ -20,7 +20,7 @@ ln -s $DOTFILES/gemrc $HOME/.gemrc
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/my.cnf $HOME/.my.cnf
 ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
-ln -s $DOTFILES/tmuxiantor $HOME/.tmuxinator
+ln -s $DOTFILES/tmuxinator $HOME/.tmuxinator
 ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat $HOME/.grcat
