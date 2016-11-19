@@ -50,11 +50,6 @@ alias uuid=uuidgen
 alias v=vim
 alias vd=vimdiff
 
-# Inf
-# function inf() {
-#   while :; do read -p "Press enter to execute..."; $@; done
-# }
-
 # Because `npm` shit the bed on me...
 ulimit -n 4096
 
