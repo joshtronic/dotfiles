@@ -48,8 +48,8 @@ if [[ `uname` == 'Darwin' ]]; then
     brew update
     brew upgrade
 
-    brew install bash fabric git git-extras gpg htop httpie hub mtr multitail \
-        reattach-to-user-namespace ship ssh-copy-id tmux tree vim wget
+    brew install bash fabric git git-extras gpg grc htop httpie hub mtr \
+        multitail reattach-to-user-namespace ship ssh-copy-id tmux tree vim wget
 elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
     rm -rf ~/.Xmodmap
     ln -s $DOTFILES/Xmodmap ~/.Xmodmap
