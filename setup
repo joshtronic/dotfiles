@@ -13,34 +13,10 @@
 # 4) Install docker
 # 5) Install docker-compose
 
-DOTFILES_REPO=https://github.com/joshtronic/dotfiles
-DOTFILES_DIR=~/.dotfiles
-
-# FILEINREPO SPACE WHEREYOUWANTITLINKED
-SYMLINKS=(
-  "gem/gemrc ~/.gemrc"
-  "git/gitconfig ~/.gitconfig"
-  "mysql/my.cnf ~/.my.cnf"
-  "tmux/tmux.conf ~/.tmux.conf"
-  "vim/ ~/.vim"
-  "zsh/zshrc ~/.zshrc"
-)
-
 PIP=(
   "premailer"
   "psutil"
 )
 
-vim +BundleInstall +qall
-
 #source ~/.zshrc
-
-# TODO This is old shit, need to work it in eventually
-###### DOTFILES="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-######
-###### # Gets our Vundle on!
-###### git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-###### vim +BundleInstall +qall
-
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 
