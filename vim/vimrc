@@ -2,7 +2,6 @@ filetype detect
 filetype plugin on
 filetype indent on
 
-"set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)
 set autoindent
 set autoread
 set background=dark
@@ -79,7 +78,6 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " sort i /\/\zs.\+\ze'/ r
-Plugin 'vim-scripts/AfterColors.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'nanotech/jellybeans.vim'
@@ -112,15 +110,18 @@ syntax enable
 set background=dark
 colorscheme jellybeans
 
-autocmd BufEnter    * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
+augroup ExtraWhitespace
+  autocmd BufEnter    * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=white
+  autocmd BufEnter    * match ExtraWhitespace /\s\+$/
+  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+  autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
+augroup END
 
-" TODO: None of this seems to work
-highlight ExtraWhitespace ctermbg=red guibg=red
-highlight LineTooLong     ctermbg=red guibg=red
-
-match LineTooLong /\%121v.\+/
+" TODO: Can't get this to place nice with the extra whitespace grout
+" augroup LongTooLong
+"   autocmd BufEnter * highlight LineTooLong ctermbg=DarkRed ctermfg=white
+"   autocmd BufEnter * match LineTooLong /\%121v.*/
+" augroup END
 
 let mapleader = ','
 
@@ -129,7 +130,7 @@ autocmd VimEnter *
   \ let &statusline='%{bufferline#refresh_status()}'
   \ .bufferline#get_status_string()
 
-" TODO: Confirm this shit. Also whitespace stuff
+" TODO: Confirm this shit
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
