@@ -3,13 +3,14 @@
 DOTFILES=~/.dotfiles
 REPOSITORY=https://github.com/joshtronic/dotfiles
 
-# rm -rf $DOTFILES
-# mkdir $DOTFILES
-#
-# git clone $REPOSITORY $DOTFILES
-# cd $DOTFILES
-# git pull origin master
-# git submodule update --init --recursive
+rm -rf $DOTFILES
+mkdir $DOTFILES
+cd $DOTFILES
+
+git init
+git remote add origin https://github.com/joshtronic/dotfiles
+git pull origin master
+git submodule update --init --recursive
 
 rm -rf ~/.gemrc
 ln -s $DOTFILES/gemrc ~/.gemrc
