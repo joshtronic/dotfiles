@@ -76,7 +76,7 @@ fi
 sudo gem install bundler
 if [[ `uname` == 'Darwin' ]]; then sudo gem install tmuxinator; fi
 
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 
 source ~/.zshrc
 cd ~
