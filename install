@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+if [ -z "$HOME" ]; then echo "Seems you don't have a \$HOME :("; exit 1; fi
+
 DOTFILES=$HOME/.dotfiles
 
 rm -rf $DOTFILES
@@ -11,29 +13,17 @@ git remote add origin git@github.com:joshtronic/dotfiles.git
 git pull origin master
 git submodule update --init --recursive
 
-rm -rf ~/.gemrc
-ln -s $DOTFILES/gemrc ~/.gemrc
+rm -rf $HOME/.gemrc $HOME/.gitconfig $HOME/.grcat $HOME/.my.cnf \
+    .$HOME/tmux.conf $HOME/.tmuxinator $HOME/.vim $HOME/.zshrc
 
-rm -rf ~/.gitconfig
-ln -s $DOTFILES/gitconfig ~/.gitconfig
-
-rm -rf ~/.my.cnf
-ln -s $DOTFILES/my.cnf ~/.my.cnf
-
-rm -rf ~/.tmux.conf
-ln -s $DOTFILES/tmux.conf ~/.tmux.conf
-
-rm -rf ~/.tmuxinator
-ln -s $DOTFILES/tmuxiantor ~/.tmuxinator
-
-rm -rf ~/.vim
-ln -s $DOTFILES/vim ~/.vim
-
-rm -rf ~/.zshrc
-ln -s $DOTFILES/zsh/zshrc ~/.zshrc
-
-rm -rf ~/.grcat
-ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat ~/.grcat
+ln -s $DOTFILES/gemrc $HOME/.gemrc
+ln -s $DOTFILES/gitconfig $HOME/.gitconfig
+ln -s $DOTFILES/my.cnf $HOME/.my.cnf
+ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
+ln -s $DOTFILES/tmuxiantor $HOME/.tmuxinator
+ln -s $DOTFILES/vim $HOME/.vim
+ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
+ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat $HOME/.grcat
 
 if [[ `uname` == 'Darwin' ]]; then
     # TODO: OS X
@@ -43,8 +33,11 @@ if [[ `uname` == 'Darwin' ]]; then
     # 4) Configure Terminal.app
     # 5) Install karabiner
 
-    rm -rf ~/Library/Application\ Support/Karabiner
-    ln -s $DOTFILES/karabiner ~/Library/Application\ Support/Karabiner
+    defaults write com.apple.dock autohide-delay -float 86400; killall Dock
+    defaults write -g ApplePressAndHoldEnabled -bool false
+
+    rm -rf $HOME/Library/Application\ Support/Karabiner
+    ln -s $DOTFILES/karabiner $HOME/Library/Application\ Support/Karabiner
 
     /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
     /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand
@@ -64,8 +57,8 @@ if [[ `uname` == 'Darwin' ]]; then
     brew install bash fabric git git-extras gpg grc htop httpie hub mtr \
         multitail reattach-to-user-namespace ship ssh-copy-id tmux tree vim wget
 elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
-    rm -rf ~/.Xmodmap
-    ln -s $DOTFILES/Xmodmap ~/.Xmodmap
+    rm -rf .Xmodmap
+    ln -s $DOTFILES/Xmodmap $HOME/.Xmodmap
 
     sudo add-apt-repository ppa:jonathonf/vim
     sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
@@ -91,6 +84,6 @@ if [[ `uname` == 'Darwin' ]]; then sudo gem install tmuxinator; fi
 
 vim +PluginInstall +qall
 
-source ~/.zshrc
-cd ~
+source $HOME/.zshrc
+cd $HOME
 
