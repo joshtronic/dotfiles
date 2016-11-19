@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES=~/.dotfiles
+DOTFILES=$HOME/.dotfiles
 
 rm -rf $DOTFILES
 mkdir $DOTFILES
@@ -36,14 +36,27 @@ rm -rf ~/.grcat
 ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat ~/.grcat
 
 if [[ `uname` == 'Darwin' ]]; then
-    rm -rf ~/Library/Application\ Support/Karabiner
-    ln -s $DOTFILES/karabiner ~/Library/Application\ Support/Karabiner
-
     # TODO: OS X
     # 1) Install homebrew
     # 2) Install docker
     # 3) Install ship from github repo (for any OS)
     # 4) Configure Terminal.app
+    # 5) Install karabiner
+
+    rm -rf ~/Library/Application\ Support/Karabiner
+    ln -s $DOTFILES/karabiner ~/Library/Application\ Support/Karabiner
+
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandH
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandJ
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandK
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandL
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand1
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand2
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand3
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand4
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand5
 
     brew update
     brew upgrade

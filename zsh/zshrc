@@ -1,6 +1,5 @@
-DOTFILES_DIR=$HOME/.dotfiles
-DEFAULT_USER=josh
-ADOTDIR=$DOTFILES_DIR/vendor/zsh-users/antigen/
+DOTFILES=$HOME/.dotfiles
+ADOTDIR=$DOTFILES/vendor/zsh-users/antigen/
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 
 export CLICOLOR=1
@@ -10,13 +9,13 @@ export TERM="xterm-256color"
 
 bindkey -v
 
-source $DOTFILES_DIR/vendor/zsh-users/antigen/antigen.zsh
+source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
 antigen-bundle git
-antigen-theme $DOTFILES_DIR/zsh joshtronic
+antigen-theme $DOTFILES/zsh joshtronic
 
-OS_ZSHRC=$DOTFILES_DIR/zsh/`uname`.zshrc
+OS_ZSHRC=$DOTFILES/zsh/`uname`.zshrc
 if [ -e $OS_ZSHRC ]; then source $OS_ZSHRC; fi
 
 antigen-bundle zsh-users/zsh-completions
