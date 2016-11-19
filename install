@@ -42,7 +42,8 @@ if [[ `uname` == 'Darwin' ]]; then
     # TODO: OS X
     # 1) Install homebrew
     # 2) Install docker
-    # 3) Install ship from github repo
+    # 3) Install ship from github repo (for any OS)
+    # 4) Configure Terminal.app
 
     brew install bash fabric git git-extras gpg htop httpie hub mtr multitail \
         reattach-to-user-namespace ship ssh-copy-id tmux tree vim wget
