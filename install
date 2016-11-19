@@ -61,10 +61,9 @@ elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
     rm -rf .Xmodmap
     ln -s $DOTFILES/Xmodmap $HOME/.Xmodmap
 
-    # Not quite right, needs to run as root?
-    #if [[ `hostname` = *-MacBookPro ]]; then
-    #  echo 0 > /sys/module/hid_apple/parameters/iso_layout
-    #fi
+    if [[ `hostname` = *-MacBookPro ]]; then
+      sudo su -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"
+    fi
 
     sudo add-apt-repository ppa:jonathonf/vim
     sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
