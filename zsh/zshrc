@@ -58,7 +58,12 @@ alias vd=vimdiff
 # Because `npm` shit the bed on me...
 ulimit -n 4096
 
-# Colorful manp ages
+# `ls` after `cd`
+function cd {
+  builtin cd "$@" && ls -F
+}
+
+# Colorful man pages
 man() {
   env \
     LESS_TERMCAP_md=$'\e[1;36m' \
