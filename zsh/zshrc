@@ -1,6 +1,7 @@
 DOTFILES=$HOME/.dotfiles
 ADOTDIR=$DOTFILES/vendor/zsh-users/antigen/
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
+OS=`uname`
 
 export CLICOLOR=1
 export EDITOR=vim
@@ -15,20 +16,20 @@ antigen-use oh-my-zsh
 antigen-bundle git
 antigen-theme $DOTFILES/zsh joshtronic
 
-OS_ZSHRC=$DOTFILES/zsh/`uname`.zshrc
+OS_ZSHRC=$DOTFILES/zsh/$OS.zshrc
 if [ -e $OS_ZSHRC ]; then source $OS_ZSHRC; fi
 
 antigen-bundle zsh-users/zsh-completions
-# antigen-bundle zsh-users/zsh-history-substring-search
 antigen-bundle zsh-users/zsh-syntax-highlighting
+antigen-bundle zsh-users/zsh-history-substring-search
 
 antigen-apply
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # Git aliases
-# TODO Need to figure out how to install this in linux
-#alias git="hub"
-# TODO: Not a git command
-#alias gdb="git delete-branch"
+alias git="hub"
 alias gmm="git merge master"
 alias gmv="git mv"
 alias grm="git rm"
