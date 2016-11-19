@@ -61,6 +61,10 @@ elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
     rm -rf .Xmodmap
     ln -s $DOTFILES/Xmodmap $HOME/.Xmodmap
 
+    if [[ `hostname` = *-MacBookPro ]]; then
+      echo 0 > /sys/module/hid_apple/parameters/iso_layout
+    fi
+
     sudo add-apt-repository ppa:jonathonf/vim
     sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
 
@@ -68,11 +72,10 @@ elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
     sudo apt-get upgrade
 
     # TODO: Ubuntu Linux
-    # 1) Detect if MB: echo 0 > /sys/module/hid_apple/parameters/iso_layout
-    # 2) Swap CAPS for CTRL
-    # 3) https://github.com/seatgeek/bash-aptfile
-    # 4) Install docker
-    # 5) Install docker-compose
+    # 1) Swap CAPS for CTRL
+    # 2) https://github.com/seatgeek/bash-aptfile
+    # 3) Install docker
+    # 4) Install docker-compose
 
     sudo apt-get install chrome-gnome-shell compizconfig-settings-manager \
         compiz-plugins-extra gimp gnome-shell gnome-tweak-tool \
