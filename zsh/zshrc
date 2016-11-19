@@ -56,18 +56,6 @@ alias vd=vimdiff
 #   while :; do read -p "Press enter to execute..."; $@; done
 # }
 
-# I dunno about all of this either
-#export PATH=~/.dotfiles/bin:/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
-# v Alias is all fucked in Linux, remove dotfiles bin path
-export PATH=/usr/local/bin:/usr/local/sbin:./node_modules/bower/bin:./node_modules/grunt-cli/bin:$PATH
-
-# May not need this now, moved it to mux
-export NODE_ENV=development
-
-# Need to run this conditionally based on the environment (I think OSX specific)
-# TODO: Legit unsure if I need this anymore
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 # Because `npm` shit the bed on me...
 ulimit -n 4096
 

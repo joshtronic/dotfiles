@@ -12,6 +12,5 @@ alias mtr="sudo mtr"
 
 # Because OS X returns all caps
 function uuidgen() {
-  env \
-    uuidgen "$@" | awk '{print tolower($0)}'
+  env uuidgen "$@" | awk '{print tolower($0)}'
 }
