@@ -46,6 +46,9 @@ if [[ `uname` == 'Darwin' ]]; then
     # 3) Install ship from github repo (for any OS)
     # 4) Configure Terminal.app
 
+    brew update
+    brew upgrade
+
     brew install bash fabric git git-extras gpg htop httpie hub mtr multitail \
         reattach-to-user-namespace ship ssh-copy-id tmux tree vim wget
 elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
@@ -75,4 +78,7 @@ sudo gem install bundler
 if [[ `uname` == 'Darwin' ]]; then sudo gem install tmuxinator; fi
 
 vim +BundleInstall +qall
+
+source ~/.zshrc
+cd ~
 
