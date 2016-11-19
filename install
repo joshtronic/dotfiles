@@ -4,6 +4,7 @@ if [ -z "$HOME" ]; then echo "Seems you don't have a \$HOME :("; exit 1; fi
 
 DOTFILES=$HOME/.dotfiles
 
+cd $HOME
 rm -rf $DOTFILES
 mkdir $DOTFILES
 cd $DOTFILES
