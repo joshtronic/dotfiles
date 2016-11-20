@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 function username() {
   if [[ `whoami` != 'josh' ]]; then
     echo %{$FG[248]%}%n
