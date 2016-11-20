@@ -28,7 +28,7 @@ ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 
 if [[ `uname` == 'Darwin' ]]; then
     rm -rf $HOME/Library/Application\ Support/Karabiner
-    ln -s $DOTFILES/karabiner $HOME/Library/Application\ Support/Karabiner
+    ln -s $DOTFILES/Karabiner $HOME/Library/Application\ Support/Karabiner
 
     /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
     /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand
