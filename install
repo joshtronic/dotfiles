@@ -4,8 +4,6 @@ if [ -z "$HOME" ]; then echo "Seems you don't have a \$HOME :("; exit 1; fi
 
 DOTFILES=$HOME/.dotfiles
 
-rm -f $HOME/.zcompdump*
-
 cd $HOME
 rm -rf $DOTFILES
 mkdir $DOTFILES
@@ -56,5 +54,6 @@ fi
 vim +PluginInstall +qall
 
 source $HOME/.zshrc
+rm -f $HOME/.zcompdump*
 cd $HOME
 
