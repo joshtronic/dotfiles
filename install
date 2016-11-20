@@ -78,7 +78,7 @@ elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
     # 4) Install docker-compose
 
     sudo apt-get install curl gimp git grc htop httpie inkscape nmap nodejs \
-        tmuxinator vlc vim whois xclip
+        tmuxinator vlc vim whois xclip zsh
 fi
 
 sudo gem install bundler
