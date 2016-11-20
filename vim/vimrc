@@ -47,6 +47,7 @@ set wildmode=list:longest
 
 " TODO: Should clean this shit up
 " Sets up our filetypes
+autocmd BufRead,BufNewFile *.cnf,*.conf,*gitconfig setf dosini
 autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl set filetype=dustjs
 autocmd BufNewFile,BufRead *.less               set filetype=less
 autocmd BufNewFile,BufRead nginx.conf           set filetype=nginx
