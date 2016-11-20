@@ -53,7 +53,7 @@ fi
 
 vim +PluginInstall +qall
 
-source $HOME/.zshrc
-rm -f $HOME/.zcompdump*
 cd $HOME
+rm -f $HOME/.zcompdump*
+exec zsh
 
