@@ -27,13 +27,6 @@ ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 
 if [[ `uname` == 'Darwin' ]]; then
-    # TODO: OS X
-    # 1) Install homebrew
-    # 2) Install docker
-    # 3) Install ship from github repo (for any OS)
-    # 4) Configure Terminal.app
-    # 5) Install karabiner
-
     defaults write com.apple.dock autohide-delay -float 86400; killall Dock
     defaults write -g ApplePressAndHoldEnabled -bool false
 
@@ -71,11 +64,6 @@ elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
 
     sudo apt-get update
     sudo apt-get upgrade
-
-    # TODO: Ubuntu Linux
-    # 1) Swap CAPS for CTRL
-    # 3) Install docker
-    # 4) Install docker-compose
 
     sudo apt-get install curl gimp git grc htop httpie inkscape nmap nodejs \
         tmuxinator vlc vim whois xclip zsh
