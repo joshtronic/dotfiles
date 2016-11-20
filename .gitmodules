@@ -1,6 +1,3 @@
-[submodule "vendor/powerline/fonts"]
-	path = vendor/powerline/fonts
-	url = https://github.com/powerline/fonts
 [submodule "vendor/nitso/colour-mysql-console"]
 	path = vendor/nitso/colour-mysql-console
 	url = https://github.com/nitso/colour-mysql-console
