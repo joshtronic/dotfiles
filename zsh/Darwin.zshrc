@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-antigen-bundle osx
-
 export GREP_OPTIONS="--color=auto --exclude-dir=${GREP_EXCLUDE_DIR} --exclude-dir=.sass-cache"
 
 source "`brew --prefix`/etc/grc.bashrc"

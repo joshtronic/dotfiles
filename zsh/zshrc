@@ -18,14 +18,15 @@ antigen-use oh-my-zsh
 antigen-bundle git
 antigen-theme $DOTFILES/zsh joshtronic
 
-OS_ZSHRC=$DOTFILES/zsh/$OS.zshrc
-if [ -e $OS_ZSHRC ]; then source $OS_ZSHRC; fi
-
 antigen-bundle zsh-users/zsh-completions
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
+if [ $OS = 'Darwin' ]; then antigen-bundle osx; fi
 
 antigen-apply
+
+OS_ZSHRC=$DOTFILES/zsh/$OS.zshrc
+if [ -e $OS_ZSHRC ]; then source $OS_ZSHRC; fi
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
