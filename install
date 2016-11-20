@@ -44,11 +44,6 @@ if [[ `uname` == 'Darwin' ]]; then
 
     defaults write com.apple.dock autohide-delay -float 86400; killall Dock
     defaults write -g ApplePressAndHoldEnabled -bool false
-elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
-    # TODO: not a persistent fix
-    if [[ `hostname` = *-MacBookPro ]]; then
-      sudo su -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"
-    fi
 fi
 
 vim +PluginInstall +qall
