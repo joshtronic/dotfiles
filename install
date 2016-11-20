@@ -61,6 +61,7 @@ elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
     rm -rf .Xmodmap
     ln -s $DOTFILES/Xmodmap $HOME/.Xmodmap
 
+    # TODO: not a persistent fix
     if [[ `hostname` = *-MacBookPro ]]; then
       sudo su -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"
     fi
@@ -73,14 +74,11 @@ elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
 
     # TODO: Ubuntu Linux
     # 1) Swap CAPS for CTRL
-    # 2) https://github.com/seatgeek/bash-aptfile
     # 3) Install docker
     # 4) Install docker-compose
 
-    sudo apt-get install chrome-gnome-shell compizconfig-settings-manager \
-        compiz-plugins-extra gimp gnome-shell gnome-tweak-tool \
-        google-chrome-stable grc httpie i3 inkscape nmap nodejs tmuxinator \
-        vlc vim whois xclip xserver-xorg-input-libinput
+    sudo apt-get install curl gimp git grc htop httpie inkscape nmap nodejs \
+        tmuxinator vlc vim whois xclip
 fi
 
 sudo gem install bundler
