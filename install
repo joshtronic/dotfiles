@@ -27,9 +27,6 @@ ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
 
 if [[ `uname` == 'Darwin' ]]; then
-    defaults write com.apple.dock autohide-delay -float 86400; killall Dock
-    defaults write -g ApplePressAndHoldEnabled -bool false
-
     rm -rf $HOME/Library/Application\ Support/Karabiner
     ln -s $DOTFILES/karabiner $HOME/Library/Application\ Support/Karabiner
 
@@ -45,32 +42,14 @@ if [[ `uname` == 'Darwin' ]]; then
     /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand4
     /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand5
 
-    brew update
-    brew upgrade
-
-    brew install bash fabric git git-extras gpg grc htop httpie hub mtr \
-        multitail reattach-to-user-namespace ship ssh-copy-id tmux tree vim wget
+    defaults write com.apple.dock autohide-delay -float 86400; killall Dock
+    defaults write -g ApplePressAndHoldEnabled -bool false
 elif [[ `uname` == 'Linux' && `which apt-get` ]]; then
-    rm -rf .Xmodmap
-    ln -s $DOTFILES/Xmodmap $HOME/.Xmodmap
-
     # TODO: not a persistent fix
     if [[ `hostname` = *-MacBookPro ]]; then
       sudo su -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"
     fi
-
-    sudo add-apt-repository ppa:jonathonf/vim
-    sudo add-apt-repository ppa:ne0sight/chrome-gnome-shell
-
-    sudo apt-get update
-    sudo apt-get upgrade
-
-    sudo apt-get install curl gimp git grc htop httpie inkscape nmap nodejs \
-        tmuxinator vlc vim whois xclip zsh
 fi
-
-sudo gem install bundler
-if [[ `uname` == 'Darwin' ]]; then sudo gem install tmuxinator; fi
 
 vim +PluginInstall +qall
 
