@@ -59,7 +59,9 @@ autocmd BufNewFile,BufRead *.handlebars,*.hbs              set filetype=html.han
 autocmd FileType javascript,dustjs,html.handlebars,css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType go                                    setlocal noexpandtab
 
-autocmd BufWritePost ~/.tmux.conf silent !tmux source-file ~/.tmux.conf
+autocmd BufWritePost ~/.tmux.conf silent! tmux source-file ~/.tmux.conf
+
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 " Automatically wraps markdown and text to 80 columns
 if &filetype == 'markdown' || &filetype == 'text'
@@ -82,6 +84,7 @@ Plugin 'gmarik/vundle'
 " sort i /\/\zs.\+\ze'/ r
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jimmyhchan/dustjs.vim'
+Plugin 'wikitopian/hardmode'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'joshtronic/php.vim'
@@ -189,6 +192,8 @@ let g:SuperTabDefaultCompletionType = 'context'
 vnoremap // y/<C-R>"<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 nnoremap ; :
+
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
