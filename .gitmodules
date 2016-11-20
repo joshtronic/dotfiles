@@ -13,3 +13,6 @@
 [submodule "vendor/VundleVim/Vundle.vim"]
 	path = vendor/VundleVim/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
+[submodule "vendor/fetchlogic/ship"]
+	path = vendor/fetchlogic/ship
+	url = git@github.com:fetchlogic/ship.git
