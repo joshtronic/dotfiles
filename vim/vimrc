@@ -51,6 +51,7 @@ autocmd BufRead,BufNewFile *.cnf,*.conf,*gitconfig setf dosini
 autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl set filetype=dustjs
 autocmd BufNewFile,BufRead *.less               set filetype=less
 autocmd BufNewFile,BufRead nginx.conf           set filetype=nginx
+autocmd BufNewFile,BufRead *.yaml,*.yml,*gemrc  setf yaml
 
 autocmd BufNewFile,BufRead *.mustache,*.hogan,*.hulk,*.hjs set filetype=html.mustache   syntax=mustache
 autocmd BufNewFile,BufRead *.handlebars,*.hbs              set filetype=html.handlebars syntax=mustache
@@ -102,6 +103,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'tmux-plugins/vim-tmux'
 "Plugin 'Valloric/YouCompleteMe'
+Plugin 'ingydotnet/yaml-vim'
 
 call vundle#end()
 
