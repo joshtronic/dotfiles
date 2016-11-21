@@ -129,8 +129,6 @@ augroup END
 "   autocmd BufEnter * match LineTooLong /\%121v.*/
 " augroup END
 
-let mapleader = ','
-
 let g:bufferline_echo = 0
 autocmd VimEnter *
   \ let &statusline='%{bufferline#refresh_status()}'
@@ -191,9 +189,8 @@ let g:SuperTabDefaultCompletionType = 'context'
 
 vnoremap // y/<C-R>"<CR>
 nmap <silent> ,/ :nohlsearch<CR>
-nnoremap ; :
 
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+nnoremap <Leader>h <Esc>:call ToggleHardMode()<CR>
 
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
