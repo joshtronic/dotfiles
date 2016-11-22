@@ -45,19 +45,15 @@ set undolevels=1000
 set wildmenu
 set wildmode=list:longest
 
-" TODO: Should clean this shit up
-" Sets up our filetypes
-autocmd BufRead,BufNewFile *.cnf,*.conf,*gitconfig setf dosini
-autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl set filetype=dustjs
-autocmd BufNewFile,BufRead *.less               set filetype=less
-autocmd BufNewFile,BufRead nginx.conf           set filetype=nginx
-autocmd BufNewFile,BufRead *.yaml,*.yml,*gemrc  setf yaml
-
-autocmd BufNewFile,BufRead *.mustache,*.hogan,*.hulk,*.hjs set filetype=html.mustache   syntax=mustache
-autocmd BufNewFile,BufRead *.handlebars,*.hbs              set filetype=html.handlebars syntax=mustache
+autocmd BufNewFile,BufRead *.cnf,*.conf,*gitconfig setf dosini
+autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl    setf dustjs
+autocmd BufNewFile,BufRead *.less                  setf less
+autocmd BufNewFile,BufRead nginx.conf              setf nginx
+autocmd BufNewFile,BufRead *.yaml,*.yml,*gemrc     setf yaml
+autocmd BufNewFile,BufRead *.handlebars            setf html.handlebars syntax=mustache
 
 autocmd FileType javascript,dustjs,html.handlebars,css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType go                                    setlocal noexpandtab
+autocmd FileType go                                         setlocal noexpandtab
 
 autocmd BufWritePost ~/.tmux.conf silent! tmux source-file ~/.tmux.conf
 
@@ -123,18 +119,11 @@ augroup ExtraWhitespace
   autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 augroup END
 
-" TODO: Can't get this to place nice with the extra whitespace grout
-" augroup LongTooLong
-"   autocmd BufEnter * highlight LineTooLong ctermbg=DarkRed ctermfg=white
-"   autocmd BufEnter * match LineTooLong /\%121v.*/
-" augroup END
-
 let g:bufferline_echo = 0
 autocmd VimEnter *
   \ let &statusline='%{bufferline#refresh_status()}'
   \ .bufferline#get_status_string()
 
-" TODO: Confirm this shit
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
