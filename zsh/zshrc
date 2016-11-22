@@ -32,7 +32,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Git aliases
-alias git="hub"
 alias gmm="git merge master"
 alias gmv="git mv"
 alias grm="git rm"
