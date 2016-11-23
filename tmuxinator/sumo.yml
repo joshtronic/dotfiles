@@ -11,4 +11,4 @@ windows:
   - build: docker-compose exec node bash
   - mysql: docker-compose exec mysql sh -c 'mysql -usumome sumome'
   - redis: docker-compose exec redis redis-cli
-  - server: docker-compose exec node sh -c 'DEBUG="" grunt server' && docker-compose start nginx
+  - server: docker-compose exec node sh -c 'DEBUG="" grunt server'
