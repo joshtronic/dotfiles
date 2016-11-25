@@ -81,7 +81,6 @@ Plugin 'gmarik/vundle'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'wikitopian/hardmode'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'joshtronic/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
@@ -93,6 +92,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'bling/vim-bufferline'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'w0ng/vim-hybrid'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript.git'
 Plugin 'dietsche/vim-lastplace'
@@ -110,7 +110,7 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
-colorscheme jellybeans
+colorscheme hybrid
 
 augroup ExtraWhitespace
   autocmd BufEnter    * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=white
