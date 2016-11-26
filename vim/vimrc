@@ -92,6 +92,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'bling/vim-bufferline'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'terryma/vim-expand-region'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript.git'
@@ -175,6 +176,19 @@ let g:SuperTabDefaultCompletionType = 'context'
 " endfunction
 "
 " inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+let mapleader = "\<Space>"
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>w :w<CR>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 vnoremap // y/<C-R>"<CR>
 nmap <silent> ,/ :nohlsearch<CR>
