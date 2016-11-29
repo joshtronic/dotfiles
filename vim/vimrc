@@ -229,6 +229,8 @@ vnoremap <leader>p "_dP
 syntax on
 syntax sync fromstart
 
+let g:ctrlp_follow_symlinks = 2
+
 " Ignore some folders and files for CtrlP indexing
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
