@@ -5,4 +5,4 @@ root: ~/Code/joshtronic/holidayapi.com
 
 windows:
   - code:
-  - server: gulp server
+  - server: docker-compose up
