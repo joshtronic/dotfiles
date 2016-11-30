@@ -45,12 +45,12 @@ set undolevels=1000
 set wildmenu
 set wildmode=list:longest
 
-autocmd BufNewFile,BufRead *.cnf,*.conf,*gitconfig setf dosini
-autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl    setf dustjs
-autocmd BufNewFile,BufRead *.less                  setf less
-autocmd BufNewFile,BufRead nginx.conf              setf nginx
-autocmd BufNewFile,BufRead *.yaml,*.yml,*gemrc     setf yaml
-autocmd BufNewFile,BufRead *.handlebars            setf html.handlebars syntax=mustache
+autocmd BufNewFile,BufRead *.cnf,*.conf,*gitconfig set filetype=dosini
+autocmd BufNewFile,BufRead *.dust,*.dustjs,*.tl    set filetype=dustjs
+autocmd BufNewFile,BufRead *.less                  set filetype=less
+autocmd BufNewFile,BufRead nginx.conf              set filetype=nginx
+autocmd BufNewFile,BufRead *.yaml,*.yml,*gemrc     set filetype=yaml
+autocmd BufNewFile,BufRead *.handlebars            set filetype=html.handlebars syntax=mustache
 
 autocmd FileType javascript,dustjs,html.handlebars,css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType go                                         setlocal noexpandtab
