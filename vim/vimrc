@@ -109,7 +109,7 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
-colorscheme hybrid
+silent! colorscheme hybrid
 
 augroup ExtraWhitespace
   autocmd BufEnter    * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=white
