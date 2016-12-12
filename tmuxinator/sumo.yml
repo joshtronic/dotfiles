@@ -3,6 +3,7 @@
 name: sumo
 root: ~/Code/appsumo/sumome
 
+pre: docker-compose up -d
 startup_window: server
 
 windows:
@@ -10,4 +11,4 @@ windows:
   - build: docker-compose exec node bash
   - mysql: docker-compose exec mysql sh -c 'mysql -usumome sumome'
   - redis: docker-compose exec redis redis-cli
-  - server: docker-compose up
+  - server: docker-compose exec node sh -c 'DEBUG="" grunt server'
