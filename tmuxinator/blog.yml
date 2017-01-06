@@ -7,4 +7,4 @@ pre: bundle install
 
 windows:
   - code:
-  - server: bundle exec jekyll serve
+  - server: bundle exec jekyll serve --incremental
