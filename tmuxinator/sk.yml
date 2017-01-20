@@ -1,11 +1,11 @@
 # ~/.tmuxinator/sk.yml
 
 name: sk
-root: ~/Code/joshtronic/street
+root: ~/Code/joshtronic/scenekids.com
 pre: nginx
 
 windows:
   - code:
   - gulp: gulp
-  - mysql: mysql street
+  - mysql: mysql scenekids
   - redis: redis-cli
