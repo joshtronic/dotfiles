@@ -3,7 +3,6 @@
 DOTFILES=$HOME/.dotfiles
 ADOTDIR=$DOTFILES/vendor/zsh-users/antigen/
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
-OS=`uname`
 
 export CLICOLOR=1
 export EDITOR=vim
@@ -12,35 +11,46 @@ export TERM="xterm-256color"
 
 bindkey -v
 
+source $DOTFILES/zsh/`uname`.zshrc
 source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
-antigen-bundle git
 antigen-theme $DOTFILES/zsh joshtronic
 
 antigen-bundle zsh-users/zsh-completions
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
-if [ $OS = 'Darwin' ]; then antigen-bundle osx; fi
 
 antigen-apply
-
-OS_ZSHRC=$DOTFILES/zsh/$OS.zshrc
-if [ -e $OS_ZSHRC ]; then source $OS_ZSHRC; fi
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Git aliases
-alias gmm="git merge master"
-alias gmv="git mv"
-alias grm="git rm"
+alias g='git'
+alias ga='git add'
+alias gaa='git add -all'
+alias gc='git commit -v'
+alias gca='git commit -a -v'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gco='git checkout'
+alias gd='git diff'
+alias gf='git fetch origin $(git_current_branch)'
+alias gl='git pull origin $(git_current_branch)'
+alias glg='git log'
+alias gm='git merge'
+alias gmm='git merge master'
+alias gmv='git mv'
+alias gp='git push origin $(git_current_branch)'
+alias grm='git rm'
+alias gst='git status'
 
 # HTTPie aliases
-alias GET="http"
-alias POST="http POST"
-alias HEAD="http HEAD"
-alias dl="http --print=b --download"
+alias GET='http'
+alias POST='http POST'
+alias HEAD='http HEAD'
+alias dl='http --print=b --download'
 
 # Ship
 alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
