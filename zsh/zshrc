@@ -61,14 +61,17 @@ alias dl='http --print=b --download'
 alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
 
 # Tmuxinator
-alias m="mux start"
+alias m='mux start'
 
 # UUID
-alias uuid=uuidgen
+alias uuid='uuidgen'
 
 # Vim aliases
-alias v=vim
-alias vd=vimdiff
+alias v='env vim'
+alias vd='env vimdiff'
+
+vim() { echo 'Wasted 2 keystrokes. Use `v` instead.' }
+vimdiff() { echo 'Wasted 5 keystrokes. Use `vd` instead.' }
 
 # Because `npm` shit the bed on me...
 ulimit -n 4096
