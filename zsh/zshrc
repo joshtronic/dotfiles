@@ -26,6 +26,11 @@ antigen-apply
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Safety first
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
 # Git aliases
 alias g='git'
 alias ga='git add'
