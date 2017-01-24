@@ -3,6 +3,7 @@
 DOTFILES=$HOME/.dotfiles
 ADOTDIR=$DOTFILES/vendor/zsh-users/antigen/
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
+OS=`uname`
 
 export CLICOLOR=1
 export EDITOR=vim
@@ -11,9 +12,40 @@ export TERM="xterm-256color"
 
 bindkey -v
 
-source $DOTFILES/zsh/`uname`.zshrc
-source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
+if [ $OS = 'Linux' ]; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
 
+    if [ -x /usr/bin/dircolors ]; then
+      test -r $HOME/.dircolors && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
+      alias ls="ls --color=auto"
+
+      GREP_FLAGS=" --color=auto --exclude-dir=${GREP_EXCLUDE_DIR}"
+
+      alias grep="grep ${GREP_FLAGS}"
+      alias egrep="egrep ${GREP_FLAGS}"
+      alias fgrep="fgrep ${GREP_FLAGS}"
+    fi
+elif [ $OS = 'Darwin' ]; then
+    export GREP_OPTIONS="--color=auto --exclude-dir=${GREP_EXCLUDE_DIR} --exclude-dir=.sass-cache"
+
+    source "`brew --prefix`/etc/grc.bashrc"
+    source $HOME/.rvm/scripts/rvm
+
+    # Requires sudo, saves a step
+    alias mtr="sudo mtr"
+
+    # Because macOS is dumb
+    alias mux="tmuxinator"
+
+    # Unquarantine files on OSX
+    alias unquarantine="xattr -r -d com.apple.quarantine *"
+
+    # Because OS X returns all caps
+    function uuidgen() { env uuidgen "$@" | awk '{print tolower($0)}'; }
+fi
+
+source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
 antigen-use oh-my-zsh
 antigen-bundle zsh-users/zsh-completions
 antigen-bundle zsh-users/zsh-syntax-highlighting

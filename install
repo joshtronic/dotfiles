@@ -24,7 +24,7 @@ ln -s $DOTFILES/my.cnf $HOME/.my.cnf
 ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES/tmuxinator $HOME/.tmuxinator
 ln -s $DOTFILES/vim $HOME/.vim
-ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
+ln -s $DOTFILES/zshrc $HOME/.zshrc
 
 if [[ `uname` == 'Darwin' ]]; then
     rm -rf $HOME/Library/Application\ Support/Karabiner
