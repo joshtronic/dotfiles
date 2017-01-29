@@ -65,13 +65,14 @@ alias rm="rm -i"
 alias g='git'
 alias ga='git add'
 alias gaa='git add --all'
+alias gb='git branch'
 alias gc='git commit -v'
 alias gca='git commit -a -v'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gco='git checkout'
 alias gd='git diff'
-alias gf='git fetch origin $(git_current_branch)'
+alias gf='git fetch'
 alias gl='git pull origin $(git_current_branch)'
 alias glg='git log'
 alias gm='git merge'
@@ -99,6 +100,7 @@ alias uuid='uuidgen'
 # Vim aliases
 alias v='env vim'
 alias vd='env vimdiff'
+alias vp='env vim -p'
 
 vim() { echo 'Wasted 2 keystrokes. Use `v` instead.' }
 vimdiff() { echo 'Wasted 5 keystrokes. Use `vd` instead.' }
