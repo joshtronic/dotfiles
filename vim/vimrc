@@ -88,9 +88,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'bling/vim-bufferline'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'terryma/vim-expand-region'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript.git'
 Plugin 'dietsche/vim-lastplace'
@@ -107,10 +107,7 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
-colorscheme jellybeans
-
-" Fixed background weirdness in gnome-terminal
-let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 'none' } }
+colorscheme solarized
 
 augroup ExtraWhitespace
   autocmd BufEnter    * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=white
