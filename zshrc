@@ -17,7 +17,7 @@ if [ $OS = 'Linux' ]; then
     alias pbpaste='xclip -selection clipboard -o'
 
     if [ -x /usr/bin/dircolors ]; then
-      eval `dircolors ./vendor/seebi/dircolors-solarized/dircolors.ansi-dark`
+      eval `dircolors $DOTFILES/vendor/seebi/dircolors-solarized/dircolors.ansi-dark`
       alias ls="ls --color=auto"
 
       GREP_FLAGS=" --color=auto --exclude-dir=${GREP_EXCLUDE_DIR}"
