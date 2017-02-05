@@ -30,14 +30,16 @@ set number
 set pastetoggle=<F2>
 set relativenumber
 set rtp+=$HOME/.dotfiles/vendor/VundleVim/Vundle.vim
-set shiftwidth=4
+set shiftwidth=2
 set showmatch
 set showmode
 set smartcase
+set smartindent
 set so=7
-set softtabstop=4
+set softtabstop=2
 set t_Co=256
-set tabstop=4
+set tabstop=2
+set textwidth=0
 set title
 set tm=500
 set ttyfast
@@ -52,19 +54,11 @@ autocmd BufNewFile,BufRead nginx.conf              set filetype=nginx
 autocmd BufNewFile,BufRead *.yaml,*.yml,*gemrc     set filetype=yaml
 autocmd BufNewFile,BufRead *.handlebars            set filetype=html.handlebars syntax=mustache
 
-autocmd FileType javascript,dustjs,html,html.handlebars,css,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType go                                         setlocal noexpandtab
+autocmd FileType go            setlocal noexpandtab
+autocmd FileType php           setlocal smartindent tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType markdown,text setlocal nosmartindent textwidth=80 wrapmargin=2
 
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-
-" Automatically wraps markdown and text to 80 columns
-if &filetype == 'markdown' || &filetype == 'text'
-  set textwidth=80
-  set wrapmargin=2
-else
-  set smartindent
-  set textwidth=0
-endif
 
 set backupdir=~/.vim/backup//,/tmp
 set directory=~/.vim/swap//,/tmp
@@ -77,10 +71,8 @@ Plugin 'gmarik/vundle'
 
 " sort i /\/\zs.\+\ze'/ r
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'wikitopian/hardmode'
 Plugin 'vim-scripts/matchit.zip'
-Plugin 'joshtronic/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ervandew/supertab'
@@ -89,15 +81,20 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'bling/vim-bufferline'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'hail2u/vim-css3-syntax'
 Plugin 'terryma/vim-expand-region'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'pangloss/vim-javascript.git'
 Plugin 'dietsche/vim-lastplace'
-Plugin 'groenewege/vim-less'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
+" Syntax plugins
+Plugin 'jimmyhchan/dustjs.vim'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'joshtronic/php.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'pangloss/vim-javascript.git'
+Plugin 'groenewege/vim-less'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'ingydotnet/yaml-vim'
 
