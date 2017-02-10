@@ -7,12 +7,81 @@
 [submodule "vendor/zsh-users/antigen"]
 	path = vendor/zsh-users/antigen
 	url = https://github.com/zsh-users/antigen
-[submodule "vendor/VundleVim/Vundle.vim"]
-	path = vendor/VundleVim/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim
 [submodule "vendor/fetchlogic/ship"]
 	path = vendor/fetchlogic/ship
 	url = git@github.com:fetchlogic/ship.git
 [submodule "vendor/seebi/dircolors-solarized"]
 	path = vendor/seebi/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
+[submodule "vim/pack/plugins/start/vim-colors-solarized"]
+	path = vim/pack/plugins/start/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "vim/pack/plugins/start/ctrlp.vim"]
+	path = vim/pack/plugins/start/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "vim/pack/plugins/start/hardmode"]
+	path = vim/pack/plugins/start/hardmode
+	url = git@github.com:wikitopian/hardmode.git
+[submodule "vim/pack/plugins/start/matchit.zip"]
+	path = vim/pack/plugins/start/matchit.zip
+	url = git@github.com:vim-scripts/matchit.zip.git
+[submodule "vim/pack/plugins/start/scss-syntax.vim"]
+	path = vim/pack/plugins/start/scss-syntax.vim
+	url = git@github.com:cakebaker/scss-syntax.vim.git
+[submodule "vim/pack/plugins/start/supertab"]
+	path = vim/pack/plugins/start/supertab
+	url = git@github.com:ervandew/supertab.git
+[submodule "vim/pack/plugins/start/syntastic"]
+	path = vim/pack/plugins/start/syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule "vim/pack/plugins/start/tlib_vim"]
+	path = vim/pack/plugins/start/tlib_vim
+	url = git@github.com:tomtom/tlib_vim.git
+[submodule "vim/pack/plugins/start/vim-addon-mw-utils"]
+	path = vim/pack/plugins/start/vim-addon-mw-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/pack/plugins/start/vim-bufferline"]
+	path = vim/pack/plugins/start/vim-bufferline
+	url = git@github.com:bling/vim-bufferline.git
+[submodule "vim/pack/plugins/start/vim-expand-region"]
+	path = vim/pack/plugins/start/vim-expand-region
+	url = git@github.com:terryma/vim-expand-region.git
+[submodule "vim/pack/plugins/start/vim-indent-guides"]
+	path = vim/pack/plugins/start/vim-indent-guides
+	url = git@github.com:nathanaelkane/vim-indent-guides.git
+[submodule "vim/pack/plugins/start/vim-lastplace"]
+	path = vim/pack/plugins/start/vim-lastplace
+	url = git@github.com:dietsche/vim-lastplace.git
+[submodule "vim/pack/plugins/start/vim-snipmate"]
+	path = vim/pack/plugins/start/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate.git
+[submodule "vim/pack/plugins/start/vim-snippets"]
+	path = vim/pack/plugins/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+[submodule "vim/pack/plugins/start/dustjs.vim"]
+	path = vim/pack/plugins/start/dustjs.vim
+	url = git@github.com:jimmyhchan/dustjs.vim.git
+[submodule "vim/pack/plugins/start/nginx-vim-syntax"]
+	path = vim/pack/plugins/start/nginx-vim-syntax
+	url = git@github.com:evanmiller/nginx-vim-syntax.git
+[submodule "vim/pack/plugins/start/php.vim"]
+	path = vim/pack/plugins/start/php.vim
+	url = git@github.com:joshtronic/php.vim.git
+[submodule "vim/pack/plugins/start/vim-css3-syntax"]
+	path = vim/pack/plugins/start/vim-css3-syntax
+	url = git@github.com:hail2u/vim-css3-syntax.git
+[submodule "vim/pack/plugins/start/vim-javascript"]
+	path = vim/pack/plugins/start/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "vim/pack/plugins/start/vim-less"]
+	path = vim/pack/plugins/start/vim-less
+	url = git@github.com:groenewege/vim-less.git
+[submodule "vim/pack/plugins/start/vim-mustache-handlebars"]
+	path = vim/pack/plugins/start/vim-mustache-handlebars
+	url = git@github.com:mustache/vim-mustache-handlebars.git
+[submodule "vim/pack/plugins/start/vim-tmux"]
+	path = vim/pack/plugins/start/vim-tmux
+	url = git@github.com:tmux-plugins/vim-tmux.git
+[submodule "vim/pack/plugins/start/yaml-vim"]
+	path = vim/pack/plugins/start/yaml-vim
+	url = git@github.com:ingydotnet/yaml-vim.git

@@ -46,8 +46,6 @@ if [[ `uname` == 'Darwin' ]]; then
     defaults write -g ApplePressAndHoldEnabled -bool false
 fi
 
-vim +PluginInstall +qall
-
 cd $HOME
 rm -f $HOME/.zcompdump*
 exec zsh
