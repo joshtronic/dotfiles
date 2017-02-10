@@ -127,7 +127,6 @@ nmap <Leader>0 :buffer 10<CR>
 nnoremap <Leader>f :set nolist<CR>
 nnoremap <Leader>F :set list<CR>
 
-nnoremap <Leader>b :BundleUpdate<CR>:q<CR>
 nnoremap <Leader>c :w<CR>:!wc %<CR>
 nnoremap <Leader>v :so ~/.vim/vimrc<CR>
 
