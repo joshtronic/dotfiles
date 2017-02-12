@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 DOTFILES=$HOME/.dotfiles
-ADOTDIR=$DOTFILES/vendor/zsh-users/antigen/
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 OS=`uname`
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
@@ -48,14 +47,14 @@ elif [ $OS = 'Darwin' ]; then
     function uuidgen() { env uuidgen "$@" | awk '{print tolower($0)}'; }
 fi
 
-source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
-antigen-use oh-my-zsh
-antigen-apply
+git_branch() {
+  (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
+}
 
 # Safety first
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 
 # Git aliases
 alias g='git'
@@ -69,12 +68,12 @@ alias gcm='git checkout master'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch'
-alias gl='git pull origin $(git_current_branch)'
+alias gl='git pull origin $(git_branch)'
 alias glg='git log'
 alias gm='git merge'
 alias gmm='git merge master'
 alias gmv='git mv'
-alias gp='git push origin $(git_current_branch)'
+alias gp='git push origin $(git_branch)'
 alias grm='git rm'
 alias gst='git status'
 
@@ -85,7 +84,7 @@ alias HEAD='http HEAD'
 alias dl='http --print=b --download'
 
 # Ship
-alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
+alias ship='$DOTFILES/vendor/fetchlogic/ship/ship'
 
 # Tmuxinator
 alias m='mux start'
@@ -133,25 +132,46 @@ ssh() {
 
 function username() {
   if [[ `whoami` != 'josh' ]]; then
-    echo %{$FG[248]%}%n
+    echo "%F{248}%n%F{reset}"
   fi
 }
 
 function server() {
   if [[ `hostname` != josh-* ]]; then
-    echo "%{$FG[244]%}@%{$fg[magenta]%}%m "
+    echo "%F{244}@%F{magenta}%m%F{reset} "
+  fi
+}
+
+source $DOTFILES/vendor/olivierverdier/zsh-git-prompt/zshrc.sh
+
+ZSH_THEME_GIT_PROMPT_PREFIX=""
+ZSH_THEME_GIT_PROMPT_SUFFIX="%F{reset}"
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
+ZSH_THEME_GIT_PROMPT_BRANCH="%F{yellow}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}✔"
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}✗"
+
+git_super_status() {
+  precmd_update_git_vars
+
+  if [ -n "$__CURRENT_GIT_STATUS" ]; then
+    STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH$ZSH_THEME_GIT_PROMPT_SEPARATOR"
+
+    if [ "$GIT_CHANGED" -eq "0" ] && [ "$GIT_CONFLICTS" -eq "0" ] && [ "$GIT_STAGED" -eq "0" ] && [ "$GIT_UNTRACKED" -eq "0" ]; then
+      STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
+    else
+      STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_DIRTY"
+    fi
+
+    STATUS="$STATUS%{${reset_color}%}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo "$STATUS"
   fi
 }
 
 PROMPT_USER="$(username)$(server)"
 PROMPT='
-%{$PROMPT_USER%}%{$fg[blue]%}%~ $(git_prompt_info)
-%{$FG[244]%}%# %{$reset_color%}'
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+%F{reset}$PROMPT_USER%F{blue}%~ $(git_super_status)
+%F{244}%# %F{reset}'
 
 source $DOTFILES/vendor/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $DOTFILES/vendor/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh

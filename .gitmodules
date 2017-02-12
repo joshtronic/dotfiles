@@ -1,9 +1,6 @@
 [submodule "vendor/nitso/colour-mysql-console"]
 	path = vendor/nitso/colour-mysql-console
 	url = https://github.com/nitso/colour-mysql-console
-[submodule "vendor/zsh-users/antigen"]
-	path = vendor/zsh-users/antigen
-	url = https://github.com/zsh-users/antigen
 [submodule "vendor/fetchlogic/ship"]
 	path = vendor/fetchlogic/ship
 	url = git@github.com:fetchlogic/ship.git
@@ -97,3 +94,6 @@
 [submodule "vendor/zsh-users/zsh-history-substring-search"]
 	path = vendor/zsh-users/zsh-history-substring-search
 	url = git://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "vendor/olivierverdier/zsh-git-prompt"]
+	path = vendor/olivierverdier/zsh-git-prompt
+	url = git@github.com:olivierverdier/zsh-git-prompt.git
