@@ -12,6 +12,19 @@ export EDITOR=vim
 export KEYTIMEOUT=1
 export TERM="xterm-256color"
 
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
+
 bindkey -v
 
 if [ $OS = 'Linux' ]; then
