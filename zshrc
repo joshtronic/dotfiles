@@ -5,6 +5,8 @@ ADOTDIR=$DOTFILES/vendor/zsh-users/antigen/
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 OS=`uname`
 
+unalias -a
+
 export CLICOLOR=1
 export EDITOR=vim
 export KEYTIMEOUT=1
@@ -54,8 +56,6 @@ antigen-apply
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-unalias -a
 
 # Safety first
 alias cp="cp -i"
