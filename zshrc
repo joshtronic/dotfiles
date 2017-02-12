@@ -50,11 +50,7 @@ fi
 
 source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
 antigen-use oh-my-zsh
-antigen-bundle zsh-users/zsh-history-substring-search
 antigen-apply
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # Safety first
 alias cp="cp -i"
@@ -158,4 +154,10 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 source $DOTFILES/vendor/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $DOTFILES/vendor/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '\eOA' history-substring-search-up
+bindkey '\eOB' history-substring-search-down
 
