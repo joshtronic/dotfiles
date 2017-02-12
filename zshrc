@@ -4,6 +4,7 @@ DOTFILES=$HOME/.dotfiles
 ADOTDIR=$DOTFILES/vendor/zsh-users/antigen/
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 OS=`uname`
+fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
 unalias -a
 
@@ -49,7 +50,6 @@ fi
 
 source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
 antigen-use oh-my-zsh
-antigen-bundle zsh-users/zsh-completions
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
 antigen-apply
