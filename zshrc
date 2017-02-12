@@ -50,7 +50,6 @@ fi
 
 source $DOTFILES/vendor/zsh-users/antigen/antigen.zsh
 antigen-use oh-my-zsh
-antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-bundle zsh-users/zsh-history-substring-search
 antigen-apply
 
@@ -157,4 +156,6 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+source $DOTFILES/vendor/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
