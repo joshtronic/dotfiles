@@ -55,6 +55,8 @@ antigen-apply
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+unalias -a
+
 # Safety first
 alias cp="cp -i"
 alias mv="mv -i"
