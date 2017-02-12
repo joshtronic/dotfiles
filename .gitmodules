@@ -85,3 +85,12 @@
 [submodule "vim/pack/plugins/start/yaml-vim"]
 	path = vim/pack/plugins/start/yaml-vim
 	url = git@github.com:ingydotnet/yaml-vim.git
+[submodule "vendor/tmux-plugins/tmux-sensible"]
+	path = vendor/tmux-plugins/tmux-sensible
+	url = git@github.com:tmux-plugins/tmux-sensible.git
+[submodule "vendor/tmux-plugins/tmux-yank"]
+	path = vendor/tmux-plugins/tmux-yank
+	url = git@github.com:tmux-plugins/tmux-yank.git
+[submodule "vendor/seebi/tmux-colors-solarized"]
+	path = vendor/seebi/tmux-colors-solarized
+	url = git@github.com:seebi/tmux-colors-solarized.git
