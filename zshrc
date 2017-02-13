@@ -23,6 +23,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
+setopt interactivecomments
 setopt share_history
 
 bindkey -v
@@ -41,6 +42,8 @@ if [ $OS = 'Linux' ]; then
       alias egrep="egrep ${GREP_FLAGS}"
       alias fgrep="fgrep ${GREP_FLAGS}"
     fi
+
+    alias open='xdg-open'
 elif [ $OS = 'Darwin' ]; then
     export GREP_OPTIONS="--color=auto --exclude-dir=${GREP_EXCLUDE_DIR} --exclude-dir=.sass-cache"
 
@@ -98,6 +101,9 @@ alias dl='http --print=b --download'
 
 # Ship
 alias ship='$DOTFILES/vendor/fetchlogic/ship/ship'
+
+# Sudo
+alias _='sudo'
 
 # Tmuxinator
 alias m='mux start'
