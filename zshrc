@@ -5,6 +5,11 @@ GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 OS=`uname`
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
+autoload -U compinit && compinit
+zmodload -i zsh/complist
+
+zstyle ':completion:*' menu select
+
 unalias -a
 
 export CLICOLOR=1
@@ -16,7 +21,13 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+unsetopt menu_complete
+unsetopt flowcontrol
+
+setopt always_to_end
 setopt append_history
+setopt auto_menu
+setopt complete_in_word
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
@@ -27,6 +38,13 @@ setopt interactivecomments
 setopt share_history
 
 bindkey -v
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^h' backward-delete-char
+bindkey '^j' up-history
+bindkey '^k' down-history
+bindkey '^r' history-incremental-search-backward
+bindkey '^w' backward-kill-word
 
 if [ $OS = 'Linux' ]; then
     alias pbcopy='xclip -selection clipboard'
