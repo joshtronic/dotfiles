@@ -5,11 +5,6 @@ GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 OS=`uname`
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
-autoload -U compinit && compinit
-zmodload -i zsh/complist
-
-zstyle ':completion:*' menu select
-
 unalias -a
 
 export CLICOLOR=1
@@ -20,6 +15,13 @@ export TERM="xterm-256color"
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+
+autoload -U compinit && compinit
+zmodload -i zsh/complist
 
 unsetopt menu_complete
 unsetopt flowcontrol
