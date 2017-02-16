@@ -92,6 +92,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+# Docker aliases
+alias dcs='docker-compose start'
+
 # Git aliases
 alias g='git'
 alias ga='git add'
