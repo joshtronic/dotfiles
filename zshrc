@@ -54,7 +54,7 @@ if [ $OS = 'Linux' ]; then
 
     if [ -x /usr/bin/dircolors ]; then
       eval `dircolors $DOTFILES/vendor/seebi/dircolors-solarized/dircolors.ansi-dark`
-      alias ls="ls --color=auto"
+      alias ls='ls --color=auto'
 
       GREP_FLAGS=" --color=auto --exclude-dir=${GREP_EXCLUDE_DIR}"
 
@@ -71,13 +71,11 @@ elif [ $OS = 'Darwin' ]; then
     source $HOME/.rvm/scripts/rvm
 
     # Requires sudo, saves a step
-    alias mtr="sudo mtr"
-
-    # Because macOS is dumb
-    alias mux="tmuxinator"
+    alias mtr='sudo mtr'
 
     # Unquarantine files on OSX
-    alias unquarantine="xattr -r -d com.apple.quarantine *"
+    alias unquarantine='xattr -r -d com.apple.quarantine *'
+    alias uq='unquarantine'
 
     # Because OS X returns all caps
     function uuidgen() { env uuidgen "$@" | awk '{print tolower($0)}'; }
@@ -113,12 +111,12 @@ alias gcm='git checkout master'
 alias gco='git checkout'
 alias gd='git diff'
 alias gf='git fetch'
-alias gl='git pull origin $(git_branch)'
+alias gl="git pull origin $(git_branch)"
 alias glg='git log'
 alias gm='git merge'
 alias gmm='git merge master'
 alias gmv='git mv'
-alias gp='git push origin $(git_branch)'
+alias gp="git push origin $(git_branch)"
 alias grm='git rm'
 alias gst='git status'
 
@@ -128,13 +126,17 @@ alias POST='http POST'
 alias HEAD='http HEAD'
 alias dl='http --print=b --download'
 
+# Open
+alias o='open'
+
 # Ship
-alias ship='$DOTFILES/vendor/fetchlogic/ship/ship'
+alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
 
 # Sudo
 alias _='sudo'
 
 # Tmuxinator
+alias mux='tmuxinator'
 alias m='mux start'
 
 # UUID
