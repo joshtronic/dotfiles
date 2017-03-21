@@ -5,7 +5,7 @@ GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 OS=`uname`
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
-unalias -a
+unalias -m "*"
 
 export CLICOLOR=1
 export EDITOR=vim
