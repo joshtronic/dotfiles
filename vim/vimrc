@@ -113,6 +113,8 @@ nmap <Leader>j gg
 nmap <Leader>k G
 nmap <Leader>l $
 
+nmap <Leader>b $%
+
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
 
