@@ -97,3 +97,6 @@
 [submodule "vendor/olivierverdier/zsh-git-prompt"]
 	path = vendor/olivierverdier/zsh-git-prompt
 	url = git@github.com:olivierverdier/zsh-git-prompt.git
+[submodule "vim/pack/plugins/start/vim-indexed-search"]
+	path = vim/pack/plugins/start/vim-indexed-search
+	url = https://github.com/henrik/vim-indexed-search
