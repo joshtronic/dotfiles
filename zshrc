@@ -148,8 +148,8 @@ alias v='env vim'
 alias vd='env vimdiff'
 alias vp='env vim -p'
 
-vim() { echo 'Wasted 2 keystrokes. Use `v` instead.' }
-vimdiff() { echo 'Wasted 5 keystrokes. Use `vd` instead.' }
+vim() { echo "\033[0;31mWasted 2 keystrokes. Use \`v\` instead.\033[0m" }
+vimdiff() { echo "\033[0;31mWasted 5 keystrokes. Use \`vd\` instead.\033[0m" }
 
 # Because `npm` shit the bed on me...
 ulimit -n 4096
