@@ -108,7 +108,10 @@ vmap <C-v> <Plug>(expand_region_shrink)
 vnoremap // y/<C-R>"<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 
-nnoremap <Leader>h <Esc>:call ToggleHardMode()<CR>
+nmap <Leader>h ^
+nmap <Leader>j gg
+nmap <Leader>k G
+nmap <Leader>l $
 
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
