@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -z "$HOME" ]; then echo "Seems you don't have a \$HOME :("; exit 1; fi
+if [ -z "$HOME" ]; then echo "Seems you're \$HOMEless :("; exit 1; fi
 
 DOTFILES=$HOME/.dotfiles
 
@@ -27,21 +27,6 @@ ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/zshrc $HOME/.zshrc
 
 if [[ `uname` == 'Darwin' ]]; then
-    rm -rf $HOME/Library/Application\ Support/Karabiner
-    ln -s $DOTFILES/Karabiner $HOME/Library/Application\ Support/Karabiner
-
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandH
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandJ
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandK
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommandL
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand1
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand2
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand3
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand4
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner enable rightCommand5
-
     defaults write com.apple.dock autohide-delay -float 86400; killall Dock
     defaults write -g ApplePressAndHoldEnabled -bool false
 fi
