@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+if type "/usr/bin/gpg2" > /dev/null; then
+  command /usr/bin/gpg2 "$@"
+else
+  command /usr/bin/gpg "$@"
+fi
+

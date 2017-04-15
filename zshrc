@@ -3,6 +3,7 @@
 DOTFILES=$HOME/.dotfiles
 GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 OS=`uname`
+path=($DOTFILES/bin $path)
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
 unalias -m "*"

@@ -35,4 +35,4 @@
 	gpgsign = true
 
 [gpg]
-	program = /usr/bin/gpg
+	program = select-gpg2
