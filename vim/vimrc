@@ -55,7 +55,7 @@ autocmd BufNewFile,BufRead *.handlebars            set filetype=html.handlebars 
 
 autocmd FileType go            setlocal noexpandtab
 autocmd FileType php           setlocal smartindent tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType markdown,text setlocal nosmartindent textwidth=80 wrapmargin=2
+autocmd FileType markdown,text setlocal nosmartindent textwidth=80 wrapmargin=2 spell
 
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
