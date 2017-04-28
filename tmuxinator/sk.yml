@@ -6,6 +6,10 @@ pre: nginx
 
 windows:
   - code:
-  - gulp: gulp
+  - build:
+      layout: main-vertical
+      panes:
+        - npm run dev
+        - npm run prod
   - mysql: mysql scenekids
   - redis: redis-cli
