@@ -109,8 +109,8 @@ vnoremap // y/<C-R>"<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 
 nmap <Leader>h ^
-nmap <Leader>j gg
-nmap <Leader>k G
+nmap <Leader>j G
+nmap <Leader>k gg
 nmap <Leader>l $
 
 nmap <Leader>b $%
