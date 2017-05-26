@@ -172,12 +172,12 @@ man() {
 }
 
 ssh() {
-  if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+  if [ -z ${TMUX+x} ]; then
+    command ssh "$@"
+  else
     tmux rename-window "$*"
     command ssh "$@"
     tmux set-window-option automatic-rename "on" 1>/dev/null
-  else
-    command ssh "$@"
   fi
 }
 
