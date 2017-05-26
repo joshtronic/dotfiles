@@ -82,9 +82,6 @@
 [submodule "vendor/tmux-plugins/tmux-sensible"]
 	path = vendor/tmux-plugins/tmux-sensible
 	url = git@github.com:tmux-plugins/tmux-sensible.git
-[submodule "vendor/tmux-plugins/tmux-yank"]
-	path = vendor/tmux-plugins/tmux-yank
-	url = git@github.com:tmux-plugins/tmux-yank.git
 [submodule "vendor/zsh-users/zsh-completions"]
 	path = vendor/zsh-users/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
