@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+if type "/usr/bin/hub" > /dev/null; then
+  command /usr/bin/hub "$@"
+else
+  command /usr/bin/git "$@"
+fi
+
