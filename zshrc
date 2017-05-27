@@ -9,7 +9,7 @@ fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 unalias -m "*"
 
 export CLICOLOR=1
-export EDITOR=vim
+export EDITOR=nvim
 export KEYTIMEOUT=1
 export TERM="xterm-256color"
 
@@ -144,9 +144,9 @@ alias m='mux start'
 alias uuid='uuidgen'
 
 # Vim aliases
-alias v='env vim'
-alias vd='env vimdiff'
-alias vp='env vim -p'
+alias v='env nvim'
+alias vd='env nvim -d'
+alias vp='env nvim -p'
 
 vim() { echo "\033[0;31mWasted 2 keystrokes. Use \`v\` instead.\033[0m" }
 vimdiff() { echo "\033[0;31mWasted 5 keystrokes. Use \`vd\` instead.\033[0m" }
