@@ -97,3 +97,6 @@
 [submodule "vim/pack/plugins/start/vim-indexed-search"]
 	path = vim/pack/plugins/start/vim-indexed-search
 	url = https://github.com/henrik/vim-indexed-search
+[submodule "vim/pack/plugins/start/vim-coffee-script"]
+	path = vim/pack/plugins/start/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script
