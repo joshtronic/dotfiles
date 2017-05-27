@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+if type "/usr/bin/nvim" > /dev/null; then
+  command /usr/bin/nvim "$@"
+else
+  command /usr/bin/vim "$@"
+fi
+
