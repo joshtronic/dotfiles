@@ -1,4 +1,9 @@
-filetype detect
+if has('nvim')
+  filetype on
+else
+  filetype detect
+endif
+
 filetype plugin on
 filetype indent on
 
