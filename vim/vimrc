@@ -141,9 +141,11 @@ nnoremap <Leader>c :w<CR>:!wc %<CR>
 nnoremap <Leader>v :so ~/.vim/vimrc<CR>
 
 nnoremap <Leader>ss / $<CR>
-nnoremap <Leader>tt /\t$<CR>
+"nnoremap <Leader>tt /\t$<CR>
 
 nnoremap <Leader>n <Esc>:call ToggleLineNumbers()<CR>
+
+nnoremap <Leader>= :Align =<CR>
 
 syntax on
 syntax sync fromstart
