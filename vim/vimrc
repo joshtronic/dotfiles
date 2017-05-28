@@ -2,6 +2,8 @@ if has('nvim')
   filetype on
 else
   filetype detect
+  set nocompatible
+  set ttyfast
 endif
 
 filetype plugin on
@@ -28,7 +30,6 @@ set listchars=tab:└─,trail:•
 set magic
 set mat=2
 set nocindent
-set nocompatible
 set noerrorbells
 set novisualbell
 set number
@@ -46,7 +47,6 @@ set tabstop=2
 set textwidth=0
 set title
 set tm=500
-set ttyfast
 set undolevels=1000
 set wildmenu
 set wildmode=list:longest
