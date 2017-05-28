@@ -140,8 +140,7 @@ nnoremap <Leader>F :set list<CR>
 nnoremap <Leader>c :w<CR>:!wc %<CR>
 nnoremap <Leader>v :so ~/.vim/vimrc<CR>
 
-nnoremap <Leader>ss / $<CR>
-"nnoremap <Leader>tt /\t$<CR>
+nnoremap <Leader>ss /\s$<CR>
 
 nnoremap <Leader>n <Esc>:call ToggleLineNumbers()<CR>
 
