@@ -79,7 +79,7 @@ augroup ExtraWhitespace
   autocmd BufEnter    * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=white
   autocmd BufEnter    * match ExtraWhitespace /\s\+$/
   autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-  autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
+  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 augroup END
 
 let g:bufferline_echo = 0
@@ -140,7 +140,7 @@ nnoremap <Leader>F :set list<CR>
 nnoremap <Leader>c :w<CR>:!wc %<CR>
 nnoremap <Leader>v :so ~/.vim/vimrc<CR>
 
-nnoremap <Leader>ss /\s$<CR>
+nnoremap <Leader>ss /\s\+$<CR>
 
 nnoremap <Leader>n <Esc>:call ToggleLineNumbers()<CR>
 
