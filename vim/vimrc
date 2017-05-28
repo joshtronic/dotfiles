@@ -75,6 +75,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" TODO: this works in vim but NOT nvim
 augroup ExtraWhitespace
   autocmd BufEnter    * highlight ExtraWhitespace ctermbg=DarkRed ctermfg=white
   autocmd BufEnter    * match ExtraWhitespace /\s\+$/
