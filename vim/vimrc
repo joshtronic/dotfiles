@@ -83,6 +83,8 @@ augroup ExtraWhitespace
   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 augroup END
 
+autocmd BufWritePre * :%s/\s\+$//e
+
 let g:bufferline_echo = 0
 autocmd VimEnter *
   \ let &statusline='%{bufferline#refresh_status()}'
