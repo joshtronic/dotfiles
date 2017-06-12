@@ -101,7 +101,6 @@ alias ......='cd ../../..'
 alias dcs='docker-compose start'
 
 # Git aliases
-alias git='select-git'
 alias g='git'
 alias ga='git add'
 alias gaa='git add --all'
