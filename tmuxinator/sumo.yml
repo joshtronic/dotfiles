@@ -9,6 +9,7 @@ startup_window: server
 windows:
   - code:
   - build: docker-compose exec node bash
+  - tests: docker-compose exec tests bash
   - mysql: docker-compose exec mysql sh -c 'mysql -usumome sumome'
   - redis: docker-compose exec redis redis-cli
   - server: docker-compose exec node sh -c 'DEBUG="" grunt server'
