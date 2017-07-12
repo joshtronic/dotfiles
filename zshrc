@@ -121,6 +121,9 @@ alias gp='git push origin $(git_branch)'
 alias grm='git rm'
 alias gst='git status'
 
+# Grep aliases
+alias gr='grep'
+
 # HTTPie aliases
 alias GET='http'
 alias POST='http POST'
