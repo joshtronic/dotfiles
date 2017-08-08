@@ -25,9 +25,6 @@ rm -rf \
   $HOME/.vim \
   $HOME/.zshrc
 
-curl -fLo $DOTFILES/vim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 ln -s $DOTFILES/gemrc $HOME/.gemrc
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat $HOME/.grcat
@@ -37,6 +34,14 @@ ln -s $DOTFILES/tmuxinator $HOME/.tmuxinator
 ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/vim $HOME/.config/nvim
 ln -s $DOTFILES/zshrc $HOME/.zshrc
+
+curl -fLo $DOTFILES/vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+if [ -x "$(command -v nvim)" ]; then VIM=nvim
+elif [ -x "$(command -v vim)" ]; then VIM=vim; fi
+
+if [ -n "$VIM" ]; then /usr/bin/env $VIM +PlugInstall +qa; fi
 
 if [[ `uname` == 'Darwin' ]]; then
   defaults write com.apple.dock autohide-delay -float 86400; killall Dock
