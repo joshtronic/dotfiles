@@ -69,6 +69,36 @@ set directory=~/.vim/swap//,/tmp
 set undodir=~/.vim/undo//,/tmp
 set undofile
 
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-bufferline'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dietsche/vim-lastplace'
+Plug 'ervandew/supertab'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'garbas/vim-snipmate'
+Plug 'groenewege/vim-less'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'henrik/vim-indexed-search'
+Plug 'honza/vim-snippets'
+Plug 'ingydotnet/yaml-vim'
+Plug 'jimmyhchan/dustjs.vim'
+Plug 'joshtronic/php.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/syntastic'
+Plug 'terryma/vim-expand-region'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tomtom/tlib_vim'
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/matchit.zip'
+Plug 'wikitopian/hardmode'
+call plug#end()
+
 filetype plugin indent on
 
 syntax enable
