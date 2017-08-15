@@ -41,6 +41,7 @@ setopt interactivecomments
 setopt share_history
 
 bindkey -v
+
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^h' backward-delete-char
@@ -48,6 +49,13 @@ bindkey '^j' up-history
 bindkey '^k' down-history
 bindkey '^r' history-incremental-search-backward
 bindkey '^w' backward-kill-word
+
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[2~' quoted-insert
+bindkey '\e[3~' delete-char
+bindkey '\e[4~' end-of-line
+bindkey '\e[5~' up-history
+bindkey '\e[6~' down-history
 
 if [ $OS = 'Linux' ]; then
     alias pbcopy='xclip -selection clipboard'
