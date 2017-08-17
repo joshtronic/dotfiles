@@ -1,0 +1,11 @@
+#!/bin/env bash
+#for device in EHC1 EHC2 XHC
+for device in XHC1
+do
+    if grep -q "$device.*enabled" /proc/acpi/wakeup
+    then
+        echo $device > /proc/acpi/wakeup
+    else
+	echo 'Already disabled!'
+    fi
+done
