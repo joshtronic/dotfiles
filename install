@@ -48,8 +48,6 @@ if [ -n "$VIM" ]; then /usr/bin/env $VIM +PlugInstall +qa; fi
 if [[ `uname` == 'Darwin' ]]; then
   defaults write com.apple.dock autohide-delay -float 86400; killall Dock
   defaults write -g ApplePressAndHoldEnabled -bool false
-else
-  gnome-shell --replace
 fi
 
 cd $HOME
