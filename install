@@ -15,6 +15,7 @@ git pull origin master
 git submodule update --init --recursive
 
 rm -rf \
+  $HOME/.config/gtk-3.0/gtk.css \
   $HOME/.config/nvim \
   $HOME/.gemrc \
   $HOME/.gitconfig \
@@ -27,6 +28,7 @@ rm -rf \
 
 ln -s $DOTFILES/gemrc $HOME/.gemrc
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
+ln -s $DOTFILES/gtk.css $HOME/.config/gtk-3.0/gtk.css
 ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat $HOME/.grcat
 ln -s $DOTFILES/my.cnf $HOME/.my.cnf
 ln -s $DOTFILES/tmux.conf $HOME/.tmux.conf
@@ -46,6 +48,8 @@ if [ -n "$VIM" ]; then /usr/bin/env $VIM +PlugInstall +qa; fi
 if [[ `uname` == 'Darwin' ]]; then
   defaults write com.apple.dock autohide-delay -float 86400; killall Dock
   defaults write -g ApplePressAndHoldEnabled -bool false
+else
+  gnome-shell --replace
 fi
 
 cd $HOME
