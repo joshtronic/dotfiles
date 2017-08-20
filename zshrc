@@ -50,6 +50,9 @@ bindkey '^k' down-history
 bindkey '^r' history-incremental-search-backward
 bindkey '^w' backward-kill-word
 
+bindkey '\e[H' beginning-of-line
+bindkey '\e[F' end-of-line
+
 bindkey '\e[1~' beginning-of-line
 bindkey '\e[2~' quoted-insert
 bindkey '\e[3~' delete-char
