@@ -30,9 +30,6 @@
 [commit]
 	gpgsign = true
 
-[gpg]
-	program = select-gpg2
-
 [help]
 	autocorrect = 1
 
