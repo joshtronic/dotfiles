@@ -11,7 +11,8 @@ unalias -m "*"
 export CLICOLOR=1
 export EDITOR=select-vim
 export KEYTIMEOUT=1
-export TERM="xterm-256color"
+export QUOTING_STYLE=literal
+export TERM=xterm-256color
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
