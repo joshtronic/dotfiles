@@ -3,6 +3,7 @@
 name: hapi
 root: ~/Code/joshtronic/holidayapi.com
 
+pre: docker-compose up -d
+
 windows:
   - code:
-  - server: docker-compose up

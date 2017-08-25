@@ -1,0 +1,16 @@
+# ~/.tmuxinator/ginpop.yml
+
+name: ginpop
+root: ~/Code/joshtronic/ginpop.com
+
+pre: docker-compose up -d
+
+windows:
+  - code:
+  - webpack:
+      layout: main-vertical
+      panes:
+        - npm run dev
+        - npm run prod
+  - mysql: docker-compose exec mysql sh -c 'mysql -uroot -pmysql scenekids'
+  - redis: docker-compose exec redis redis-cli
