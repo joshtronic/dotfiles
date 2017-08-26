@@ -12,3 +12,4 @@ windows:
   - mysql: docker-compose exec mysql sh -c 'mysql -usumome sumome'
   - redis: docker-compose exec redis redis-cli
   - server: docker-compose exec node sh -c 'DEBUG="" grunt server'
+  - docker: docker-compose up

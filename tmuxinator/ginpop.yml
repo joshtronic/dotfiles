@@ -14,3 +14,4 @@ windows:
         - npm run prod
   - mysql: docker-compose exec mysql sh -c 'mysql -uroot -pmysql scenekids'
   - redis: docker-compose exec redis redis-cli
+  - docker: docker-compose up
