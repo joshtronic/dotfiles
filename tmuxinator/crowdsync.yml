@@ -1,0 +1,10 @@
+# ~/.tmuxinator/crowdsync.yml
+
+name: crowdsync
+root: ~/Code/joshtronic/crowdsync
+
+pre: docker-compose up -d
+
+windows:
+  - code:
+  - docker: docker-compose up
