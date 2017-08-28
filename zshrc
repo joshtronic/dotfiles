@@ -151,8 +151,9 @@ alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
 # Sudo
 alias _='sudo'
 
-# Tmuxinator
-alias t='tmuxinator start'
+# Tmux[inator]
+alias t='tmux'
+alias ts='tmuxinator start'
 
 # UUID
 alias uuid='uuidgen'
