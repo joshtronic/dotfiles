@@ -3,8 +3,6 @@
 name: blog
 root: ~/Code/joshtronic/joshtronic.com
 
-pre: bundle install
-
 windows:
-  - code:
-  - server: bundle exec jekyll serve --incremental
+  - escritoire:
+  - jekyll: docker-compose up
