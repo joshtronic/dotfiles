@@ -7,9 +7,18 @@ pre: docker-compose up -d
 
 windows:
   - code:
-  - build: docker-compose exec node bash
-  - tests: docker-compose exec tests bash
-  - mysql: docker-compose exec mysql sh -c 'mysql -usumome sumome'
-  - redis: docker-compose exec redis redis-cli
-  - server: docker-compose exec node sh -c 'DEBUG="" grunt server'
-  - docker: docker-compose up
+  - repl:
+      layout: main-vertical
+      panes:
+        - docker-compose exec node bash
+        - docker-compose exec tests bash
+  - db:
+      layout: main-vertical
+      panes:
+        - docker-compose exec mysql sh -c 'mysql -usumome sumome'
+        - docker-compose exec redis redis-cli
+  - server:
+      layout: main-vertical
+      panes:
+        - docker-compose up
+        - docker-compose exec node sh -c 'DEBUG="" grunt server'
