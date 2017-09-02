@@ -209,4 +209,3 @@ function ToggleLineNumbers()
     set relativenumber
   endif
 endfunction
-
