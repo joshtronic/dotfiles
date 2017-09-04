@@ -11,3 +11,9 @@ source <(curl -s https://raw.githubusercontent.com/joshtronic/dotfiles/master/in
 ```
 
 ![LeePaceCelebrate](http://i.giphy.com/Vc5x1pG5RFH3O.gif)
+
+## Generating `package.list`
+
+```shell
+pacman -Qet | cut -f 1 -d ' ' > ~/.dotfiles/package.list
+```
