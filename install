@@ -16,7 +16,6 @@ git submodule update --init --recursive
 
 rm -rf \
   $HOME/.config/gtk-3.0/gtk.css \
-  $HOME/.config/nvim \
   $HOME/.gemrc \
   $HOME/.gitconfig \
   $HOME/.grcat \
@@ -40,10 +39,7 @@ ln -s $DOTFILES/zshrc $HOME/.zshrc
 curl -fLo $DOTFILES/vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-if [ -x "$(command -v nvim)" ]; then VIM=nvim
-elif [ -x "$(command -v vim)" ]; then VIM=vim; fi
-
-if [ -n "$VIM" ]; then /usr/bin/env $VIM +PlugInstall +qa; fi
+/usr/bin/env vim +PlugInstall +qa
 
 if [[ `uname` == 'Darwin' ]]; then
   defaults write com.apple.dock autohide-delay -float 86400; killall Dock
@@ -53,4 +49,3 @@ fi
 cd $HOME
 rm -f $HOME/.zcompdump*
 exec zsh
-

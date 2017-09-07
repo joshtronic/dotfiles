@@ -9,7 +9,7 @@ fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 unalias -m "*"
 
 export CLICOLOR=1
-export EDITOR=select-vim
+export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
 export TERM=xterm-256color
@@ -159,9 +159,9 @@ alias ts='tmuxinator start'
 alias uuid='uuidgen'
 
 # Vim aliases
-alias v='select-vim'
-alias vd='select-vim -d'
-alias vp='select-vim -p'
+alias v='env vim'
+alias vd='env vim -d'
+alias vp='env vim -p'
 
 vim() { echo "\033[0;31mWasted 2 keystrokes. Use \`v\` instead.\033[0m" }
 vimdiff() { echo "\033[0;31mWasted 5 keystrokes. Use \`vd\` instead.\033[0m" }
@@ -248,4 +248,3 @@ bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-

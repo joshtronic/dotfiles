@@ -14,7 +14,7 @@
 	status = auto
 
 [core]
-	editor = select-vim
+	editor = vim
 
 [diff]
 	compactionHeuristic = true
