@@ -36,10 +36,14 @@ ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/vim $HOME/.config/nvim
 ln -s $DOTFILES/zshrc $HOME/.zshrc
 
-curl -fLo $DOTFILES/vim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Probably will end up dropping this
+# curl -fLo $DOTFILES/vim/autoload/plug.vim --create-dirs \
+#   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# 
+# /usr/bin/env vim +PlugInstall +qa
 
-/usr/bin/env vim +PlugInstall +qa
+mkdir -p ~/.vim/pack/git-plugins/start
+git clone https://github.com/w0rp/ale.git ~/.vim/pack/git-plugins/start/ale
 
 if [[ `uname` == 'Darwin' ]]; then
   defaults write com.apple.dock autohide-delay -float 86400; killall Dock
