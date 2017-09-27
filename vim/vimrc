@@ -12,3 +12,5 @@ set tabstop=2
 
 autocmd FileType php setlocal sw=4 sts=4 ts=4
 autocmd FileType gitcommit,markdown,text setlocal nosi spell tw=80 wm=2
+
+autocmd BufWritePre * :%s/\s\+$//e
