@@ -103,15 +103,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# Change Directory aliases
-alias -- -='cd -'
-alias ..='cd ..'
-alias ....='cd ../..'
-alias ......='cd ../../..'
-
-# Docker aliases
-alias dcs='docker-compose start'
-
 # Git aliases
 alias g='git'
 alias ga='git add'
@@ -133,38 +124,14 @@ alias gp='git push origin $(git_branch)'
 alias grm='git rm'
 alias gst='git status'
 
-# Grep aliases
-alias gr='grep'
-
 # HTTPie aliases
 alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
 alias dl='http --print=b --download'
 
-# Open
-alias o='open'
-
 # Ship
 alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
-
-# Sudo
-alias _='sudo'
-
-# Tmux[inator]
-alias t='tmux'
-alias ts='tmuxinator start'
-
-# UUID
-alias uuid='uuidgen'
-
-# Vim aliases
-alias v='env vim'
-alias vd='env vim -d'
-alias vp='env vim -p'
-
-vim() { echo "\033[0;31mWasted 2 keystrokes. Use \`v\` instead.\033[0m" }
-vimdiff() { echo "\033[0;31mWasted 5 keystrokes. Use \`vd\` instead.\033[0m" }
 
 # Because `npm` shit the bed on me...
 ulimit -n 4096
