@@ -43,11 +43,6 @@ mkdir -p \
 
 git clone https://github.com/w0rp/ale.git ~/.vim/pack/plugins/start/ale
 
-if [[ `uname` == 'Darwin' ]]; then
-  defaults write com.apple.dock autohide-delay -float 86400; killall Dock
-  defaults write -g ApplePressAndHoldEnabled -bool false
-fi
-
 cd $HOME
 rm -f $HOME/.zcompdump*
 exec zsh
