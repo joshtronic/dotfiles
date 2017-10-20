@@ -42,6 +42,7 @@ mkdir -p \
   ~/.vim/pack/plugins/start
 
 git clone https://github.com/w0rp/ale.git ~/.vim/pack/plugins/start/ale
+git clone https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugins/start/fzf
 
 cd $HOME
 rm -f $HOME/.zcompdump*
