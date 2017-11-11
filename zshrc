@@ -193,3 +193,5 @@ bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
