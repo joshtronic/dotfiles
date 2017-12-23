@@ -21,6 +21,7 @@ rm -rf \
   $HOME/.mongorc.js \
   $HOME/.screenrc \
   $HOME/.vim \
+  $HOME/.vimrc \
   $HOME/.zshrc
 
 ln -s $DOTFILES/gemrc $HOME/.gemrc
@@ -28,7 +29,7 @@ ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/gtk.css $HOME/.config/gtk-3.0/gtk.css
 ln -s $DOTFILES/mongorc.js $HOME/.mongorc.js
 ln -s $DOTFILES/screenrc $HOME/.screenrc
-ln -s $DOTFILES/vim $HOME/.vim
+ln -s $DOTFILES/vimrc $HOME/.vimrc
 ln -s $DOTFILES/zshrc $HOME/.zshrc
 
 mkdir -p \
