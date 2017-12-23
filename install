@@ -18,9 +18,7 @@ rm -rf \
   $HOME/.config/gtk-3.0/gtk.css \
   $HOME/.gemrc \
   $HOME/.gitconfig \
-  $HOME/.grcat \
   $HOME/.mongorc.js \
-  $HOME/.my.cnf \
   $HOME/.screenrc \
   $HOME/.vim \
   $HOME/.zshrc
@@ -28,9 +26,7 @@ rm -rf \
 ln -s $DOTFILES/gemrc $HOME/.gemrc
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/gtk.css $HOME/.config/gtk-3.0/gtk.css
-ln -s $DOTFILES/vendor/nitso/colour-mysql-console/.grcat $HOME/.grcat
 ln -s $DOTFILES/mongorc.js $HOME/.mongorc.js
-ln -s $DOTFILES/my.cnf $HOME/.my.cnf
 ln -s $DOTFILES/screenrc $HOME/.screenrc
 ln -s $DOTFILES/vim $HOME/.vim
 ln -s $DOTFILES/zshrc $HOME/.zshrc
