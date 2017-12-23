@@ -7,9 +7,6 @@
 [submodule "vendor/seebi/dircolors-solarized"]
 	path = vendor/seebi/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
-[submodule "vendor/tmux-plugins/tmux-sensible"]
-	path = vendor/tmux-plugins/tmux-sensible
-	url = git@github.com:tmux-plugins/tmux-sensible.git
 [submodule "vendor/zsh-users/zsh-completions"]
 	path = vendor/zsh-users/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
