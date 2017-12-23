@@ -16,14 +16,12 @@ git submodule update --init --recursive
 
 rm -rf \
   $HOME/.config/gtk-3.0/gtk.css \
-  $HOME/.gemrc \
   $HOME/.gitconfig \
   $HOME/.screenrc \
   $HOME/.vim \
   $HOME/.vimrc \
   $HOME/.zshrc
 
-ln -s $DOTFILES/gemrc $HOME/.gemrc
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/gtk.css $HOME/.config/gtk-3.0/gtk.css
 ln -s $DOTFILES/screenrc $HOME/.screenrc
