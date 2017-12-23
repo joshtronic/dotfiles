@@ -106,7 +106,6 @@ alias gst='git status'
 alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
-alias dl='http --print=b --download'
 
 # Ship
 alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
