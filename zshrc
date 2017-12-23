@@ -131,16 +131,6 @@ man() {
     man "$@"
 }
 
-ssh() {
-  if [ -z ${TMUX+x} ]; then
-    command ssh "$@"
-  else
-    tmux rename-window "$*"
-    command ssh "$@"
-    tmux set-window-option automatic-rename "on" 1>/dev/null
-  fi
-}
-
 function username() {
   if [[ `whoami` != 'josh' ]]; then
     echo "%F{248}%n%F{reset}"

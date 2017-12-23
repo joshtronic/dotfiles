@@ -1,8 +1,0 @@
-# ~/.tmuxinator/blog.yml
-
-name: blog
-root: ~/Code/joshtronic/joshtronic.com
-
-windows:
-  - escritoire:
-  - jekyll: docker-compose up
