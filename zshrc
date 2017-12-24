@@ -2,12 +2,10 @@
 
 export DOTFILES=$HOME/.dotfiles
 
-source $DOTFILES/env
-source $DOTFILES/aliases
-
-if [ -x /usr/bin/dircolors ]; then
-  eval `dircolors $DOTFILES/dircolors`
-fi
+[ -f $DOTFILES/env ] && source $DOTFILES/env
+[ -f $DOTFILES/aliases ] && source $DOTFILES/aliases
+[ -x /usr/bin/dircolors ] && eval `dircolors $DOTFILES/dircolors`
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
@@ -122,5 +120,3 @@ bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
