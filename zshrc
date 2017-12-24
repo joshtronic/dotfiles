@@ -40,21 +40,6 @@ bindkey -v
 
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
-bindkey '^h' backward-delete-char
-bindkey '^j' up-history
-bindkey '^k' down-history
-bindkey '^r' history-incremental-search-backward
-bindkey '^w' backward-kill-word
-
-bindkey '\e[H' beginning-of-line
-bindkey '\e[F' end-of-line
-
-bindkey '\e[1~' beginning-of-line
-bindkey '\e[2~' quoted-insert
-bindkey '\e[3~' delete-char
-bindkey '\e[4~' end-of-line
-bindkey '\e[5~' up-history
-bindkey '\e[6~' down-history
 
 git_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
@@ -110,10 +95,3 @@ PROMPT='
 
 source $DOTFILES/vendor/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $DOTFILES/vendor/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
