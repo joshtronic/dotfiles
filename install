@@ -16,6 +16,7 @@ git submodule update --init --recursive
 
 rm -rf \
   $HOME/.bashrc \
+  $HOME/.dir_colors \
   $HOME/.gitconfig \
   $HOME/.config/gtk-3.0/gtk.css \
   $HOME/.screenrc \
@@ -24,6 +25,7 @@ rm -rf \
   $HOME/.zshrc
 
 ln -s $DOTFILES/bashrc $HOME/.bashrc
+ln -s $DOTFILES/dir_colors $HOME/.dir_colors
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/gtk.css $HOME/.config/gtk-3.0/gtk.css
 ln -s $DOTFILES/screenrc $HOME/.screenrc
