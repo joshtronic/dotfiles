@@ -45,18 +45,6 @@ git_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
 }
 
-function username() {
-  if [[ `whoami` != 'josh' ]]; then
-    echo "%F{248}%n%F{reset}"
-  fi
-}
-
-function server() {
-  if [[ `hostname` != josh-* ]]; then
-    echo "%F{244}@%F{magenta}%m%F{reset} "
-  fi
-}
-
 source $DOTFILES/vendor/olivierverdier/zsh-git-prompt/zshrc.sh
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
@@ -83,9 +71,8 @@ git_super_status() {
   fi
 }
 
-PROMPT_USER="$(username)$(server)"
 PROMPT='
-%F{reset}$PROMPT_USER%F{blue}%~ $(git_super_status)
+%F{blue}%~ $(git_super_status)
 %F{244}%# %F{reset}'
 
 source $DOTFILES/vendor/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
