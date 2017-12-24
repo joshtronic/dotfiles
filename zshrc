@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
-DOTFILES=$HOME/.dotfiles
-GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
-OS=`uname`
+source $HOME/.env
+
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
 unalias -m "*"
