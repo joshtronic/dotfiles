@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-if [ -f $HOME/.env ]; then
-  source $HOME/.env
-fi
+export DOTFILES=$HOME/.dotfiles
 
-if [ -f $HOME/.aliases ]; then
-  source $HOME/.aliases
+source $DOTFILES/env
+source $DOTFILES/aliases
+
+if [ -x /usr/bin/dircolors ]; then
+  eval `dircolors $DOTFILES/dircolors`
 fi

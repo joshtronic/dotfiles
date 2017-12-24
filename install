@@ -15,9 +15,7 @@ git pull origin master
 git submodule update --init --recursive
 
 rm -rf \
-  $HOME/.aliases \
   $HOME/.bashrc \
-  $HOME/.env \
   $HOME/.gitconfig \
   $HOME/.config/gtk-3.0/gtk.css \
   $HOME/.screenrc \
@@ -25,9 +23,7 @@ rm -rf \
   $HOME/.vimrc \
   $HOME/.zshrc
 
-ln -s $DOTFILES/aliases $HOME/.aliases
 ln -s $DOTFILES/bashrc $HOME/.bashrc
-ln -s $DOTFILES/env $HOME/.env
 ln -s $DOTFILES/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES/gtk.css $HOME/.config/gtk-3.0/gtk.css
 ln -s $DOTFILES/screenrc $HOME/.screenrc

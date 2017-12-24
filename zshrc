@@ -1,11 +1,12 @@
 #!/usr/bin/env zsh
 
-if [ -f $HOME/.env ]; then
-  source $HOME/.env
-fi
+export DOTFILES=$HOME/.dotfiles
 
-if [ -f $HOME/.aliases ]; then
-  source $HOME/.aliases
+source $DOTFILES/env
+source $DOTFILES/aliases
+
+if [ -x /usr/bin/dircolors ]; then
+  eval `dircolors $DOTFILES/dircolors`
 fi
 
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
@@ -56,10 +57,6 @@ bindkey '\e[3~' delete-char
 bindkey '\e[4~' end-of-line
 bindkey '\e[5~' up-history
 bindkey '\e[6~' down-history
-
-if [ -x /usr/bin/dircolors ]; then
-  eval `dircolors $DOTFILES/vendor/seebi/dircolors-solarized/dircolors.ansi-dark`
-fi
 
 git_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
