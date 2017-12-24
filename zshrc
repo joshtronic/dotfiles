@@ -1,6 +1,12 @@
 #!/usr/bin/env zsh
 
-source $HOME/.env
+if [ -f $HOME/.env ]; then
+  source $HOME/.env
+fi
+
+if [ -f $HOME/.aliases ]; then
+  source $HOME/.aliases
+fi
 
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
@@ -73,8 +79,6 @@ fi
 git_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
 }
-
-source $DOTFILES/aliases
 
 # Because `npm` shit the bed on me...
 ulimit -n 4096
