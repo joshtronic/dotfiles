@@ -45,11 +45,6 @@ git_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
 }
 
-# `ls` after `cd`
-function cd {
-  builtin cd "$@" && ls -F
-}
-
 function username() {
   if [[ `whoami` != 'josh' ]]; then
     echo "%F{248}%n%F{reset}"

@@ -36,3 +36,8 @@ alias gst='git status'
 alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
+
+# `ls` after `cd`
+function cd {
+  builtin cd "$@" && ls -F
+}
