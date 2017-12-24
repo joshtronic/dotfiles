@@ -1,5 +1,3 @@
-export OS=`uname`
-
 export CLICOLOR=1
 export EDITOR=vim
 export KEYTIMEOUT=1
