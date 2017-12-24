@@ -106,9 +106,6 @@ alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
 
-# Ship
-alias ship="$DOTFILES/vendor/fetchlogic/ship/ship"
-
 # Because `npm` shit the bed on me...
 ulimit -n 4096
 

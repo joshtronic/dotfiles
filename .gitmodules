@@ -1,6 +1,3 @@
-[submodule "vendor/fetchlogic/ship"]
-	path = vendor/fetchlogic/ship
-	url = git@github.com:fetchlogic/ship.git
 [submodule "vendor/seebi/dircolors-solarized"]
 	path = vendor/seebi/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
