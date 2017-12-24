@@ -11,6 +11,11 @@ alias ls='ls --color=auto'
 # Colorize output and some exclusions
 alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
 
+# Git functions
+git_branch() {
+  (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
+}
+
 # Git aliases
 alias g='git'
 alias ga='git add'
