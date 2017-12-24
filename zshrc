@@ -2,12 +2,12 @@
 
 export DOTFILES=$HOME/.dotfiles
 
+if [ -x /usr/bin/dircolors ]; then
+  eval `dircolors $DOTFILES/dircolors`
+fi
+
 source $DOTFILES/env
 source $DOTFILES/aliases
-
-# if [ -x /usr/bin/dircolors ]; then
-#   eval `dircolors $DOTFILES/dircolors`
-# fi
 
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
