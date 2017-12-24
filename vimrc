@@ -1,4 +1,5 @@
 syntax on
+color default
 
 set ai et si sts=2 sw=2 ts=2
 set hls ic is
