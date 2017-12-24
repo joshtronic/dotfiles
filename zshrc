@@ -59,13 +59,6 @@ bindkey '\e[6~' down-history
 
 if [ -x /usr/bin/dircolors ]; then
   eval `dircolors $DOTFILES/vendor/seebi/dircolors-solarized/dircolors.ansi-dark`
-  alias ls='ls --color=auto'
-
-  GREP_FLAGS=" --color=auto --exclude-dir=${GREP_EXCLUDE_DIR}"
-
-  alias grep="grep ${GREP_FLAGS}"
-  alias egrep="egrep ${GREP_FLAGS}"
-  alias fgrep="fgrep ${GREP_FLAGS}"
 fi
 
 git_branch() {

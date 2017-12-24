@@ -1,5 +1,4 @@
 export DOTFILES=$HOME/.dotfiles
-export GREP_EXCLUDE_DIR="{.git,.sass-cache,artwork,node_modules,vendor}"
 export OS=`uname`
 
 export CLICOLOR=1
