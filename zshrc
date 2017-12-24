@@ -60,9 +60,6 @@ git_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
 }
 
-# Because `npm` shit the bed on me...
-ulimit -n 4096
-
 # `ls` after `cd`
 function cd {
   builtin cd "$@" && ls -F
