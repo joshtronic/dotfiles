@@ -1,4 +1,4 @@
-unalias -m "*"
+unalias -a
 
 # Safety first
 alias cp='cp -i'
