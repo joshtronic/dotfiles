@@ -10,14 +10,6 @@ fi
 
 fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
 
-unalias -m "*"
-
-export CLICOLOR=1
-export EDITOR=vim
-export KEYTIMEOUT=1
-export QUOTING_STYLE=literal
-export TERM=xterm-256color
-
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
