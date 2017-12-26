@@ -3,6 +3,7 @@
 if [ -z "$HOME" ]; then echo "Seems you're \$HOMEless :("; exit 1; fi
 
 DOTFILES=$HOME/.dotfiles
+GITCLONE=git clone --depth=1
 
 cd $HOME
 rm -rf $DOTFILES
@@ -15,7 +16,9 @@ git pull origin master
 git submodule update --init --recursive
 
 rm -rf \
+  $HOME/.bash-git-prompt \
   $HOME/.bashrc \
+  $HOME/.fzf \
   $HOME/.gitconfig \
   $HOME/.config/gtk-3.0/gtk.css \
   $HOME/.screenrc \
@@ -34,8 +37,12 @@ mkdir -p \
   ~/.local/share/vim/{swap,undo} \
   ~/.vim/pack/plugins/start
 
-git clone https://github.com/w0rp/ale.git ~/.vim/pack/plugins/start/ale
-git clone https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugins/start/fzf
+$GITCLONE https://github.com/magicmonty/bash-git-prompt.git $HOME/.bash-git-prompt
+$GITCLONE https://github.com/junegunn/fzf.git $HOME/.fzf
+$GITCLONE https://github.com/w0rp/ale.git ~/.vim/pack/plugins/start/ale
+$GITCLONE https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugins/start/fzf
+
+$HOME/.fzf/install
 
 cd $HOME
 rm -f $HOME/.zcompdump*
