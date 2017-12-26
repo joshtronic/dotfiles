@@ -42,7 +42,7 @@ $GITCLONE https://github.com/junegunn/fzf.git $HOME/.fzf
 $GITCLONE https://github.com/w0rp/ale.git ~/.vim/pack/plugins/start/ale
 $GITCLONE https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugins/start/fzf
 
-$HOME/.fzf/install
+$HOME/.fzf/install --key-bindings --completion --no-update-rc
 
 cd $HOME
 rm -f $HOME/.zcompdump*
