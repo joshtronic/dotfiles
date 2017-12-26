@@ -3,7 +3,7 @@
 if [ -z "$HOME" ]; then echo "Seems you're \$HOMEless :("; exit 1; fi
 
 DOTFILES=$HOME/.dotfiles
-GITCLONE=git clone --depth=1
+GITCLONE="git clone --depth=1"
 
 cd $HOME
 rm -rf $DOTFILES
