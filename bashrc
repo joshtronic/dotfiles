@@ -7,7 +7,7 @@ export DOTFILES=$HOME/.dotfiles
 [ -x /usr/bin/dircolors ] && eval `dircolors $DOTFILES/dircolors`
 [ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 
-bind "set completion-ignore-case on"
+bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
