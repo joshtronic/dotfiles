@@ -3,9 +3,30 @@
 export DOTFILES=$HOME/.dotfiles
 export INCLUDES=$HOME/.local/share/dotfiles
 
+RESET=$(tput sgr0)
+
+BLUE=$(tput setaf 4)
+GREY=$(tput setaf 244)
+RED=$(tput setaf 1)
+YELLOW=$(tput setaf 3)
+
+GIT_PROMPT_BRANCH='$YELLOW'
+GIT_PROMPT_PREFIX=''
+GIT_PROMPT_SUFFIX=''
+GIT_PROMPT_CLEAN=''
+
+GIT_PROMPT_START_USER='\n$BLUE\w'
+
+GIT_PROMPT_END_USER='\n$GREY$ $RESET'
+GIT_PROMPT_END_ROOT='\n$GREY# $RESET'
+
+source $INCLUDES/bash-git-prompt/gitprompt.sh
+
 source $DOTFILES/env
 source $DOTFILES/aliases
 source $HOME/.fzf.bash
+
+source /usr/share/bash-completion/bash_completion
 
 eval `dircolors $DOTFILES/dircolors`
 
@@ -13,18 +34,4 @@ bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
-git_super_status() {
-  echo ''
-}
-
-blue=$(tput setaf 4)
-reset=$(tput sgr0)
-grey=$(tput setaf 244)
-
-PS1='
-\[$blue\]\w $(git_super_status)
-\[$grey\]\$ \[$reset\]'
-
-# GIT_PROMPT_ONLY_IN_REPO=1
-# GIT_PROMPT_THEME=Solarized
-# source $INCLUDES/bash-git-prompt/gitprompt.sh
+PS1='\n$BLUE\w\n$GREY$ $RESET'
