@@ -55,7 +55,6 @@ $GITCLONE https://github.com/junegunn/fzf.vim.git $HOME/.vim/pack/plugins/start/
 
 cd $HOME
 rm -f $HOME/.zcompdump*
-compinit
 
 echo
 echo 'DONEZO!!~!'
