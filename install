@@ -16,7 +16,7 @@ git pull origin master
 git submodule update --init --recursive
 
 rm -rf \
-  $HOME/.bash-git-prompt \
+  $HOME/.bash \
   $HOME/.bashrc \
   $HOME/.fzf \
   $HOME/.gitconfig \
@@ -24,6 +24,7 @@ rm -rf \
   $HOME/.screenrc \
   $HOME/.vim \
   $HOME/.vimrc \
+  $HOME/.zsh \
   $HOME/.zshrc
 
 ln -s $DOTFILES/bashrc $HOME/.bashrc
@@ -34,13 +35,24 @@ ln -s $DOTFILES/vimrc $HOME/.vimrc
 ln -s $DOTFILES/zshrc $HOME/.zshrc
 
 mkdir -p \
-  ~/.local/share/vim/{swap,undo} \
-  ~/.vim/pack/plugins/start
+  $HOME/.bash \
+  $HOME/.local/share/vim/{swap,undo} \
+  $HOME/.vim/pack/plugins/start \
+  $HOME/.zsh
 
-$GITCLONE https://github.com/magicmonty/bash-git-prompt.git $HOME/.bash-git-prompt
+$GITCLONE https://github.com/magicmonty/bash-git-prompt.git $HOME/.bash/bash-git-prompt
+
 $GITCLONE https://github.com/junegunn/fzf.git $HOME/.fzf
+
 $GITCLONE https://github.com/w0rp/ale.git ~/.vim/pack/plugins/start/ale
 $GITCLONE https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugins/start/fzf
+
+$GITCLONE https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+$GITCLONE https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
+$GITCLONE https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh/zsh-history-substring-search
+$GITCLONE https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
+  $HOME/.zsh-git-prompt \
 
 $HOME/.fzf/install --key-bindings --completion --no-update-rc
 

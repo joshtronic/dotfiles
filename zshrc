@@ -7,7 +7,14 @@ export DOTFILES=$HOME/.dotfiles
 [ -x /usr/bin/dircolors ] && eval `dircolors $DOTFILES/dircolors`
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-fpath=($DOTFILES/vendor/zsh-users/zsh-completions/src $fpath)
+export DOTZSH=$HOME/.zsh
+
+source $DOTZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $DOTZSH/zsh-git-prompt/zshrc.sh
+source $DOTZSH/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $DOTZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+fpath=($HOME/.zsh/zsh-completions/src $fpath)
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
@@ -41,8 +48,6 @@ bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-source $DOTFILES/vendor/olivierverdier/zsh-git-prompt/zshrc.sh
-
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX="%F{reset}"
 ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
@@ -70,6 +75,3 @@ git_super_status() {
 PROMPT='
 %F{blue}%~ $(git_super_status)
 %F{244}%# %F{reset}'
-
-source $DOTFILES/vendor/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $DOTFILES/vendor/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh

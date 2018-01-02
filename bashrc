@@ -25,4 +25,4 @@ PS1='
 
 # GIT_PROMPT_ONLY_IN_REPO=1
 # GIT_PROMPT_THEME=Solarized
-# source $HOME/.bash-git-prompt/gitprompt.sh
+# source $HOME/.bash/bash-git-prompt/gitprompt.sh
