@@ -48,6 +48,8 @@ bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX="%F{reset}"
 ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
@@ -55,6 +57,7 @@ ZSH_THEME_GIT_PROMPT_BRANCH="%F{yellow}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}✗"
 
+# Simpler git status, just show branch and if it's dirty
 git_super_status() {
   precmd_update_git_vars
 
