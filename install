@@ -49,13 +49,15 @@ $GITCLONE https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugins/start/fzf
 
 $GITCLONE https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 $GITCLONE https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
+$GITCLONE https://github.com/olivierverdier/zsh-git-prompt.git ~/.zsh/zsh-git-prompt
 $GITCLONE https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh/zsh-history-substring-search
 $GITCLONE https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-
-  $HOME/.zsh-git-prompt \
 
 $HOME/.fzf/install --key-bindings --completion --no-update-rc
 
 cd $HOME
 rm -f $HOME/.zcompdump*
-exec zsh
+
+echo
+echo 'DONEZO!!~!'
+echo
