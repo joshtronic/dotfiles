@@ -1,20 +1,19 @@
 #!/usr/bin/env zsh
 
 export DOTFILES=$HOME/.dotfiles
+export INCLUDES=$HOME/.local/share/dotfiles
 
-[ -f $DOTFILES/env ] && source $DOTFILES/env
-[ -f $DOTFILES/aliases ] && source $DOTFILES/aliases
-[ -x /usr/bin/dircolors ] && eval `dircolors $DOTFILES/dircolors`
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $DOTFILES/env
+source $DOTFILES/aliases
+source $HOME/.fzf.zsh
 
-export DOTZSH=$HOME/.zsh
+eval `dircolors $DOTFILES/dircolors`
 
-source $DOTZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $DOTZSH/zsh-git-prompt/zshrc.sh
-source $DOTZSH/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $DOTZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-fpath=($HOME/.zsh/zsh-completions/src $fpath)
+source $INCLUDES/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $INCLUDES/zsh-completions/zsh-completions.plugin.zsh
+source $INCLUDES/zsh-git-prompt/zshrc.sh
+source $INCLUDES/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $INCLUDES/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000

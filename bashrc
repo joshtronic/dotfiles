@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 export DOTFILES=$HOME/.dotfiles
+export INCLUDES=$HOME/.local/share/dotfiles
 
-[ -f $DOTFILES/env ] && source $DOTFILES/env
-[ -f $DOTFILES/aliases ] && source $DOTFILES/aliases
-[ -x /usr/bin/dircolors ] && eval `dircolors $DOTFILES/dircolors`
-[ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
+source $DOTFILES/env
+source $DOTFILES/aliases
+source $HOME/.fzf.bash
+
+eval `dircolors $DOTFILES/dircolors`
 
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
@@ -25,4 +27,4 @@ PS1='
 
 # GIT_PROMPT_ONLY_IN_REPO=1
 # GIT_PROMPT_THEME=Solarized
-# source $HOME/.bash/bash-git-prompt/gitprompt.sh
+# source $INCLUDES/bash-git-prompt/gitprompt.sh

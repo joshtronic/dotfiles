@@ -3,7 +3,9 @@
 if [ -z "$HOME" ]; then echo "Seems you're \$HOMEless :("; exit 1; fi
 
 DOTFILES=$HOME/.dotfiles
+
 GITCLONE="git clone --depth=1"
+GITDEST=$HOME/.local/share/dotfiles
 
 cd $HOME
 rm -rf $DOTFILES
@@ -16,15 +18,13 @@ git pull origin master
 git submodule update --init --recursive
 
 rm -rf \
-  $HOME/.bash \
+  $GITDEST \
   $HOME/.bashrc \
-  $HOME/.fzf \
   $HOME/.gitconfig \
   $HOME/.config/gtk-3.0/gtk.css \
   $HOME/.screenrc \
   $HOME/.vim \
   $HOME/.vimrc \
-  $HOME/.zsh \
   $HOME/.zshrc
 
 ln -s $DOTFILES/bashrc $HOME/.bashrc
@@ -35,29 +35,27 @@ ln -s $DOTFILES/vimrc $HOME/.vimrc
 ln -s $DOTFILES/zshrc $HOME/.zshrc
 
 mkdir -p \
-  $HOME/.bash \
+  $GITDEST \
   $HOME/.local/share/vim/{swap,undo} \
-  $HOME/.vim/pack/plugins/start \
-  $HOME/.zsh
+  $HOME/.vim/pack/plugins/start
 
-$GITCLONE https://github.com/magicmonty/bash-git-prompt.git $HOME/.bash/bash-git-prompt
+$GITCLONE https://github.com/junegunn/fzf.git $GITDEST/fzf
+$GITCONE/fzf/install --key-bindings --completion --no-update-rc
 
-$GITCLONE https://github.com/junegunn/fzf.git $HOME/.fzf
+$GITCLONE https://github.com/magicmonty/bash-git-prompt.git $GITDEST/bash-git-prompt
 
-$GITCLONE https://github.com/w0rp/ale.git ~/.vim/pack/plugins/start/ale
-$GITCLONE https://github.com/junegunn/fzf.vim.git ~/.vim/pack/plugins/start/fzf
+$GITCLONE https://github.com/zsh-users/zsh-autosuggestions.git $GITDEST/zsh-autosuggestions
+$GITCLONE https://github.com/zsh-users/zsh-completions.git $GITDEST/zsh-completions
+$GITCLONE https://github.com/olivierverdier/zsh-git-prompt.git $GITDEST/zsh-git-prompt
+$GITCLONE https://github.com/zsh-users/zsh-history-substring-search.git $GITDEST/zsh-history-substring-search
+$GITCLONE https://github.com/zsh-users/zsh-syntax-highlighting.git $GITDEST/zsh-syntax-highlighting
 
-$GITCLONE https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
-$GITCLONE https://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
-$GITCLONE https://github.com/olivierverdier/zsh-git-prompt.git ~/.zsh/zsh-git-prompt
-$GITCLONE https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh/zsh-history-substring-search
-$GITCLONE https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-
-$HOME/.fzf/install --key-bindings --completion --no-update-rc
+$GITCLONE https://github.com/w0rp/ale.git $HOME/.vim/pack/plugins/start/ale
+$GITCLONE https://github.com/junegunn/fzf.vim.git $HOME/.vim/pack/plugins/start/fzf
 
 cd $HOME
 rm -f $HOME/.zcompdump*
+compinit
 
 echo
 echo 'DONEZO!!~!'
-echo
