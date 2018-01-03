@@ -40,7 +40,7 @@ mkdir -p \
   $HOME/.vim/pack/plugins/start
 
 $GITCLONE https://github.com/junegunn/fzf.git $GITDEST/fzf
-$GITCONE/fzf/install --key-bindings --completion --no-update-rc
+$GITDEST/fzf/install --key-bindings --completion --no-update-rc
 
 $GITCLONE https://github.com/magicmonty/bash-git-prompt.git $GITDEST/bash-git-prompt
 
