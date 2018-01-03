@@ -5,7 +5,6 @@ export INCLUDES=$HOME/.local/share/dotfiles
 
 source $DOTFILES/env
 source $DOTFILES/aliases
-source $HOME/.fzf.zsh
 
 eval `dircolors $DOTFILES/dircolors`
 
@@ -77,3 +76,5 @@ git_super_status() {
 PROMPT='
 %F{blue}%~ $(git_super_status)
 %F{244}%# %F{reset}'
+
+source $HOME/.fzf.zsh
