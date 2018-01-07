@@ -44,8 +44,6 @@ mkdir -p \
 $GITCLONE https://github.com/junegunn/fzf.git $DOTFZF
 $DOTFZF/install --key-bindings --completion --no-update-rc
 
-$GITCLONE https://github.com/magicmonty/bash-git-prompt.git $DOTLOCAL/bash-git-prompt
-
 $GITCLONE https://github.com/zsh-users/zsh-autosuggestions.git $DOTLOCAL/zsh-autosuggestions
 $GITCLONE https://github.com/zsh-users/zsh-completions.git $DOTLOCAL/zsh-completions
 $GITCLONE https://github.com/olivierverdier/zsh-git-prompt.git $DOTLOCAL/zsh-git-prompt
