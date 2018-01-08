@@ -10,7 +10,6 @@ eval `dircolors $DOTFILES/dircolors`
 
 source $INCLUDES/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $INCLUDES/zsh-completions/zsh-completions.plugin.zsh
-source $INCLUDES/zsh-git-prompt/zshrc.sh
 source $INCLUDES/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $INCLUDES/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -28,6 +27,7 @@ zmodload -i zsh/complist
 unsetopt menu_complete
 unsetopt flowcontrol
 
+setopt prompt_subst
 setopt always_to_end
 setopt append_history
 setopt auto_menu
@@ -46,35 +46,20 @@ bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+git_prompt() {
+  BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
 
-ZSH_THEME_GIT_PROMPT_PREFIX=""
-ZSH_THEME_GIT_PROMPT_SUFFIX="%F{reset}"
-ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
-ZSH_THEME_GIT_PROMPT_BRANCH="%F{yellow}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%F{red}✗"
+  if [ ! -z $BRANCH ]; then
+    echo -n "%F{yellow}$BRANCH"
 
-# Simpler git status, just show branch and if it's dirty
-git_super_status() {
-  precmd_update_git_vars
-
-  if [ -n "$__CURRENT_GIT_STATUS" ]; then
-    STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH$ZSH_THEME_GIT_PROMPT_SEPARATOR"
-
-    if [ "$GIT_CHANGED" -eq "0" ] && [ "$GIT_CONFLICTS" -eq "0" ] && [ "$GIT_STAGED" -eq "0" ] && [ "$GIT_UNTRACKED" -eq "0" ]; then
-      STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
-    else
-      STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_DIRTY"
+    if [ ! -z "$(git status --short)" ]; then
+      echo " %F{red}✗"
     fi
-
-    STATUS="$STATUS%{${reset_color}%}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-    echo "$STATUS"
   fi
 }
 
-PROMPT='
-%F{blue}%~ $(git_super_status)
+PS1='
+%F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
 
 source $HOME/.fzf.zsh

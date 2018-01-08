@@ -29,9 +29,11 @@ git_prompt() {
     echo -n "$YELLOW$BRANCH"
 
     if [ ! -z "$(git status --short)" ]; then
-      echo " ${RED}✘"
+      echo " ${RED}✗"
     fi
   fi
 }
 
-PS1='\n$BLUE\w$(git_prompt)\n$GREY$ $RESET'
+PS1='
+$BLUE\w$(git_prompt)
+$GREY$ $RESET'
