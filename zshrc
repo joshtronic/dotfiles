@@ -57,8 +57,14 @@ git_prompt() {
   fi
 }
 
+vim_prompt() {
+  if [ ! -z $VIMRUNTIME ]; then
+    echo ":%F{green}sh ";
+  fi
+}
+
 PS1='
-%F{blue}%~$(git_prompt)
+$(vim_prompt)%F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
 
 source $HOME/.fzf.zsh

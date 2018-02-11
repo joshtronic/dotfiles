@@ -18,6 +18,7 @@ bind 'TAB:menu-complete'
 RESET=$(tput sgr0)
 
 BLUE=$(tput setaf 4)
+GREEN=$(tput setaf 2)
 GREY=$(tput setaf 244)
 RED=$(tput setaf 1)
 YELLOW=$(tput setaf 3)
@@ -34,6 +35,12 @@ git_prompt() {
   fi
 }
 
+vim_prompt() {
+  if [ ! -z $VIMRUNTIME ]; then
+    echo ":${GREEN}sh ";
+  fi
+}
+
 PS1='
-$BLUE\w$(git_prompt)
+$(vim_prompt)$BLUE\w$(git_prompt)
 $GREY$ $RESET'
