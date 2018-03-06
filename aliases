@@ -6,7 +6,12 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # Colorize output
-alias ls='ls --color=auto'
+if [[ `uname` == Darwin ]]; then
+  alias dircolors='gdircolors'
+  alias ls='gls --color=auto'
+else
+  alias ls='ls --color=auto'
+fi
 
 # Colorize output and some exclusions
 alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
