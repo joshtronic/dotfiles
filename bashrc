@@ -42,5 +42,5 @@ vim_prompt() {
 }
 
 PS1="
-$(vim_prompt)$BLUE\w$(git_prompt)
-$GREY$ $RESET"
+\[$(vim_prompt)$BLUE\w$(git_prompt)\]
+\[$GREY\]$ \[$RESET\]"
