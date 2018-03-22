@@ -15,13 +15,13 @@ bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
-RESET="\[$(tput sgr0)\]"
+RESET="$(tput sgr0)"
 
-BLUE="\[$(tput setaf 4)\]"
-GREEN="\[$(tput setaf 2)\]"
-GREY="\[$(tput setaf 244)\]"
-RED="\[$(tput setaf 1)\]"
-YELLOW="\[$(tput setaf 3)\]"
+BLUE="$(tput setaf 4)"
+GREEN="$(tput setaf 2)"
+GREY="$(tput setaf 244)"
+RED="$(tput setaf 1)"
+YELLOW="$(tput setaf 3)"
 
 git_prompt() {
   BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
