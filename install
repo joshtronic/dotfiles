@@ -44,16 +44,32 @@ mkdir -p \
 $GITCLONE https://github.com/junegunn/fzf.git $DOTFZF
 $DOTFZF/install --key-bindings --completion --no-update-rc
 
-$GITCLONE https://github.com/zsh-users/zsh-completions.git $DOTLOCAL/zsh-completions
-$GITCLONE https://github.com/zsh-users/zsh-history-substring-search.git $DOTLOCAL/zsh-history-substring-search
-$GITCLONE https://github.com/zsh-users/zsh-syntax-highlighting.git $DOTLOCAL/zsh-syntax-highlighting
+ZSHPLUGS=(
+  "zsh-completions"
+  "zsh-history-substring-search"
+  "zsh-syntax-highlighting"
+)
 
-$GITCLONE https://github.com/w0rp/ale.git $HOME/.vim/pack/plugins/start/ale
-$GITCLONE https://github.com/junegunn/fzf.vim.git $HOME/.vim/pack/plugins/start/fzf
+for INDEX in ${!ZSHPLUGS[*]}; do
+  ZSHPLUG="${ZSHPLUGS[$INDEX]}"
+  $GITCLONE https://github.com/zsh-users/${ZSHPLUG}.git $DOTLOCAL/$ZSHPLUG
+done
 
-$GITCLONE https://github.com/jelera/vim-javascript-syntax.git $HOME/.vim/pack/plugins/start/vim-javascript-syntax
-$GITCLONE https://github.com/pangloss/vim-javascript.git $HOME/.vim/pack/plugins/start/vim-javascript
-$GITCLONE https://github.com/Quramy/vim-js-pretty-template.git $HOME/.vim/pack/plugins/start/vim-js-pretty-template
+VIMPLUGS=(
+  "w0rp/ale"
+  "junegunn/fzf.vim"
+  # JavaScript goodies
+  "jelera/vim-javascript-syntax"
+  "pangloss/vim-javascript"
+  "Quramy/vim-js-pretty-template"
+)
+
+for INDEX in ${!VIMPLUGS[*]}; do
+  VIMPLUG="${VIMPLUGS[$INDEX]}"
+  PLUGDIR=$(echo "$VIMPLUG" | cut -d '/' -f2)
+
+  $GITCLONE https://github.com/$VIMPLUG.git $HOME/.vim/pack/plugins/start/$PLUGDIR
+done
 
 cd $HOME
 rm -f $HOME/.zcompdump*
