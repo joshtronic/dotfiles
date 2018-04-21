@@ -8,10 +8,10 @@ DOTLOCAL=$HOME/.local/share/dotfiles
 
 GITCLONE="git clone --depth=1"
 
-cd $HOME
-rm -rf $DOTFILES
-mkdir $DOTFILES
-cd $DOTFILES
+cd "$HOME" || exit
+rm -rf "$DOTFILES"
+mkdir "$DOTFILES"
+cd "$DOTFILES" || exit
 
 git init
 git remote add origin git@github.com:joshtronic/dotfiles.git
@@ -19,30 +19,30 @@ git pull origin master
 git submodule update --init --recursive
 
 rm -rf \
-  $DOTFZF \
-  $DOTLOCAL \
-  $HOME/.bashrc \
-  $HOME/.gitconfig \
-  $HOME/.config/gtk-3.0/gtk.css \
-  $HOME/.screenrc \
-  $HOME/.vim \
-  $HOME/.vimrc \
-  $HOME/.zshrc
+  "$DOTFZF" \
+  "$DOTLOCAL" \
+  "$HOME/.bashrc" \
+  "$HOME/.gitconfig" \
+  "$HOME/.config/gtk-3.0/gtk.css" \
+  "$HOME/.screenrc" \
+  "$HOME/.vim" \
+  "$HOME/.vimrc" \
+  "$HOME/.zshrc"
 
-ln -s $DOTFILES/bashrc $HOME/.bashrc
-ln -s $DOTFILES/gitconfig $HOME/.gitconfig
-ln -s $DOTFILES/gtk.css $HOME/.config/gtk-3.0/gtk.css
-ln -s $DOTFILES/screenrc $HOME/.screenrc
-ln -s $DOTFILES/vimrc $HOME/.vimrc
-ln -s $DOTFILES/zshrc $HOME/.zshrc
+ln -s "$DOTFILES/bashrc" "$HOME/.bashrc"
+ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig"
+ln -s "$DOTFILES/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
+ln -s "$DOTFILES/screenrc" "$HOME/.screenrc"
+ln -s "$DOTFILES/vimrc" "$HOME/.vimrc"
+ln -s "$DOTFILES/zshrc" "$HOME/.zshrc"
 
 mkdir -p \
-  $DOTLOCAL \
-  $HOME/.local/share/vim/{swap,undo} \
-  $HOME/.vim/pack/plugins/start
+  "$DOTLOCAL" \
+  "$HOME/.local/share/vim/{swap,undo}" \
+  "$HOME/.vim/pack/plugins/start"
 
-$GITCLONE https://github.com/junegunn/fzf.git $DOTFZF
-$DOTFZF/install --key-bindings --completion --no-update-rc
+"$GITCLONE" https://github.com/junegunn/fzf.git "$DOTFZF"
+"$DOTFZF/install" --key-bindings --completion --no-update-rc
 
 ZSHPLUGS=(
   "zsh-completions"
@@ -52,7 +52,7 @@ ZSHPLUGS=(
 
 for INDEX in ${!ZSHPLUGS[*]}; do
   ZSHPLUG="${ZSHPLUGS[$INDEX]}"
-  $GITCLONE https://github.com/zsh-users/${ZSHPLUG}.git $DOTLOCAL/$ZSHPLUG
+  "$GITCLONE" "https://github.com/zsh-users/${ZSHPLUG}.git" "$DOTLOCAL/$ZSHPLUG"
 done
 
 VIMPLUGS=(
@@ -68,11 +68,11 @@ for INDEX in ${!VIMPLUGS[*]}; do
   VIMPLUG="${VIMPLUGS[$INDEX]}"
   PLUGDIR=$(echo "$VIMPLUG" | cut -d '/' -f2)
 
-  $GITCLONE https://github.com/$VIMPLUG.git $HOME/.vim/pack/plugins/start/$PLUGDIR
+  "$GITCLONE" "https://github.com/${VIMPLUG}.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
 
-cd $HOME
-rm -f $HOME/.zcompdump*
+cd "$HOME" || exit
+rm -f "${HOME}/.zcompdump*"
 
 echo
-echo 'DONEZO!!~!'
+echo "DONEZO!!~!"
