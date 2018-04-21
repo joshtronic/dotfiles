@@ -61,9 +61,8 @@ done
 VIMPLUGS=(
   "w0rp/ale"
   "junegunn/fzf.vim"
-  # JavaScript goodies
+  "sheerun/vim-polyglot"
   "jelera/vim-javascript-syntax"
-  "pangloss/vim-javascript"
   "Quramy/vim-js-pretty-template"
 )
 
