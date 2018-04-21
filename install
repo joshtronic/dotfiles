@@ -41,8 +41,8 @@ mkdir -p \
   "$HOME/.local/share/vim/{swap,undo}" \
   "$HOME/.vim/pack/plugins/start"
 
-"$GITCLONE" https://github.com/junegunn/fzf.git "$DOTFZF"
-"$DOTFZF/install" --key-bindings --completion --no-update-rc
+$GITCLONE https://github.com/junegunn/fzf.git "$DOTFZF"
+$DOTFZF/install --key-bindings --completion --no-update-rc
 
 ZSHPLUGS=(
   "zsh-completions"
@@ -52,7 +52,7 @@ ZSHPLUGS=(
 
 for INDEX in ${!ZSHPLUGS[*]}; do
   ZSHPLUG="${ZSHPLUGS[$INDEX]}"
-  "$GITCLONE" "https://github.com/zsh-users/${ZSHPLUG}.git" "$DOTLOCAL/$ZSHPLUG"
+  $GITCLONE "https://github.com/zsh-users/${ZSHPLUG}.git" "$DOTLOCAL/$ZSHPLUG"
 done
 
 VIMPLUGS=(
@@ -68,7 +68,7 @@ for INDEX in ${!VIMPLUGS[*]}; do
   VIMPLUG="${VIMPLUGS[$INDEX]}"
   PLUGDIR=$(echo "$VIMPLUG" | cut -d '/' -f2)
 
-  "$GITCLONE" "https://github.com/${VIMPLUG}.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
+  $GITCLONE "https://github.com/${VIMPLUG}.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
 
 cd "$HOME" || exit
