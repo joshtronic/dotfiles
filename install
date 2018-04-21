@@ -42,6 +42,7 @@ ln -s "$DOTFILES/zshrc" "$HOME/.zshrc"
 mkdir -p \
   "$DOTLOCAL" \
   "$HOME/.local/share/vim/{swap,undo}" \
+  "$HOME/.vim/colors" \
   "$HOME/.vim/pack/plugins/start"
 
 $GITCLONE https://github.com/junegunn/fzf.git "$DOTFZF"
@@ -72,6 +73,8 @@ for INDEX in ${!VIMPLUGS[*]}; do
 
   $GITCLONE "https://github.com/${VIMPLUG}.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
+
+wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim "${HOME}/.vim/colors/"
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"

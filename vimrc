@@ -1,5 +1,6 @@
 syntax on
-colo default
+set background=dark
+color solarized
 
 set ai et si sts=2 sw=2 ts=2
 set hid
