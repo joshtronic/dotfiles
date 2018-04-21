@@ -42,7 +42,7 @@ mkdir -p \
   "$HOME/.vim/pack/plugins/start"
 
 $GITCLONE https://github.com/junegunn/fzf.git "$DOTFZF"
-$DOTFZF/install --key-bindings --completion --no-update-rc
+"${DOTFZF}/install" --key-bindings --completion --no-update-rc
 
 ZSHPLUGS=(
   "zsh-completions"
