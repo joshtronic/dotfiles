@@ -14,9 +14,12 @@ mkdir "$DOTFILES"
 cd "$DOTFILES" || exit
 
 git init
-git remote add origin git@github.com:joshtronic/dotfiles.git
+git remote add origin https://github.com/joshtronic/dotfiles.git
 git pull origin master
-git submodule update --init --recursive
+
+# Swap origin so I can make edits easily
+git remote rm origin
+git remote add origin git@github.com:joshtronic/dotfiles.git
 
 rm -rf \
   "$DOTFZF" \
