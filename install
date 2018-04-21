@@ -51,6 +51,10 @@ $GITCLONE https://github.com/zsh-users/zsh-syntax-highlighting.git $DOTLOCAL/zsh
 $GITCLONE https://github.com/w0rp/ale.git $HOME/.vim/pack/plugins/start/ale
 $GITCLONE https://github.com/junegunn/fzf.vim.git $HOME/.vim/pack/plugins/start/fzf
 
+$GITCLONE https://github.com/jelera/vim-javascript-syntax.git $HOME/.vim/pack/plugins/start/vim-javascript-syntax
+$GITCLONE https://github.com/pangloss/vim-javascript.git $HOME/.vim/pack/plugins/start/vim-javascript
+$GITCLONE https://github.com/Quramy/vim-js-pretty-template.git $HOME/.vim/pack/plugins/start/vim-js-pretty-template
+
 cd $HOME
 rm -f $HOME/.zcompdump*
 
