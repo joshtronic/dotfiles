@@ -1,7 +1,8 @@
 syntax on
-color default
+colo default
 
 set ai et si sts=2 sw=2 ts=2
+set hid
 set hls ic is
 set nu rnu
 
