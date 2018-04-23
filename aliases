@@ -51,3 +51,11 @@ alias HEAD='http HEAD'
 function cd {
   builtin cd "$@" && ls -F
 }
+
+function nvm {
+  if [ -z ${NVM_DIR+x} ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm "$@"
+  fi
+}
