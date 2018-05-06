@@ -1,7 +1,7 @@
 {
   "uuid": "custom@gnome-shell-extensions.joshtronic.com",
-  "name": "My Customizations",
-  "description": "Hide activities button, disable hot corner, move clock to right.",
+  "name": "Customizations",
+  "description": "Moves clock to the right, hides activities button and disables the activities hot corner.",
   "url": "https://github.com/joshtronic/dotfiles",
   "shell-version": [
     "3.22",
