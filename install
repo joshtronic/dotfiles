@@ -43,7 +43,7 @@ mkdir -p \
 
 ln -s "$DOTFILES/bashrc" "$HOME/.bashrc"
 ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig"
-ln -s "$DOTFILES/gnome/extension" "$HOME/.local/share/gnome-shell/extensions/custom@gnome-shell-extensions.joshtronic.com" \
+ln -s "$DOTFILES/gnome/extension" "$HOME/.local/share/gnome-shell/extensions/custom@gnome-shell-extensions.joshtronic.com"
 ln -s "$DOTFILES/gnome/gnome-shell.css" "$HOME/.themes/custom/gnome-shell/gnome-shell.css"
 ln -s "$DOTFILES/gnome/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
 ln -s "$DOTFILES/screenrc" "$HOME/.screenrc"
