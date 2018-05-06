@@ -5,3 +5,8 @@
   -panel-corner-border-width: 0;
   -panel-corner-border-color: transparent;
 }
+
+/* Give app icon consistent padding with activities and status */
+#panel .panel-status-menu-box {
+  padding: 0 12px;
+}
