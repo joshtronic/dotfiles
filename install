@@ -42,7 +42,7 @@ mkdir -p \
 
 ln -s "$DOTFILES/bashrc" "$HOME/.bashrc"
 ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig"
-ln -s "$DOTFILES/gnome-shell.css" "$HOME/.themes/gnome-shell/gnome-shell.css"
+ln -s "$DOTFILES/gnome-shell.css" "$HOME/.themes/custom/gnome-shell/gnome-shell.css"
 ln -s "$DOTFILES/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
 ln -s "$DOTFILES/screenrc" "$HOME/.screenrc"
 ln -s "$DOTFILES/vimrc" "$HOME/.vimrc"
