@@ -1,3 +1,4 @@
+/* Hides server-side window decorations (makes it look like a twm) */
 window.ssd separator:first-child + headerbar:backdrop,
 window.ssd separator:first-child + headerbar,
 window.ssd headerbar:first-child:backdrop,

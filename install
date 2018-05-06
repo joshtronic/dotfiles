@@ -28,22 +28,25 @@ rm -rf \
   "$HOME/.gitconfig" \
   "$HOME/.config/gtk-3.0/gtk.css" \
   "$HOME/.screenrc" \
+  "$HOME/.themes/custom/gnome-shell/gnome-shell.css" \
   "$HOME/.vim" \
   "$HOME/.vimrc" \
   "$HOME/.zshrc"
 
+mkdir -p \
+  "$DOTLOCAL" \
+  "$HOME/.local/share/vim/{swap,undo}" \
+  "$HOME/.themes/custom/gnome-shell" \
+  "$HOME/.vim/colors" \
+  "$HOME/.vim/pack/plugins/start"
+
 ln -s "$DOTFILES/bashrc" "$HOME/.bashrc"
 ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig"
+ln -s "$DOTFILES/gnome-shell.css" "$HOME/.themes/gnome-shell/gnome-shell.css"
 ln -s "$DOTFILES/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
 ln -s "$DOTFILES/screenrc" "$HOME/.screenrc"
 ln -s "$DOTFILES/vimrc" "$HOME/.vimrc"
 ln -s "$DOTFILES/zshrc" "$HOME/.zshrc"
-
-mkdir -p \
-  "$DOTLOCAL" \
-  "$HOME/.local/share/vim/{swap,undo}" \
-  "$HOME/.vim/colors" \
-  "$HOME/.vim/pack/plugins/start"
 
 $GITCLONE https://github.com/junegunn/fzf.git "$DOTFZF"
 "$DOTFZF/install" --key-bindings --completion --no-update-rc
