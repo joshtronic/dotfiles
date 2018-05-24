@@ -11,7 +11,6 @@ set directory=~/.local/share/vim/swap,/tmp
 set undodir=~/.local/share/vim/undo,/tmp
 set undofile
 
-autocmd BufNewFile,BufRead *.es6 setl ft=javascript
 autocmd FileType php setl sts=4 sw=4 ts=4
 autocmd FileType gitcommit,markdown,text setl nosi spell tw=80 wm=2
 
