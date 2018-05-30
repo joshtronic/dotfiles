@@ -70,6 +70,7 @@ VIMPLUGS=(
   "sheerun/vim-polyglot"
   "jelera/vim-javascript-syntax"
   "Quramy/vim-js-pretty-template"
+  "StanAngeloff/php.vim"
 )
 
 for INDEX in ${!VIMPLUGS[*]}; do
