@@ -52,10 +52,21 @@ function cd {
   builtin cd "$@" && ls -F
 }
 
+# Run `nvm` init script on demand to avoid constant slow downs
 function nvm {
   if [ -z ${NVM_DIR+x} ]; then
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm "$@"
+  fi
+}
+
+function vim {
+  BACKGROUND=$(xtermcontrol --get-bg)
+
+  if [[ "$BACKGROUND" == "rgb:0000/2b2b/3636" ]]; then
+    env vim --cmd "set background=dark" $@
+  else
+    env vim --cmd "set background=light" $@
   fi
 }
