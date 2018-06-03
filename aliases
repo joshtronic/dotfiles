@@ -65,8 +65,8 @@ function vim {
   BACKGROUND=$(xtermcontrol --get-bg)
 
   if [[ "$BACKGROUND" == "rgb:0000/2b2b/3636" ]]; then
-    env vim --cmd "set background=dark" $@
+    env vim --cmd "let theme = 'dark'" $@
   else
-    env vim --cmd "set background=light" $@
+    env vim --cmd "let theme = 'light'" $@
   fi
 }
