@@ -66,6 +66,7 @@ done
 
 VIMPLUGS=(
   "w0rp/ale"
+  "editorconfig/editorconfig-vim"
   "junegunn/fzf.vim"
   "sheerun/vim-polyglot"
   "jelera/vim-javascript-syntax"
