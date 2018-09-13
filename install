@@ -36,6 +36,7 @@ rm -rf \
 
 mkdir -p \
   "$DOTLOCAL" \
+  "$HOME/.local/share/gnome-shell/extensions" \
   "$HOME/.local/share/vim/"{swap,undo} \
   "$HOME/.themes/custom/gnome-shell" \
   "$HOME/.vim/colors" \
