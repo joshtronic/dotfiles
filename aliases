@@ -61,12 +61,12 @@ function nvm {
   fi
 }
 
-function vim {
-  BACKGROUND=$(xtermcontrol --get-bg)
-
-  if [[ "$BACKGROUND" == "rgb:0000/2b2b/3636" ]]; then
-    env vim --cmd "let theme = 'dark'" $@
-  else
-    env vim --cmd "let theme = 'light'" $@
-  fi
-}
+# function vim {
+#   BACKGROUND=$(xtermcontrol --get-bg)
+#
+#   if [[ "$BACKGROUND" == "rgb:0000/2b2b/3636" ]]; then
+#     env vim --cmd "let theme = 'dark'" $@
+#   else
+#     env vim --cmd "let theme = 'light'" $@
+#   fi
+# }
