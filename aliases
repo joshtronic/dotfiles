@@ -61,6 +61,11 @@ function nvm {
   fi
 }
 
+# PID Port
+function pp {
+  sudo ss -lptn sport = :$1 | grep -Eo 'pid=[0-9]+' | cut -c5-
+}
+
 # function vim {
 #   BACKGROUND=$(xtermcontrol --get-bg)
 #
