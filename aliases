@@ -66,7 +66,7 @@ function nvm {
 
 # PID Port
 function pp {
-  sudo ss -lptn sport = :$1 | grep -Eo 'pid=[0-9]+' | cut -c5-
+  ss -lptn sport = :$1 | grep -Eo 'pid=[0-9]+' | cut -c5-
 }
 
 # function vim {
