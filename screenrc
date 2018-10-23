@@ -1,3 +1,2 @@
 startup_message off
-defscrollback 25000
-hardstatus alwayslastline %w
+defscrollback 50000
