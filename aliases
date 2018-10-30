@@ -5,14 +5,14 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# Colorize output
+# Colorize output, make ls human readable and classify...
 if [[ `uname` == Darwin ]]; then
   alias dircolors='gdircolors'
-  alias ls='gls --color=auto'
+  alias ls='gls --color=auto -hF'
 else
-  alias ls='ls --color=auto'
+  alias ls='ls --color=auto -hF'
 
-  # And standardize to macOS naming
+  # ...and standardize to macOS naming on Linux
   alias open='xdg-open'
 fi
 
@@ -59,7 +59,7 @@ alias HEAD='http HEAD'
 
 # `ls` after `cd`
 function cd {
-  builtin cd "$@" && ls -F
+  builtin cd "$@" && ls
 }
 
 # Run `nvm` init script on demand to avoid constant slow downs
