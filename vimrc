@@ -1,5 +1,5 @@
 syntax on
-color solarized
+color base16-default-dark
 
 " if exists('theme') && theme == 'light'
 "   set background=light
