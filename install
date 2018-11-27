@@ -83,7 +83,6 @@ for INDEX in ${!VIMPLUGS[*]}; do
 done
 
 wget https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P "$HOME/.vim/colors/"
-wget https://raw.githubusercontent.com/chriskempson/base16-vim/master/colors/base16-default-dark.vim -P "$HOME/.vim/colors/"
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
