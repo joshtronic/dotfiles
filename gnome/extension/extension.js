@@ -3,6 +3,8 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Main = imports.ui.main;
 const SessionMode = imports.ui.sessionMode;
 
+const moveClock = false;
+
 const disableHotCorners = function () {
   Main.layoutManager.hotCorners.forEach(function (hotCorner) {
     if (!hotCorner) return;
@@ -28,7 +30,7 @@ function enable() {
   hotCornerCallback = Main.layoutManager.connect('hot-corners-changed', disableHotCorners);
 
   // Moves the clock to the right
-  if (Main.sessionMode.panel.center.indexOf('dateMenu') > -1) {
+  if (moveClock && Main.sessionMode.panel.center.indexOf('dateMenu') > -1) {
     centerBox = Main.panel._centerBox;
     rightBox = Main.panel._rightBox;
     dateMenu = Main.panel.statusArea.dateMenu;
