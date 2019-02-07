@@ -59,6 +59,9 @@ alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
 
+# Nvim takeover
+alias vim='nvim'
+
 # `ls` after `cd`
 function cd {
   builtin cd "$@" && ls
