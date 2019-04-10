@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+# export PATH=$HOME/.config/composer/vendor/bin:$PATH
 export DOTFILES=$HOME/.dotfiles
 export INCLUDES=$HOME/.local/share/dotfiles
 
