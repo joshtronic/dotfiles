@@ -21,7 +21,7 @@ set directory=~/.local/share/vim/swap,/tmp
 set undodir=~/.local/share/vim/undo,/tmp
 set undofile
 
-autocmd FileType php setl sts=4 sw=4 ts=4
+autocmd FileType php,python setl sts=4 sw=4 ts=4
 autocmd FileType gitcommit,markdown,text setl nosi spell
 autocmd FileType markdown,text setl tw=80 wm=2
 
