@@ -91,5 +91,9 @@ curl -o "$HOME/.vim/colors/" https://raw.githubusercontent.com/altercation/vim-c
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
 
+# Required to kill the terminal's border in GNOME 3.32+
+gsettings set org.gnome.Terminal.Legacy.Settings headerbar "@mb false"
+echo "If this is your first time, you should restart GNOME"
+
 echo
 echo "ENJOY! :)"
