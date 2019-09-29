@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1090
 
 export DOTFILES=$HOME/.dotfiles
 export INCLUDES=$HOME/.local/share/dotfiles
@@ -26,17 +27,17 @@ YELLOW="$(tput setaf 3)"
 git_prompt() {
   BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
 
-  if [ ! -z "$BRANCH" ]; then
+  if [ -n "$BRANCH" ]; then
     echo -n "$YELLOW$BRANCH"
 
-    if [ ! -z "$(git status --short)" ]; then
+    if [ -n "$(git status --short)" ]; then
       echo " ${RED}✗"
     fi
   fi
 }
 
 vim_prompt() {
-  if [ ! -z "$VIMRUNTIME" ]; then
+  if [ -n "$VIMRUNTIME" ]; then
     echo ":${GREEN}sh ";
   fi
 }
