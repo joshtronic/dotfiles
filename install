@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 if [ -z "$HOME" ]; then echo "Seems you're \$HOMEless :("; exit 1; fi
 
@@ -86,13 +86,14 @@ for INDEX in ${!VIMPLUGS[*]}; do
   $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
 
-curl -o "$HOME/.vim/colors/" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
 
 # Required to kill the terminal's border in GNOME 3.32+
 gsettings set org.gnome.Terminal.Legacy.Settings headerbar "@mb false"
+echo
 echo "If this is your first time, you should restart GNOME"
 
 echo
