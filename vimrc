@@ -1,12 +1,6 @@
 syntax on
 color solarized
 
-" if exists('theme') && theme == 'light'
-"   set background=light
-" else
-"   set background=dark
-" endif
-
 set background=dark
 
 " FIX: Spell check highlighting broke for some reason
@@ -28,3 +22,4 @@ autocmd FileType markdown,text setl tw=80 wm=2
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.fzf
+set rtp+=~/.vim/pack/plugins/start/tabnine-vim

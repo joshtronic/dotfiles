@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 if [ -z "$HOME" ]; then echo "Seems you're \$HOMEless :("; exit 1; fi
 
@@ -77,6 +77,7 @@ VIMPLUGS=(
   "jelera/vim-javascript-syntax"
   "Quramy/vim-js-pretty-template"
   "StanAngeloff/php.vim"
+  "zxqfl/tabnine-vim"
 )
 
 for INDEX in ${!VIMPLUGS[*]}; do
