@@ -22,4 +22,4 @@ autocmd FileType markdown,text setl tw=80 wm=2
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.fzf
-set rtp+=~/.vim/pack/plugins/start/tabnine-vim
+" set rtp+=~/.vim/pack/plugins/start/tabnine-vim
