@@ -71,13 +71,18 @@ done
 
 VIMPLUGS=(
   "w0rp/ale"
-  "editorconfig/editorconfig-vim"
   "junegunn/fzf.vim"
+  # "zxqfl/tabnine-vim"
+
+  "editorconfig/editorconfig-vim"
   "sheerun/vim-polyglot"
   "jelera/vim-javascript-syntax"
   "Quramy/vim-js-pretty-template"
   "StanAngeloff/php.vim"
-  # "zxqfl/tabnine-vim"
+
+  # TypeScript
+  "leafgarland/typescript-vim"
+  "Quramy/tsuquyomi"
 )
 
 for INDEX in ${!VIMPLUGS[*]}; do
