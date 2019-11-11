@@ -72,7 +72,7 @@ done
 VIMPLUGS=(
   "w0rp/ale"
   "junegunn/fzf.vim"
-  # "zxqfl/tabnine-vim"
+  "neoclide/coc.nvim"
 
   "editorconfig/editorconfig-vim"
   "sheerun/vim-polyglot"
