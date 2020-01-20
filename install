@@ -71,8 +71,8 @@ done
 
 VIMPLUGS=(
   "w0rp/ale"
-  "junegunn/fzf.vim"
   "neoclide/coc.nvim"
+  "junegunn/fzf.vim"
 
   "editorconfig/editorconfig-vim"
   "sheerun/vim-polyglot"
@@ -84,6 +84,9 @@ VIMPLUGS=(
   "leafgarland/typescript-vim"
   "Quramy/tsuquyomi"
 )
+
+# TODO: COC needs some command run to work properly. It runs inside of vim and
+# for the life of me, I can't remember how to run a command outside of vim.
 
 for INDEX in ${!VIMPLUGS[*]}; do
   VIMPLUG="${VIMPLUGS[$INDEX]}"
