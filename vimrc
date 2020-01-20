@@ -7,6 +7,7 @@ set background=dark
 hi SpellBad ctermfg=white ctermbg=red
 
 set ai et si sts=2 sw=2 ts=2
+set cc=80,100,120
 set hid
 set hls ic is
 set nu rnu
@@ -22,4 +23,3 @@ autocmd FileType markdown,text setl tw=80 wm=2
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.fzf
-" set rtp+=~/.vim/pack/plugins/start/tabnine-vim
