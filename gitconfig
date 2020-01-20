@@ -1,45 +1,45 @@
 [user]
-	name = Josh Sherman
-	email = joshsherman@gmail.com
+  name = Josh Sherman
+  email = joshsherman@gmail.com
 
 [github]
-	user = joshtronic
+  user = joshtronic
 
 [credential]
-	helper = cache --timeout=86400
+  helper = cache --timeout=86400
 
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+  branch = auto
+  diff = auto
+  status = auto
 
 [core]
-	editor = vim
+  editor = vim
 
 [diff]
-	compactionHeuristic = true
-	rename = copy
-	check = true
+  compactionHeuristic = true
+  rename = copy
+  check = true
 
 [pager]
-	color = true
+  color = true
 
 [push]
-	default = simple
+  default = simple
 
 [pull]
-	rebase = true
+  rebase = true
 
 [commit]
-	gpgsign = true
+  gpgsign = true
   template = ~/.dotfiles/gitmessage
   verbose = true
 
 [help]
-	autocorrect = 1
+  autocorrect = 1
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
