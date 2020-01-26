@@ -1,11 +1,19 @@
 
 
-# 50-character subject line
+# <type>(<scope>): <subject>
 #
-# 72-character wrapped longer description. This should answer:
+# <body>
 #
-# * Why was this change necessary?
-# * How does it address the problem?
-# * Are there any side effects?
+# <footer>
 #
-# Include a link to the ticket, if any.
+# The header is mandatory and the scope of the header is optional.
+# Types: build, ci, docs, feat, fix, perf, refactor, style, test
+#
+# Wrap longer lines to 72 characters.
+# The body should answer:
+#
+# * What problem is being solved?
+# * What is the solution to said problem?
+# * Are there any side effects or dependencies?
+#
+# The footer should contain a closing reference or link to an issue, if any.
