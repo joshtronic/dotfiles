@@ -18,6 +18,7 @@ set undofile
 
 autocmd FileType php,python setl sts=4 sw=4 ts=4
 autocmd FileType gitcommit,markdown,text setl nosi spell
+autocmd FileType gitcommit setl cc=50,72 tw=72
 autocmd FileType markdown,text setl tw=80 wm=2
 
 autocmd BufWritePre * :%s/\s\+$//e
