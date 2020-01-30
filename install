@@ -59,6 +59,7 @@ $GITCLONE https://github.com/junegunn/fzf.git "$DOTFZF"
 "$DOTFZF/install" --key-bindings --completion --no-update-rc
 
 ZSHPLUGS=(
+  "zsh-autosuggestions"
   "zsh-completions"
   "zsh-history-substring-search"
   "zsh-syntax-highlighting"
@@ -70,23 +71,40 @@ for INDEX in ${!ZSHPLUGS[*]}; do
 done
 
 VIMPLUGS=(
-  "w0rp/ale"
-  "neoclide/coc.nvim"
+  # File exploration and navigation
   "junegunn/fzf.vim"
 
-  "editorconfig/editorconfig-vim"
+  # Languages and syntax
   "sheerun/vim-polyglot"
-  "jelera/vim-javascript-syntax"
-  "Quramy/vim-js-pretty-template"
-  "StanAngeloff/php.vim"
 
-  # TypeScript
-  "leafgarland/typescript-vim"
-  "Quramy/tsuquyomi"
+  # Code completion
+  "neoclide/coc.nvim"
+
+  # Style guide and linting
+  "dense-analysis/ale"
+  "editorconfig/editorconfig-vim"
+
+  # All the rest
+  "wellle/context.vim"
+
+  # Hoping vim-polyglot deprecates the need for these
+  # "jelera/vim-javascript-syntax"
+  # "Quramy/vim-js-pretty-template"
+  # "leafgarland/typescript-vim"
+
+  # Shouldn't need this as it's already included by vim-polyglot
+  # "StanAngeloff/php.vim"
+
+  # Not sure I need this as I wasn't utilizing anything from it directly. If I
+  # am noticing a difference without it, I'll want to revisit the plugin and
+  # actually learn how to use the hell out of it.
+  # "Quramy/tsuquyomi"
 )
 
 # TODO: COC needs some command run to work properly. It runs inside of vim and
 # for the life of me, I can't remember how to run a command outside of vim.
+# Also, as it turns out, I can't remember what the heck the command was that
+# needed to be run.
 
 for INDEX in ${!VIMPLUGS[*]}; do
   VIMPLUG="${VIMPLUGS[$INDEX]}"
