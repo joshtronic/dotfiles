@@ -14,8 +14,8 @@ source $INCLUDES/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $INCLUDES/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _complete
