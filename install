@@ -110,7 +110,9 @@ done
 curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 
 # Finishes installing CoC
-vim +"call coc#util#install()" +qa
+# vim +"call coc#util#install()" +qa
+cd "$HOME/.vim/pack/plugins/start/coc.nvim" || exit
+./install.sh nightly
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
