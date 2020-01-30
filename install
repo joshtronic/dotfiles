@@ -107,10 +107,10 @@ for INDEX in ${!VIMPLUGS[*]}; do
   $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
 
+curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+
 # Finishes installing CoC
 vim +"call coc#util#install()" +qa
-
-curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
