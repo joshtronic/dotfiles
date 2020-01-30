@@ -9,12 +9,9 @@ source $DOTFILES/aliases
 
 eval `dircolors $DOTFILES/dircolors`
 
-source $INCLUDES/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $INCLUDES/zsh-completions/zsh-completions.plugin.zsh
 source $INCLUDES/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $INCLUDES/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#586e75"
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
