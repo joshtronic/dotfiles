@@ -101,17 +101,15 @@ VIMPLUGS=(
   # "Quramy/tsuquyomi"
 )
 
-# TODO: COC needs some command run to work properly. It runs inside of vim and
-# for the life of me, I can't remember how to run a command outside of vim.
-# Also, as it turns out, I can't remember what the heck the command was that
-# needed to be run.
-
 for INDEX in ${!VIMPLUGS[*]}; do
   VIMPLUG="${VIMPLUGS[$INDEX]}"
   PLUGDIR=$(echo "$VIMPLUG" | cut -d '/' -f2)
 
   $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
+
+# Finishes installing CoC
+vim +"call coc#util#install()" +qa
 
 curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 
