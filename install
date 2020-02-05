@@ -83,16 +83,10 @@ VIMPLUGS=(
   "dense-analysis/ale"
   "editorconfig/editorconfig-vim"
 
-  # All the rest
-  "wellle/context.vim"
-
   # Hoping vim-polyglot deprecates the need for these
   # "jelera/vim-javascript-syntax"
   # "Quramy/vim-js-pretty-template"
   # "leafgarland/typescript-vim"
-
-  # Shouldn't need this as it's already included by vim-polyglot
-  # "StanAngeloff/php.vim"
 
   # Not sure I need this as I wasn't utilizing anything from it directly. If I
   # am noticing a difference without it, I'll want to revisit the plugin and
