@@ -91,7 +91,7 @@ VIMPLUGS=(
   # Not sure I need this as I wasn't utilizing anything from it directly. If I
   # am noticing a difference without it, I'll want to revisit the plugin and
   # actually learn how to use the hell out of it.
-  # "Quramy/tsuquyomi"
+  "Quramy/tsuquyomi"
 )
 
 for INDEX in ${!VIMPLUGS[*]}; do
