@@ -64,6 +64,7 @@ alias HEAD='http HEAD'
 
 # Nvim takeover
 alias vim='nvim'
+alias vimdiff='nvim -d'
 
 # `ls` after `cd`
 function cd {
