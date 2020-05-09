@@ -99,12 +99,12 @@ for INDEX in ${!VIMPLUGS[*]}; do
   $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
 
-curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+git clone https://github.com/lifepillar/vim-solarized8.git "$HOME/.vim/pack/themes/opt/solarized8"
 
 # Finishes installing CoC
 # vim +"call coc#util#install()" +qa
-cd "$HOME/.vim/pack/plugins/start/coc.nvim" || exit
-./install.sh nightly
+# cd "$HOME/.vim/pack/plugins/start/coc.nvim" || exit
+# ./install.sh nightly
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"

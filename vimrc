@@ -1,5 +1,5 @@
 syntax on
-color solarized
+color solarized8
 
 set background=dark
 
