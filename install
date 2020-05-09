@@ -76,9 +76,6 @@ VIMPLUGS=(
   # Languages and syntax
   "sheerun/vim-polyglot"
 
-  # Code completion
-  "neoclide/coc.nvim"
-
   # Style guide and linting
   "dense-analysis/ale"
   "editorconfig/editorconfig-vim"
@@ -100,10 +97,6 @@ curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/alte
 curl -o "$HOME/.vim/colors/flattened_dark.vim" https://raw.githubusercontent.com/romainl/flattened/master/colors/flattened_dark.vim
 # Can't seem to get this guy to use truecolor in my terminal...
 git clone https://github.com/lifepillar/vim-solarized8.git "$HOME/.vim/pack/themes/opt/solarized8"
-
-# Finishes installing CoC
-cd "$HOME/.vim/pack/plugins/start/coc.nvim" || exit
-yarn install --frozen-lockfile
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
