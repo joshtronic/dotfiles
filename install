@@ -97,7 +97,7 @@ done
 
 # TODO: Want to be able to toggle between these for a bit
 curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/romainl/flattened/master/colors/flattened_dark.vim
+curl -o "$HOME/.vim/colors/flattened_dark.vim" https://raw.githubusercontent.com/romainl/flattened/master/colors/flattened_dark.vim
 # Can't seem to get this guy to use truecolor in my terminal...
 git clone https://github.com/lifepillar/vim-solarized8.git "$HOME/.vim/pack/themes/opt/solarized8"
 
