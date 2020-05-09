@@ -86,10 +86,6 @@ VIMPLUGS=(
   # TypeScript
   "leafgarland/typescript-vim"
   "Quramy/tsuquyomi"
-
-  # Hoping vim-polyglot deprecates the need for these
-  # "jelera/vim-javascript-syntax"
-  # "Quramy/vim-js-pretty-template"
 )
 
 for INDEX in ${!VIMPLUGS[*]}; do
@@ -99,12 +95,15 @@ for INDEX in ${!VIMPLUGS[*]}; do
   $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
 
+# TODO: Want to be able to toggle between these for a bit
+curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/romainl/flattened/master/colors/flattened_dark.vim
+# Can't seem to get this guy to use truecolor in my terminal...
 git clone https://github.com/lifepillar/vim-solarized8.git "$HOME/.vim/pack/themes/opt/solarized8"
 
 # Finishes installing CoC
-# vim +"call coc#util#install()" +qa
-# cd "$HOME/.vim/pack/plugins/start/coc.nvim" || exit
-# ./install.sh nightly
+cd "$HOME/.vim/pack/plugins/start/coc.nvim" || exit
+yarn install --frozen-lockfile
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"

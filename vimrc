@@ -1,6 +1,5 @@
 syntax on
-color solarized8
-
+color flattened_dark
 set background=dark
 
 " FIX: Spell check highlighting broke for some reason
