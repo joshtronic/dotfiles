@@ -2,7 +2,7 @@ syntax on
 color flattened_dark
 set background=dark
 
-" FIX: Spell check highlighting broke for some reason
+" Ensures misspellings are highlighted
 hi SpellBad ctermfg=white ctermbg=red
 
 set ai et si sts=2 sw=2 ts=2
