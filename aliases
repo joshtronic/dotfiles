@@ -24,8 +24,12 @@ alias du='du -h'
 alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
 
 # Git functions
-git_branch() {
+git_current_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
+}
+
+git_default_branch() {
+  (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') 2>/dev/null
 }
 
 # Git aliases
@@ -38,22 +42,22 @@ alias gca='git commit -a'
 alias gcam='git commit -a --amend'
 alias gcb='git checkout -b'
 alias gcl='git clone'
-alias gcm='git checkout master'
+alias gcm='git checkout $(git_default_branch)'
 alias gco='git checkout'
 alias fgco='git checkout $(git branch | sed "s/\*//" | fzf)'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gf='git fetch'
-alias gfm='git fetch origin master:master'
-alias gl='git pull origin $(git_branch)'
+alias gfm='git fetch origin $(git_default_branch):$(git_default_branch)'
+alias gl='git pull origin $(git_current_branch)'
 alias glg='git log'
 alias gm='git merge'
-alias gmm='git merge master'
+alias gmm='git merge $(git_default_branch)'
 alias gmv='git mv'
-alias gp='git push origin $(git_branch)'
-alias gpf='git push origin $(git_branch) --force'
+alias gp='git push origin $(git_current_branch)'
+alias gpf='git push origin $(git_current_branch) --force'
 alias grb='git rebase'
-alias grbm='git rebase master'
+alias grbm='git rebase $(git_default_branch)'
 alias grm='git rm'
 alias gst='git status'
 
