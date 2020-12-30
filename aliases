@@ -16,6 +16,9 @@ else
   alias open='xdg-open'
 fi
 
+# Colorize cat with bat
+alias cat='bat'
+
 # Disk utility aliases
 alias df='df -h'
 alias du='du -h'
