@@ -9,4 +9,4 @@ am useless.
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/joshtronic/dotfiles/master/install)"
 ```
 
-![LeePaceCelebrate](http://i.giphy.com/Vc5x1pG5RFH3O.gif)
+![BOOM](https://media.giphy.com/media/laUY2MuoktHPy/source.gif)

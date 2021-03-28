@@ -28,11 +28,11 @@ alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
 
 # Git functions
 git_current_branch() {
-  (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
+  (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
 git_default_branch() {
-  (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') 2>/dev/null
+  (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') 2> /dev/null
 }
 
 # Git aliases
@@ -97,13 +97,3 @@ function nvm {
 function pp {
   ss -lptn sport = :$1 | grep -Eo 'pid=[0-9]+' | cut -c5-
 }
-
-# function vim {
-#   BACKGROUND=$(xtermcontrol --get-bg)
-#
-#   if [[ "$BACKGROUND" == "rgb:0000/2b2b/3636" ]]; then
-#     env vim --cmd "let theme = 'dark'" $@
-#   else
-#     env vim --cmd "let theme = 'light'" $@
-#   fi
-# }

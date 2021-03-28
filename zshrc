@@ -52,7 +52,9 @@ git_prompt() {
   if [ ! -z $BRANCH ]; then
     echo -n "%F{yellow}$BRANCH"
 
-    if [ ! -z "$(git status --short)" ]; then
+    STATUS=$(git status --short 2> /dev/null)
+
+    if [ ! -z "$STATUS" ]; then
       echo " %F{red}✗"
     fi
   fi

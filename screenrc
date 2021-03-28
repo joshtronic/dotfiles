@@ -1,4 +1,3 @@
 startup_message off
 defscrollback 1000000
 hardstatus alwayslastline "%w %= %S"
-# hardstatus string "%{.kW}%-w%{.bW}%t [%n]%{-}%+w %=%{..G} %S"

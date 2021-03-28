@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-if [ -z "$HOME" ]; then echo "Seems you're \$HOMEless :("; exit 1; fi
+if [ -z "$HOME" ]; then
+  echo "Seems you're \$HOMEless :("; exit 1;
+fi
 
 DOTCONFIG=$HOME/.config
 DOTFILES=$HOME/.dotfiles
@@ -85,20 +87,10 @@ for INDEX in ${!VIMPLUGS[*]}; do
   $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
 
-# TODO: Want to be able to toggle between these for a bit
-curl -o "$HOME/.vim/colors/solarized.vim" https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-# Never did much toggling, seems I've been "happy" with flattened
 curl -o "$HOME/.vim/colors/flattened_dark.vim" https://raw.githubusercontent.com/romainl/flattened/master/colors/flattened_dark.vim
-# Can't seem to get this guy to use truecolor in my terminal...
-git clone https://github.com/lifepillar/vim-solarized8.git "$HOME/.vim/pack/themes/opt/solarized8"
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
-
-# Required to kill the terminal's border in GNOME 3.32+
-# gsettings set org.gnome.Terminal.Legacy.Settings headerbar "@mb false"
-echo
-echo "If this is your first time, you should restart GNOME"
 
 echo
 echo "ENJOY! :)"

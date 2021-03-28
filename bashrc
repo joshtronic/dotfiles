@@ -30,7 +30,9 @@ git_prompt() {
   if [ -n "$BRANCH" ]; then
     echo -n "$YELLOW$BRANCH"
 
-    if [ -n "$(git status --short)" ]; then
+    STATUS=$(git status --short 2> /dev/null)
+
+    if [ -n "$STATUS" ]; then
       echo " ${RED}✗"
     fi
   fi
