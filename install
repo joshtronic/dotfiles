@@ -13,7 +13,7 @@ GITCLONE="git clone --depth=1"
 
 cd "$HOME" || exit
 rm -rf "$DOTFILES"
-git clone https://github.com/joshtronic/dotfiles.git "$DOTFILES"
+git clone git@github.com:joshtronic/dotfiles.git "$DOTFILES"
 cd "$DOTFILES" || exit
 
 rm -rf \
