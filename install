@@ -13,16 +13,8 @@ GITCLONE="git clone --depth=1"
 
 cd "$HOME" || exit
 rm -rf "$DOTFILES"
-mkdir "$DOTFILES"
+git clone https://github.com/joshtronic/dotfiles.git "$DOTFILES"
 cd "$DOTFILES" || exit
-
-git init
-git remote add origin https://github.com/joshtronic/dotfiles.git
-git pull origin main
-
-# Swap origin so I can make edits easily
-git remote rm origin
-git remote add origin git@github.com:joshtronic/dotfiles.git
 
 rm -rf \
   "$DOTCONFIG/nvim/init.vim" \
