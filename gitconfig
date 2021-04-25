@@ -24,6 +24,9 @@
 [pager]
   color = true
 
+[init]
+	defaultBranch = main
+
 [push]
   default = simple
 
