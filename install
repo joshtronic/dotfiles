@@ -20,7 +20,6 @@ rm -rf \
   "$DOTCONFIG/nvim/init.vim" \
   "$DOTFZF" \
   "$DOTLOCAL" \
-  "$HOME/.bashrc" \
   "$HOME/.gitconfig" \
   "$HOME/.screenrc" \
   "$HOME/.vim" \
@@ -35,7 +34,6 @@ mkdir -p \
   "$HOME/.vim/colors" \
   "$HOME/.vim/pack/plugins/start"
 
-ln -s "$DOTFILES/bashrc" "$HOME/.bashrc"
 ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig"
 ln -s "$DOTFILES/init.vim" "$DOTCONFIG/nvim/init.vim"
 ln -s "$DOTFILES/screenrc" "$HOME/.screenrc"
