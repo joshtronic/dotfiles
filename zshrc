@@ -65,3 +65,25 @@ PS1='
 %F{244}%# %F{reset}'
 
 source $HOME/.fzf.zsh
+
+# Only autoload nvm on a specific machine, default to lazy loading
+if [[ $(hostname) == "x1carbon.josh" ]]; then
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] \
+    && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+else
+  # Run `nvm` init script on demand to avoid constant slow downs
+  function nvm {
+    if [ -z ${NVM_DIR+x} ]; then
+      export NVM_DIR="$HOME/.nvm"
+
+      if [ -s "$NVM_DIR/nvm.sh" ]; then
+        source "$NVM_DIR/nvm.sh"
+      elif [ -s "/usr/share/nvm/init-nvm.sh" ]; then
+        source /usr/share/nvm/init-nvm.sh
+      fi
+
+      nvm "$@"
+    fi
+  }
+fi
