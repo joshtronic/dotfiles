@@ -4,6 +4,9 @@
 export DOTFILES=$HOME/.dotfiles
 export INCLUDES=$HOME/.local/share/dotfiles
 
+# Speed up `brew install`
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 source $DOTFILES/env
 source $DOTFILES/aliases
 
