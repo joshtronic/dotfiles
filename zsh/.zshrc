@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-# TODO: Has been commented out for a while, maybe unnecessary
-# export PATH=$HOME/.config/composer/vendor/bin:$PATH
-# TODO: May not need this one anymore
 export DOTFILES=$HOME/.dotfiles
 export INCLUDES=$HOME/.local/share/dotfiles
 
