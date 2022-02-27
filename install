@@ -14,9 +14,6 @@ for COMMAND in $COMMANDS; do
 done
 
 DOTFILES=$HOME/.dotfiles
-DOTLOCAL=$HOME/.local/share/dotfiles
-
-GITCLONE="git clone --depth=1"
 
 if [ ! -d "$DOTFILES" ]; then
   git clone git@github.com:joshtronic/dotfiles.git "$DOTFILES"
@@ -26,32 +23,7 @@ else
   git pull origin main
 fi
 
-rm -rf "$DOTLOCAL"
-mkdir -p "$DOTLOCAL"
-
 stow git screen vim zsh
-
-VIMPLUGS=(
-  # File exploration and navigation
-  "junegunn/fzf.vim"
-
-  # Languages and syntax
-  "sheerun/vim-polyglot"
-
-  # Style guide and linting
-  "dense-analysis/ale"
-  "editorconfig/editorconfig-vim"
-
-  # TypeScript
-  "leafgarland/typescript-vim"
-  "Quramy/tsuquyomi"
-)
-
-for INDEX in ${!VIMPLUGS[*]}; do
-  VIMPLUG="${VIMPLUGS[$INDEX]}"
-  PLUGDIR=$(echo "$VIMPLUG" | cut -d '/' -f2)
-  $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
-done
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"

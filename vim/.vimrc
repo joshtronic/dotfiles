@@ -1,3 +1,24 @@
+" Download vim-plug if it's not already present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+call plug#begin()
+  " Solarized, without the bullshit
+  Plug 'romainl/flattened'
+  " File exploration and navigation
+  Plug 'junegunn/fzf.vim'
+  " Languages and syntax
+  Plug 'sheerun/vim-polyglot'
+  " Style guide and linting
+  Plug 'dense-analysis/ale'
+  Plug 'editorconfig/editorconfig-vim'
+  " TypeScript
+  Plug 'leafgarland/typescript-vim'
+  Plug 'Quramy/tsuquyomi'
+call plug#end()
+
 syntax on
 color flattened_dark
 set background=dark
