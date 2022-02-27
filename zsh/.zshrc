@@ -66,9 +66,12 @@ PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
 
-source $HOME/.fzf.zsh
+# TODO: May need to tweak this for macOS/brew installed fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # Only autoload nvm on a specific machine, default to lazy loading
+# TODO: Maybe drop the lazy loading entirely as I never use nvm outside of work?
 if [[ $(hostname) == "x1carbon.josh" ]]; then
   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] \
     && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

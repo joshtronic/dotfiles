@@ -4,7 +4,7 @@ if [ -z "$HOME" ]; then
   echo "Seems you're \$HOMEless :("; exit 1;
 fi
 
-COMMANDS="curl git stow"
+COMMANDS="curl fzf git stow"
 
 for COMMAND in $COMMANDS; do
   if ! command -v "$COMMAND" &> /dev/null; then
@@ -14,7 +14,6 @@ for COMMAND in $COMMANDS; do
 done
 
 DOTFILES=$HOME/.dotfiles
-DOTFZF=$HOME/.fzf
 DOTLOCAL=$HOME/.local/share/dotfiles
 
 GITCLONE="git clone --depth=1"
@@ -27,13 +26,10 @@ else
   git pull origin main
 fi
 
-rm -rf "$DOTFZF" "$DOTLOCAL"
+rm -rf "$DOTLOCAL"
 mkdir -p "$DOTLOCAL"
 
 stow git screen vim zsh
-
-$GITCLONE https://github.com/junegunn/fzf.git "$DOTFZF"
-"$DOTFZF/install" --key-bindings --completion --no-update-rc
 
 ZSHPLUGS=(
   "zsh-completions"
