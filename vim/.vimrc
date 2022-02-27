@@ -11,8 +11,6 @@ set hid
 set hls ic is
 set nu rnu
 
-set directory=~/.local/share/vim/swap,/tmp
-set undodir=~/.local/share/vim/undo,/tmp
 set undofile
 
 autocmd FileType php,python setl sts=4 sw=4 ts=4
