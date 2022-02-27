@@ -17,7 +17,7 @@ else
 fi
 
 # Run ls after cd
-alias cd='builtin cd "$@" && ls'
+function cd { builtin cd "$@" && ls }
 
 # Colorize cat with bat
 alias cat='bat'
