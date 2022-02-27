@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-export DOTFILES=$HOME/.dotfiles
-export INCLUDES=$HOME/.local/share/dotfiles
-
 # Speed up `brew install`
 export HOMEBREW_NO_AUTO_UPDATE=1
 
@@ -11,9 +8,11 @@ source $HOME/.aliases
 
 eval `dircolors $HOME/.dircolors`
 
-source $INCLUDES/zsh-completions/zsh-completions.plugin.zsh
-source $INCLUDES/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $INCLUDES/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# TODO: May need to tweak this for macOS/brew installed stuff
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
@@ -65,10 +64,6 @@ git_prompt() {
 PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
-
-# TODO: May need to tweak this for macOS/brew installed fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 
 # Only autoload nvm on a specific machine, default to lazy loading
 # TODO: Maybe drop the lazy loading entirely as I never use nvm outside of work?
