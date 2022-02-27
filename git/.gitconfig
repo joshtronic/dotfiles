@@ -35,7 +35,7 @@
 
 [commit]
   gpgsign = true
-  template = ~/.dotfiles/gitmessage
+  template = ~/.gitmessage
   verbose = true
 
 [help]

@@ -1,16 +1,18 @@
 #!/usr/bin/env zsh
 
+# TODO: Has been commented out for a while, maybe unnecessary
 # export PATH=$HOME/.config/composer/vendor/bin:$PATH
+# TODO: May not need this one anymore
 export DOTFILES=$HOME/.dotfiles
 export INCLUDES=$HOME/.local/share/dotfiles
 
 # Speed up `brew install`
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-source $DOTFILES/env
-source $DOTFILES/aliases
+source $HOME/.env
+source $HOME/.aliases
 
-eval `dircolors $DOTFILES/dircolors`
+eval `dircolors $HOME/.dircolors`
 
 source $INCLUDES/zsh-completions/zsh-completions.plugin.zsh
 source $INCLUDES/zsh-history-substring-search/zsh-history-substring-search.zsh

@@ -4,41 +4,33 @@ if [ -z "$HOME" ]; then
   echo "Seems you're \$HOMEless :("; exit 1;
 fi
 
-DOTCONFIG=$HOME/.config
+COMMANDS="curl git stow"
+
+for COMMAND in $COMMANDS; do
+  if ! command -v "$COMMAND" &> /dev/null; then
+    echo "Please install $COMMAND";
+    exit 1;
+  fi
+done
+
 DOTFILES=$HOME/.dotfiles
 DOTFZF=$HOME/.fzf
 DOTLOCAL=$HOME/.local/share/dotfiles
 
 GITCLONE="git clone --depth=1"
 
-cd "$HOME" || exit
-rm -rf "$DOTFILES"
-git clone git@github.com:joshtronic/dotfiles.git "$DOTFILES"
-cd "$DOTFILES" || exit
+if [ ! -d "$DOTFILES" ]; then
+  git clone git@github.com:joshtronic/dotfiles.git "$DOTFILES"
+  cd "$DOTFILES" || exit
+else
+  cd "$DOTFILES" || exit
+  git pull origin main
+fi
 
-rm -rf \
-  "$DOTCONFIG/nvim/init.vim" \
-  "$DOTFZF" \
-  "$DOTLOCAL" \
-  "$HOME/.gitconfig" \
-  "$HOME/.screenrc" \
-  "$HOME/.vim" \
-  "$HOME/.vimrc" \
-  "$HOME/.zshrc"
+rm -rf "$DOTFZF" "$DOTLOCAL"
+mkdir -p "$DOTLOCAL"
 
-mkdir -p \
-  "$DOTCONFIG/"{gtk-3.0,nvim} \
-  "$DOTLOCAL" \
-  "$HOME/.local/share/vim/"{swap,undo} \
-  "$HOME/.themes/custom/gnome-shell" \
-  "$HOME/.vim/colors" \
-  "$HOME/.vim/pack/plugins/start"
-
-ln -s "$DOTFILES/gitconfig" "$HOME/.gitconfig"
-ln -s "$DOTFILES/init.vim" "$DOTCONFIG/nvim/init.vim"
-ln -s "$DOTFILES/screenrc" "$HOME/.screenrc"
-ln -s "$DOTFILES/vimrc" "$HOME/.vimrc"
-ln -s "$DOTFILES/zshrc" "$HOME/.zshrc"
+stow git screen vim zsh
 
 $GITCLONE https://github.com/junegunn/fzf.git "$DOTFZF"
 "$DOTFZF/install" --key-bindings --completion --no-update-rc
@@ -73,11 +65,8 @@ VIMPLUGS=(
 for INDEX in ${!VIMPLUGS[*]}; do
   VIMPLUG="${VIMPLUGS[$INDEX]}"
   PLUGDIR=$(echo "$VIMPLUG" | cut -d '/' -f2)
-
   $GITCLONE "https://github.com/$VIMPLUG.git" "$HOME/.vim/pack/plugins/start/$PLUGDIR"
 done
-
-curl -o "$HOME/.vim/colors/flattened_dark.vim" https://raw.githubusercontent.com/romainl/flattened/master/colors/flattened_dark.vim
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
