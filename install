@@ -4,7 +4,7 @@ if [ -z "$HOME" ]; then
   echo "Seems you're \$HOMEless :("; exit 1;
 fi
 
-COMMANDS="curl fzf git stow"
+COMMANDS="curl git stow"
 
 for COMMAND in $COMMANDS; do
   if ! command -v "$COMMAND" &> /dev/null; then
