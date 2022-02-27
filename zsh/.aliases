@@ -16,6 +16,9 @@ else
   alias open='xdg-open'
 fi
 
+# Run ls after cd
+alias cd='builtin cd "$@" && ls'
+
 # Colorize cat with bat
 alias cat='bat'
 
@@ -72,13 +75,3 @@ alias HEAD='http HEAD'
 # Nvim takeover
 alias vim='nvim'
 alias vimdiff='nvim -d'
-
-# `ls` after `cd`
-function cd {
-  builtin cd "$@" && ls
-}
-
-# PID Port
-function pp {
-  ss -lptn sport = :$1 | grep -Eo 'pid=[0-9]+' | cut -c5-
-}
