@@ -2,3 +2,4 @@
 /.blackbox/pubring.kbx~
 /.blackbox/secring.gpg
 /ssh/config
+/ssh/config.d/holidayapi
