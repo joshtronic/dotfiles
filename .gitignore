@@ -2,7 +2,6 @@
 *.id_rsa
 *.pub
 id_rsa
-id_rsa.pub
 known_hosts
 
 /.blackbox/pubring.gpg~
