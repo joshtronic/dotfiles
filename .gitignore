@@ -3,3 +3,4 @@
 /.blackbox/secring.gpg
 /ssh/config
 /ssh/config.d/holidayapi
+/ssh/config.d/mailshake
