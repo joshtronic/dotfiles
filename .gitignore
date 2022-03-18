@@ -9,9 +9,5 @@ known_hosts
 /.blackbox/pubring.kbx~
 /.blackbox/secring.gpg
 
-/ssh/.ssh/config
-/ssh/.ssh/config.d/holidayapi
-/ssh/.ssh/config.d/mailshake
-/ssh/.ssh/config.d/risksmith
-/ssh/.ssh/config.d/sherman
 /git/.gituser
+/ssh/.ssh/config
