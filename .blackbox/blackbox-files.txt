@@ -1,3 +1,4 @@
+git/.gituser
 ssh/.ssh/config
 ssh/.ssh/config.d/holidayapi
 ssh/.ssh/config.d/mailshake

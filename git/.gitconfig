@@ -1,17 +1,14 @@
-[user]
-  name = Josh Sherman
-  email = joshsherman@gmail.com
-
-[github]
-  user = joshtronic
+[include]
+  path = ~/.gituser
 
 [credential]
   helper = cache --timeout=86400
 
 [color]
-  branch = auto
-  diff = auto
-  status = auto
+  branch = always
+  diff = always
+  interactive = always
+  status = always
 
 [core]
   editor = nvim

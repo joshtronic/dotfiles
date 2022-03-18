@@ -14,3 +14,4 @@ known_hosts
 /ssh/.ssh/config.d/mailshake
 /ssh/.ssh/config.d/risksmith
 /ssh/.ssh/config.d/sherman
+/git/.gituser
