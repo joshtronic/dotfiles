@@ -4,7 +4,7 @@ if [ -z "$HOME" ]; then
   echo "Seems you're \$HOMEless :("; exit 1;
 fi
 
-COMMANDS="curl git stow"
+COMMANDS="blackbox_postdeploy curl git stow"
 
 for COMMAND in $COMMANDS; do
   if ! command -v "$COMMAND" &> /dev/null; then
@@ -23,7 +23,9 @@ else
   git pull origin main
 fi
 
-stow git screen vim zsh
+blackbox_postdeploy
+
+stow git screen ssh vim zsh
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
