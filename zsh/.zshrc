@@ -4,7 +4,7 @@
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
 
 source $HOME/.env
 source $HOME/.aliases
