@@ -25,6 +25,10 @@ fi
 
 stow git screen vim zsh
 
+if [[ `uname` == Darwin ]]; then
+  stow macos
+fi
+
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
 
