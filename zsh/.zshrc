@@ -2,17 +2,34 @@
 
 # Speed up `brew install`
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
+export GPG_TTY=$(tty)
 
 source $HOME/.env
 source $HOME/.aliases
 
 eval `dircolors $HOME/.dircolors`
 
-# TODO: May need to tweak this for macOS/brew installed stuff
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# TODO: Could set the base directory and source the zsh stuff
+if [[ `uname` == Darwin ]]; then
+  # Run this to generate ~/.fzf.zsh: $(brew --prefix)/opt/fzf/install
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+  source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# If you receive "highlighters directory not found" error message,                              │
+# you may need to add the following to your .zshenv:                                            │
+#   export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighte│
+# rs
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
@@ -87,3 +104,16 @@ else
     fi
   }
 fi
+
+# TODO: If/when I use nvm, will probably need this
+#
+# You should create NVM's working directory if it doesn't exist:
+#
+#   mkdir ~/.nvm
+#
+# Add the following to ~/.zshrc or your desired shell
+# configuration file:
+#
+#   export NVM_DIR="$HOME/.nvm"
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
