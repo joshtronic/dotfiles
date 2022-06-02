@@ -90,7 +90,7 @@ function updateHomebrewMenubar()
     homebrewMenubar:setTitle(string.format(' %s', numOutdated))
     homebrewMenubar:setTooltip(outdated)
   else
-    homebrewMenubar:setTitle('')
+    homebrewMenubar:setTitle(nil)
     homebrewMenubar:setTooltip('Up to date')
   end
 end
@@ -124,7 +124,7 @@ function updateSlackMenubar()
         local label = v:attributeValue('AXStatusLabel') or '0'
 
         if label == '0' then
-          slackMenubar:setTitle('')
+          slackMenubar:setTitle(nil)
           slackMenubar:setTooltip('No unread messages')
         else
           slackMenubar:setTitle(string.format(' %s', label))
