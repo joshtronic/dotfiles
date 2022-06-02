@@ -66,7 +66,12 @@ end)
 -- Homebrew Update Indicator
 --------------------------------------------------------------------------------
 
+local homebrewIconWhite = hs.image
+  .imageFromPath('~/.hammerspoon/images/homebrew-white.png')
+  :setSize(hs.geometry.size(16, 16))
+
 local homebrewMenubar = hs.menubar.new()
+homebrewMenubar:setIcon(homebrewIconWhite)
 
 homebrewMenubar:setClickCallback(function()
   hs.applescript.applescript([[
@@ -82,12 +87,53 @@ function updateHomebrewMenubar()
   local _, numOutdated = outdated:gsub('\n', '\n')
 
   if numOutdated > 0 then
-    homebrewMenubar:setTitle(string.format('🍺 %s', numOutdated))
+    homebrewMenubar:setTitle(string.format(' %s', numOutdated))
     homebrewMenubar:setTooltip(outdated)
   else
-    homebrewMenubar:delete()
+    homebrewMenubar:setTitle('')
+    homebrewMenubar:setTooltip('Up to date')
   end
 end
 
 updateHomebrewMenubar()
 hs.timer.doEvery(3600, updateHomebrewMenubar)
+
+--------------------------------------------------------------------------------
+-- Slack Message Indicator
+--------------------------------------------------------------------------------
+
+local slackIconWhite = hs.image
+  .imageFromPath('~/.hammerspoon/images/slack-white.png')
+  :setSize(hs.geometry.size(16, 16))
+
+local slackMenubar = hs.menubar.new()
+slackMenubar:setIcon(slackIconWhite)
+
+slackMenubar:setClickCallback(function()
+  hs.application.launchOrFocus('Slack')
+end)
+
+function updateSlackMenubar()
+  local dock = hs.axuielement.applicationElement('Dock')
+  local children = dock:attributeValue('AXChildren')
+
+  if children and children[1] and children[1]:attributeValue('AXRole') == 'AXList' then
+    local list = children[1]:attributeValue('AXChildren')
+    for _, v in pairs(list) do
+      if v:attributeValue('AXTitle') == 'Slack' then
+        local label = v:attributeValue('AXStatusLabel') or '0'
+
+        if label == '0' then
+          slackMenubar:setTitle('')
+          slackMenubar:setTooltip('No unread messages')
+        else
+          slackMenubar:setTitle(string.format(' %s', label))
+          slackMenubar:setTooltip(string.format('%s unread message(s)', label))
+        end
+      end
+    end
+  end
+end
+
+updateSlackMenubar()
+hs.timer.doEvery(60, updateSlackMenubar)
