@@ -94,7 +94,9 @@ else
     if [ -z ${NVM_DIR+x} ]; then
       export NVM_DIR="$HOME/.nvm"
 
-      if [ -s "$NVM_DIR/nvm.sh" ]; then
+      if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+        source "/opt/homebrew/opt/nvm/nvm.sh"
+      elif [ -s "$NVM_DIR/nvm.sh" ]; then
         source "$NVM_DIR/nvm.sh"
       elif [ -s "/usr/share/nvm/init-nvm.sh" ]; then
         source /usr/share/nvm/init-nvm.sh
@@ -104,16 +106,3 @@ else
     fi
   }
 fi
-
-# TODO: If/when I use nvm, will probably need this
-#
-# You should create NVM's working directory if it doesn't exist:
-#
-#   mkdir ~/.nvm
-#
-# Add the following to ~/.zshrc or your desired shell
-# configuration file:
-#
-#   export NVM_DIR="$HOME/.nvm"
-#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
