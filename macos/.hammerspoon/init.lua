@@ -26,28 +26,29 @@ end
 -- Window Snapping
 --------------------------------------------------------------------------------
 
+local modifier = { 'cmd', 'ctrl' }
 hs.window.animationDuration = 0
 
-hs.hotkey.bind({ 'cmd' }, 'Left', function()
+hs.hotkey.bind(modifier, 'Left', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.left50)
 end)
 
-hs.hotkey.bind({ 'cmd' }, 'Right', function()
+hs.hotkey.bind(modifier, 'Right', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.right50)
 end)
 
-hs.hotkey.bind({ 'cmd' }, 'Up', function()
+hs.hotkey.bind(modifier, 'Up', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.maximized)
 end)
 
 -- Simulates a 'reset' of the window
-hs.hotkey.bind({ 'cmd' }, 'Down', function()
+hs.hotkey.bind(modifier, 'Down', function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -110,6 +111,7 @@ local slackMenubar = hs.menubar.new()
 slackMenubar:setIcon(slackIconWhite)
 
 slackMenubar:setClickCallback(function()
+  slackMenubar:setTitle(nil)
   hs.application.launchOrFocus('Slack')
 end)
 
@@ -125,10 +127,8 @@ function updateSlackMenubar()
 
         if label == '0' then
           slackMenubar:setTitle(nil)
-          slackMenubar:setTooltip('No unread messages')
         else
           slackMenubar:setTitle(string.format(' %s', label))
-          slackMenubar:setTooltip(string.format('%s unread message(s)', label))
         end
       end
     end
