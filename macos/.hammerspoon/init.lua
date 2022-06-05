@@ -1,3 +1,5 @@
+local hyper = { 'ctrl', 'alt', 'cmd', 'shift' }
+
 --------------------------------------------------------------------------------
 -- Application Hot Keys
 --------------------------------------------------------------------------------
@@ -17,7 +19,7 @@ local applicationHotKeys = {
 }
 
 for key, application in pairs(applicationHotKeys) do
-  hs.hotkey.bind({ 'cmd' }, key, function()
+  hs.hotkey.bind(hyper, key, function()
     hs.application.launchOrFocus(application)
   end)
 end
@@ -26,29 +28,28 @@ end
 -- Window Snapping
 --------------------------------------------------------------------------------
 
-local modifier = { 'cmd', 'ctrl' }
 hs.window.animationDuration = 0
 
-hs.hotkey.bind(modifier, 'Left', function()
+hs.hotkey.bind(hyper, 'Left', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.left50)
 end)
 
-hs.hotkey.bind(modifier, 'Right', function()
+hs.hotkey.bind(hyper, 'Right', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.right50)
 end)
 
-hs.hotkey.bind(modifier, 'Up', function()
+hs.hotkey.bind(hyper, 'Up', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.maximized)
 end)
 
 -- Simulates a 'reset' of the window
-hs.hotkey.bind(modifier, 'Down', function()
+hs.hotkey.bind(hyper, 'Down', function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -67,6 +68,7 @@ end)
 -- Homebrew Update Indicator
 --------------------------------------------------------------------------------
 
+--[=====[
 local homebrewIconWhite = hs.image
   .imageFromPath('~/.hammerspoon/images/homebrew-white.png')
   :setSize(hs.geometry.size(16, 16))
@@ -98,11 +100,13 @@ end
 
 updateHomebrewMenubar()
 hs.timer.doEvery(3600, updateHomebrewMenubar)
+--]=====]
 
 --------------------------------------------------------------------------------
 -- Slack Message Indicator
 --------------------------------------------------------------------------------
 
+--[=====[
 local slackIconWhite = hs.image
   .imageFromPath('~/.hammerspoon/images/slack-white.png')
   :setSize(hs.geometry.size(16, 16))
@@ -137,3 +141,4 @@ end
 
 updateSlackMenubar()
 hs.timer.doEvery(60, updateSlackMenubar)
+--]=====]
