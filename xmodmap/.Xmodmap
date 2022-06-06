@@ -1,0 +1,6 @@
+! Set Caps Lock to Hyper
+remove mod4 = Hyper_L
+add mod3 = Hyper_L
+clear lock
+keysym Caps_Lock = Hyper_L
+add lock = Caps_Lock

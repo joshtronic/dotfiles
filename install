@@ -27,6 +27,8 @@ stow git screen vim zsh
 
 if [[ `uname` == Darwin ]]; then
   stow macos
+else
+  stow xmodmap
 fi
 
 cd "$HOME" || exit
