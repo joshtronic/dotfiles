@@ -42,3 +42,6 @@ autocmd FileType markdown,text setl tw=80 wm=2
 autocmd BufWritePre * :%s/\s\+$//e
 
 set rtp+=~/.fzf
+" set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
+
