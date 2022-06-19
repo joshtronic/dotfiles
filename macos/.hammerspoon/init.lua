@@ -25,31 +25,39 @@ for key, application in pairs(applicationHotKeys) do
 end
 
 --------------------------------------------------------------------------------
+-- Spotlight
+--------------------------------------------------------------------------------
+
+-- hs.hotkey.bind({}, 'f18', function()
+--   hs.alert.show("Hello World!")
+-- end)
+
+--------------------------------------------------------------------------------
 -- Window Snapping
 --------------------------------------------------------------------------------
 
 hs.window.animationDuration = 0
 
-hs.hotkey.bind(hyper, 'Left', function()
+hs.hotkey.bind(hyper, 'a', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.left50)
 end)
 
-hs.hotkey.bind(hyper, 'Right', function()
+hs.hotkey.bind(hyper, 'd', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.right50)
 end)
 
-hs.hotkey.bind(hyper, 'Up', function()
+hs.hotkey.bind(hyper, 'w', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.maximized)
 end)
 
 -- Simulates a 'reset' of the window
-hs.hotkey.bind(hyper, 'Down', function()
+hs.hotkey.bind(hyper, 's', function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()

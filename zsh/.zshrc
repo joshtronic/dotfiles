@@ -82,27 +82,31 @@ PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
 
-# Only autoload nvm on a specific machine, default to lazy loading
-# TODO: Maybe drop the lazy loading entirely as I never use nvm outside of work?
-if [[ $(hostname) == "x1carbon.josh" ]]; then
-  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] \
-    && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# No lazy loading on macOS
+if [[ `uname` == Darwin ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 else
-  # Run `nvm` init script on demand to avoid constant slow downs
-  function nvm {
-    if [ -z ${NVM_DIR+x} ]; then
-      export NVM_DIR="$HOME/.nvm"
+  # Only autoload nvm on a specific machine, default to lazy loading
+  # TODO: Maybe drop the lazy loading entirely as I never use nvm outside of work?
+  if [[ $(hostname) == "x1carbon.josh" ]]; then
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] \
+      && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  else
+    # Run `nvm` init script on demand to avoid constant slow downs
+    function nvm {
+      if [ -z ${NVM_DIR+x} ]; then
+        export NVM_DIR="$HOME/.nvm"
 
-      if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
-        source "/opt/homebrew/opt/nvm/nvm.sh"
-      elif [ -s "$NVM_DIR/nvm.sh" ]; then
-        source "$NVM_DIR/nvm.sh"
-      elif [ -s "/usr/share/nvm/init-nvm.sh" ]; then
-        source /usr/share/nvm/init-nvm.sh
+        if [ -s "$NVM_DIR/nvm.sh" ]; then
+          source "$NVM_DIR/nvm.sh"
+        elif [ -s "/usr/share/nvm/init-nvm.sh" ]; then
+          source /usr/share/nvm/init-nvm.sh
+        fi
+
+        nvm "$@"
       fi
-
-      nvm "$@"
-    fi
-  }
+    }
+  fi
 fi
