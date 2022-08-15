@@ -20,7 +20,13 @@ fi
 function cd { builtin cd "$@" && ls }
 
 # Colorize cat with bat
-alias cat='bat'
+if command -v apt &> /dev/null; then
+  # Debian
+  alias cat='batcat'
+else
+  # Everybody else
+  alias cat='bat'
+fi
 
 # Disk utility aliases
 alias df='df -h'
