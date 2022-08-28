@@ -78,6 +78,11 @@ alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
 
+# Universally unique identifier (UUID) generator
+if [[ `uname` == Darwin ]]; then
+  alias uuidgen='uuidgen | tr A-F a-f'
+fi
+
 # Nvim takeover
 alias vim='nvim'
 alias vimdiff='nvim -d'
