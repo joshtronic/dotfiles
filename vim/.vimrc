@@ -43,8 +43,10 @@ autocmd FileType markdown,text setl tw=80 wm=2
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-set rtp+=~/.fzf
-
 " TODO: Make this configurable to handle multiple OSes
-set rtp+=/usr/local/opt/fzf
-" set rtp+=/opt/homebrew/opt/fzf
+" Arch Linux: set rtp+=~/.fzf
+" Thought this was Debian: set rtp+=/usr/local/opt/fzf
+" This is Debian: source /usr/share/doc/fzf/examples/fzf.vim
+" This works for Debian too:
+set rtp+=/usr/share/doc/fzf/examples
+" macOS: set rtp+=/opt/homebrew/opt/fzf
