@@ -20,7 +20,7 @@ fi
 function cd { builtin cd "$@" && ls }
 
 # Colorize cat with bat
-if command -v apt &> /dev/null; then
+if command -v apt-get &> /dev/null; then
   # Debian
   alias cat='batcat'
 else
