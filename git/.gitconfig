@@ -48,4 +48,4 @@
   required = true
 
 [url "ssh://git@"]
-	insteadOf = git://
+  insteadOf = git://
