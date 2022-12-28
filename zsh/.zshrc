@@ -26,13 +26,6 @@ elif command -v apt &> /dev/null; then
 
   source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif command -v pacman &> /dev/null; then
-  # Arch
-  source /usr/share/fzf/completion.zsh
-  source /usr/share/fzf/key-bindings.zsh
-
-  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # If you receive "highlighters directory not found" error message,                              │
@@ -100,11 +93,6 @@ elif command -v apt &> /dev/null; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-elif command -v pacman &> /dev/null; then
-  # Arch
-  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] \
-    && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 fi
 
 # Automatically use Node.js version specified in .nvmrc
