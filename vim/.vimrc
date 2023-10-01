@@ -48,5 +48,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Thought this was Debian: set rtp+=/usr/local/opt/fzf
 " This is Debian: source /usr/share/doc/fzf/examples/fzf.vim
 " This works for Debian too:
-set rtp+=/usr/share/doc/fzf/examples
+" set rtp+=/usr/share/doc/fzf/examples
 " macOS: set rtp+=/opt/homebrew/opt/fzf
+" set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf

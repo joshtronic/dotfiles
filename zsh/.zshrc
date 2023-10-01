@@ -131,3 +131,5 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 
 load-nvmrc
+# Meh, fuck M$
+# export PATH="/usr/local/share/dotnet/x64:$PATH"
