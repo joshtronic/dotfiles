@@ -17,6 +17,7 @@ call plug#begin()
   " TypeScript
   Plug 'leafgarland/typescript-vim'
   Plug 'Quramy/tsuquyomi'
+  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
   " GitHub Copilot
   Plug 'github/copilot.vim'
 call plug#end()
