@@ -84,5 +84,6 @@ if [[ `uname` == Darwin ]]; then
 fi
 
 # Nvim takeover
-alias vim='nvim'
-alias vimdiff='nvim -d'
+# Nvim 0.10 borked my colorschemes, so getting back to basics with mainline Vim
+# alias vim='nvim'
+# alias vimdiff='nvim -d'
