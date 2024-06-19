@@ -5,17 +5,16 @@ local hyper = { 'ctrl', 'alt', 'cmd', 'shift' }
 --------------------------------------------------------------------------------
 
 local applicationHotKeys = {
-  ['0'] = 'Finder',
+  -- ['0'] = '',
   ['1'] = 'Terminal',
   ['2'] = 'Safari',
   ['3'] = 'Slack',
   ['4'] = 'Discord',
-  ['5'] = 'Music',
-  -- ['6'] = '',
+  ['5'] = 'Spotify',
+  ['6'] = 'Finder',
   -- ['7'] = '',
   -- ['8'] = '',
-  -- TODO: Probably need to `tell application` to those locations
-  -- ['9'] = 'Downloads',
+  -- ['9'] = '',
 }
 
 for key, application in pairs(applicationHotKeys) do
