@@ -4,41 +4,29 @@
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-# export GPG_TTY=$(tty)
-
 source $HOME/.env
 source $HOME/.aliases
 
 eval `dircolors $HOME/.dircolors`
 
-# TODO: Could set the base directory and source the zsh stuff
 if [[ `uname` == Darwin ]]; then
   # macOS
-  # Run this to generate ~/.fzf.zsh: $(brew --prefix)/opt/fzf/install
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
   source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif command -v apt &> /dev/null; then
   # Debian
   source /usr/share/doc/fzf/examples/completion.zsh
   source /usr/share/doc/fzf/examples/key-bindings.zsh
-
   source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif command -v pacman &> /dev/null; then
   # Arch
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
-
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
-# If you receive "highlighters directory not found" error message,                              │
-# you may need to add the following to your .zshenv:                                            │
-#   export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighte│
-# rs
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
@@ -131,5 +119,3 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 
 load-nvmrc
-# Meh, fuck M$
-# export PATH="/usr/local/share/dotnet/x64:$PATH"
