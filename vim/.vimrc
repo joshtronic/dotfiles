@@ -50,5 +50,5 @@ if has('mac')
 elseif executable('apt')
   set rtp+=/usr/share/doc/fzf/examples
 elseif executable('pacman')
-  rtp+=~/.fzf
+  set rtp+=~/.fzf
 endif
