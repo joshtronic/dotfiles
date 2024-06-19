@@ -44,12 +44,11 @@ autocmd FileType markdown,text setl tw=80 wm=2
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-" TODO: Make this configurable to handle multiple OSes
-" Arch Linux: set rtp+=~/.fzf
-" Thought this was Debian: set rtp+=/usr/local/opt/fzf
-" This is Debian: source /usr/share/doc/fzf/examples/fzf.vim
-" This works for Debian too:
-" set rtp+=/usr/share/doc/fzf/examples
-" macOS: set rtp+=/opt/homebrew/opt/fzf
-" set rtp+=/usr/local/opt/fzf
-set rtp+=/opt/homebrew/opt/fzf
+" Set the runtime path for fzf based on OS
+if has('mac')
+  set rtp+=/opt/homebrew/opt/fzf
+elseif executable('apt')
+  set rtp+=/usr/share/doc/fzf/examples
+elseif executable('pacman')
+  rtp+=~/.fzf
+endif
