@@ -18,8 +18,9 @@ call plug#begin()
   Plug 'leafgarland/typescript-vim'
   Plug 'Quramy/tsuquyomi'
   Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-  " GitHub Copilot
+  " GitHub integration
   Plug 'github/copilot.vim'
+  Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 syntax on
