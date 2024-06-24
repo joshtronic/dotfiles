@@ -82,7 +82,3 @@ alias HEAD='http HEAD'
 if [[ `uname` == Darwin ]]; then
   alias uuidgen='uuidgen | tr A-F a-f'
 fi
-
-# Nvim takeover
-alias vim='nvim'
-alias vimdiff='nvim -d'
