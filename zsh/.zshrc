@@ -9,21 +9,37 @@ source $HOME/.aliases
 
 eval `dircolors $HOME/.dircolors`
 
+# Load up and configure fzf, nvm, and zsh plugins
 if [[ `uname` == Darwin ]]; then
   # macOS
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
   source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif command -v apt &> /dev/null; then
   # Debian
   source /usr/share/doc/fzf/examples/completion.zsh
   source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
   source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif command -v pacman &> /dev/null; then
   # Arch
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
+
+  [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+  source /usr/share/nvm/nvm.sh
+  source /usr/share/nvm/bash_completion
+  source /usr/share/nvm/install-nvm-exec
+
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
@@ -79,23 +95,6 @@ PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
 
-if [[ `uname` == Darwin ]]; then
-  # macOS
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-elif command -v apt &> /dev/null; then
-  # Debian
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-elif command -v pacman &> /dev/null; then
-  # Arch
-  [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-  source /usr/share/nvm/nvm.sh
-  source /usr/share/nvm/bash_completion
-  source /usr/share/nvm/install-nvm-exec
-fi
-
 # Automatically use Node.js version specified in .nvmrc
 autoload -U add-zsh-hook
 
@@ -117,5 +116,4 @@ load-nvmrc() {
 }
 
 add-zsh-hook chpwd load-nvmrc
-
 load-nvmrc

@@ -1,25 +1,31 @@
+# Starts with a clean slate
 unalias -a
 
-# Safety first
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+# Prompt when doing something destructive
+alias cp='cp --interactive'
+alias mv='mv --interactive'
+alias rm='rm --interactive'
 
-# Colorize output, make ls human readable and classify...
+# Colorize output, make ls human-readable and add classification indicators
 if [[ `uname` == Darwin ]]; then
+  # macOS
   alias dircolors='gdircolors'
-  alias ls='gls --color=auto -hF'
-else
-  alias ls='ls --color=auto -hF'
+  alias ls='gls --color=auto --human-readable --classify'
 
-  # ...and standardize to macOS naming on Linux
+  # Force uuidgen to use lowercase letters like Linux
+  alias uuidgen='uuidgen | tr A-F a-f'
+else
+  # Linux
+  alias ls='ls --color=auto --human-readable --classify'
+
+  # Use the same open command as macOS
   alias open='xdg-open'
 fi
 
-# Run ls after cd
+# Run ls immediately after cd
 function cd { builtin cd "$@" && ls }
 
-# Colorize cat with bat
+# Use bat instead of cat for syntax highlighting
 if command -v apt-get &> /dev/null; then
   # Debian
   alias cat='batcat'
@@ -28,18 +34,24 @@ else
   alias cat='bat'
 fi
 
-# Disk utility aliases
-alias df='df -h'
-alias du='du -h'
+# Make disk utility human-readable
+alias df='df --human-readable'
+alias du='du --human-readable'
 
-# Colorize output and some exclusions
+# Colorize grep output and add some exclusions
 alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
 
-# Git functions
+# Use HTTPie in place of the old libwww-perl commands
+alias GET='http'
+alias POST='http POST'
+alias HEAD='http HEAD'
+
+# Get the git branch name for the current directory (used in the prompt)
 git_current_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
+# Get the default branch name for the current directory (usually master or main)
 git_default_branch() {
   (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') 2> /dev/null
 }
@@ -72,13 +84,3 @@ alias grb='git rebase'
 alias grbm='git rebase $(git_default_branch)'
 alias grm='git rm'
 alias gst='git status'
-
-# HTTPie aliases
-alias GET='http'
-alias POST='http POST'
-alias HEAD='http HEAD'
-
-# Universally unique identifier (UUID) generator
-if [[ `uname` == Darwin ]]; then
-  alias uuidgen='uuidgen | tr A-F a-f'
-fi
