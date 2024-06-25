@@ -46,6 +46,9 @@ alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
 
+# Use htop instead of boring old top
+alias top='htop'
+
 # Get the git branch name for the current directory (used in the prompt)
 git_current_branch() {
   (command git symbolic-ref -q HEAD || command git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
