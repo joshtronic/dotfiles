@@ -29,6 +29,8 @@ if [[ `uname` == Darwin ]]; then
   stow macos
 fi
 
+mkdir -p ~/.local/share/vim/undo/
+
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
 

@@ -46,6 +46,7 @@ set shiftwidth=2
 set smartindent
 set softtabstop=2
 set tabstop=2
+set undodir=~/.local/share/vim/undo/
 set undofile
 
 " Filetype-specific settings
