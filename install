@@ -23,7 +23,7 @@ else
   git pull origin main
 fi
 
-stow git screen vim zsh
+stow alacritty git screen vim zsh
 
 if [[ `uname` == Darwin ]]; then
   stow macos
