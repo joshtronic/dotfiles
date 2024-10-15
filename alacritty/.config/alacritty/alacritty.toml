@@ -1,0 +1,16 @@
+import = ['~/.config/alacritty/themes/solarized_dark.toml']
+
+[window]
+padding.x = 5
+padding.y = 5
+
+[font]
+normal.family = 'Fira Code'
+bold.family = 'Fira Code'
+italic.family = 'Fira Code'
+bold_italic.family = 'Fira Code'
+size = 14.0
+
+[colors]
+cursor.text = '#d33682'
+cursor.cursor = '#d33682'

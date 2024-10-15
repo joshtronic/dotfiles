@@ -6,7 +6,7 @@ local hyper = { 'ctrl', 'alt', 'cmd', 'shift' }
 
 local applicationHotKeys = {
   -- ['0'] = '',
-  ['1'] = 'Terminal',
+  ['1'] = 'Alacritty',
   ['2'] = 'Safari',
   ['3'] = 'Slack',
   ['4'] = 'Discord',
