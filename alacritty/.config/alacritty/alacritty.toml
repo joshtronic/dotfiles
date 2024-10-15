@@ -9,7 +9,7 @@ normal.family = 'Fira Code'
 bold.family = 'Fira Code'
 italic.family = 'Fira Code'
 bold_italic.family = 'Fira Code'
-size = 14.0
+size = 12.0
 
 [colors]
 cursor.text = '#d33682'
