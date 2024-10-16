@@ -88,3 +88,7 @@ alias grb='git rebase'
 alias grbm='git rebase $(git_default_branch)'
 alias grm='git rm'
 alias gst='git status'
+
+# Use nvim in place of vim
+alias vim='nvim'
+alias vimdiff='nvim -d'

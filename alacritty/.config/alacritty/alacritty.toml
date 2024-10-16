@@ -1,4 +1,4 @@
-import = ['~/.config/alacritty/themes/solarized_dark.toml']
+import = ['~/.config/alacritty/themes/solarized_osaka.toml']
 
 [window]
 padding.x = 5
