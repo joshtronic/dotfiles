@@ -28,6 +28,11 @@ require('lazy').setup({
     -- Solarized Osaka
     { 'craftzdog/solarized-osaka.nvim' },
     -- File exploration and navigation
+    {
+      'junegunn/fzf',
+      build = function() vim.cmd('FzfInstall') end,
+      event = 'VimEnter',
+    },
     { 'junegunn/fzf.vim' },
     -- Languages and syntax
     { 'sheerun/vim-polyglot' },
@@ -37,7 +42,10 @@ require('lazy').setup({
     -- TypeScript
     { 'leafgarland/typescript-vim' },
     { 'Quramy/tsuquyomi' },
-    { 'Shougo/vimproc.vim', build = 'make' },
+    {
+      'Shougo/vimproc.vim',
+      build = 'make',
+    },
     -- GitHub integration
     { 'github/copilot.vim' },
     { 'ruanyl/vim-gh-line' },
