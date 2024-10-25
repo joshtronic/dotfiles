@@ -16,9 +16,6 @@ if [[ `uname` == Darwin ]]; then
 
   export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-
-  source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif command -v apt &> /dev/null; then
   # Debian
   source /usr/share/doc/fzf/examples/completion.zsh
@@ -27,9 +24,6 @@ elif command -v apt &> /dev/null; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-  source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif command -v pacman &> /dev/null; then
   # Arch
   source /usr/share/fzf/completion.zsh
@@ -39,10 +33,20 @@ elif command -v pacman &> /dev/null; then
   source /usr/share/nvm/nvm.sh
   source /usr/share/nvm/bash_completion
   source /usr/share/nvm/install-nvm-exec
-
-  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# Load up Antigen and Zsh plugins
+if [[ ! -f "${HOME}/.antigen/antigen.zsh" ]]; then
+  git clone https://github.com/zsh-users/antigen.git "${HOME}/.antigen"
+fi
+source "${HOME}/.antigen/antigen.zsh"
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
@@ -73,7 +77,6 @@ setopt interactivecomments
 setopt share_history
 
 bindkey -v
-
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
