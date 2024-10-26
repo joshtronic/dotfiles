@@ -13,26 +13,14 @@ eval `dircolors $HOME/.dircolors`
 if [[ `uname` == Darwin ]]; then
   # macOS
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 elif command -v apt &> /dev/null; then
   # Debian
   source /usr/share/doc/fzf/examples/completion.zsh
   source /usr/share/doc/fzf/examples/key-bindings.zsh
-
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 elif command -v pacman &> /dev/null; then
   # Arch
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
-
-  [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-  source /usr/share/nvm/nvm.sh
-  source /usr/share/nvm/bash_completion
-  source /usr/share/nvm/install-nvm-exec
 fi
 
 # Load up Antigen and Zsh plugins
@@ -97,6 +85,13 @@ git_prompt() {
 PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
+
+# Load up NVM
+if [[ ! -f "${HOME}/.nvm/nvm.sh" ]]; then
+  PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
+fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Automatically use Node.js version specified in .nvmrc
 autoload -U add-zsh-hook
