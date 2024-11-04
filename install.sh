@@ -27,6 +27,11 @@ stow alacritty git nvim screen vim zsh
 
 if [[ `uname` == Darwin ]]; then
   stow macos
+else
+  # Clear SUPER+1-9 keybindings in GNOME
+  for i in $(seq 1 9); do
+    gsettings set org.gnome.shell.keybindings switch-to-application-${i} \[\];
+  done
 fi
 
 mkdir -p ~/.local/share/vim/undo/
