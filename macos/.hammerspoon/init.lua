@@ -4,6 +4,7 @@ local hyper = { 'ctrl', 'alt', 'cmd', 'shift' }
 -- Application Hot Keys
 --------------------------------------------------------------------------------
 
+--[=====[
 local applicationHotKeys = {
   -- ['0'] = '',
   ['1'] = 'Alacritty',
@@ -22,14 +23,7 @@ for key, application in pairs(applicationHotKeys) do
     hs.application.launchOrFocus(application)
   end)
 end
-
---------------------------------------------------------------------------------
--- Spotlight
---------------------------------------------------------------------------------
-
--- hs.hotkey.bind({}, 'f18', function()
---   hs.alert.show("Hello World!")
--- end)
+--]=====]
 
 --------------------------------------------------------------------------------
 -- Window Snapping
@@ -37,26 +31,29 @@ end
 
 hs.window.animationDuration = 0
 
-hs.hotkey.bind(hyper, 'a', function()
+-- Left half
+hs.hotkey.bind(hyper, 'h', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.left50)
 end)
 
-hs.hotkey.bind(hyper, 'd', function()
+-- Right half
+hs.hotkey.bind(hyper, 'l', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.right50)
 end)
 
-hs.hotkey.bind(hyper, 'w', function()
+-- Maximize
+hs.hotkey.bind(hyper, 'k', function()
   local win = hs.window.focusedWindow()
   if not win then return end
   win:moveToUnit(hs.layout.maximized)
 end)
 
 -- Simulates a 'reset' of the window
-hs.hotkey.bind(hyper, 's', function()
+hs.hotkey.bind(hyper, 'j', function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
