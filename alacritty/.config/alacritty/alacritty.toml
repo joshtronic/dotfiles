@@ -14,3 +14,6 @@ size = 12.0
 [colors]
 cursor.text = '#d33682'
 cursor.cursor = '#d33682'
+
+[env]
+term = "xterm-256color"
