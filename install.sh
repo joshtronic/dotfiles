@@ -27,8 +27,6 @@ stow alacritty git nvim screen vim zsh
 
 if [[ `uname` == Darwin ]]; then
   stow macos
-else
-  gsettings set org.gnome.mutter overlay-key ''
 fi
 
 mkdir -p ~/.local/share/vim/undo/
