@@ -1,6 +1,7 @@
 general.import = ['~/.config/alacritty/themes/solarized_osaka.toml']
 
 [window]
+option_as_alt = 'Both'
 padding.x = 5
 padding.y = 5
 
