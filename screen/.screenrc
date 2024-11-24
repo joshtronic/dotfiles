@@ -1,3 +1,0 @@
-startup_message off
-defscrollback 1000000
-hardstatus alwayslastline "%w %= %S"
