@@ -1,11 +1,13 @@
 {
   "ale": { "branch": "master", "commit": "2e5f135836a700dcc6b787f10097ebdeb8e22abb" },
   "copilot.vim": { "branch": "release", "commit": "87038123804796ca7af20d1b71c3428d858a9124" },
+  "cursor_open.nvim": { "branch": "main", "commit": "9d8dfac0142233de872765e31378c647829576ee" },
   "editorconfig-vim": { "branch": "master", "commit": "ba2ce027c5b0e523e658d24657ce3ae3306c9fe0" },
   "fzf": { "branch": "master", "commit": "90a8800bb596cd98e103788096f2780ee97100b4" },
   "fzf.vim": { "branch": "master", "commit": "ec75ffbfd50630bf2b8d444d89487e149bacf7f3" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
   "solarized-osaka.nvim": { "branch": "main", "commit": "126d394c0c979a99206214a2b6b8c86e456c9c0f" },
+  "telescope.nvim": { "branch": "master", "commit": "a4ed82509cecc56df1c7138920a1aeaf246c0ac5" },
   "tsuquyomi": { "branch": "master", "commit": "e1afca562d46907bf63270157c88b7ec8f66e46b" },
   "typescript-vim": { "branch": "master", "commit": "8d169e16b5487771f6568125d4c63e6086e524d9" },
   "vim-gh-line": { "branch": "master", "commit": "731751fdfa4f64a061dbc7088cb7b2f12e0828ad" },

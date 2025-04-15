@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before loading lazy.nvim
 -- so that mappings are correct. This is also a good place to setup other
 -- settings (vim.opt)
-vim.g.mapleader = ' '
+vim.g.mapleader = '\\'
 vim.g.maplocalleader = '\\'
 
 require('lazy').setup({
@@ -34,6 +34,8 @@ require('lazy').setup({
       event = 'VimEnter',
     },
     { 'junegunn/fzf.vim' },
+    -- File exploration and navigation (new)
+    { 'nvim-telescope/telescope.nvim' },
     -- Languages and syntax
     { 'sheerun/vim-polyglot' },
     -- Style guide and linting
@@ -49,6 +51,18 @@ require('lazy').setup({
     -- GitHub integration
     { 'github/copilot.vim' },
     { 'ruanyl/vim-gh-line' },
+    -- Cursor integration
+    {
+      'yuucu/cursor_open.nvim',
+      cmd = { 'CursorOpen' },
+      keys = {
+        { '<leader>oc', ':CursorOpen<CR>', desc = '[O]pen in [C]ursor' },
+        { '<leader>oC', ':CursorOpen!<CR>', desc = '[O]pen in [C]ursor (new window)' },
+      },
+      config = function()
+        require('cursor_open').setup()
+      end
+    },
   },
   install = { colorscheme = { 'solarized-osaka' } },
   checker = { enabled = true },
