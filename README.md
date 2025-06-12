@@ -11,7 +11,7 @@ Without my `dotfiles`, I am useless.
 ## Installation
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/joshtronic/dotfiles/main/install.sh)"
+sh -c "$(curl -fsSL https://git.sherver.org/joshtronic/dotfiles/raw/branch/main/install.sh)"
 ```
 
 ![BOOM](https://media.giphy.com/media/laUY2MuoktHPy/source.gif)

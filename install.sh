@@ -16,7 +16,7 @@ done
 DOTFILES=$HOME/.dotfiles
 
 if [ ! -d "$DOTFILES" ]; then
-  git clone git@github.com:joshtronic/dotfiles.git "$DOTFILES"
+  git clone ssh://git@git.sherver.org:22381/joshtronic/dotfiles.git "$DOTFILES"
   cd "$DOTFILES" || exit
 else
   cd "$DOTFILES" || exit
