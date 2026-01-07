@@ -1,4 +1,4 @@
-general.import = ['~/.config/alacritty/themes/solarized_osaka.toml']
+general.import = ['~/.config/alacritty/themes/rose-pine-dawn.toml']
 
 [window]
 option_as_alt = 'Both'
@@ -12,9 +12,10 @@ italic.family = 'Fira Code'
 bold_italic.family = 'Fira Code'
 size = 12.0
 
-[colors]
-cursor.text = '#d33682'
-cursor.cursor = '#d33682'
+# Cursor hacks, may delete
+# [colors]
+# cursor.text = '#faf4ed'
+# cursor.cursor = '#eb6f92'
 
 [env]
 term = "xterm-256color"
