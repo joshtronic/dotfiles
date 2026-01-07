@@ -3,8 +3,14 @@ require('config.lazy');
 
 -- Color scheme and syntax highlighting
 vim.cmd('syntax on')
-vim.cmd('colorscheme solarized-osaka')
-vim.o.background = 'dark'
+vim.cmd('colorscheme rose-pine')
+vim.o.background = 'light'
+
+-- Let the colorscheme own the background
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'none' })
 
 -- Ensures misspellings are highlighted
 vim.cmd('highlight SpellBad ctermfg=white ctermbg=red')

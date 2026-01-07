@@ -25,15 +25,28 @@ vim.g.maplocalleader = '\\'
 
 require('lazy').setup({
   spec = {
-    -- Solarized Osaka
-    { 'craftzdog/solarized-osaka.nvim' },
+    -- Pretty colors
+    -- { 'craftzdog/solarized-osaka.nvim', name = 'solarized' },
+    { 'rose-pine/neovim', name = 'rose-pine' },
     -- File exploration and navigation
+    -- {
+    --   'junegunn/fzf',
+    --   build = function() vim.cmd('FzfInstall') end,
+    --   event = 'VimEnter',
+    -- },
+    -- { 'junegunn/fzf.vim' },
     {
-      'junegunn/fzf',
-      build = function() vim.cmd('FzfInstall') end,
-      event = 'VimEnter',
+      "ibhagwan/fzf-lua",
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      -- or if using mini.icons/mini.nvim
+      -- dependencies = { "nvim-mini/mini.icons" },
+      ---@module "fzf-lua"
+      ---@type fzf-lua.Config|{}
+      ---@diagnostic disable: missing-fields
+      opts = {}
+      ---@diagnostic enable: missing-fields
     },
-    { 'junegunn/fzf.vim' },
     -- File exploration and navigation (new)
     { 'nvim-telescope/telescope.nvim' },
     -- Languages and syntax
