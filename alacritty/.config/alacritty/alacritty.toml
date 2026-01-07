@@ -6,11 +6,23 @@ padding.x = 5
 padding.y = 5
 
 [font]
-normal.family = 'Fira Code'
-bold.family = 'Fira Code'
-italic.family = 'Fira Code'
-bold_italic.family = 'Fira Code'
 size = 12.0
+
+[font.normal]
+family = 'Victor Mono Medium'
+style = 'Regular'
+
+[font.bold]
+family = 'Victor Mono Medium'
+style = 'Bold'
+
+[font.italic]
+family = 'Victor Mono Medium'
+style = 'Italic'
+
+[font.bold_italic]
+family = 'Victor Mono Medium'
+style = 'Bold Italic'
 
 # Cursor hacks, may delete
 # [colors]
