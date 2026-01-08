@@ -9,19 +9,19 @@ padding.y = 5
 size = 12.0
 
 [font.normal]
-family = 'Victor Mono Medium'
-style = 'Regular'
+family = 'Victor Mono'
+style = 'Medium'
 
 [font.bold]
-family = 'Victor Mono Medium'
+family = 'Victor Mono'
 style = 'Bold'
 
 [font.italic]
-family = 'Victor Mono Medium'
+family = 'Victor Mono'
 style = 'Italic'
 
 [font.bold_italic]
-family = 'Victor Mono Medium'
+family = 'Victor Mono'
 style = 'Bold Italic'
 
 # Cursor hacks, may delete
