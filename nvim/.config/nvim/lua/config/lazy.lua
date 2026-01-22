@@ -29,26 +29,13 @@ require('lazy').setup({
     -- { 'craftzdog/solarized-osaka.nvim', name = 'solarized' },
     { 'rose-pine/neovim', name = 'rose-pine' },
     -- File exploration and navigation
-    -- {
-    --   'junegunn/fzf',
-    --   build = function() vim.cmd('FzfInstall') end,
-    --   event = 'VimEnter',
-    -- },
-    -- { 'junegunn/fzf.vim' },
     {
-      "ibhagwan/fzf-lua",
-      -- optional for icon support
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      -- or if using mini.icons/mini.nvim
-      -- dependencies = { "nvim-mini/mini.icons" },
-      ---@module "fzf-lua"
-      ---@type fzf-lua.Config|{}
-      ---@diagnostic disable: missing-fields
-      opts = {}
-      ---@diagnostic enable: missing-fields
+      'junegunn/fzf',
+      -- Disabled on Debian, unsure if needed on macOS
+      -- build = function() vim.cmd('FzfInstall') end,
+      event = 'VimEnter',
     },
-    -- File exploration and navigation (new)
-    { 'nvim-telescope/telescope.nvim' },
+    { 'junegunn/fzf.vim' },
     -- Languages and syntax
     { 'sheerun/vim-polyglot' },
     -- Style guide and linting
