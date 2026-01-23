@@ -1,4 +1,5 @@
 general.import = ['~/.config/alacritty/themes/rose-pine-dawn.toml']
+# general.import = ['~/.config/alacritty/themes/rose-pine-moon.toml']
 
 [window]
 option_as_alt = 'Both'
