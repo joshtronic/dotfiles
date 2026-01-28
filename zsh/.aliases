@@ -59,6 +59,27 @@ git_default_branch() {
   (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') 2> /dev/null
 }
 
+lights() {
+  local ALA_PATH=$HOME/.dotfiles/alacritty/.config/alacritty
+
+  case "$1" in
+    on)
+      echo "🌕 turning lights on"
+      echo 'light' > "$HOME/.theme"
+      ln -sfn $ALA_PATH/light.toml $ALA_PATH/alacritty.toml
+      ;;
+    off)
+      echo "🌑 turning lights off"
+      echo 'dark' > "$HOME/.theme"
+      ln -sfn $ALA_PATH/dark.toml $ALA_PATH/alacritty.toml
+      ;;
+    *)
+      echo "usage: lights on|off"
+      return 1
+      ;;
+  esac
+}
+
 # Git aliases
 alias g='git'
 alias ga='git add'

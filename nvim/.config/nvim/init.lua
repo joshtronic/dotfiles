@@ -6,6 +6,14 @@ vim.cmd('syntax on')
 vim.cmd('colorscheme rose-pine')
 vim.o.background = 'light'
 
+local theme_file = vim.fn.expand('~/.theme')
+if vim.fn.filereadable(theme_file) == 1 then
+  local theme = vim.fn.readfile(theme_file)[1]
+  if theme == 'dark' then
+    vim.o.background = 'dark'
+  end
+end
+
 -- Let the colorscheme own the background
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
