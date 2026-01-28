@@ -60,24 +60,26 @@ git_default_branch() {
 }
 
 lights() {
-  local ALA_PATH=$HOME/.dotfiles/alacritty/.config/alacritty
+  pushd $HOME/.dotfiles/alacritty/.config/alacritty > /dev/null || return
 
   case "$1" in
     on)
       echo "🌕 turning lights on"
       echo 'light' > "$HOME/.theme"
-      ln -sfn $ALA_PATH/light.toml $ALA_PATH/alacritty.toml
+      \cp -f light.toml alacritty.toml
       ;;
     off)
       echo "🌑 turning lights off"
       echo 'dark' > "$HOME/.theme"
-      ln -sfn $ALA_PATH/dark.toml $ALA_PATH/alacritty.toml
+      \cp -f dark.toml alacritty.toml
       ;;
     *)
       echo "usage: lights on|off"
       return 1
       ;;
   esac
+
+  popd > /dev/null
 }
 
 # Git aliases
