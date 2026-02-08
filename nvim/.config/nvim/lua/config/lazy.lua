@@ -49,7 +49,17 @@ require('lazy').setup({
       build = 'make',
     },
     -- GitHub integration
-    { 'github/copilot.vim' },
+    {
+      'github/copilot.vim',
+      event = 'InsertEnter',
+      init = function()
+        vim.g.copilot_filetypes = {
+          markdown = false,
+          text = false,
+          gitcommit = false,
+        }
+      end,
+    },
     { 'ruanyl/vim-gh-line' },
     -- Cursor integration
     {
