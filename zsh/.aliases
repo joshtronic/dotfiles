@@ -25,13 +25,9 @@ fi
 # Run ls immediately after cd
 function cd { builtin cd "$@" && ls }
 
-# Use bat instead of cat for syntax highlighting
+# Work around the Debian package conflict with bat/batcat
 if command -v apt-get &> /dev/null; then
-  # Debian
-  alias cat='batcat'
-else
-  # Everybody else
-  alias cat='bat'
+  alias bat='batcat'
 fi
 
 # Make disk utility human-readable
@@ -42,12 +38,10 @@ alias du='du -h'
 alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
 
 # Use HTTPie in place of the old libwww-perl commands
-alias GET='http'
-alias POST='http POST'
-alias HEAD='http HEAD'
-
-# Use htop instead of boring old top
-alias top='htop'
+# TODO: Probably removing, but wanted to see how it feels first
+#alias GET='http'
+#alias POST='http POST'
+#alias HEAD='http HEAD'
 
 # Get the git branch name for the current directory (used in the prompt)
 git_current_branch() {
