@@ -26,12 +26,11 @@ vim.g.maplocalleader = '\\'
 require('lazy').setup({
   spec = {
     -- Pretty colors
-    -- { 'craftzdog/solarized-osaka.nvim', name = 'solarized' },
     { 'rose-pine/neovim', name = 'rose-pine' },
     -- File exploration and navigation
     {
       'junegunn/fzf',
-      -- Disabled on Debian, unsure if needed on macOS
+      -- TODO: Disabled on Debian, unsure if needed on macOS
       -- build = function() vim.cmd('FzfInstall') end,
       event = 'VimEnter',
     },
@@ -44,10 +43,7 @@ require('lazy').setup({
     -- TypeScript
     { 'leafgarland/typescript-vim' },
     { 'Quramy/tsuquyomi' },
-    {
-      'Shougo/vimproc.vim',
-      build = 'make',
-    },
+    { 'Shougo/vimproc.vim', build = 'make' },
     -- GitHub integration
     {
       'github/copilot.vim',
@@ -60,7 +56,6 @@ require('lazy').setup({
         }
       end,
     },
-    { 'ruanyl/vim-gh-line' },
   },
   checker = { enabled = true },
 })
