@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# TODO: Check for ~/.gitconfig.local - If missing, prompt for the
+# relevant bits of information and create it
+
 if [ -z "$HOME" ]; then
   echo "Seems you're \$HOMEless :("; exit 1;
 fi
