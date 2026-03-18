@@ -14,7 +14,7 @@
   status = auto
 
 [core]
-  editor = nvim
+  editor = vim
 
 [diff]
   compactionHeuristic = true
