@@ -4,6 +4,7 @@ if [ -z "$HOME" ]; then
   echo "Seems you're \$HOMEless :("; exit 1;
 fi
 
+DOTFILES=$HOME/.dotfiles
 COMMANDS="curl git stow"
 
 for COMMAND in $COMMANDS; do
@@ -12,8 +13,6 @@ for COMMAND in $COMMANDS; do
     exit 1;
   fi
 done
-
-DOTFILES=$HOME/.dotfiles
 
 if [ ! -d "$DOTFILES" ]; then
   git clone ssh://git@git.sherver.org:22381/joshtronic/dotfiles.git "$DOTFILES"
