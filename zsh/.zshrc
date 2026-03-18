@@ -86,34 +86,42 @@ PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
 
-# Load up NVM
-if [[ ! -f "${HOME}/.nvm/nvm.sh" ]]; then
-  PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
+# TODO: Remove this if FNM sticks (spoiler, suspect it will)
+# # Load up NVM
+# if [[ ! -f "${HOME}/.nvm/nvm.sh" ]]; then
+#   PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
+# fi
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#
+# # Automatically use Node.js version specified in .nvmrc
+# autoload -U add-zsh-hook
+#
+# load-nvmrc() {
+#   local nvmrc_path="$(nvm_find_nvmrc)"
+#
+#   if [ -n "$nvmrc_path" ]; then
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+#
+#     if [ "$nvmrc_node_version" = "N/A" ]; then
+#       nvm install
+#     elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+#       nvm use
+#     fi
+#   elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+#   fi
+# }
+#
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
+
+# Fast Node Manager (fnm)
+# TODO: macOS/homebrew specific
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"
 fi
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Automatically use Node.js version specified in .nvmrc
-autoload -U add-zsh-hook
-
-load-nvmrc() {
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
 
 export PATH="$HOME/.local/bin:$PATH"
