@@ -24,3 +24,5 @@ style = 'Bold Italic'
 
 [env]
 term = "xterm-256color"
+# TODO: This may be needed to get undercurls working
+#term = "alacritty"

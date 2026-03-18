@@ -33,13 +33,24 @@ let s:theme_file = expand('~/.theme')
 if filereadable(s:theme_file) && readfile(s:theme_file)[0] == 'dark'
   set background=dark
   color rosepine_moon
+  highlight SpellBad guifg=white guibg=#eb6f92 ctermfg=white ctermbg=red
 else
   set background=light
   color rosepine_dawn
+  highlight SpellBad guifg=white guibg=#b4637a ctermfg=white ctermbg=red
 endif
 
-" Ensures misspellings are highlighted
-highlight SpellBad ctermfg=white ctermbg=red
+" TODO: Ported from neovim, but may not be necessary
+" highlight Normal guibg=NONE ctermbg=NONE
+" highlight NormalFloat guibg=NONE ctermbg=NONE
+" highlight SignColumn guibg=NONE ctermbg=NONE
+" highlight EndOfBuffer guibg=NONE ctermbg=NONE
+
+" Ensures misspellings are highlighted (moved to theme section)
+" highlight SpellBad guifg=white guibg=red ctermfg=white ctermbg=red
+" TODO: Undercurl can work with Alacritty but needs some extra terminfo stuff.
+" highlight SpellBad gui=undercurl guisp=red cterm=undercurl ctermfg=red
+" highlight SpellBad gui=underline guifg=red cterm=underline ctermfg=red
 
 " Global settings
 set autoindent
