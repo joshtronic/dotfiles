@@ -22,10 +22,5 @@ style = 'Italic'
 family = 'Victor Mono'
 style = 'Bold Italic'
 
-# Cursor hacks, may delete
-# [colors]
-# cursor.text = '#faf4ed'
-# cursor.cursor = '#eb6f92'
-
 [env]
 term = "xterm-256color"
