@@ -117,11 +117,19 @@ PS1='
 # add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
 
+# TODO: Maybe add the same magic to install fnm
+
 # Fast Node Manager (fnm)
-# TODO: macOS/homebrew specific
-FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [[ `uname` == Darwin ]]; then
+  # macOS
+  FNM_PATH="/opt/homebrew/opt/fnm/bin"
+elif command -v apt &> /dev/null; then
+  # Debian
+  FNM_PATH="/home/josh/.local/share/fnm"
+fi
+
+export PATH="$HOME/.local/bin:$FNM_PATH:$PATH"
+
 if [ -d "$FNM_PATH" ]; then
   eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"
 fi
-
-export PATH="$HOME/.local/bin:$PATH"

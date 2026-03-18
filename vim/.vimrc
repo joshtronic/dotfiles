@@ -68,6 +68,13 @@ autocmd FileType php,python setl shiftwidth=4 softtabstop=4 tabstop=4
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Don't co-pilot the prose
+let g:copilot_filetypes = {
+  \ 'markdown': v:false,
+  \ 'text': v:false,
+  \ 'gitcommit': v:false,
+  \ }
+
 " Set the runtime path for fzf based on OS
 if has('mac')
   set rtp+=/opt/homebrew/opt/fzf
