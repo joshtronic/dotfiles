@@ -6,8 +6,8 @@ endif
 
 " A humble list of plugins
 call plug#begin()
-  " Solarized, without the bullshit
-  Plug 'romainl/flattened'
+  " Rosé Pine
+  Plug 'rose-pine/vim'
   " File exploration and navigation
   Plug 'junegunn/fzf.vim'
   " Languages and syntax
@@ -20,14 +20,24 @@ call plug#begin()
   Plug 'Quramy/tsuquyomi'
   Plug 'Shougo/vimproc.vim', {'do' : 'make'}
   " GitHub integration
+  " TODO: Need to wall off from certain files, similar to lazy config
   Plug 'github/copilot.vim'
-  Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 " Color scheme and syntax highlighting
 syntax on
-color flattened_dark
-set background=dark
+set termguicolors
+
+" Toggle colorscheme based on current theme
+let s:theme_file = expand('~/.theme')
+if filereadable(s:theme_file) && readfile(s:theme_file)[0] == 'dark'
+  set background=dark
+  color rosepine_moon
+else
+  set background=light
+  color rosepine_dawn
+endif
+
 " Ensures misspellings are highlighted
 highlight SpellBad ctermfg=white ctermbg=red
 
