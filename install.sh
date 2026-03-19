@@ -30,8 +30,7 @@ if [ ! -d "$DOTFILES" ]; then
   cd "$DOTFILES" || exit
 else
   cd "$DOTFILES" || exit
-  # TODO: Commented out while I do things
-  # git pull origin main
+  git pull origin main
 fi
 
 symlink() {
