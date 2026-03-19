@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
+heading() {
+  echo $1
+  printf '%.0s-' {1..80}
+  echo
+}
+
+echo "🚀 Installing some juicy dotfiles..."
+
 if [ -z "$HOME" ]; then
+  echo
   echo "🚨 Seems you're \$HOMEless";
   exit 1;
 fi
@@ -10,6 +19,7 @@ COMMANDS="curl git stow"
 
 for COMMAND in $COMMANDS; do
   if ! command -v "$COMMAND" &> /dev/null; then
+    echo
     echo "🚨 Required command $COMMAND is not installed";
     exit 1;
   fi
@@ -27,10 +37,6 @@ fi
 # Out with the old
 stow alacritty
 
-if [[ `uname` == Darwin ]]; then
-  stow macos
-fi
-
 symlink() {
   local SRC="$1"
   local DEST="$2"
@@ -38,6 +44,7 @@ symlink() {
   if [ -L "$DEST" ]; then
     rm "$DEST"
   elif [ -e "$DEST" ] || [ -d "$DEST" ]; then
+    echo
     echo "🚨 $DEST already exists, remove it and try again"
     exit 1
   fi
@@ -59,10 +66,20 @@ linkage() {
   fi
 }
 
+echo
+heading "🌎 Cross-platform"
 linkage "git"
 linkage "tmux"
 linkage "vim"
 linkage "zsh"
+
+if [[ `uname` == Darwin ]]; then
+  echo
+  heading "🍎 macOS"
+  linkage "karabiner" "$HOME/.config/karabiner"
+  echo "👉 $HOME/.hushlogin"
+  touch "$HOME/.hushlogin"
+fi
 
 mkdir -p ~/.local/share/vim/undo/
 
