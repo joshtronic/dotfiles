@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: Check for ~/.gitconfig.local - If missing, prompt for the
-# relevant bits of information and create it
-# TODO: Move vim "installation" stuff to this script rather than
-# inlined in the vimrc
-
 if [ -z "$HOME" ]; then
   echo "Seems you're \$HOMEless :("; exit 1;
 fi
