@@ -15,7 +15,7 @@ if [ -z "$HOME" ]; then
 fi
 
 DOTFILES=$HOME/.dotfiles
-COMMANDS="curl git stow"
+COMMANDS="curl git"
 
 for COMMAND in $COMMANDS; do
   if ! command -v "$COMMAND" &> /dev/null; then
@@ -33,9 +33,6 @@ else
   # TODO: Commented out while I do things
   # git pull origin main
 fi
-
-# Out with the old
-stow alacritty
 
 symlink() {
   local SRC="$1"
@@ -68,6 +65,7 @@ linkage() {
 
 echo
 heading "🌎 Cross-platform"
+linkage "alacritty" "$HOME/.config/alacritty"
 linkage "git"
 linkage "tmux"
 linkage "vim"

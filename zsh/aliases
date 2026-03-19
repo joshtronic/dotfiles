@@ -54,7 +54,7 @@ git_default_branch() {
 }
 
 lights() {
-  pushd $HOME/.dotfiles/alacritty/.config/alacritty > /dev/null || return
+  pushd $HOME/.config/alacritty > /dev/null || return
 
   case "$1" in
     on)
