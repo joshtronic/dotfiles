@@ -11,6 +11,7 @@ set -gx QUOTING_STYLE literal
 fish_add_path $HOME/.local/bin
 
 if test (uname) = Darwin
+  fish_add_path /opt/homebrew/bin
   fish_add_path /opt/homebrew/opt/fnm/bin
 
   # Speed up `brew install`
