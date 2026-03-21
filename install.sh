@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
 heading() {
-  echo $1
+  echo
+  echo "$1"
   printf '%.0s-' {1..80}
   echo
 }
 
-echo "🚀 Installing some juicy dotfiles..."
+heading "🚀 Installing some juicy dotfiles"
+
+echo "🏠 Making sure you have a \$HOME"
 
 if [ -z "$HOME" ]; then
   echo
@@ -18,6 +21,8 @@ DOTFILES=$HOME/.dotfiles
 COMMANDS="curl git"
 
 for COMMAND in $COMMANDS; do
+  echo "📦 Making sure you have \`$COMMAND\` installed"
+
   if ! command -v "$COMMAND" &> /dev/null; then
     echo
     echo "🚨 Required command $COMMAND is not installed";
@@ -30,7 +35,12 @@ if [ ! -d "$DOTFILES" ]; then
   cd "$DOTFILES" || exit
 else
   cd "$DOTFILES" || exit
-  git pull origin main
+
+  if [ -z "$(git status --porcelain)" ]; then
+    git pull origin main
+  else
+    echo "🙅 Local changes detected, skipping pull"
+  fi
 fi
 
 symlink() {
@@ -62,16 +72,15 @@ linkage() {
   fi
 }
 
-echo
 heading "🌎 Cross-platform"
 linkage "alacritty" "$HOME/.config/alacritty"
+linkage "fish" "$HOME/.config/fish"
 linkage "git"
 linkage "tmux"
 linkage "vim"
 linkage "zsh"
 
-if [[ `uname` == Darwin ]]; then
-  echo
+if [[ $(uname) == Darwin ]]; then
   heading "🍎 macOS"
   linkage "karabiner" "$HOME/.config/karabiner"
   echo "👉 $HOME/.hushlogin"
