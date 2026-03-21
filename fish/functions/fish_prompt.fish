@@ -1,6 +1,5 @@
 function fish_prompt
   echo
-
   set_color blue
   echo -n (prompt_pwd -d 0)
 

@@ -30,7 +30,7 @@ if command -v apt-get &> /dev/null; then
   alias bat='batcat'
 fi
 
-# Make disk utility human-readable
+# Make disk utilities human-readable
 alias df='df -h'
 alias du='du -h'
 
@@ -62,7 +62,7 @@ lights() {
       echo 'light' > "$HOME/.theme"
       \cp -f light.toml alacritty.toml
       ;;
-    off)
+    off|out)
       echo "🌑 turning lights off"
       echo 'dark' > "$HOME/.theme"
       \cp -f dark.toml alacritty.toml
