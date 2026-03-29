@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-# Speed up `brew install`
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_INSTALL_CLEANUP=1
-
 # Setup some basic environment variables
 export CLICOLOR=1
 export EDITOR=vim
@@ -18,27 +14,27 @@ source $HOME/.aliases
 
 # Load up and configure fzf, nvm, and zsh plugins
 if [[ `uname` == Darwin ]]; then
-  # macOS
+  # Speed up `brew install`
+  export HOMEBREW_NO_AUTO_UPDATE=1
+  export HOMEBREW_NO_INSTALL_CLEANUP=1
+
+  FNM_PATH="/opt/homebrew/opt/fnm/bin"
+  PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-elif command -v apt &> /dev/null; then
-  # Debian
+else
   source /usr/share/doc/fzf/examples/completion.zsh
   source /usr/share/doc/fzf/examples/key-bindings.zsh
-elif command -v pacman &> /dev/null; then
-  # Arch
-  source /usr/share/fzf/completion.zsh
-  source /usr/share/fzf/key-bindings.zsh
+
+  FNM_PATH="/home/josh/.local/share/fnm"
 fi
 
-# Load up Antigen and Zsh plugins
-if [[ ! -f "${HOME}/.antigen/antigen.zsh" ]]; then
-  git clone https://github.com/zsh-users/antigen.git "${HOME}/.antigen"
-fi
-source "${HOME}/.antigen/antigen.zsh"
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+export PATH="$HOME/.local/bin:$FNM_PATH:$PATH"
+
+ZSH_PLUGINS="$HOME/.zsh/plugins"
+source "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$ZSH_PLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 bindkey '^F' autosuggest-accept
 bindkey '^[[A' history-substring-search-up
@@ -94,17 +90,6 @@ git_prompt() {
 PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
-
-# Fast Node Manager (fnm)
-if [[ `uname` == Darwin ]]; then
-  # macOS
-  FNM_PATH="/opt/homebrew/opt/fnm/bin"
-elif command -v apt &> /dev/null; then
-  # Debian
-  FNM_PATH="/home/josh/.local/share/fnm"
-fi
-
-export PATH="$HOME/.local/bin:$FNM_PATH:$PATH"
 
 if [ -d "$FNM_PATH" ]; then
   eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"

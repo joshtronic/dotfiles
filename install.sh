@@ -87,6 +87,21 @@ if [[ $(uname) == Darwin ]]; then
   touch "$HOME/.hushlogin"
 fi
 
+heading "🔌 Zsh plugins"
+
+ZSH_PLUGINS="$HOME/.zsh/plugins"
+mkdir -p "$ZSH_PLUGINS"
+
+for PLUGIN in zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting; do
+  if [ -d "$ZSH_PLUGINS/$PLUGIN" ]; then
+    echo "⬆️  Updating $PLUGIN"
+    git -C "$ZSH_PLUGINS/$PLUGIN" pull
+  else
+    echo "📥 Cloning $PLUGIN"
+    git clone "https://github.com/zsh-users/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN"
+  fi
+done
+
 mkdir -p ~/.local/share/vim/undo/
 
 cd "$HOME" || exit

@@ -11,3 +11,5 @@ moving to FiSH at this time)
 
 Add installation stuff for fnm (formerly using nvm) to the install script,
 rather than cluttering up my shell config
+
+Add a zsh plugin update alias
