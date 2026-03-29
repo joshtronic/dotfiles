@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+DOTFILES=$HOME/.dotfiles
+COMMANDS="curl git"
+ZSH_PLUGINS="$HOME/.zsh/plugins"
+ZSH_PLUGIN_LIST=(
+  zsh-autosuggestions
+  zsh-history-substring-search
+  zsh-syntax-highlighting
+)
+
 heading() {
   echo
   echo "$1"
@@ -16,9 +25,6 @@ if [ -z "$HOME" ]; then
   echo "🚨 Seems you're \$HOMEless";
   exit 1;
 fi
-
-DOTFILES=$HOME/.dotfiles
-COMMANDS="curl git"
 
 for COMMAND in $COMMANDS; do
   echo "📦 Making sure you have \`$COMMAND\` installed"
@@ -89,10 +95,9 @@ fi
 
 heading "🔌 Zsh plugins"
 
-ZSH_PLUGINS="$HOME/.zsh/plugins"
 mkdir -p "$ZSH_PLUGINS"
 
-for PLUGIN in zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting; do
+for PLUGIN in "${ZSH_PLUGIN_LIST[@]}"; do
   if [ -d "$ZSH_PLUGINS/$PLUGIN" ]; then
     echo "⬆️  Updating $PLUGIN"
     git -C "$ZSH_PLUGINS/$PLUGIN" pull
@@ -104,6 +109,10 @@ done
 
 heading "📦 Fast Node Manager"
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+
+heading "🔌 vim-plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir -p ~/.local/share/vim/undo/
 
