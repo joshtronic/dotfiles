@@ -14,6 +14,16 @@ My `dotfiles`, without me, are useless.
 
 Without my `dotfiles`, I am useless.
 
+## Mirrors
+
+**Canonical repo: <https://git.sherver.org/joshtronic/dotfiles>**
+
+Mirrored for _your_ convenience:
+
+- <https://codeberg.org/joshtronic/dotfiles>
+- <https://gitlab.com/joshtronic/dotfiles>
+- <https://github.com/joshtronic/dotfiles>
+
 ## Installation
 
 ```shell
