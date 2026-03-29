@@ -24,6 +24,8 @@ Mirrored for _your_ convenience:
 - <https://gitlab.com/joshtronic/dotfiles>
 - <https://github.com/joshtronic/dotfiles>
 
+_I don't monitor these services or accept pull/merge requests on them._
+
 ## Installation
 
 ```shell
