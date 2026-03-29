@@ -102,6 +102,9 @@ for PLUGIN in zsh-autosuggestions zsh-history-substring-search zsh-syntax-highli
   fi
 done
 
+heading "📦 Fast Node Manager"
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+
 mkdir -p ~/.local/share/vim/undo/
 
 cd "$HOME" || exit
