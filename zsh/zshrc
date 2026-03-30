@@ -19,6 +19,7 @@ if [[ `uname` == Darwin ]]; then
   export HOMEBREW_NO_INSTALL_CLEANUP=1
 
   FNM_PATH="/opt/homebrew/opt/fnm/bin"
+  PATH="$HOMEBREW_PREFIX/sbin:$PATH"
   PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -39,7 +40,6 @@ source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _complete
@@ -68,9 +68,12 @@ setopt share_history
 bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+# zsh-autosuggestions
 bindkey '^F' autosuggest-accept
+# zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 git_prompt() {
   BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
