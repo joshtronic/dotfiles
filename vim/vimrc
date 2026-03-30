@@ -14,7 +14,6 @@ call plug#begin()
   Plug 'Quramy/tsuquyomi'
   Plug 'Shougo/vimproc.vim', {'do' : 'make'}
   " GitHub integration
-  " TODO: Need to wall off from certain files, similar to lazy config
   Plug 'github/copilot.vim'
 call plug#end()
 
@@ -85,6 +84,4 @@ if has('mac')
   set rtp+=/opt/homebrew/opt/fzf
 elseif executable('apt')
   set rtp+=/usr/share/doc/fzf/examples
-elseif executable('pacman')
-  set rtp+=~/.fzf
 endif
