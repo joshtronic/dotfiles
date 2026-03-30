@@ -8,8 +8,6 @@ moving to FiSH at this time)
 
 Add a zsh plugin update alias
 
-Mirror any external repos to my git sherver and source from there
-
 Check if Victor Mono font is installed during installation
 
 Improve path on macOS:
