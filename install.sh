@@ -103,7 +103,7 @@ for PLUGIN in "${ZSH_PLUGIN_LIST[@]}"; do
     git -C "$ZSH_PLUGINS/$PLUGIN" pull
   else
     echo "📥 Cloning $PLUGIN"
-    git clone "https://git.sherver.com/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN"
+    git clone "https://git.sherver.org/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN"
   fi
 done
 
