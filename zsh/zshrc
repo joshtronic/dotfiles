@@ -69,11 +69,15 @@ bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 # zsh-autosuggestions
-bindkey '^F' autosuggest-accept
+bindkey '^f' autosuggest-accept
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "^x^e" edit-command-line
 
 git_prompt() {
   BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
