@@ -17,3 +17,6 @@ formulae that put executables in /opt/homebrew/sbin.
 Consider setting your PATH for example like so:
   echo 'export PATH="/opt/homebrew/sbin:$PATH"' >> ~/.zshrc
 ```
+
+Maybe implement something like this:
+https://dev.to/frost/fish-style-abbreviations-in-zsh-40aa
