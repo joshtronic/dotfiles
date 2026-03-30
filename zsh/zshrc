@@ -79,6 +79,8 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey "^x^e" edit-command-line
 
+eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"
+
 git_prompt() {
   BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
 
@@ -96,7 +98,3 @@ git_prompt() {
 PS1='
 %F{blue}%~$(git_prompt)
 %F{244}%# %F{reset}'
-
-if [ -d "$FNM_PATH" ]; then
-  eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"
-fi
