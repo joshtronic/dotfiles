@@ -1,20 +1,20 @@
 " A humble list of plugins
 call plug#begin()
   " Rosé Pine
-  Plug 'rose-pine/vim'
+  Plug 'https://git.sherver.org/mirrors/rose-pine-vim'
   " File exploration and navigation
-  Plug 'junegunn/fzf.vim'
+  Plug 'https://git.sherver.org/mirrors/fzf.vim'
   " Languages and syntax
-  Plug 'sheerun/vim-polyglot'
+  Plug 'https://git.sherver.org/mirrors/vim-polyglot'
   " Style guide and linting
-  Plug 'dense-analysis/ale'
-  Plug 'editorconfig/editorconfig-vim'
+  Plug 'https://git.sherver.org/mirrors/ale'
+  Plug 'https://git.sherver.org/mirrors/editorconfig-vim'
   " TypeScript
-  Plug 'leafgarland/typescript-vim'
-  Plug 'Quramy/tsuquyomi'
-  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+  Plug 'https://git.sherver.org/mirrors/typescript-vim'
+  Plug 'https://git.sherver.org/mirrors/tsuquyomi'
+  Plug 'https://git.sherver.org/mirrors/vimproc.vim', {'do' : 'make'}
   " GitHub integration
-  Plug 'github/copilot.vim'
+  Plug 'https://git.sherver.org/mirrors/copilot.vim'
 call plug#end()
 
 " Color scheme and syntax highlighting

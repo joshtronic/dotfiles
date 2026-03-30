@@ -103,7 +103,7 @@ for PLUGIN in "${ZSH_PLUGIN_LIST[@]}"; do
     git -C "$ZSH_PLUGINS/$PLUGIN" pull
   else
     echo "📥 Cloning $PLUGIN"
-    git clone "https://github.com/zsh-users/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN"
+    git clone "https://git.sherver.com/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN"
   fi
 done
 
@@ -112,7 +112,7 @@ curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
 heading "🔌 vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://git.sherver.org/mirrors/vim-plug/raw/branch/master/plug.vim
 
 mkdir -p ~/.local/share/vim/undo/
 
