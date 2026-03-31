@@ -58,12 +58,12 @@ lights() {
 
   case "$1" in
     on)
-      echo "🌕 turning lights on"
+      echo "🌝 turning lights on"
       echo 'light' > "$HOME/.theme"
       \cp -f light.toml alacritty.toml
       ;;
-    off|out)
-      echo "🌑 turning lights off"
+    off)
+      echo "🌚 turning lights off"
       echo 'dark' > "$HOME/.theme"
       \cp -f dark.toml alacritty.toml
       ;;
@@ -72,6 +72,8 @@ lights() {
       return 1
       ;;
   esac
+
+  theme
 
   popd > /dev/null
 }

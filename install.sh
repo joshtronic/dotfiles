@@ -93,6 +93,11 @@ if [[ $(uname) == Darwin ]]; then
   touch "$HOME/.hushlogin"
 fi
 
+if [ ! -f "$HOME/.theme" ]; then
+  echo "🎨 $HOME/.theme"
+  echo 'light' > "$HOME/.theme"
+fi
+
 heading "🔌 Zsh plugins"
 
 mkdir -p "$ZSH_PLUGINS"
