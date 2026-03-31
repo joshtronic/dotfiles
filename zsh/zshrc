@@ -93,9 +93,7 @@ bindkey "^x^e" edit-command-line
 eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"
 
 git_prompt() {
-  # TODO: Old code, want to test drive a bit before removing
-  # BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
-  BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
   if [ ! -z $BRANCH ]; then
     echo -n " %F{yellow}$BRANCH"
