@@ -5,20 +5,30 @@ export CLICOLOR=1
 export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 source $HOME/.aliases
 
 # TODO: Was still using solarized. Honestly unsure if this still has value
 # eval `dircolors $HOME/.dircolors`
 
-# Load up and configure fzf, nvm, and zsh plugins
-if [[ `uname` == Darwin ]]; then
+# Load up and configure fnm, fzf, and zsh plugins
+if [[ $(uname) == Darwin ]]; then
+  # From `eval "$(/opt/homebrew/bin/brew shellenv)"`:
+  export HOMEBREW_PREFIX="/opt/homebrew";
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+  export HOMEBREW_REPOSITORY="/opt/homebrew";
+  fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+  eval "$(/usr/bin/env PATH_HELPER_ROOT="/opt/homebrew" /usr/libexec/path_helper -s)"
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
+  [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+  export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
   # Speed up `brew install`
   export HOMEBREW_NO_AUTO_UPDATE=1
   export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-  FNM_PATH="/opt/homebrew/opt/fnm/bin"
+  FNM_PATH="$HOMEBREW_PREFIX/opt/fnm/bin"
   PATH="$HOMEBREW_PREFIX/sbin:$PATH"
   PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
 
@@ -45,7 +55,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
-autoload -U compinit && compinit
+# Need to remember to run compinit when adding new apps with completions
+autoload -Uz compinit && compinit -C
 zmodload -i zsh/complist
 
 unsetopt menu_complete
@@ -82,10 +93,12 @@ bindkey "^x^e" edit-command-line
 eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"
 
 git_prompt() {
-  BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
+  # TODO: Old code, want to test drive a bit before removing
+  # BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
+  BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
   if [ ! -z $BRANCH ]; then
-    echo -n "%F{yellow}$BRANCH"
+    echo -n " %F{yellow}$BRANCH"
 
     STATUS=$(git status --short 2> /dev/null)
 
