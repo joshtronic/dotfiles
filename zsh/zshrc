@@ -5,11 +5,13 @@ export CLICOLOR=1
 export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
+export DOTFILES=$HOME/.dotfiles
 
-source $HOME/.aliases
+source $DOTFILES/zsh/aliases.zsh
+source $DOTFILES/zsh/prompt.zsh
 
 # TODO: Was still using solarized. Honestly unsure if this still has value
-# eval `dircolors $HOME/.dircolors`
+# eval `dircolors $DOTFILES/zsh/dircolors`
 
 # Load up and configure fnm, fzf, and zsh plugins
 if [[ $(uname) == Darwin ]]; then
@@ -91,24 +93,6 @@ zle -N edit-command-line
 bindkey "^x^e" edit-command-line
 
 eval "$(fnm env --shell zsh --use-on-cd --version-file-strategy recursive)"
-
-git_prompt() {
-  BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-
-  if [ ! -z $BRANCH ]; then
-    echo -n " %F{yellow}$BRANCH"
-
-    STATUS=$(git status --short 2> /dev/null)
-
-    if [ ! -z "$STATUS" ]; then
-      echo " %F{red}✗"
-    fi
-  fi
-}
-
-PS1='
-%F{blue}%~$(git_prompt)
-%F{244}%# %F{reset}'
 
 theme() {
   local mode="${1:-$(cat ~/.theme 2>/dev/null || echo light)}"

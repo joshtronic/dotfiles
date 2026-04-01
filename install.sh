@@ -84,7 +84,7 @@ linkage "fish" "$HOME/.config/fish"
 linkage "git"
 linkage "tmux"
 linkage "vim"
-linkage "zsh"
+symlink "zsh/zshrc" "$HOME/.zshrc"
 
 if [[ $(uname) == Darwin ]]; then
   heading "🍎 macOS"
