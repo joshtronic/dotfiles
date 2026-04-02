@@ -75,6 +75,12 @@ else
   success "Found ~/.gitconfig.local"
 fi
 
+if fc-list | grep -qi "Victor Mono"; then
+  success "Victor Mono font is installed"
+else
+  warn "Victor Mono font is not installed"
+fi
+
 symlink() {
   local SRC="$1"
   local DEST="$2"
