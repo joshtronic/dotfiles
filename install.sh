@@ -126,11 +126,6 @@ if [[ $(uname) == Darwin ]]; then
   touch "$HOME/.hushlogin"
 fi
 
-if [ ! -f "$HOME/.theme" ]; then
-  echo "🎨 ~/.theme"
-  echo 'light' > "$HOME/.theme"
-fi
-
 curl -fsSL https://fnm.vercel.app/install 2>/dev/null \
   | bash -s -- --skip-shell &> /dev/null
 echo "📦 Fast Node Manager"

@@ -1,6 +1,32 @@
-general.live_config_reload = true
+[general]
+live_config_reload = true
+import = ['~/.config/alacritty/rose-pine-moon.toml']
 
-general.import = [
-  '~/.config/alacritty/base.toml',
-  '~/.config/alacritty/themes/rose-pine-moon.toml'
-]
+[window]
+option_as_alt = 'Both'
+padding.x = 5
+padding.y = 5
+
+[font]
+size = 16.0
+
+[font.normal]
+family = 'Victor Mono'
+style = 'Medium'
+
+[font.bold]
+family = 'Victor Mono'
+style = 'Bold'
+
+[font.italic]
+family = 'Victor Mono'
+style = 'Italic'
+
+[font.bold_italic]
+family = 'Victor Mono'
+style = 'Bold Italic'
+
+[env]
+term = "xterm-256color"
+# TODO: This may be needed to get undercurls working
+#term = "alacritty"

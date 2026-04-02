@@ -53,31 +53,6 @@ git_default_branch() {
   (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') 2> /dev/null
 }
 
-lights() {
-  pushd $HOME/.config/alacritty > /dev/null || return
-
-  case "$1" in
-    on)
-      echo "🌝 turning lights on"
-      echo 'light' > "$HOME/.theme"
-      \cp -f light.toml alacritty.toml
-      ;;
-    off)
-      echo "🌚 turning lights off"
-      echo 'dark' > "$HOME/.theme"
-      \cp -f dark.toml alacritty.toml
-      ;;
-    *)
-      echo "usage: lights on|off"
-      return 1
-      ;;
-  esac
-
-  theme
-
-  popd > /dev/null
-}
-
 # Git aliases
 alias gaa='git add --all'
 alias gca='git commit -a'
