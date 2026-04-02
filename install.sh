@@ -119,13 +119,6 @@ linkage "tmux"
 linkage "vim"
 symlink "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
 
-if [[ $(uname) == Darwin ]]; then
-  heading "🍎 macOS"
-  linkage "karabiner" "$HOME/.config/karabiner"
-  echo "👉 ~/.hushlogin"
-  touch "$HOME/.hushlogin"
-fi
-
 curl -fsSL https://fnm.vercel.app/install 2>/dev/null \
   | bash -s -- --skip-shell &> /dev/null
 echo "📦 Fast Node Manager"
@@ -148,7 +141,15 @@ done
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
-autoload -Uz compinit && compinit
+zsh -c 'autoload -Uz compinit && compinit' &> /dev/null
+success "Regenerated zsh completions"
+
+if [[ $(uname) == Darwin ]]; then
+  heading "🍎 macOS"
+  linkage "karabiner" "$HOME/.config/karabiner"
+  echo "👉 ~/.hushlogin"
+  touch "$HOME/.hushlogin"
+fi
 
 echo
 echo "🎉 Done! Restart your shell."
