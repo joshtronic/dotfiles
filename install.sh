@@ -16,7 +16,7 @@ heading() {
   echo
 }
 
-heading "🚀 Installing some juicy dotfiles"
+heading "🚀 Installing joshtronic's juicy dotfiles"
 
 echo "🏠 Making sure you have a \$HOME"
 
@@ -91,6 +91,27 @@ if [[ $(uname) == Darwin ]]; then
   linkage "karabiner" "$HOME/.config/karabiner"
   echo "👉 $HOME/.hushlogin"
   touch "$HOME/.hushlogin"
+fi
+
+heading "🛠️  Git"
+
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+  read -rp "Name: " GIT_NAME
+  read -rp "Email: " GIT_EMAIL
+  read -rp "GitHub username: " GIT_GITHUB_USER
+
+  cat > "$HOME/.gitconfig.local" <<EOF
+[user]
+  name = $GIT_NAME
+  email = $GIT_EMAIL
+
+[github]
+  user = $GIT_GITHUB_USER
+EOF
+
+  echo "💾 Created $HOME/.gitconfig.local"
+else
+  echo "✅ $HOME/.gitconfig.local already exists"
 fi
 
 if [ ! -f "$HOME/.theme" ]; then
