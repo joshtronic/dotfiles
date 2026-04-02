@@ -19,7 +19,7 @@ error() { echo "❌ $1"; exit 1; }
 heading "🚀 Installing joshtronic's juicy dotfiles"
 
 if [ -z "$HOME" ]; then
-  error "Seems you're \$HOMEless"
+  error "You're \$HOMEless"
 fi
 
 success "You're not \$HOMEless"
@@ -45,7 +45,7 @@ else
     REMOTE=$(git rev-parse HEAD)
 
     if [ "$LOCAL" != "$REMOTE" ]; then
-      success "Pulled latest dotfiles"
+      success "Pulled latest dotfiles changes"
     else
       success "No dotfiles changes to pull"
     fi
@@ -72,7 +72,7 @@ EOF
 
   success "Created ~/.gitconfig.local"
 else
-  success "\~/.gitconfig.local exists"
+  success "Found ~/.gitconfig.local"
 fi
 
 symlink() {
