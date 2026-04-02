@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 DOTFILES=$HOME/.dotfiles
+GIT_SSH="ssh://git@git.sherver.org:22381"
+GIT_HTTPS="https://git.sherver.org"
 COMMANDS="curl git"
 ZSH_PLUGINS="$HOME/.zsh/plugins"
 ZSH_PLUGIN_LIST=(
@@ -9,61 +11,86 @@ ZSH_PLUGIN_LIST=(
   zsh-syntax-highlighting
 )
 
-heading() {
-  echo
-  echo "$1"
-  printf '%.0s-' {1..80}
-  echo
-}
+heading() { echo; echo "$1"; printf '%.0s-' {1..80}; echo; }
+success() { echo "✅ $1"; }
+warn() { echo "⚠️  $1"; }
+error() { echo "❌ $1"; exit 1; }
 
 heading "🚀 Installing joshtronic's juicy dotfiles"
 
-echo "🏠 Making sure you have a \$HOME"
-
 if [ -z "$HOME" ]; then
-  echo
-  echo "🚨 Seems you're \$HOMEless";
-  exit 1;
+  error "Seems you're \$HOMEless"
 fi
 
-for COMMAND in $COMMANDS; do
-  echo "📦 Making sure you have \`$COMMAND\` installed"
+success "You're not \$HOMEless"
 
+for COMMAND in $COMMANDS; do
   if ! command -v "$COMMAND" &> /dev/null; then
-    echo
-    echo "🚨 Required command $COMMAND is not installed";
-    exit 1;
+    error "$COMMAND is not installed"
   fi
+
+  success "$COMMAND is installed"
 done
 
 if [ ! -d "$DOTFILES" ]; then
-  git clone ssh://git@git.sherver.org:22381/joshtronic/dotfiles.git "$DOTFILES"
+  git clone "$GIT_SSH/joshtronic/dotfiles.git" "$DOTFILES" &> /dev/null
+  success "Cloned dotfiles"
   cd "$DOTFILES" || exit
 else
   cd "$DOTFILES" || exit
 
   if [ -z "$(git status --porcelain)" ]; then
-    git pull origin main
+    LOCAL=$(git rev-parse HEAD)
+    git pull origin main &> /dev/null
+    REMOTE=$(git rev-parse HEAD)
+
+    if [ "$LOCAL" != "$REMOTE" ]; then
+      success "Pulled latest dotfiles"
+    else
+      success "No dotfiles changes to pull"
+    fi
   else
-    echo "🙅 Local changes detected, skipping pull"
+    warn "Local dotfiles changes detected, skipping pull"
   fi
+fi
+
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+  heading "🛠️  Git"
+
+  read -rp "Name: " GIT_NAME
+  read -rp "Email: " GIT_EMAIL
+  read -rp "GitHub username: " GIT_GITHUB_USER
+
+  cat > "$HOME/.gitconfig.local" <<EOF
+[user]
+  name = $GIT_NAME
+  email = $GIT_EMAIL
+
+[github]
+  user = $GIT_GITHUB_USER
+EOF
+
+  success "Created ~/.gitconfig.local"
+else
+  success "\~/.gitconfig.local exists"
 fi
 
 symlink() {
   local SRC="$1"
   local DEST="$2"
+  local SHORT_SRC="${SRC/$HOME/\~}"
+  local SHORT_DEST="${DEST/$HOME/\~}"
 
   if [ -L "$DEST" ]; then
     rm "$DEST"
   elif [ -e "$DEST" ] || [ -d "$DEST" ]; then
     echo
-    echo "🚨 $DEST already exists, remove it and try again"
-    exit 1
+    error "$SHORT_DEST already exists, remove it and try again"
   fi
 
   mkdir -p "$(dirname "$DEST")"
   ln -sf "$SRC" "$DEST"
-  echo "🔗 $SRC => $DEST"
+  echo "🔗 $SHORT_SRC => $SHORT_DEST"
 }
 
 linkage() {
@@ -89,58 +116,34 @@ symlink "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
 if [[ $(uname) == Darwin ]]; then
   heading "🍎 macOS"
   linkage "karabiner" "$HOME/.config/karabiner"
-  echo "👉 $HOME/.hushlogin"
+  echo "👉 ~/.hushlogin"
   touch "$HOME/.hushlogin"
 fi
 
-heading "🛠️  Git"
-
-if [ ! -f "$HOME/.gitconfig.local" ]; then
-  read -rp "Name: " GIT_NAME
-  read -rp "Email: " GIT_EMAIL
-  read -rp "GitHub username: " GIT_GITHUB_USER
-
-  cat > "$HOME/.gitconfig.local" <<EOF
-[user]
-  name = $GIT_NAME
-  email = $GIT_EMAIL
-
-[github]
-  user = $GIT_GITHUB_USER
-EOF
-
-  echo "💾 Created $HOME/.gitconfig.local"
-else
-  echo "✅ $HOME/.gitconfig.local already exists"
-fi
-
 if [ ! -f "$HOME/.theme" ]; then
-  echo "🎨 $HOME/.theme"
+  echo "🎨 ~/.theme"
   echo 'light' > "$HOME/.theme"
 fi
 
-heading "🔌 Zsh plugins"
+curl -fsSL https://fnm.vercel.app/install 2>/dev/null \
+  | bash -s -- --skip-shell &> /dev/null
+echo "📦 Fast Node Manager"
 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  "$GIT_HTTPS/mirrors/vim-plug/raw/branch/master/plug.vim" &> /dev/null
+echo "🔌 vim-plug"
+
+mkdir -p ~/.local/share/vim/undo/
 mkdir -p "$ZSH_PLUGINS"
 
 for PLUGIN in "${ZSH_PLUGIN_LIST[@]}"; do
   if [ -d "$ZSH_PLUGINS/$PLUGIN" ]; then
-    echo "⬆️  Updating $PLUGIN"
-    git -C "$ZSH_PLUGINS/$PLUGIN" pull
+    git -C "$ZSH_PLUGINS/$PLUGIN" pull &> /dev/null
   else
-    echo "📥 Cloning $PLUGIN"
-    git clone "https://git.sherver.org/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN"
+    git clone "$GIT_HTTPS/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN" &> /dev/null
   fi
+  echo "🔌 $PLUGIN"
 done
-
-heading "📦 Fast Node Manager"
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
-
-heading "🔌 vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-  https://git.sherver.org/mirrors/vim-plug/raw/branch/master/plug.vim
-
-mkdir -p ~/.local/share/vim/undo/
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
