@@ -142,7 +142,7 @@ done
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
 zsh -c 'autoload -Uz compinit && compinit' &> /dev/null
-success "Regenerated zsh completions"
+success "Regenerated Zsh completions"
 
 if [[ $(uname) == Darwin ]]; then
   heading "🍎 macOS"
