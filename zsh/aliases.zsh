@@ -6,21 +6,17 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# Colorize output, make ls human-readable and add classification indicators
 if [[ `uname` == Darwin ]]; then
-  # macOS
-  alias dircolors='gdircolors'
-  alias ls='gls --color=auto --human-readable --classify'
-
-  # Force uuidgen to use lowercase letters like Linux
+  # Force uuidgen on macOS to use lowercase letters like Linux
   alias uuidgen='uuidgen | tr A-F a-f'
 else
-  # Linux
-  alias ls='ls --color=auto --human-readable --classify'
-
-  # Use the same open command as macOS
+  # Use the same open command as macOS on Linux
   alias open='xdg-open'
 fi
+
+# Colorize and improve output
+alias ls='ls --color=auto --human-readable --classify'
+alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
 
 # Run ls immediately after cd
 function cd { builtin cd "$@" && ls }
@@ -33,15 +29,6 @@ fi
 # Make disk utilities human-readable
 alias df='df -h'
 alias du='du -h'
-
-# Colorize grep output and add some exclusions
-alias grep="grep --color=auto --exclude-dir={.git,artwork,node_modules,vendor}"
-
-# Use HTTPie in place of the old libwww-perl commands
-# TODO: Probably removing, but wanted to see how it feels first
-#alias GET='http'
-#alias POST='http POST'
-#alias HEAD='http HEAD'
 
 # Get the git branch name for the current directory (used in the prompt)
 git_current_branch() {
