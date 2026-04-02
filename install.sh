@@ -148,6 +148,7 @@ done
 
 cd "$HOME" || exit
 rm -f "${HOME}/.zcompdump*"
+autoload -Uz compinit && compinit
 
 echo
 echo "🎉 Done! Restart your shell."
