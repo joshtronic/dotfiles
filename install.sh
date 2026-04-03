@@ -6,6 +6,7 @@ GIT_HTTPS="https://git.sherver.org"
 COMMANDS="curl git"
 ZSH_PLUGINS="$HOME/.zsh/plugins"
 ZSH_PLUGIN_LIST=(
+  zsh-abbr
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
