@@ -3,7 +3,7 @@
 DOTFILES=$HOME/.dotfiles
 GIT_SSH="ssh://git@git.sherver.org:22381"
 GIT_HTTPS="https://git.sherver.org"
-COMMANDS="curl git"
+COMMANDS="curl fzf git"
 ZSH_PLUGINS="$HOME/.zsh/plugins"
 ZSH_PLUGIN_LIST=(
   zsh-abbr
