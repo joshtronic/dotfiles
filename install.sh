@@ -34,7 +34,7 @@ for COMMAND in $COMMANDS; do
 done
 
 if [ ! -d "$DOTFILES" ]; then
-  if git clone "$GIT_HTTPS/joshtronic/dotfiles.git" "$DOTFILES"; then
+  if git clone "$GIT_HTTPS/joshtronic/dotfiles.git" "$DOTFILES" &> /dev/null; then
     success "Cloned dotfiles"
   else
     error "Failed to clone dotfiles"
@@ -46,7 +46,7 @@ else
 
   if [ -z "$(git status --porcelain)" ]; then
     LOCAL=$(git rev-parse HEAD)
-    git pull origin main &> /dev/null
+    git pull "$GIT_HTTPS/joshtronic/dotfiles.git" main &> /dev/null
     REMOTE=$(git rev-parse HEAD)
 
     if [ "$LOCAL" != "$REMOTE" ]; then
