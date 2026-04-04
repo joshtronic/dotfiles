@@ -130,6 +130,12 @@ curl -fsSL https://fnm.vercel.app/install 2>/dev/null \
   | bash -s -- --skip-shell &> /dev/null
 echo "📦 Fast Node Manager"
 
+if ! fnm ls 2>/dev/null | grep -q default; then
+  fnm install --lts &> /dev/null
+  fnm default lts-latest &> /dev/null
+  success "Installed Node.js LTS as default"
+fi
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   "$GIT_HTTPS/mirrors/vim-plug/raw/branch/master/plug.vim" &> /dev/null
 echo "🔌 vim-plug"
