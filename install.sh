@@ -80,10 +80,12 @@ else
   success "Found ~/.gitconfig.local"
 fi
 
-if fc-list | grep -qi "Victor Mono"; then
-  success "Victor Mono font is installed"
-else
-  warn "Victor Mono font is not installed"
+if command -v fc-list &> /dev/null; then
+  if fc-list | grep -qi "Victor Mono"; then
+    success "Victor Mono font is installed"
+  else
+    warn "Victor Mono font is not installed"
+  fi
 fi
 
 symlink() {
@@ -158,7 +160,7 @@ elif [[ -z "$DISPLAY" && -z "$WAYLAND_DISPLAY" ]]; then
   heading "🖥️  TTY"
   if ! grep -q "ctrl:nocaps" /etc/default/keyboard 2>/dev/null; then
     sudo sed -i 's/^XKBOPTIONS=.*/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
-    sudo dpkg-reconfigure -phigh keyboard-configuration &> /dev/null
+    sudo setupcon &> /dev/null
     success "Mapped Caps Lock to Ctrl"
   else
     success "Caps Lock already mapped to Ctrl"
