@@ -34,9 +34,13 @@ for COMMAND in $COMMANDS; do
 done
 
 if [ ! -d "$DOTFILES" ]; then
-  git clone "$GIT_SSH/joshtronic/dotfiles.git" "$DOTFILES" &> /dev/null
-  success "Cloned dotfiles"
+  if git clone "$GIT_HTTPS/joshtronic/dotfiles.git" "$DOTFILES"; then
+    success "Cloned dotfiles"
+  else
+    error "Failed to clone dotfiles"
+  fi
   cd "$DOTFILES" || exit
+  git remote set-url origin "$GIT_SSH/joshtronic/dotfiles.git"
 else
   cd "$DOTFILES" || exit
 

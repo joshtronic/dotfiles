@@ -29,7 +29,7 @@ _I don't monitor these services or accept pull/merge requests on them._
 ## Installation
 
 ```shell
-sh -c "$(curl -fsSL https://git.sherver.org/joshtronic/dotfiles/raw/branch/main/install.sh)"
+bash -c "$(curl -fsSL https://git.sherver.org/joshtronic/dotfiles/raw/branch/main/install.sh)"
 ```
 
 ![BOOM](https://media.giphy.com/media/laUY2MuoktHPy/source.gif)
