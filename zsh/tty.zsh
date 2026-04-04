@@ -17,4 +17,8 @@ if [[ $(tty) =~ ^/dev/tty[0-9]+$ ]]; then
   printf '\e]PEea9a97' # bright cyan
   printf '\e]PFe0def4' # bright white
   clear
+
+  if [[ -z "$TMUX" ]]; then
+    exec tmux new-session -A -s "$(hostname -s)"
+  fi
 fi
