@@ -7,6 +7,7 @@ export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
 export DOTFILES=$HOME/.dotfiles
 
+source $DOTFILES/zsh/tty.zsh
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/prompt.zsh
 source $DOTFILES/zsh/rose-pine-moon.zsh
