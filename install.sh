@@ -154,6 +154,15 @@ if [[ $(uname) == Darwin ]]; then
   linkage "karabiner" "$HOME/.config/karabiner"
   echo "👉 ~/.hushlogin"
   touch "$HOME/.hushlogin"
+elif [[ -z "$DISPLAY" && -z "$WAYLAND_DISPLAY" ]]; then
+  heading "🖥️  TTY"
+  if ! grep -q "ctrl:nocaps" /etc/default/keyboard 2>/dev/null; then
+    sudo sed -i 's/^XKBOPTIONS=.*/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
+    sudo dpkg-reconfigure -phigh keyboard-configuration &> /dev/null
+    success "Mapped Caps Lock to Ctrl"
+  else
+    success "Caps Lock already mapped to Ctrl"
+  fi
 fi
 
 echo
