@@ -122,7 +122,7 @@ heading "🌎 Cross-platform"
 linkage "alacritty" "$HOME/.config/alacritty"
 linkage "fish" "$HOME/.config/fish"
 linkage "git"
-linkage "tmux"
+symlink "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
 linkage "vim"
 symlink "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
 
@@ -171,6 +171,7 @@ elif [[ -z "$DISPLAY" && -z "$WAYLAND_DISPLAY" ]]; then
   else
     success "Caps Lock already mapped to Ctrl"
   fi
+  symlink "$DOTFILES/tmux/tty.conf" "$HOME/.tmux.conf"
 fi
 
 echo
