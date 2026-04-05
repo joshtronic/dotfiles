@@ -19,7 +19,7 @@ if [[ $(tty) =~ ^/dev/tty[0-9]+$ ]]; then
   clear
 
   if [[ -z "$TMUX" ]]; then
-    SESSION="$(hostname -s)"
+    SESSION="tmux"
 
     if tmux has-session -t "$SESSION" 2>/dev/null; then
       exec tmux attach-session -t "$SESSION"
