@@ -1,4 +1,6 @@
-if [[ $(tty) =~ ^/dev/tty[0-9]+$ ]]; then
+TTY_NAME="$(tty | sed 's|/dev/||')"
+
+if [[ "$TTY_NAME" =~ ^tty[0-9]+$ ]]; then
   # Rose Pine Moon palette for the Linux TTY
   printf '\e]P0232136' # background / black
   printf '\e]P1eb6f92' # red
@@ -19,7 +21,7 @@ if [[ $(tty) =~ ^/dev/tty[0-9]+$ ]]; then
   clear
 
   if [[ -z "$TMUX" ]]; then
-    SESSION="tmux"
+    SESSION="${TTY_NAME:-tty}"
 
     if tmux has-session -t "$SESSION" 2>/dev/null; then
       exec tmux attach-session -t "$SESSION"
