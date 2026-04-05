@@ -24,11 +24,7 @@ if [[ $(tty) =~ ^/dev/tty[0-9]+$ ]]; then
     if tmux has-session -t "$SESSION" 2>/dev/null; then
       exec tmux attach-session -t "$SESSION"
     else
-      if command -v toilet &> /dev/null; then
-        exec tmux new-session -s "$SESSION" \; send-keys "toilet -f letter -F metal 'welcome' ; fortune" Enter
-      else
-        exec tmux new-session -s "$SESSION"
-      fi
+      exec tmux new-session -s "$SESSION" "$DOTFILES/zsh/motd.sh"
     fi
   fi
 fi
