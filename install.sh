@@ -162,27 +162,6 @@ if [[ $(uname) == Darwin ]]; then
   linkage "karabiner" "$HOME/.config/karabiner"
   echo "👉 ~/.hushlogin"
   touch "$HOME/.hushlogin"
-elif [[ -z "$DISPLAY" && -z "$WAYLAND_DISPLAY" ]]; then
-  heading "🖥️  TTY"
-  if ! grep -q "ctrl:nocaps" /etc/default/keyboard 2>/dev/null; then
-    sudo sed -i 's/^XKBOPTIONS=.*/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
-    sudo setupcon &> /dev/null
-    success "Mapped Caps Lock to Ctrl"
-  else
-    success "Caps Lock already mapped to Ctrl"
-  fi
-  symlink "$DOTFILES/tmux/tty.conf" "$HOME/.tmux.conf"
-  symlink "$DOTFILES/fbterm/fbtermrc" "$HOME/.fbtermrc"
-
-  if ! fc-list 2>/dev/null | grep -qi "Victor Mono"; then
-    mkdir -p "$HOME/.local/share/fonts"
-    curl -fsSL -o /tmp/VictorMonoAll.zip \
-      https://github.com/rubjo/victor-mono/raw/master/public/VictorMonoAll.zip &> /dev/null
-    unzip -o /tmp/VictorMonoAll.zip 'OTF/*' -d "$HOME/.local/share/fonts" &> /dev/null
-    rm /tmp/VictorMonoAll.zip
-    fc-cache -f &> /dev/null
-    success "Installed Victor Mono"
-  fi
 fi
 
 echo
