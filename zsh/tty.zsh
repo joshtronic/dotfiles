@@ -20,13 +20,13 @@ if [[ "$TTY_NAME" =~ ^tty[0-9]+$ ]]; then
   printf '\e]PFe0def4' # bright white
   clear
 
-  if [[ -z "$TMUX" ]]; then
-    SESSION="${TTY_NAME:-tty}"
-
-    if tmux has-session -t "$SESSION" 2>/dev/null; then
-      exec tmux attach-session -t "$SESSION"
-    else
-      exec tmux new-session -s "$SESSION" "$DOTFILES/zsh/motd.sh"
-    fi
-  fi
+  # if [[ -z "$TMUX" ]]; then
+  #   SESSION="${TTY_NAME:-tty}"
+  #
+  #   if tmux has-session -t "$SESSION" 2>/dev/null; then
+  #     exec tmux attach-session -t "$SESSION"
+  #   else
+  #     exec tmux new-session -s "$SESSION" "$DOTFILES/zsh/motd.sh"
+  #   fi
+  # fi
 fi
