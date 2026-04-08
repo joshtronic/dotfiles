@@ -1,7 +1,4 @@
-TTY_NAME="$(tty | sed 's|/dev/||')"
-
-if [[ "$(uname)" == Linux ]]; then
-  # Rose Pine Moon palette for the bare Linux TTY
+if [[ "$TERM" == linux ]]; then
   printf '\e]P0232136'
   printf '\e]P1eb6f92'
   printf '\e]P23e8fb0'
@@ -18,40 +15,5 @@ if [[ "$(uname)" == Linux ]]; then
   printf '\e]PDc4a7e7'
   printf '\e]PEea9a97'
   printf '\e]PFe0def4'
-
-  # Rose Pine Moon palette for fbterm
-  echo -en '\e[3;0;35;33;54}'
-  echo -en '\e[3;1;235;111;146}'
-  echo -en '\e[3;2;62;143;176}'
-  echo -en '\e[3;3;246;193;119}'
-  echo -en '\e[3;4;156;207;216}'
-  echo -en '\e[3;5;196;167;231}'
-  echo -en '\e[3;6;234;154;151}'
-  echo -en '\e[3;7;224;222;244}'
-  echo -en '\e[3;8;110;106;134}'
-  echo -en '\e[3;9;235;111;146}'
-  echo -en '\e[3;10;62;143;176}'
-  echo -en '\e[3;11;246;193;119}'
-  echo -en '\e[3;12;156;207;216}'
-  echo -en '\e[3;13;196;167;231}'
-  echo -en '\e[3;14;234;154;151}'
-  echo -en '\e[3;15;224;222;244}'
-
   clear
-fi
-
-# Bare TTY: launch fbterm
-if [[ "$TTY_NAME" =~ ^tty[0-9]+$ ]]; then
-  exec fbterm
-fi
-
-# Inside fbterm (or any pts): launch tmux
-if [[ -z "$TMUX" ]] && [[ "$TTY_NAME" =~ ^pts/ ]]; then
-  SESSION="${TTY_NAME//\//-}"
-
-  if tmux has-session -t "$SESSION" 2>/dev/null; then
-    exec tmux attach-session -t "$SESSION"
-  else
-    exec tmux new-session -s "$SESSION" "$DOTFILES/zsh/motd.sh"
-  fi
 fi
