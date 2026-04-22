@@ -12,6 +12,10 @@ source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/prompt.zsh
 source $DOTFILES/zsh/rose-pine-moon.zsh
 
+# Because we can't have nice things
+export DO_NOT_TRACK=true
+export GH_TELEMETRY=false
+
 # Load up and configure fnm, fzf, and zsh plugins
 if [[ $(uname) == Darwin ]]; then
   # From `eval "$(/opt/homebrew/bin/brew shellenv)"`:
