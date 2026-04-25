@@ -158,7 +158,6 @@ success "Regenerated Zsh completions"
 if [[ $(uname) == Darwin ]]; then
   heading "🍎 macOS"
   linkage "karabiner" "$HOME/.config/karabiner"
-  linkage "hammerspoon" "$HOME/.hammerspoon"
   echo "👉 ~/.hushlogin"
   touch "$HOME/.hushlogin"
 fi
