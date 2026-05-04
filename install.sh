@@ -2,7 +2,6 @@
 
 DOTFILES=$HOME/.dotfiles
 GIT_SSH="ssh://git@git.sherver.org:22381"
-GIT_HTTPS="https://git.sherver.org"
 COMMANDS="curl fzf git"
 ZSH_PLUGINS="$HOME/.zsh/plugins"
 ZSH_PLUGIN_LIST=(
@@ -33,7 +32,7 @@ for COMMAND in $COMMANDS; do
 done
 
 if [ ! -d "$DOTFILES" ]; then
-  if git clone "$GIT_HTTPS/joshtronic/dotfiles.git" "$DOTFILES" &> /dev/null; then
+  if git clone "$GIT_SSH/joshtronic/dotfiles.git" "$DOTFILES" &> /dev/null; then
     success "Cloned dotfiles"
   else
     error "Failed to clone dotfiles"
@@ -45,7 +44,7 @@ else
 
   if [ -z "$(git status --porcelain)" ]; then
     LOCAL=$(git rev-parse HEAD)
-    git pull "$GIT_HTTPS/joshtronic/dotfiles.git" main &> /dev/null
+    git pull "$GIT_SSH/joshtronic/dotfiles.git" main &> /dev/null
     REMOTE=$(git rev-parse HEAD)
 
     if [ "$LOCAL" != "$REMOTE" ]; then
@@ -135,7 +134,7 @@ if ! fnm ls 2>/dev/null | grep -q default; then
 fi
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-  "$GIT_HTTPS/mirrors/vim-plug/raw/branch/master/plug.vim" &> /dev/null
+  "$GIT_SSH/mirrors/vim-plug/raw/branch/master/plug.vim" &> /dev/null
 echo "🔌 vim-plug"
 
 mkdir -p ~/.local/share/vim/undo/
@@ -145,7 +144,7 @@ for PLUGIN in "${ZSH_PLUGIN_LIST[@]}"; do
   if [ -d "$ZSH_PLUGINS/$PLUGIN" ]; then
     git -C "$ZSH_PLUGINS/$PLUGIN" pull &> /dev/null
   else
-    git clone "$GIT_HTTPS/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN" &> /dev/null
+    git clone "$GIT_SSH/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN" &> /dev/null
   fi
   echo "🔌 $PLUGIN"
 done
