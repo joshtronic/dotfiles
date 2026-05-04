@@ -133,8 +133,8 @@ if ! fnm ls 2>/dev/null | grep -q default; then
   success "Installed Node.js LTS as default"
 fi
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-  "$GIT_SSH/mirrors/vim-plug/raw/branch/master/plug.vim" &> /dev/null
+git archive --remote="$GIT_SSH/mirrors/vim-plug.git" \
+  HEAD plug.vim | tar -xO > ~/.vim/autoload/plug.vim
 echo "🔌 vim-plug"
 
 mkdir -p ~/.local/share/vim/undo/
