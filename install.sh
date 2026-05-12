@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DOTFILES=$HOME/.dotfiles
-GIT_SSH="ssh://git@git.sherver.org:22381"
+GIT_REPO="ssh://git@git.sherver.org:22381/joshtronic/dotfiles.git"
 COMMANDS="curl fzf git"
 ZSH_PLUGINS="$HOME/.zsh/plugins"
 ZSH_PLUGIN_LIST=(
@@ -32,19 +32,20 @@ for COMMAND in $COMMANDS; do
 done
 
 if [ ! -d "$DOTFILES" ]; then
-  if git clone "$GIT_SSH/joshtronic/dotfiles.git" "$DOTFILES" &> /dev/null; then
+  if git clone "$GIT_REPO" "$DOTFILES" &> /dev/null; then
     success "Cloned dotfiles"
   else
     error "Failed to clone dotfiles"
   fi
+
   cd "$DOTFILES" || exit
-  git remote set-url origin "$GIT_SSH/joshtronic/dotfiles.git"
+  git remote set-url origin "$GIT_REPO"
 else
   cd "$DOTFILES" || exit
 
   if [ -z "$(git status --porcelain)" ]; then
     LOCAL=$(git rev-parse HEAD)
-    git pull "$GIT_SSH/joshtronic/dotfiles.git" main &> /dev/null
+    git pull "$GIT_REPO" master &> /dev/null
     REMOTE=$(git rev-parse HEAD)
 
     if [ "$LOCAL" != "$REMOTE" ]; then
@@ -133,9 +134,9 @@ if ! fnm ls 2>/dev/null | grep -q default; then
   success "Installed Node.js LTS as default"
 fi
 
-git archive --remote="$GIT_SSH/mirrors/vim-plug.git" \
-  HEAD plug.vim | tar -xO > ~/.vim/autoload/plug.vim
 echo "🔌 vim-plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir -p ~/.local/share/vim/undo/
 mkdir -p "$ZSH_PLUGINS"
@@ -144,7 +145,7 @@ for PLUGIN in "${ZSH_PLUGIN_LIST[@]}"; do
   if [ -d "$ZSH_PLUGINS/$PLUGIN" ]; then
     git -C "$ZSH_PLUGINS/$PLUGIN" pull &> /dev/null
   else
-    git clone "$GIT_SSH/mirrors/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN" &> /dev/null
+    git clone "https://github.com/zsh-users/$PLUGIN" "$ZSH_PLUGINS/$PLUGIN"
   fi
   echo "🔌 $PLUGIN"
 done
