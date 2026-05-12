@@ -136,7 +136,8 @@ fi
 
 echo "🔌 vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    &> /dev/null
 
 mkdir -p ~/.local/share/vim/undo/
 mkdir -p "$ZSH_PLUGINS"
