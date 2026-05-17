@@ -1,3 +1,17 @@
+macos-option-as-alt = true
+window-padding-x = 5
+window-padding-y = 5
+
+font-family = Victor Mono
+font-style = Medium
+font-style-bold = Bold
+font-style-italic = Italic
+font-style-bold-italic = Bold Italic
+font-size = 16
+
+term = xterm-256color
+
+# Rosé Pine Moon from https://github.com/rose-pine/ghostty
 palette = 0=#393552
 palette = 1=#eb6f92
 palette = 2=#3e8fb0
