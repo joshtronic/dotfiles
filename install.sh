@@ -119,6 +119,7 @@ linkage() {
 
 heading "🌎 Cross-platform"
 linkage "alacritty" "$HOME/.config/alacritty"
+linkage "ghostty" "$HOME/.config/ghostty"
 linkage "git"
 symlink "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
 linkage "vim"
