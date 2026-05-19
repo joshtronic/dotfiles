@@ -38,15 +38,8 @@ if [[ $(uname) == Darwin ]]; then
 
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 else
-  # TODO: Files went missing on Debian. Seems like it was maybe related to the
-  # files being moved out of the doc directory, but as it stands, they aren't
-  # anywhere. Added local copies so I can continue to kick ass.
-  # https://salsa.debian.org/go-team/packages/fzf/-/merge_requests/13/diffs#87e19598817e2e2edcf9bc4ded70c5b979d6b138
-  # ---------------------------------------------------------------------------
-  # source /usr/share/doc/fzf/examples/completion.zsh
-  # source /usr/share/doc/fzf/examples/key-bindings.zsh
-  source $DOTFILES/zsh/fzf/completion.zsh
-  source $DOTFILES/zsh/fzf/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
 
   FNM_PATH="/home/josh/.local/share/fnm"
 fi
