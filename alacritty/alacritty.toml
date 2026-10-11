@@ -30,3 +30,8 @@ style = 'Bold Italic'
 term = "xterm-256color"
 # TODO: This may be needed to get undercurls working
 #term = "alacritty"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
