@@ -1,3 +1,5 @@
+" TODO: maybe swap editorconfig-vim for  packadd! editorconfig
+
 " A humble list of plugins
 call plug#begin()
   " Rosé Pine
@@ -62,6 +64,10 @@ autocmd FileType php,python setl shiftwidth=4 softtabstop=4 tabstop=4
 
 " Strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" ALE as in beer
+let g:ale_fixers = {'go': ['gofmt']}
+let g:ale_fix_on_save = 1
 
 " Don't co-pilot the prose
 let g:copilot_filetypes = {
