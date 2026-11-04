@@ -45,3 +45,6 @@
 
 [url "ssh://git@"]
   insteadOf = git://
+
+[alias]
+	csvdiff = diff --ignore-cr-at-eol --color-words='[^,]+'
